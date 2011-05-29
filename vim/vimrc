@@ -1,0 +1,80 @@
+set nocompatible
+set wildignore=*~,*.o,*.log,*.pyc
+set ignorecase smartcase
+set tabstop=4
+set expandtab
+set smarttab autoindent
+set smartindent
+set shiftwidth=4
+set backspace=start,indent,eol
+set wildmode=list:longest,full
+set textwidth=79
+set showbreak=
+set scrolloff=10
+set laststatus=2
+set incsearch
+set hlsearch
+set ttyfast
+set noerrorbells
+set novisualbell
+
+set runtimepath+=~/.vim/addons/vim-addon-manager
+call scriptmanager#Activate(['a.vim_-_Alternate_Files_quickly_.c',"FuzzyFinder","snipMate","fugitive","taglist","AutoComplPop","unimpaired","surround","repeat"])
+let g:alternateExtensions_{'pm'} = "t"
+let g:alternateExtensions_{'t'} = "pm"
+let g:alternateExtensions_{'m'} = "h"
+let g:alternateExtensions_{'h'} = "m"
+let g:alternateSearchPath = 'sfr:t'
+
+syntax on
+set hidden
+
+map - :A<CR>
+
+nmap "" ci"
+nmap '' ci'
+
+nnoremap Q gqap
+vnoremap Q gq
+
+map <Leader>f :FufTaggedFile<CR>
+map <Leader>F :FufFileWithCurrentBufferDir<CR>
+map <Leader>e :e **/
+map <Leader>b :b 
+
+map <Leader>w :w<CR>
+imap <Leader>w <ESC>:w<CR>
+
+imap ZZ <ESC>:wq<CR>
+imap jj <ESC>j
+imap kk <ESC>k
+imap lll <ESC>l
+imap hh <ESC>h
+imap oo <ESC>o
+imap OO <ESC>O
+
+set errorformat=%f:%l:\ error:\ %m,%f:%l:\ warning:\ %m
+set guioptions=
+
+set background=dark
+colorscheme tir_black
+
+set guifont=Monaco:h15
+
+" make tab in v mode ident code
+vmap <tab> >gv
+vmap <s-tab> <gv
+
+let Tlist_Process_File_Always = 1
+set statusline=%<%f%=%([%{Tlist_Get_Tagname_By_Line()}]%)
+
+autocmd BufNewFile,BufRead *.t,*.it :set ft=perl
+autocmd BufNewFile,BufRead Makefile :set noexpandtab
+autocmd Filetype perl :set equalprg=perltidy
+autocmd BufNewFile * :%!summon-file - % 2> /dev/null
+
+" dict completion from dict files
+set spellfile=~/.vim/dict.add
+set dict+=~/.vim/dict.add
+set complete+=k
+
