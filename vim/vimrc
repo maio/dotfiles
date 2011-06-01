@@ -45,6 +45,10 @@ map <Leader>b :b
 map <Leader>w :w<CR>
 imap <Leader>w <ESC>:w<CR>
 
+nnoremap <F2> :set invpaste paste?<Enter>
+imap <F2> <C-O><F2>
+set pastetoggle=<F2>
+
 imap ZZ <ESC>:wq<CR>
 imap jj <ESC>j
 imap kk <ESC>k
