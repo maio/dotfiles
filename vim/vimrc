@@ -19,7 +19,7 @@ set noerrorbells
 set novisualbell
 
 set runtimepath+=~/.vim/addons/vim-addon-manager
-call scriptmanager#Activate(['a.vim_-_Alternate_Files_quickly_.c',"FuzzyFinder","snipMate","fugitive","taglist","AutoComplPop","unimpaired","surround","repeat"])
+call vam#ActivateAddons(['a.vim_-_Alternate_Files_quickly_.c',"FuzzyFinder","snipMate","fugitive","taglist","AutoComplPop","unimpaired","surround","repeat"])
 let g:alternateExtensions_{'pm'} = "t"
 let g:alternateExtensions_{'t'} = "pm"
 let g:alternateExtensions_{'m'} = "h"
