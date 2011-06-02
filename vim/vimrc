@@ -61,7 +61,7 @@ set errorformat=%f:%l:\ error:\ %m,%f:%l:\ warning:\ %m
 set guioptions=
 
 set background=dark
-colorscheme tir_black
+colorscheme pablo
 
 set guifont=Monaco:h15
 
