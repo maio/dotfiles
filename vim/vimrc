@@ -54,8 +54,8 @@ imap jj <ESC>j
 imap kk <ESC>k
 imap lll <ESC>l
 imap hh <ESC>h
-imap oo <ESC>o
 imap OO <ESC>O
+imap {<CR> {<CR>}<ESC>O
 
 set errorformat=%f:%l:\ error:\ %m,%f:%l:\ warning:\ %m
 set guioptions=
