@@ -72,11 +72,12 @@ vmap <tab> >gv
 vmap <s-tab> <gv
 
 let Tlist_Process_File_Always = 1
-set statusline=%<%f%=%([%{Tlist_Get_Tagname_By_Line()}]%)
+set statusline=[%l,%c]\ %<%f%=%([%{Tlist_Get_Tagname_By_Line()}]%)
 
 autocmd BufNewFile,BufRead *.t,*.it :set ft=perl
 autocmd BufNewFile,BufRead Makefile :set noexpandtab
 autocmd Filetype perl :set equalprg=perltidy
+autocmd Filetype php :set equalprg=perltidy
 autocmd BufNewFile * :%!summon-file - % 2> /dev/null
 
 " dict completion from dict files
