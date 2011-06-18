@@ -31,6 +31,8 @@ set hidden
 
 map - :A<CR>
 
+nmap <TAB> >>
+nmap <S-TAB> <<
 nmap "" ci"
 nmap '' ci'
 
