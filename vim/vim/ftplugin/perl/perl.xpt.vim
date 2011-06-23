@@ -9,6 +9,6 @@ sub `name^ {
 
 XPT method
 sub `name^ {
-    my ($self`...^`, `arg?^`...^) = @_;
+    my ($self`...^`, `arg?^` `...^) = @_;
     `cursor^
 }
