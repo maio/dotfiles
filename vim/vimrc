@@ -19,7 +19,7 @@ set noerrorbells
 set novisualbell
 
 set runtimepath+=~/.vim/addons/vim-addon-manager
-call vam#ActivateAddons(['a.vim_-_Alternate_Files_quickly_.c',"FuzzyFinder","xptemplate","fugitive","taglist","unimpaired","surround","repeat"])
+call vam#ActivateAddons(['Command-T','a.vim_-_Alternate_Files_quickly_.c',"FuzzyFinder","xptemplate","fugitive","taglist","unimpaired","surround","repeat"])
 let g:alternateExtensions_{'pm'} = "t"
 let g:alternateExtensions_{'pl'} = "t"
 let g:alternateExtensions_{'t'} = "pm,pl"
@@ -34,11 +34,10 @@ filetype plugin on
 
 map - :A<CR>
 
-vmap > >gv
-vmap < <gv
 nmap "" ci"
 nmap '' ci'
 
+nnoremap <silent> <C-l> :noh<CR><C-l>
 nnoremap Q gqap
 vnoremap Q gq
 
@@ -71,10 +70,6 @@ set background=dark
 colorscheme pablo
 
 set guifont=Monaco:h15
-
-" make tab in v mode ident code
-vmap <tab> >gv
-vmap <s-tab> <gv
 
 let Tlist_Process_File_Always = 1
 set statusline=[%l,%c]\ %<%f%=%([%{Tlist_Get_Tagname_By_Line()}]%)
