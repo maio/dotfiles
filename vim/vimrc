@@ -62,6 +62,7 @@ imap lll <ESC>l
 imap hh <ESC>h
 imap OO <ESC>O
 imap {<CR> {<CR>}<ESC>O
+imap (<CR> (<CR>);<ESC>O
 
 set errorformat=%f:%l:\ error:\ %m,%f:%l:\ warning:\ %m
 set guioptions=

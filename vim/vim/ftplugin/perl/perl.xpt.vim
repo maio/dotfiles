@@ -40,3 +40,9 @@ sub `name^ {
     `test^
 }
 
+XPT hash
+%`name^ = (
+    `key^ => `value^,
+    `...^`key^ => `value^,
+    `...^
+);
