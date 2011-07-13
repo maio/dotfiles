@@ -60,7 +60,6 @@ imap jj <ESC>j
 imap kk <ESC>k
 imap lll <ESC>l
 imap hh <ESC>h
-imap OO <ESC>O
 imap {<CR> {<CR>}<ESC>O
 imap (<CR> (<CR>);<ESC>O
 
@@ -84,5 +83,5 @@ autocmd BufNewFile * :%!summon-file - % 2> /dev/null
 " dict completion from dict files
 set spellfile=~/.vim/dict.add
 set dict+=~/.vim/dict.add
-set complete+=k
+set complete=.,w,b,k
 
