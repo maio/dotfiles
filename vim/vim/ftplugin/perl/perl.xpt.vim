@@ -46,3 +46,6 @@ XPT hash
     `...^`key^ => `value^,
     `...^
 );
+
+XPT my
+my (`var^`...^, `var^`...^) = @_;

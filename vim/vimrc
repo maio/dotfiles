@@ -38,6 +38,7 @@ nmap "" ci"
 nmap '' ci'
 
 nnoremap <silent> <C-l> :noh<CR><C-l>
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 nnoremap Q gqap
 vnoremap Q gq
 
