@@ -46,6 +46,7 @@ vnoremap Q gq
 map <Leader>f :FufTaggedFile<CR>
 map <Leader>F :FufFileWithCurrentBufferDir<CR>
 map <Leader>e :e **/
+map <Leader>E :e %:h/
 map <Leader>b :b 
 
 map <Leader>w :w<CR>
@@ -78,6 +79,7 @@ set statusline=[%l,%c]\ %<%f%=%([%{Tlist_Get_Tagname_By_Line()}]%)
 
 autocmd BufNewFile,BufRead *.t,*.it :set ft=perl
 autocmd BufNewFile,BufRead Makefile :set noexpandtab
+autocmd BufNewFile,BufRead *.spec,*.body,*.sql :set filetype=plsql
 autocmd Filetype perl :set equalprg=perltidy
 autocmd Filetype php :set equalprg=perltidy
 autocmd BufNewFile * :%!summon-file - % 2> /dev/null
