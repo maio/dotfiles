@@ -1,7 +1,7 @@
 XPTemplate priority=personal
 
 XPT sub_ wrap=code wraponly
-`name^(`args^);
+`my var = {{^my `var^ = `}}^`name^(`args^);
 
 sub `name^ {
     my (`args^) = @_;
@@ -21,6 +21,13 @@ sub `name^ : Tests {
 
     `cursor^
 }
+
+XPT spec
+use Test::Spec;
+
+`cursor^
+
+runtests unless caller;
 
 XPT describe
 describe '`name^' => sub {
