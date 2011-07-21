@@ -33,6 +33,8 @@ syntax on
 set hidden
 filetype plugin on
 
+let mapleader=","
+
 map - :A<CR>
 
 nmap "" ci"
@@ -45,12 +47,16 @@ vnoremap Q gq
 
 map <Leader>f :FufTaggedFile<CR>
 map <Leader>F :FufFileWithCurrentBufferDir<CR>
+map <Leader>j :FufJumpList<CR>
 map <Leader>e :e **/
 map <Leader>E :e %:h/
 map <Leader>b :b 
 
 map <Leader>w :w<CR>
 imap <Leader>w <ESC>:w<CR>
+map <Leader>go :only<CR>
+map <Leader>gd :Gdiff<CR>
+map <Leader>gs :Gstatus<CR>
 
 nnoremap <F2> :set invpaste paste?<Enter>
 imap <F2> <C-O><F2>
@@ -77,6 +83,7 @@ set guifont=Monaco:h15
 let Tlist_Process_File_Always = 1
 set statusline=[%l,%c]\ %<%f%=%([%{Tlist_Get_Tagname_By_Line()}]%)
 
+autocmd BufReadPost * normal `"
 autocmd BufNewFile,BufRead *.t,*.it :set ft=perl
 autocmd BufNewFile,BufRead Makefile :set noexpandtab
 autocmd BufNewFile,BufRead *.spec,*.body,*.sql :set filetype=plsql
