@@ -2,10 +2,11 @@ set nocompatible
 set wildignore=*~,*.o,*.log,*.pyc
 set ignorecase smartcase
 set tabstop=4
-set expandtab
-set smarttab autoindent
-set smartindent
 set shiftwidth=4
+set expandtab
+set smarttab
+set autoindent
+set smartindent
 set backspace=start,indent,eol
 set wildmode=list:longest,full
 set textwidth=79
@@ -17,6 +18,8 @@ set hlsearch
 set ttyfast
 set noerrorbells
 set novisualbell
+set ttimeoutlen=100
+set wildmenu
 
 set runtimepath+=~/.vim/addons/vim-addon-manager
 call vam#ActivateAddons(['Command-T','a.vim_-_Alternate_Files_quickly_.c',"FuzzyFinder","xptemplate","fugitive","taglist","unimpaired","surround","repeat"])
@@ -36,6 +39,8 @@ filetype plugin on
 let mapleader=","
 
 map - :A<CR>
+
+nmap gp `[v`]
 
 nmap "" ci"
 nmap '' ci'
