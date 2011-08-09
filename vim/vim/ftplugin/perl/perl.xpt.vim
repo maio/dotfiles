@@ -47,6 +47,17 @@ sub `name^ {
     `test^
 }
 
+XPT has
+has '`attribute^' => (is => '`ro^');`cursor^
+
+XPT class
+package `Class^;
+use Moose;
+
+`cursor^
+
+1;
+
 XPT hash
 %`name^ = (
     `key^ => `value^,
@@ -55,4 +66,4 @@ XPT hash
 );
 
 XPT my
-my (`var^`...^, `var^`...^) = @_;
+my (`vars^) = @_;
