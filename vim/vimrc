@@ -7,7 +7,7 @@ set expandtab
 set smarttab
 set autoindent
 set smartindent
-set backspace=start,indent,eol
+" set backspace=start,indent,eol
 set wildmode=list:longest,full
 set textwidth=79
 set showbreak=
@@ -40,6 +40,8 @@ let mapleader=","
 
 map - :A<CR>
 
+nmap p ]p
+nmap P [p
 nmap gp `[v`]
 
 nmap "" ci"
@@ -94,10 +96,66 @@ autocmd BufNewFile,BufRead Makefile :set noexpandtab
 autocmd BufNewFile,BufRead *.spec,*.body,*.sql :set filetype=plsql
 autocmd Filetype perl :set equalprg=perltidy
 autocmd Filetype php :set equalprg=perltidy
+autocmd Filetype javascript :set equalprg=js_beautify.pl\ -
 autocmd BufNewFile * :%!summon-file - % 2> /dev/null
 
 " dict completion from dict files
 set spellfile=~/.vim/dict.add
 set dict+=~/.vim/dict.add
 set complete=.,w,b,k
+
+
+" conways
+set formatoptions-=cro
+set wrapmargin=2
+
+" For Perl syntax...
+set include=^\\s*use\\s\\+\\zs\\k\\+\\ze
+set includeexpr=substitute(v:fname,'::','/','g')
+set suffixesadd=.pm
+execute 'set path+=' . substitute($PERL5LIB, ':', ',', 'g')
+"Adjust keyword characters for Perlish identifiers...
+set iskeyword+=$
+set iskeyword+=%
+set iskeyword+=@
+set iskeyword-=,
+
+highlight WHITE_ON_RED ctermfg=white ctermbg=red
+call matchadd('WHITE_ON_RED', '_ref[ ]*[[{(]\|_ref[ ]*-[^>]')
+
+set modelines=0
+
+" Visual Block mode is far more useful that Visual mode (so swap the
+" commands)...
+nnoremap v <C-V>
+nnoremap <C-V> v
+
+vnoremap v <C-V>
+vnoremap <C-V> v
+
+set virtualedit=block
+
+set title "Show filename in titlebar of window
+set titleold=
+
+set autoread
+set backspace=indent,eol,start
+set fileformats=unix,mac,dos
+set noshowmode
+set timeout timeoutlen=300 ttimeoutlen=300
+
+au BufReadPost quickfix setlocal number
+                    \ | setlocal nowrap
+                    \ | setlocal modifiable
+                    \ | silent! %s/^[^|]*\//.../
+                    \ | setlocal nomodifiable
+
+nmap <silent> <RIGHT> :cnext<CR>
+nmap <silent> <LEFT> :cprev<CR>
+
+
+"=====[ Tab handling ]======================================
+
+set shiftround "Always indent/outdent to nearest tabstop
+
 
