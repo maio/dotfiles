@@ -20,6 +20,8 @@ set noerrorbells
 set novisualbell
 set ttimeoutlen=100
 set wildmenu
+set lcs=tab:»\ ,trail:•
+set list
 
 set runtimepath+=~/.vim/addons/vim-addon-manager
 call vam#ActivateAddons(['Command-T','a.vim_-_Alternate_Files_quickly_.c',"FuzzyFinder","xptemplate","fugitive","taglist","unimpaired","surround","repeat"])
