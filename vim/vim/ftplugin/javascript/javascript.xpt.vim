@@ -12,3 +12,13 @@ function `name^(`args^) {
     `cursor^
 }
 
+XPT describe
+describe("`name^", function () {
+    `cursor^
+});
+
+XPT it
+it("`does something^", function () {
+    `cursor^
+});
+
