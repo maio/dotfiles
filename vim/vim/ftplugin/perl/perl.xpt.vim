@@ -30,12 +30,12 @@ use Test::Spec;
 runtests unless caller;
 
 XPT describe
-describe '`name^' => sub {
+describe "`name^" => sub {
     `cursor^
 };
 
 XPT it
-it '`does something^' => sub {
+it "`does something^" => sub {
     `cursor^
 };
 
