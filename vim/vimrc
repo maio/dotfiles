@@ -40,6 +40,8 @@ filetype plugin on
 
 let mapleader=","
 
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
 map - :A<CR>
 
 nmap p ]p
@@ -55,10 +57,10 @@ nnoremap Q gqap
 vnoremap Q gq
 
 map <Leader>f :FufTaggedFile<CR>
-map <Leader>F :FufFileWithCurrentBufferDir<CR>
 map <Leader>j :FufJumpList<CR>
 map <Leader>e :e **/
-map <Leader>E :e %:h/
+map <Leader><leader>e :e %%
+map <leader><leader>t :CommandTFlush<cr>\|:CommandT %%<cr>
 map <Leader>b :b 
 
 map <Leader>w :w<CR>
@@ -66,6 +68,7 @@ imap <Leader>w <ESC>:w<CR>
 map <Leader>go :only<CR>
 map <Leader>gd :Gdiff<CR>
 map <Leader>gs :Gstatus<CR>
+map <Leader>gg :Ggrep 
 
 nnoremap <F2> :set invpaste paste?<Enter>
 imap <F2> <C-O><F2>
@@ -144,7 +147,7 @@ set autoread
 set backspace=indent,eol,start
 set fileformats=unix,mac,dos
 set noshowmode
-set timeout timeoutlen=300 ttimeoutlen=300
+" set timeout timeoutlen=300 ttimeoutlen=300
 
 au BufReadPost quickfix setlocal number
                     \ | setlocal nowrap
