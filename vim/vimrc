@@ -45,7 +45,9 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map - :A<CR>
 
 nmap p ]p
-nmap P [p
+nmap P k]p
+nmap <Leader>p p
+nmap <Leader>P P
 nmap gp `[v`]
 
 nmap "" ci"
