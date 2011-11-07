@@ -33,6 +33,8 @@ let g:alternateExtensions_{'m'} = "h"
 let g:alternateExtensions_{'h'} = "m"
 let g:alternateSearchPath = 'sfr:t,..'
 let g:xptemplate_key = '<Tab>'
+let g:loaded_sql_completion = 1
+let g:ftplugin_sql_omni_key = 'L'
 
 syntax on
 set hidden
@@ -86,6 +88,9 @@ imap lll <ESC>l
 imap hh <ESC>h
 imap {<CR> {<CR>}<ESC>O
 imap (<CR> (<CR>);<ESC>O
+
+imap <c-c> <esc>
+xmap s <Plug>VSurround
 
 set errorformat=%f:%l:\ error:\ %m,%f:%l:\ warning:\ %m
 set guioptions=
@@ -211,6 +216,4 @@ vnoremap <leader>rv :call ExtractVariable()<cr>
 nnoremap <leader>ri :call InlineVariable()<cr>
 
 set switchbuf=useopen
-
-imap <c-c> <esc>
 
