@@ -66,7 +66,7 @@ map <Leader>f :FufTaggedFile<CR>
 map <Leader>j :FufJumpList<CR>
 map <Leader>e :e %%
 map <leader><leader>t :CommandTFlush<cr>\|:CommandT %%<cr>
-map <Leader>b :b 
+map <leader>b :CommandTBuffer<cr>
 
 map <Leader>w :w<CR>
 imap <Leader>w <ESC>:w<CR>
