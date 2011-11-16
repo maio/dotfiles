@@ -57,6 +57,13 @@ nmap gp `[v`]
 nmap "" ci"
 nmap '' ci'
 
+inoremap ( ()<Esc>i
+inoremap { {}<Esc>i
+inoremap [ []<Esc>i
+inoremap " ""<Esc>i
+inoremap ' ''<Esc>i
+inoremap <C-l> <C-O>a
+
 nnoremap <silent> <C-l> :noh<CR><C-l>
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 nnoremap Q gqap
