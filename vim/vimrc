@@ -23,6 +23,9 @@ set wildmenu
 set lcs=tab:»\ ,trail:•
 set list
 
+set nobackup
+set noswapfile
+
 set runtimepath+=~/.vim/addons/vim-addon-manager
 call vam#ActivateAddons(['Command-T','a.vim_-_Alternate_Files_quickly_.c',"FuzzyFinder","xptemplate","fugitive","taglist","unimpaired","surround","repeat"])
 let g:alternateExtensions_{'pm'} = "t"
@@ -43,6 +46,7 @@ filetype plugin on
 let mapleader=","
 
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
+cmap w!! w !sudo tee % >/dev/null
 
 map - :A<CR>
 
@@ -63,17 +67,17 @@ inoremap [ []<Esc>i
 inoremap " ""<Esc>i
 inoremap ' ''<Esc>i
 inoremap <C-l> <C-O>a
+inoremap <C-j> <C-O>o
 
 nnoremap <silent> <C-l> :noh<CR><C-l>
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 nnoremap Q gqap
 vnoremap Q gq
 
-map <Leader>f :FufTaggedFile<CR>
-map <Leader>j :FufJumpList<CR>
 map <Leader>e :e %%
 map <leader><leader>t :CommandTFlush<cr>\|:CommandT %%<cr>
-map <leader>b :CommandTBuffer<cr>
+" map <leader>b :CommandTBuffer<cr>
+map <leader>b :CommandTJumps<cr>
 
 map <Leader>w :w<CR>
 imap <Leader>w <ESC>:w<CR>
