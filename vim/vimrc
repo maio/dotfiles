@@ -78,7 +78,7 @@ map <Leader>e :e %%
 map <leader><leader>t :CommandTFlush<cr>\|:CommandT %%<cr>
 " map <leader>b :CommandTBuffer<cr>
 map <leader>t :CommandTGit<cr>
-map <leader>b :CommandTJumps<cr>
+map <leader>b :CommandTJump<cr>
 
 map <Leader>w :w<CR>
 imap <Leader>w <ESC>:w<CR>
