@@ -8,7 +8,7 @@ set smarttab
 set autoindent
 set smartindent
 " set backspace=start,indent,eol
-set wildmode=list:longest,full
+set wildmode=list:longest
 set textwidth=79
 set showbreak=
 set scrolloff=10
@@ -22,6 +22,7 @@ set ttimeoutlen=100
 set wildmenu
 set lcs=tab:»\ ,trail:•
 set list
+set shortmess=atI
 
 set nobackup
 set noswapfile
@@ -36,6 +37,7 @@ let g:alternateExtensions_{'m'} = "h"
 let g:alternateExtensions_{'h'} = "m"
 let g:alternateSearchPath = 'sfr:t,..'
 let g:xptemplate_key = '<Tab>'
+let g:xptemplate_vars = "SParg="
 let g:loaded_sql_completion = 1
 let g:ftplugin_sql_omni_key = 'L'
 
@@ -52,11 +54,13 @@ map - :A<CR>
 
 nmap H ^
 nmap L $
+" handle situation when yank buffer doesn't contain whole line - use normal paste
 nmap p ]p
 nmap P k]p
 nmap <Leader>p p
 nmap <Leader>P P
 nmap gp `[v`]
+nmap <Leader><Leader> <C-^>
 
 nmap "" ci"
 nmap '' ci'
@@ -75,10 +79,10 @@ nnoremap Q gqap
 vnoremap Q gq
 
 map <Leader>e :e %%
-map <leader><leader>t :CommandTFlush<cr>\|:CommandT %%<cr>
+" map <leader><leader>t :CommandTFlush<cr>\|:CommandT %%<cr>
 " map <leader>b :CommandTBuffer<cr>
 map <leader>t :CommandTGit<cr>
-map <leader>b :CommandTJump<cr>
+map <leader>b :CommandTBuffer<cr>
 
 map <Leader>w :w<CR>
 imap <Leader>w <ESC>:w<CR>
