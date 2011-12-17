@@ -7,7 +7,6 @@ set expandtab
 set smarttab
 set autoindent
 set smartindent
-" set backspace=start,indent,eol
 set wildmode=list:longest
 set textwidth=79
 set showbreak=
@@ -15,14 +14,18 @@ set scrolloff=10
 set laststatus=2
 set incsearch
 set hlsearch
-set ttyfast
 set noerrorbells
-set novisualbell
+set visualbell
 set ttimeoutlen=100
 set wildmenu
 set lcs=tab:»\ ,trail:•
 set list
 set shortmess=atI
+
+set undofile
+set undodir=$HOME/.vim/undo
+set undolevels=1000
+set undoreload=10000
 
 set nobackup
 set noswapfile
@@ -46,6 +49,14 @@ set hidden
 filetype plugin on
 
 let mapleader=","
+
+" Visual Block mode is far more useful that Visual mode (so swap the
+" commands)...
+nnoremap v <C-V>
+nnoremap <C-V> v
+vnoremap v <C-V>
+vnoremap <C-V> v
+set virtualedit=block
 
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 cmap w!! w !sudo tee % >/dev/null
@@ -74,6 +85,7 @@ inoremap <C-l> <C-O>a
 inoremap <C-j> <C-O>o
 inoremap <C-k> <C-O>O
 
+nnoremap <Space> @q
 nnoremap <silent> <C-l> :noh<CR><C-l>
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 nnoremap Q gqap
@@ -150,16 +162,6 @@ call matchadd('WHITE_ON_RED', '_ref[ ]*[[{(]\|_ref[ ]*-[^>]')
 
 set modelines=0
 
-" Visual Block mode is far more useful that Visual mode (so swap the
-" commands)...
-nnoremap v <C-V>
-nnoremap <C-V> v
-
-vnoremap v <C-V>
-vnoremap <C-V> v
-
-set virtualedit=block
-
 set title "Show filename in titlebar of window
 set titleold=
 
@@ -174,9 +176,6 @@ au BufReadPost quickfix setlocal number
                     \ | setlocal modifiable
                     \ | silent! %s/^[^|]*\//.../
                     \ | setlocal nomodifiable
-
-nmap <silent> <RIGHT> :cnext<CR>
-nmap <silent> <LEFT> :cprev<CR>
 
 
 "=====[ Tab handling ]======================================
