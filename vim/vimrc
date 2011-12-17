@@ -63,8 +63,8 @@ cmap w!! w !sudo tee % >/dev/null
 
 map - :A<CR>
 
-nmap H ^
-nmap L $
+xmap H ^
+xmap L $
 " handle situation when yank buffer doesn't contain whole line - use normal paste
 nmap p ]p
 nmap P k]p
