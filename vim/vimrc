@@ -28,7 +28,7 @@ set nobackup
 set noswapfile
 
 set runtimepath+=~/.vim/addons/vim-addon-manager
-call vam#ActivateAddons(['Command-T','a.vim_-_Alternate_Files_quickly_.c',"xptemplate","fugitive","taglist","unimpaired","surround","repeat"])
+call vam#ActivateAddons(['Command-T','a.vim_-_Alternate_Files_quickly_.c',"xptemplate","fugitive","taglist","unimpaired","surround","repeat", "Solarized"])
 let g:alternateExtensions_{'pm'} = "t"
 let g:alternateExtensions_{'pl'} = "t"
 let g:alternateExtensions_{'t'} = "pm,pl"
@@ -39,7 +39,7 @@ let g:alternateSearchPath = 'sfr:t,..'
 let g:xptemplate_key = '<Tab>'
 let g:xptemplate_vars = "SParg="
 let g:loaded_sql_completion = 1
-let g:ftplugin_sql_omni_key = 'L'
+let g:ftplugin_sql_omni_key = ''
 
 syntax on
 set hidden
@@ -72,6 +72,7 @@ inoremap " ""<Esc>i
 inoremap ' ''<Esc>i
 inoremap <C-l> <C-O>a
 inoremap <C-j> <C-O>o
+inoremap <C-k> <C-O>O
 
 nnoremap <silent> <C-l> :noh<CR><C-l>
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
@@ -79,8 +80,6 @@ nnoremap Q gqap
 vnoremap Q gq
 
 map <Leader>e :e %%
-" map <leader><leader>t :CommandTFlush<cr>\|:CommandT %%<cr>
-" map <leader>b :CommandTBuffer<cr>
 map <leader>t :CommandTGit<cr>
 map <leader>b :CommandTBuffer<cr>
 
@@ -95,15 +94,11 @@ nnoremap <F2> :set invpaste paste?<Enter>
 imap <F2> <C-O><F2>
 set pastetoggle=<F2>
 
-imap {<CR> {<CR>}<ESC>O
-
 imap ZZ <ESC>:wq<CR>
 imap jj <ESC>j
 imap kk <ESC>k
 imap lll <ESC>l
 imap hh <ESC>h
-imap {<CR> {<CR>}<ESC>O
-imap (<CR> (<CR>);<ESC>O
 
 imap <c-c> <esc>
 xmap s <Plug>VSurround
@@ -111,8 +106,9 @@ xmap s <Plug>VSurround
 set errorformat=%f:%l:\ error:\ %m,%f:%l:\ warning:\ %m
 set guioptions=
 
+colorscheme solarized
 set background=dark
-colorscheme pablo
+set t_Co=256
 
 set guifont=Monaco:h15
 
