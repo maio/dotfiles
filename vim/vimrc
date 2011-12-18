@@ -9,6 +9,7 @@ set autoindent
 set smartindent
 set wildmode=list:longest
 set textwidth=79
+set colorcolumn=80
 set showbreak=
 set scrolloff=10
 set laststatus=2
@@ -31,7 +32,7 @@ set nobackup
 set noswapfile
 
 set runtimepath+=~/.vim/addons/vim-addon-manager
-call vam#ActivateAddons(['Command-T','a.vim_-_Alternate_Files_quickly_.c',"xptemplate","fugitive","taglist","unimpaired","surround","repeat", "Solarized"])
+call vam#ActivateAddons(['Command-T','a.vim_-_Alternate_Files_quickly_.c',"xptemplate","fugitive","taglist","unimpaired","surround","repeat","mustache","Solarized","tComment"])
 let g:alternateExtensions_{'pm'} = "t"
 let g:alternateExtensions_{'pl'} = "t"
 let g:alternateExtensions_{'t'} = "pm,pl"
@@ -41,13 +42,13 @@ let g:alternateExtensions_{'h'} = "m"
 let g:alternateSearchPath = 'sfr:t,..'
 let g:xptemplate_key = '<Tab>'
 let g:xptemplate_vars = "SParg="
+let g:xptemplate_brace_complete = '([{''"'
 let g:loaded_sql_completion = 1
 let g:ftplugin_sql_omni_key = ''
 
 syntax on
 set hidden
 filetype plugin on
-
 let mapleader=","
 
 " Visual Block mode is far more useful that Visual mode (so swap the
@@ -61,13 +62,17 @@ set virtualedit=block
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 cmap w!! w !sudo tee % >/dev/null
 
+nnoremap // :TComment<CR>
+vnoremap // :TComment<CR>
+vnoremap /  <Esc>/\%V
+
 map - :A<CR>
 
+nmap H ^
+nmap L $
 xmap H ^
 xmap L $
 " handle situation when yank buffer doesn't contain whole line - use normal paste
-nmap p ]p
-nmap P k]p
 nmap <Leader>p p
 nmap <Leader>P P
 nmap gp `[v`]
@@ -76,12 +81,6 @@ nmap <Leader><Leader> <C-^>
 nmap "" ci"
 nmap '' ci'
 
-inoremap ( ()<Esc>i
-inoremap { {}<Esc>i
-inoremap [ []<Esc>i
-inoremap " ""<Esc>i
-inoremap ' ''<Esc>i
-inoremap <C-l> <C-O>a
 inoremap <C-j> <C-O>o
 inoremap <C-k> <C-O>O
 
