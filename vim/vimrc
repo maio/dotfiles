@@ -8,6 +8,7 @@ set smarttab
 set autoindent
 set smartindent
 set wildmode=list:longest
+" set colorcolumn=80
 set showbreak=
 set scrolloff=10
 set laststatus=2
