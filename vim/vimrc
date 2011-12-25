@@ -8,7 +8,6 @@ set smarttab
 set autoindent
 set smartindent
 set wildmode=list:longest
-set textwidth=79
 set colorcolumn=80
 set showbreak=
 set scrolloff=10
@@ -17,22 +16,23 @@ set incsearch
 set hlsearch
 set noerrorbells
 set visualbell
-set ttimeoutlen=100
 set wildmenu
 set lcs=tab:»\ ,trail:•
 set list
 set shortmess=atI
 
-set undofile
-set undodir=$HOME/.vim/undo
-set undolevels=1000
-set undoreload=10000
+if has("persistent_undo")
+    set undofile
+    set undodir=$HOME/.vim/undo
+    set undolevels=1000
+    set undoreload=10000
+endif
 
 set nobackup
 set noswapfile
 
 set runtimepath+=~/.vim/addons/vim-addon-manager
-call vam#ActivateAddons(['Command-T','a.vim_-_Alternate_Files_quickly_.c',"xptemplate","fugitive","taglist","unimpaired","surround","repeat","mustache","Solarized","tComment"])
+call vam#ActivateAddons(['Command-T','a.vim_-_Alternate_Files_quickly_.c',"xptemplate","fugitive","taglist","unimpaired","surround","repeat","mustache","Solarized","tComment","VimClojure"])
 let g:alternateExtensions_{'pm'} = "t"
 let g:alternateExtensions_{'pl'} = "t"
 let g:alternateExtensions_{'t'} = "pm,pl"
@@ -46,10 +46,19 @@ let g:xptemplate_brace_complete = '([{''"'
 let g:loaded_sql_completion = 1
 let g:ftplugin_sql_omni_key = ''
 
+let vimclojure#FuzzyIndent=1
+let vimclojure#HighlightBuiltins=1
+let vimclojure#HighlightContrib=1
+let vimclojure#DynamicHighlighting=1
+let vimclojure#ParenRainbow=1
+let vimclojure#WantNailgun=1
+let vimclojure#NailgunClient = $HOME . "/bin/ng"
+
 syntax on
 set hidden
 filetype plugin on
 let mapleader=","
+let maplocalleader = "\\"
 
 " Visual Block mode is far more useful that Visual mode (so swap the
 " commands)...
@@ -64,17 +73,17 @@ cmap w!! w !sudo tee % >/dev/null
 
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
-vnoremap /  <Esc>/\%V
 
 map - :A<CR>
+
+" handle situation when yank buffer doesn't contain whole line - use normal paste
+nmap p ]p
+nmap P [p
 
 nmap H ^
 nmap L $
 xmap H ^
 xmap L $
-" handle situation when yank buffer doesn't contain whole line - use normal paste
-nmap <Leader>p p
-nmap <Leader>P P
 nmap gp `[v`]
 nmap <Leader><Leader> <C-^>
 
@@ -83,6 +92,7 @@ nmap '' ci'
 
 inoremap <C-j> <C-O>o
 inoremap <C-k> <C-O>O
+inoremap <C-l> <C-O>a
 
 nnoremap <Space> @q
 nnoremap <silent> <C-l> :noh<CR><C-l>
@@ -95,15 +105,18 @@ map <leader>t :CommandTGit<cr>
 map <leader>b :CommandTBuffer<cr>
 
 map <Leader>w :w<CR>
+map <Leader>. `.
 imap <Leader>w <ESC>:w<CR>
 map <Leader>go :only<CR>
 map <Leader>gd :Gdiff<CR>
 map <Leader>gs :Gstatus<CR>
 map <Leader>gg yiw:Ggrep <C-r>0
 
-nnoremap <F2> :set invpaste paste?<Enter>
-imap <F2> <C-O><F2>
-set pastetoggle=<F2>
+" handle external paste
+map <Leader>p :set invpaste paste?<CR>
+imap <Leader>p <C-O>:set invpaste paste?<CR>
+set pastetoggle=<Leader>p
+autocmd InsertLeave * :set nopaste paste?
 
 imap ZZ <ESC>:wq<CR>
 imap jj <ESC>j
