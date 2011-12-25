@@ -1,0 +1,11 @@
+#!/bin/bash
+if [ "$TMUX" != "" ]; then
+    tmux set -g status-left 'PASS' > /dev/null
+    tmux set -g status-fg green > /dev/null
+    exit 0
+fi
+
+if [ -e "/usr/local/bin/growlnotify" ]; then
+    growlnotify -d test --image "`dirname $0`/test-icons/success.png" -m PASS
+    exit 0
+fi

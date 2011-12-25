@@ -1,0 +1,11 @@
+#!/bin/bash
+if [ "$TMUX" != "" ]; then
+    tmux set -g status-fg white > /dev/null
+    tmux set -g status-left '#[fg=grey]#(echo ⧗⧗⧗⧗)' > /dev/null
+    exit 0
+fi
+
+if [ -e "/usr/local/bin/growlnotify" ]; then
+    growlnotify -d test --image "`dirname $0`/test-icons/pending.png" -m Running
+    exit 0
+fi

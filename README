@@ -1,1 +1,5 @@
 maio's dotfiles
+
+shell/tests/*
+    link them to ~/bin
+    Usage: test-run && make test && test-pass || test-fail
