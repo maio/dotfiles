@@ -32,7 +32,7 @@ set nobackup
 set noswapfile
 
 set runtimepath+=~/.vim/addons/vim-addon-manager
-call vam#ActivateAddons(['Command-T','a.vim_-_Alternate_Files_quickly_.c',"xptemplate","fugitive","taglist","unimpaired","surround","repeat","mustache","Solarized","tComment","VimClojure"])
+call vam#ActivateAddons(['Command-T','a.vim_-_Alternate_Files_quickly_.c',"xptemplate","fugitive","taglist","unimpaired","surround","repeat","mustache","tComment","VimClojure"])
 let g:alternateExtensions_{'pm'} = "t"
 let g:alternateExtensions_{'pl'} = "t"
 let g:alternateExtensions_{'t'} = "pm,pl"
@@ -44,7 +44,7 @@ let g:xptemplate_key = '<Tab>'
 let g:xptemplate_vars = "SParg="
 let g:xptemplate_brace_complete = '([{''"'
 let g:loaded_sql_completion = 1
-let g:ftplugin_sql_omni_key = ''
+let g:ftplugin_sql_omni_key = 'X'
 
 let vimclojure#FuzzyIndent=1
 let vimclojure#HighlightBuiltins=1
@@ -130,7 +130,7 @@ xmap s <Plug>VSurround
 set errorformat=%f:%l:\ error:\ %m,%f:%l:\ warning:\ %m
 set guioptions=
 
-colorscheme solarized
+colorscheme pablo
 set background=dark
 set t_Co=256
 
