@@ -1,3 +1,4 @@
+set show-all-if-ambiguous on
 set completion-ignore-case on
 set bell-style none
 $if Bash
@@ -7,10 +8,8 @@ $endif
 set convert-meta off
 set input-meta on
 set output-meta on
-set show-all-if-ambiguous on
 
 "\e\e[C": forward-word
 "\e\e[D": backward-word
 "\e[1;5C": forward-word
 "\e[1;5D": backward-word
-"\C-c": vi-movement-mode
