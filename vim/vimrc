@@ -128,13 +128,13 @@ imap <c-c> <esc>
 xmap s <Plug>VSurround
 
 set errorformat=%f:%l:\ error:\ %m,%f:%l:\ warning:\ %m
-set guioptions=
 
+" UI style
 colorscheme pablo
-set background=dark
-set t_Co=256
-
+set guioptions=
 set guifont=Monaco:h15
+set background=dark
+hi MatchParen ctermfg=1 ctermbg=10
 
 let Tlist_Process_File_Always = 1
 set statusline=[%l,%c]\ %<%f%=%([%{Tlist_Get_Tagname_By_Line()}]%)
