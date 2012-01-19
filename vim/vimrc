@@ -74,6 +74,7 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
 
+nmap ! q:/^
 map - :A<CR>
 
 " handle situation when yank buffer doesn't contain whole line - use normal paste
