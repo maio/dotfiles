@@ -17,6 +17,7 @@ set hlsearch
 set noerrorbells
 set visualbell
 set wildmenu
+set encoding=utf8
 set lcs=tab:»\ ,trail:•
 set list
 set shortmess=atI
@@ -32,7 +33,7 @@ set nobackup
 set noswapfile
 
 set runtimepath+=~/.vim/addons/vim-addon-manager
-call vam#ActivateAddons(['Command-T','a.vim_-_Alternate_Files_quickly_.c',"xptemplate","fugitive","taglist","unimpaired","surround","repeat","mustache","tComment","VimClojure"])
+call vam#ActivateAddons(['Command-T','a',"xptemplate","fugitive","taglist","unimpaired","surround","repeat","mustache","tComment","VimClojure","vim-slime","Conque_Shell"])
 let g:alternateExtensions_{'pm'} = "t"
 let g:alternateExtensions_{'pl'} = "t"
 let g:alternateExtensions_{'t'} = "pm,pl"
@@ -46,17 +47,16 @@ let g:xptemplate_brace_complete = '([{''"'
 let g:loaded_sql_completion = 1
 let g:ftplugin_sql_omni_key = 'X'
 
-let vimclojure#FuzzyIndent=1
 let vimclojure#HighlightBuiltins=1
 let vimclojure#HighlightContrib=1
 let vimclojure#DynamicHighlighting=1
 let vimclojure#ParenRainbow=1
-let vimclojure#WantNailgun=1
-let vimclojure#NailgunClient = $HOME . "/bin/ng"
+let g:screen_windowname = 'clojure'
 
 syntax on
 set hidden
 filetype plugin on
+filetype plugin indent on
 let mapleader=","
 let maplocalleader = "\\"
 
@@ -91,6 +91,8 @@ nmap <Leader><Leader> <C-^>
 nmap "" ci"
 nmap '' ci'
 
+nmap s vabsba
+
 inoremap <C-j> <C-O>o
 inoremap <C-k> <C-O>O
 inoremap <C-l> <C-O>a
@@ -112,6 +114,9 @@ map <Leader>go :only<CR>
 map <Leader>gd :Gdiff<CR>
 map <Leader>gs :Gstatus<CR>
 map <Leader>gg yiw:Ggrep <C-r>0
+
+map <Leader>c vip<C-C><C-C>
+map <Leader>= vip=
 
 " handle external paste
 map <Leader>p :set invpaste paste?<CR>
@@ -182,7 +187,6 @@ set autoread
 set backspace=indent,eol,start
 set fileformats=unix,mac,dos
 set noshowmode
-" set timeout timeoutlen=300 ttimeoutlen=300
 
 au BufReadPost quickfix setlocal number
                     \ | setlocal nowrap
