@@ -22,6 +22,8 @@ set lcs=tab:»\ ,trail:•
 set list
 set shortmess=atI
 
+abbr 9804 9804000000000100
+
 if has("persistent_undo")
     set undofile
     set undodir=$HOME/.vim/undo
