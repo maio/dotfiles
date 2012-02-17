@@ -32,8 +32,8 @@ endif
 set nobackup
 set noswapfile
 
-set runtimepath+=~/.vim/addons/vim-addon-manager
-call vam#ActivateAddons(['Command-T','a',"xptemplate","fugitive","taglist","unimpaired","surround","repeat","mustache","tComment","VimClojure","vim-slime","Conque_Shell"])
+set runtimepath+=~/.vim/vim-addons/vim-addon-manager
+call vam#ActivateAddons(['Command-T','a',"xptemplate","fugitive","taglist","unimpaired","surround","repeat","mustache","tComment","VimClojure","ctrlp"])
 let g:alternateExtensions_{'pm'} = "t"
 let g:alternateExtensions_{'pl'} = "t"
 let g:alternateExtensions_{'t'} = "pm,pl"
@@ -43,9 +43,13 @@ let g:alternateExtensions_{'h'} = "m"
 let g:alternateSearchPath = 'sfr:t,..'
 let g:xptemplate_key = '<Tab>'
 let g:xptemplate_vars = "SParg="
-let g:xptemplate_brace_complete = '([{''"'
+" let g:xptemplate_brace_complete = '([{''"'
 let g:loaded_sql_completion = 1
 let g:ftplugin_sql_omni_key = 'X'
+
+let g:ctrlp_user_command = 'git ls-files -- %s'
+let g:ctrlp_use_caching = 0
+let g:ctrlp_open_new_file = 'r'
 
 let vimclojure#HighlightBuiltins=1
 let vimclojure#HighlightContrib=1
@@ -60,6 +64,9 @@ filetype plugin indent on
 let mapleader=","
 let maplocalleader = "\\"
 
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap * *<c-o>
 " Visual Block mode is far more useful that Visual mode (so swap the
 " commands)...
 nnoremap v <C-V>
@@ -68,6 +75,8 @@ vnoremap v <C-V>
 vnoremap <C-V> v
 set virtualedit=block
 
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 cmap w!! w !sudo tee % >/dev/null
 
@@ -112,6 +121,7 @@ map <Leader>. `.
 imap <Leader>w <ESC>:w<CR>
 map <Leader>go :only<CR>
 map <Leader>gd :Gdiff<CR>
+map <Leader>D :diffoff!<CR>
 map <Leader>gs :Gstatus<CR>
 map <Leader>gg yiw:Ggrep <C-r>0
 
