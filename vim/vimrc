@@ -8,7 +8,6 @@ set smarttab
 set autoindent
 set smartindent
 set wildmode=list:longest
-" set colorcolumn=80
 set showbreak=
 set scrolloff=10
 set laststatus=2
@@ -21,8 +20,43 @@ set encoding=utf8
 set lcs=tab:»\ ,trail:•
 set list
 set shortmess=atI
+set ttimeout
+set notimeout
+set nottimeout
+set autowrite
+set formatoptions=qrn1
+set gdefault
+
+set undodir=~/.vim/tmp/undo//
+set backupdir=~/.vim/tmp/backup//
+set directory=~/.vim/tmp/swap//
+set backup
+set noswapfile                    " It's 2012, Vim.
+
+" Highlight VCS conflict markers
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+" Clojure/Leiningen
+set wildignore+=classes
+set wildignore+=lib
+
+augroup line_return
+    au!
+    au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
+
+augroup ft_quickfix
+    au!
+    au Filetype qf setlocal colorcolumn=0 nolist nocursorline nowrap
+augroup END
 
 abbr 9804 9804000000000100
+
+" Better Completion
+set completeopt=longest,menuone,preview
 
 if has("persistent_undo")
     set undofile
@@ -31,11 +65,15 @@ if has("persistent_undo")
     set undoreload=10000
 endif
 
-set nobackup
-set noswapfile
+syntax on
+set hidden
+filetype plugin on
+filetype plugin indent on
+let mapleader=","
+let maplocalleader = "\\"
 
 set runtimepath+=~/.vim/vim-addons/vim-addon-manager
-call vam#ActivateAddons(['Command-T','a',"xptemplate","fugitive","taglist","unimpaired","surround","repeat","mustache","tComment","VimClojure","ctrlp"])
+call vam#ActivateAddons(['Command-T','a',"xptemplate","fugitive","taglist","unimpaired","surround","repeat","mustache","tComment","VimClojure","ctrlp","VimOrganizer","Gundo","Powerline"])
 let g:alternateExtensions_{'pm'} = "t"
 let g:alternateExtensions_{'pl'} = "t"
 let g:alternateExtensions_{'t'} = "pm,pl"
@@ -57,15 +95,21 @@ let vimclojure#HighlightBuiltins=1
 let vimclojure#HighlightContrib=1
 let vimclojure#DynamicHighlighting=1
 let vimclojure#ParenRainbow=1
-let g:screen_windowname = 'clojure'
+let vimclojure#WantNailgun = 0
 
-syntax on
-set hidden
-filetype plugin on
-filetype plugin indent on
-let mapleader=","
-let maplocalleader = "\\"
+let g:slimv_repl_name = 'SLIMV.REPL'
+let g:slimv_repl_split = 4
+let g:slimv_repl_syntax = 1
+let g:slimv_repl_wrap = 0
+let g:slimv_swank_clojure = '!dtach -n /tmp/dtach-swank.sock -r winch lein swank'
 
+" Shortcut for [] {{{
+onoremap ih i[
+onoremap ah a[
+vnoremap ih i[
+vnoremap ah a[
+
+nnoremap <Leader>u :GundoToggle<cr>
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap * *<c-o>
@@ -157,7 +201,6 @@ hi MatchParen ctermfg=1 ctermbg=10
 let Tlist_Process_File_Always = 1
 set statusline=[%l,%c]\ %<%f%=%([%{Tlist_Get_Tagname_By_Line()}]%)
 
-autocmd BufReadPost * normal `"
 autocmd BufNewFile,BufRead *.t,*.it :set ft=perl
 autocmd BufNewFile,BufRead Makefile :set noexpandtab
 autocmd BufNewFile,BufRead *.spec,*.body,*.sql :set filetype=plsql
@@ -256,4 +299,27 @@ vnoremap <leader>rv :call ExtractVariable()<cr>
 nnoremap <leader>ri :call InlineVariable()<cr>
 
 set switchbuf=useopen
+
+"""""""""""""""""""""""""""""""""""""""""
+
+nnoremap <leader>v :e $MYVIMRC<cr>
+
+" Source
+vnoremap <leader>S y:execute @@<cr>
+nnoremap <leader>S ^vg_y:execute @@<cr>
+
+inoremap <c-l> <c-x><c-l>
+inoremap <c-f> <c-x><c-f>
+
+" Use sane regexes.
+nnoremap / /\v
+vnoremap / /\v
+
+nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
+
+" Split line (sister to [J]oin lines)
+" The normal use of S is covered by cc, so don't worry about shadowing it.
+nnoremap S i<cr><esc><right>mwgk:silent! s/\v +$//<cr>:noh<cr>`w
+
+map <tab> %
 
