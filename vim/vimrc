@@ -27,7 +27,6 @@ set autowrite
 set formatoptions=qrn1
 set gdefault
 
-set undodir=~/.vim/tmp/undo//
 set backupdir=~/.vim/tmp/backup//
 set directory=~/.vim/tmp/swap//
 set backup
@@ -60,7 +59,7 @@ set completeopt=longest,menuone,preview
 
 if has("persistent_undo")
     set undofile
-    set undodir=$HOME/.vim/undo
+    set undodir=~/.vim/tmp/undo//
     set undolevels=1000
     set undoreload=10000
 endif
