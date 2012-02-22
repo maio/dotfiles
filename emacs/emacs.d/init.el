@@ -10,7 +10,7 @@
 
 (defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings
                                   paredit project
-                                  clojure-mode php-mode perl-mode)
+                                  clojure-mode php-mode)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
