@@ -9,7 +9,7 @@
   (package-refresh-contents))
 
 (defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings
-                                  paredit clojure-mode)
+                                  paredit clojure-mode project)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -25,4 +25,5 @@
 (define-key evil-normal-state-map ",," 'evil-buffer)
 (define-key evil-insert-state-map ",w" 'evil-write)
 (define-key evil-normal-state-map ",w" 'evil-write)
+(define-key evil-normal-state-map ",t" 'find-file-in-project)
 (define-key evil-motion-state-map (kbd "TAB") "%")
