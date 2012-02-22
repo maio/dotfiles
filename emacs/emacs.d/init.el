@@ -18,6 +18,7 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
+(setq ffip-patterns '("*.clj", "*.goap", "*.body", "*.tt", "*.tt2", "*.pm", "*.pl", "*.php"))
 ; VIM emulation
 (add-to-list 'load-path "~/.emacs.d/evil")
 (require 'evil)
