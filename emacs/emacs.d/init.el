@@ -9,7 +9,8 @@
   (package-refresh-contents))
 
 (defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings
-                                  paredit clojure-mode project)
+                                  paredit project
+                                  clojure-mode php-mode perl-mode)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
