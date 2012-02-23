@@ -22,6 +22,8 @@
 (add-hook 'clojure-mode-hook 'midje-mode)
 
 (setq ffip-patterns '("*.clj", "*.goap", "*.body", "*.tt", "*.tt2", "*.pm", "*.pl", "*.php"))
+(setq ffip-limit 10000)
+
 ; VIM emulation
 (add-to-list 'load-path "~/.emacs.d/evil")
 (require 'evil)
