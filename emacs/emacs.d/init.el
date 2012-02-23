@@ -10,13 +10,16 @@
 
 (defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings
                                   paredit project
-                                  clojure-mode php-mode
+                                  clojure-mode midje-mode
+                                  php-mode
                                   yasnippet yasnippet-bundle)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
+(add-hook 'clojure-mode-hook 'midje-mode)
 
 (setq ffip-patterns '("*.clj", "*.goap", "*.body", "*.tt", "*.tt2", "*.pm", "*.pl", "*.php"))
 ; VIM emulation
