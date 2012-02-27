@@ -45,3 +45,7 @@
 (define-key evil-normal-state-map ",w" 'evil-write)
 (define-key evil-normal-state-map ",t" 'find-file-in-project)
 (define-key evil-motion-state-map (kbd "TAB") "%")
+
+(add-to-list 'load-path "~/.emacs.d/evil-plugins/surround")
+(require 'surround)
+(global-surround-mode 1)
