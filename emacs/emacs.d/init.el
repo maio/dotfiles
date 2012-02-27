@@ -22,7 +22,7 @@
 
 (add-hook 'clojure-mode-hook 'midje-mode)
 
-(setq ffip-patterns '("*.clj", "*.goap", "*.body", "*.tt", "*.tt2", "*.pm", "*.pl", "*.php"))
+(setq ffip-patterns '("*.clj", "*.goap", "*.body", "*.tt", "*.tt2", "*.pm", "*.pl", "*.php", "*.t"))
 (setq ffip-limit 10000)
 
 (setq auto-mode-alist (cons '("\\.t$" . perl-mode) auto-mode-alist))
