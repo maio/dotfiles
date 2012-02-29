@@ -4,3 +4,6 @@
 [submodule "emacs/emacs.d/evil-plugins/surround"]
 	path = emacs/emacs.d/evil-plugins/surround
 	url = https://github.com/timcharper/evil-surround.git
+[submodule "emacs/emacs.d/evil-plugins/leader"]
+	path = emacs/emacs.d/evil-plugins/leader
+	url = https://github.com/cofi/evil-leader

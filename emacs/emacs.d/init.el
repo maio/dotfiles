@@ -33,23 +33,33 @@
 
 (require 'feature-mode)
 
-; VIM emulation
+;; VIM emulation
 (add-to-list 'load-path "~/.emacs.d/evil")
 (require 'evil)
 (evil-mode 1)
 (setq evil-move-cursor-back nil)
+(setq evil-want-C-u-scroll t)
 (define-key evil-insert-state-map "\C-c" 'evil-force-normal-state)
-(define-key evil-normal-state-map ",b" 'switch-to-buffer)
-(define-key evil-normal-state-map ",," 'evil-buffer)
-(define-key evil-normal-state-map ",v" 'edit-init)
-(define-key evil-normal-state-map ",w" 'evil-write)
-(define-key evil-normal-state-map ",t" 'find-file-in-project)
 (define-key evil-motion-state-map (kbd "TAB") "%")
 
+;; Evil plugins
 (add-to-list 'load-path "~/.emacs.d/evil-plugins/surround")
 (require 'surround)
 (global-surround-mode 1)
 
+(add-to-list 'load-path "~/.emacs.d/evil-plugins/leader")
+(setq evil-leader/leader ","
+      ;;evil-leader/non-normal-prefix ""
+      evil-leader/in-all-states t)
+(require 'evil-leader)
+(evil-leader/set-key
+  "," 'evil-buffer
+  "b" 'switch-to-buffer
+  "v" 'edit-init
+  "w" 'save-buffer
+  "t" 'find-file-in-project)
+
+;; SQL
 (require 'sqlplus)
 
 ;; Perl
