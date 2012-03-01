@@ -59,6 +59,9 @@
   "w" 'save-buffer
   "t" 'find-file-in-project)
 
+;;;; Devel
+(which-func-mode 1)
+
 ;; SQL
 (require 'sqlplus)
 
