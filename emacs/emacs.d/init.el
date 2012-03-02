@@ -9,6 +9,7 @@
   (package-refresh-contents))
 
 (defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings
+                                  undo-tree
                                   paredit autopair
                                   project
                                   goto-last-change
@@ -40,10 +41,11 @@
 (evil-mode 1)
 (setq evil-move-cursor-back nil)
 (setq evil-want-C-u-scroll t)
-(define-key evil-emacs-state-map "\C-c" 'evil-force-normal-state)
-(define-key evil-insert-state-map "\C-c" 'evil-force-normal-state)
-(define-key evil-visual-state-map "\C-c" 'evil-force-normal-state)
+(define-key evil-emacs-state-map (kbd "C-c") 'evil-normal-state)
+(define-key evil-insert-state-map (kbd "C-c") 'evil-normal-state)
+(define-key evil-visual-state-map (kbd "C-c") 'evil-normal-state)
 (define-key evil-motion-state-map (kbd "TAB") "%")
+(define-key evil-motion-state-map (kbd "gp") "`[V`]")
 
 ;; Evil plugins
 (add-to-list 'load-path "~/.emacs.d/evil-plugins/surround")
