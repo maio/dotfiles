@@ -7,3 +7,6 @@
 [submodule "emacs/emacs.d/evil-plugins/leader"]
 	path = emacs/emacs.d/evil-plugins/leader
 	url = https://github.com/cofi/evil-leader
+[submodule "emacs/emacs.d/evil"]
+	path = emacs/emacs.d/evil
+	url = git://gitorious.org/evil/evil.git
