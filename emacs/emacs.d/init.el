@@ -39,6 +39,7 @@
 (evil-mode 1)
 (setq evil-move-cursor-back nil)
 (setq evil-want-C-u-scroll t)
+(define-key evil-emacs-state-map "\C-c" 'evil-force-normal-state)
 (define-key evil-insert-state-map "\C-c" 'evil-force-normal-state)
 (define-key evil-visual-state-map "\C-c" 'evil-force-normal-state)
 (define-key evil-motion-state-map (kbd "TAB") "%")
