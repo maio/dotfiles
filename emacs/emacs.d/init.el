@@ -9,7 +9,8 @@
   (package-refresh-contents))
 
 (defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings
-                                  paredit project
+                                  paredit autopair
+                                  project
                                   goto-last-change
                                   clojure-mode midje-mode
                                   php-mode
@@ -78,3 +79,6 @@
         cperl-close-paren-offset -4)
   (set-face-background 'cperl-array-face "black")
   (set-face-background 'cperl-hash-face "black"))
+
+(require 'autopair)
+(autopair-global-mode)
