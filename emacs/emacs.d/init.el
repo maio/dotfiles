@@ -1,5 +1,10 @@
 (add-to-list 'load-path "~/.emacs.d")
 
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(global-auto-revert-mode 1)
+(setq fill-column 80)
+
 (require 'package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
@@ -37,15 +42,24 @@
 
 ;; VIM emulation
 (add-to-list 'load-path "~/.emacs.d/evil")
-(require 'evil)
-(evil-mode 1)
 (setq evil-move-cursor-back nil)
 (setq evil-want-C-u-scroll t)
+(require 'evil)
+(evil-mode 1)
 (define-key evil-emacs-state-map (kbd "C-c") 'evil-normal-state)
 (define-key evil-insert-state-map (kbd "C-c") 'evil-normal-state)
 (define-key evil-visual-state-map (kbd "C-c") 'evil-normal-state)
 (define-key evil-motion-state-map (kbd "TAB") "%")
 (define-key evil-motion-state-map (kbd "gp") "`[V`]")
+(define-key evil-normal-state-map "H" 'evil-first-non-blank)
+(define-key evil-normal-state-map "L" 'evil-last-non-blank)
+(define-key evil-normal-state-map (kbd "C-w") 'delete-trailing-whitespace)
+(define-key evil-normal-state-map (kbd "C-SPC") 'comment-or-uncomment-region-or-line)
+
+(define-key evil-motion-state-map (kbd "C-v") 'evil-visual-char)
+(define-key evil-motion-state-map "v" 'evil-visual-block)
+
+(global-set-key (kbd "RET") 'newline-and-indent)
 
 ;; Evil plugins
 (add-to-list 'load-path "~/.emacs.d/evil-plugins/surround")
