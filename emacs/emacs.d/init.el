@@ -43,6 +43,7 @@
 
 (setq auto-mode-alist (cons '("\\.body$" . sql-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.spec$" . sql-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.php$" . php-mode) auto-mode-alist))
 
 (defun edit-init () (interactive) (find-file "~/.emacs.d/init.el"))
 
