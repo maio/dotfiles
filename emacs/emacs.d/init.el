@@ -1,9 +1,15 @@
 (add-to-list 'load-path "~/.emacs.d")
 
+(set-face-attribute 'default nil :height 160)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (global-auto-revert-mode 1)
 (setq fill-column 80)
+(setq tab-width 4)
+(setq c-basic-offset 4)
+(setq tab-width 4)
+(setq-default indent-tabs-mode nil)
+(setq eshell-scroll-to-bottom-on-output t)
 
 (require 'package)
 (add-to-list 'package-archives
@@ -14,6 +20,7 @@
   (package-refresh-contents))
 
 (defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings
+                                  find-file-in-project
                                   undo-tree
                                   paredit autopair
                                   project
@@ -32,6 +39,7 @@
 (setq ffip-limit 10000)
 (setq ffip-patterns '("*.clj", "*.goap", "*.body", "*.tt", "*.tt2", "*.pm",
                       "*.pl", "*.php", "*.t", "*.feature"))
+(require 'find-file-in-project)
 
 (setq auto-mode-alist (cons '("\\.body$" . sql-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.spec$" . sql-mode) auto-mode-alist))
@@ -68,7 +76,6 @@
 
 (add-to-list 'load-path "~/.emacs.d/evil-plugins/leader")
 (setq evil-leader/leader ","
-      ;;evil-leader/non-normal-prefix ""
       evil-leader/in-all-states t)
 (require 'evil-leader)
 (evil-leader/set-key
@@ -97,4 +104,7 @@
   (set-face-background 'cperl-hash-face "black"))
 
 (require 'autopair)
-(autopair-global-mode)
+(autopair-global-mode 1)
+
+(require 'tramp)
+(add-to-list 'tramp-remote-path 'tramp-own-remote-path)
