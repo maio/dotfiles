@@ -1,12 +1,12 @@
 [submodule "vim/vim/vim-addons/vim-addon-manager"]
 	path = vim/vim/vim-addons/vim-addon-manager
-	url = https://github.com/MarcWeber/vim-addon-manager.git
+	url = http://github.com/MarcWeber/vim-addon-manager.git
 [submodule "emacs/emacs.d/evil-plugins/surround"]
 	path = emacs/emacs.d/evil-plugins/surround
-	url = https://github.com/timcharper/evil-surround.git
+	url = http://github.com/timcharper/evil-surround.git
 [submodule "emacs/emacs.d/evil-plugins/leader"]
 	path = emacs/emacs.d/evil-plugins/leader
-	url = https://github.com/cofi/evil-leader
+	url = http://github.com/cofi/evil-leader
 [submodule "emacs/emacs.d/evil"]
 	path = emacs/emacs.d/evil
 	url = git://gitorious.org/evil/evil.git
