@@ -10,6 +10,7 @@
 (setq tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq eshell-scroll-to-bottom-on-output t)
+(setq-default show-trailing-whitespace t)
 
 (require 'package)
 (add-to-list 'package-archives
@@ -94,7 +95,6 @@
 
 ;; Perl
 (setq auto-mode-alist (cons '("\\.t$" . perl-mode) auto-mode-alist))
-(defalias 'perl-mode 'cperl-mode)
 
 (add-hook 'cperl-mode-hook 'n-cperl-mode-hook t)
 (defun n-cperl-mode-hook ()
