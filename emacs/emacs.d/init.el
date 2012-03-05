@@ -11,6 +11,7 @@
 (setq-default indent-tabs-mode nil)
 (setq eshell-scroll-to-bottom-on-output t)
 (setq-default show-trailing-whitespace t)
+(column-number-mode 1)
 
 (require 'package)
 (add-to-list 'package-archives
