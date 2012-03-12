@@ -70,7 +70,8 @@
 (define-key evil-motion-state-map (kbd "C-v") 'evil-visual-char)
 (define-key evil-motion-state-map "v" 'evil-visual-block)
 
-(global-set-key (kbd "RET") 'newline-and-indent)
+;; (global-set-key (kbd "RET") 'newline-and-indent)
+(global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
 
 ;; Evil plugins
 (add-to-list 'load-path "~/.emacs.d/evil-plugins/surround")
@@ -83,6 +84,7 @@
 (require 'evil-leader)
 (evil-leader/set-key
   "," 'evil-buffer
+  "e" 'eval-defun
   "b" 'switch-to-buffer
   "v" 'edit-init
   "w" 'save-buffer
@@ -114,3 +116,5 @@
 (defun close-all-buffers ()
   (interactive)
     (mapc 'kill-buffer (buffer-list)))
+
+(load-theme 'tango-dark)
