@@ -3,6 +3,7 @@
 (set-face-attribute 'default nil :height 160)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
+(setq backup-inhibited t)
 (global-auto-revert-mode 1)
 (setq fill-column 80)
 (setq tab-width 4)
@@ -40,7 +41,7 @@
 
 (setq ffip-limit 10000)
 (setq ffip-patterns '("*.clj", "*.goap", "*.body", "*.tt", "*.tt2", "*.pm",
-                      "*.pl", "*.php", "*.t", "*.feature"))
+                      "*.pl", "*.php", "*.t", "*.feature", "*.ini"))
 (require 'find-file-in-project)
 
 (setq auto-mode-alist (cons '("\\.body$" . sql-mode) auto-mode-alist))
@@ -118,3 +119,16 @@
     (mapc 'kill-buffer (buffer-list)))
 
 (load-theme 'tango-dark)
+
+(add-hook 'php-mode-hook
+          (lambda ()
+            (defun ywb-php-lineup-arglist-intro (langelem)
+              (save-excursion
+                (goto-char (cdr langelem))
+                (vector (+ (current-column) c-basic-offset))))
+            (defun ywb-php-lineup-arglist-close (langelem)
+              (save-excursion
+                (goto-char (cdr langelem))
+                (vector (current-column))))
+            (c-set-offset 'arglist-intro 'ywb-php-lineup-arglist-intro)
+            (c-set-offset 'arglist-close 'ywb-php-lineup-arglist-close)))
