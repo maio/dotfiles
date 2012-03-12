@@ -33,6 +33,7 @@
                                   anything
                                   anything-config
                                   anything-match-plugin
+                                  ack-and-a-half
                                   yasnippet yasnippet-bundle)
   "A list of packages to ensure are installed at launch.")
 
