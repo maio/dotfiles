@@ -5,6 +5,13 @@ if [ "$TMUX" != "" ]; then
     exit 0
 fi
 
+EMACS_SERVER=`emacsclient --eval '"OK"' || echo ""`
+
+if [ "$EMACS_SERVER" != "" ]; then
+    emacsclient --eval "(set-face-background 'modeline \"Green\")" > /dev/null
+    exit 0
+fi
+
 if [ -e "/usr/local/bin/growlnotify" ]; then
     growlnotify -d test --image "`dirname $0`/test-icons/success.png" -m PASS
     exit 0
