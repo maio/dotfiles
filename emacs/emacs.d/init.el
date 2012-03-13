@@ -143,3 +143,15 @@
 (require 'recentf)
 (setq recentf-max-saved-items 100)
 (add-to-list 'recentf-exclude "emacs.d")
+
+(add-to-list 'load-path "~/.emacs.d/auto-complete")
+(require 'auto-complete-config)
+(ac-config-default)
+(setq-default ac-sources '(ac-source-filename
+                           ac-source-functions
+                           ac-source-yasnippet
+                           ac-source-variables
+                           ac-source-symbols
+                           ac-source-features
+                           ac-source-abbrev
+                           ac-source-words-in-all-buffer))
