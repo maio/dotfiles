@@ -1,3 +1,4 @@
+(setq exec-path (cons "/opt/local/bin" exec-path))
 (add-to-list 'load-path "~/.emacs.d")
 
 (set-face-attribute 'default nil :height 160)
@@ -146,12 +147,12 @@
 
 (add-to-list 'load-path "~/.emacs.d/auto-complete")
 (require 'auto-complete-config)
+(defun ac-common-setup ()
+  (add-to-list 'ac-sources 'ac-source-words-in-all-buffer)
+  (add-to-list 'ac-sources 'ac-source-yasnippet))
 (ac-config-default)
-(setq-default ac-sources '(ac-source-filename
-                           ac-source-functions
-                           ac-source-yasnippet
-                           ac-source-variables
-                           ac-source-symbols
-                           ac-source-features
-                           ac-source-abbrev
-                           ac-source-words-in-all-buffer))
+
+(require 'flymake)
+(push '(".+\\.t$" flymake-perl-init) flymake-allowed-file-name-masks)
+(add-hook 'perl-mode-hook
+	      (lambda () (flymake-mode t)))
