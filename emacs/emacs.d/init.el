@@ -30,6 +30,9 @@
                                   goto-last-change
                                   clojure-mode midje-mode
                                   php-mode
+                                  anything
+                                  anything-config
+                                  anything-match-plugin
                                   yasnippet yasnippet-bundle)
   "A list of packages to ensure are installed at launch.")
 
@@ -86,10 +89,10 @@
 (evil-leader/set-key
   "," 'evil-buffer
   "e" 'eval-defun
-  "b" 'switch-to-buffer
+  "b" 'anything-buffers+
   "v" 'edit-init
   "w" 'save-buffer
-  "t" 'find-file-in-project)
+  "t" 'anything-project)
 
 ;;;; Devel
 (which-func-mode 1)
@@ -132,3 +135,6 @@
                 (vector (current-column))))
             (c-set-offset 'arglist-intro 'ywb-php-lineup-arglist-intro)
             (c-set-offset 'arglist-close 'ywb-php-lineup-arglist-close)))
+
+(require 'anything-project)
+(require 'anything-match-plugin)
