@@ -90,7 +90,7 @@
 (evil-leader/set-key
   "," 'evil-buffer
   "e" 'eval-defun
-  "b" 'anything-buffers+
+  "b" 'anything-recentf
   "v" 'edit-init
   "w" 'save-buffer
   "t" 'anything-project)
@@ -139,3 +139,7 @@
 
 (require 'anything-project)
 (require 'anything-match-plugin)
+
+(require 'recentf)
+(setq recentf-max-saved-items 100)
+(add-to-list 'recentf-exclude "emacs.d")
