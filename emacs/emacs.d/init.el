@@ -91,7 +91,7 @@
 (evil-leader/set-key
   "," 'evil-buffer
   "e" 'eval-defun
-  "b" 'anything-recentf
+  "b" 'anything-for-files
   "v" 'edit-init
   "w" 'save-buffer
   "t" 'anything-project)
@@ -140,6 +140,14 @@
 
 (require 'anything-project)
 (require 'anything-match-plugin)
+(setq anything-for-files-prefered-list
+  '(anything-c-source-ffap-line
+    anything-c-source-ffap-guesser
+    anything-c-source-buffers+
+    anything-c-source-recentf
+    anything-c-source-bookmarks
+    anything-c-source-file-cache
+    anything-c-source-files-in-current-dir+))
 
 (require 'recentf)
 (setq recentf-max-saved-items 100)
