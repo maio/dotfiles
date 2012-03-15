@@ -65,18 +65,22 @@
 (evil-mode 1)
 (define-key evil-emacs-state-map (kbd "C-c") 'evil-normal-state)
 (define-key evil-insert-state-map (kbd "C-c") 'evil-normal-state)
+(define-key evil-insert-state-map (kbd "C-e") 'end-of-line)
 (define-key evil-visual-state-map (kbd "C-c") 'evil-normal-state)
 (define-key evil-motion-state-map (kbd "TAB") "%")
 (define-key evil-motion-state-map (kbd "gp") "`[V`]")
 (define-key evil-normal-state-map "H" 'evil-first-non-blank)
+(define-key evil-visual-state-map "H" 'evil-first-non-blank)
 (define-key evil-normal-state-map "L" 'evil-last-non-blank)
+(define-key evil-visual-state-map "L" 'evil-last-non-blank)
 (define-key evil-normal-state-map (kbd "C-w") 'delete-trailing-whitespace)
 (define-key evil-normal-state-map (kbd "C-SPC") 'comment-or-uncomment-region-or-line)
-
 (define-key evil-motion-state-map (kbd "C-v") 'evil-visual-char)
 (define-key evil-motion-state-map "v" 'evil-visual-block)
 
-;; (global-set-key (kbd "RET") 'newline-and-indent)
+(evil-define-key 'visual perl-mode-map
+  "=" 'perltidy-dwim)
+
 (global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
 
 ;; Evil plugins
@@ -112,6 +116,8 @@
         cperl-close-paren-offset -4)
   (set-face-background 'cperl-array-face "black")
   (set-face-background 'cperl-hash-face "black"))
+
+(require 'perltidy)
 
 (require 'autopair)
 (autopair-global-mode 1)
@@ -154,6 +160,7 @@
 (add-to-list 'recentf-exclude "emacs.d")
 
 (add-to-list 'load-path "~/.emacs.d/auto-complete")
+(setq ac-ignore-case nil)
 (require 'auto-complete-config)
 (defun ac-common-setup ()
   (add-to-list 'ac-sources 'ac-source-words-in-all-buffer)
