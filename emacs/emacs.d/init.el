@@ -1,6 +1,7 @@
-(setq exec-path (cons "/opt/local/bin" exec-path))
 (add-to-list 'load-path "~/.emacs.d")
+(require 'maio-util)
 
+(add-to-list 'exec-path "/opt/local/bin")
 (set-face-attribute 'default nil :height 160)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
@@ -11,47 +12,46 @@
 (setq c-basic-offset 4)
 (setq tab-width 4)
 (setq-default indent-tabs-mode nil)
-(setq eshell-scroll-to-bottom-on-output t)
 (setq-default show-trailing-whitespace t)
 (column-number-mode 1)
 
-(require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
+;; Shell
+(setq eshell-scroll-to-bottom-on-output t)
+(setq ansi-color-for-comint-mode t)
+(setq comint-prompt-read-only nil)
 
-(when (not package-archive-contents)
-  (package-refresh-contents))
-
-(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings
-                                  find-file-in-project
-                                  undo-tree
-                                  paredit autopair
-                                  project
-                                  goto-last-change
-                                  clojure-mode midje-mode
-                                  php-mode
-                                  anything
-                                  anything-config
-                                  anything-match-plugin
-                                  ack-and-a-half
-                                  yasnippet yasnippet-bundle)
-  "A list of packages to ensure are installed at launch.")
-
-(dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
+(require-and-exec 'package
+  (add-to-list 'package-archives
+               '("marmalade" . "http://marmalade-repo.org/packages/"))
+  (package-initialize)
+  (when (not package-archive-contents)
+    (package-refresh-contents))
+  (let ((my-packages '(starter-kit
+                       starter-kit-lisp
+                       starter-kit-bindings
+                       undo-tree
+                       paredit autopair
+                       project
+                       goto-last-change
+                       clojure-mode midje-mode
+                       php-mode
+                       anything
+                       anything-config
+                       anything-match-plugin
+                       ack-and-a-half
+                       flymake
+                       flymake-cursor
+                       yasnippet yasnippet-bundle)))
+    (dolist (package my-packages)
+      (when (not (package-installed-p package))
+        (package-install package)))))
 
 (add-hook 'clojure-mode-hook 'midje-mode)
 
-(setq ffip-limit 10000)
-(setq ffip-patterns '("*.clj", "*.goap", "*.body", "*.tt", "*.tt2", "*.pm",
-                      "*.pl", "*.php", "*.t", "*.feature", "*.ini"))
-(require 'find-file-in-project)
-
-(setq auto-mode-alist (cons '("\\.body$" . sql-mode) auto-mode-alist))
-(setq auto-mode-alist (cons '("\\.spec$" . sql-mode) auto-mode-alist))
-(setq auto-mode-alist (cons '("\\.php$" . php-mode) auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.t$" . perl-mode))
+(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.body$" . sql-mode))
+(add-to-list 'auto-mode-alist '("\\.spec$" . sql-mode))
 
 (defun edit-init () (interactive) (find-file "~/.emacs.d/init.el"))
 
@@ -78,6 +78,9 @@
 (define-key evil-motion-state-map (kbd "C-v") 'evil-visual-char)
 (define-key evil-motion-state-map "v" 'evil-visual-block)
 
+(evil-define-key 'normal perl-mode-map
+  "=" 'perltidy-dwim)
+
 (evil-define-key 'visual perl-mode-map
   "=" 'perltidy-dwim)
 
@@ -103,24 +106,11 @@
 ;;;; Devel
 (which-func-mode 1)
 
-;; SQL
 (require 'sqlplus)
-
-;; Perl
-(setq auto-mode-alist (cons '("\\.t$" . perl-mode) auto-mode-alist))
-
-(add-hook 'cperl-mode-hook 'n-cperl-mode-hook t)
-(defun n-cperl-mode-hook ()
-  (setq cperl-indent-parens-as-block t
-        cperl-indent-level 4
-        cperl-close-paren-offset -4)
-  (set-face-background 'cperl-array-face "black")
-  (set-face-background 'cperl-hash-face "black"))
-
 (require 'perltidy)
 
-(require 'autopair)
-(autopair-global-mode 1)
+(require-and-exec 'autopair
+  (autopair-global-mode 1))
 
 (require 'tramp)
 (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
@@ -129,7 +119,7 @@
   (interactive)
     (mapc 'kill-buffer (buffer-list)))
 
-(load-theme 'tango-dark)
+(load-theme 'zenburn)
 
 (add-hook 'php-mode-hook
           (lambda ()
@@ -155,19 +145,20 @@
     anything-c-source-file-cache
     anything-c-source-files-in-current-dir+))
 
-(require 'recentf)
-(setq recentf-max-saved-items 100)
-(add-to-list 'recentf-exclude "emacs.d")
+(require-and-exec 'recentf
+  (setq recentf-max-saved-items 100)
+  (add-to-list 'recentf-exclude "emacs.d"))
 
 (add-to-list 'load-path "~/.emacs.d/auto-complete")
 (setq ac-ignore-case nil)
-(require 'auto-complete-config)
+(require-and-exec 'auto-complete-config)
 (defun ac-common-setup ()
   (add-to-list 'ac-sources 'ac-source-words-in-all-buffer)
   (add-to-list 'ac-sources 'ac-source-yasnippet))
 (ac-config-default)
 
 (require 'flymake)
+(require 'flymake-cursor)
 (push '(".+\\.t$" flymake-perl-init) flymake-allowed-file-name-masks)
 (add-hook 'perl-mode-hook
 	      (lambda () (flymake-mode t)))
