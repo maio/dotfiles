@@ -20,6 +20,11 @@
 (setq ansi-color-for-comint-mode t)
 (setq comint-prompt-read-only nil)
 
+(add-to-list 'load-path "~/.emacs.d/php-mode")
+(require 'php-mode)
+(require 'which-func)
+(add-to-list 'which-func-modes 'php-mode)
+
 (require-and-exec 'package
   (add-to-list 'package-archives
                '("marmalade" . "http://marmalade-repo.org/packages/"))
@@ -34,7 +39,6 @@
                        project
                        goto-last-change
                        clojure-mode midje-mode
-                       php-mode
                        anything
                        anything-config
                        anything-match-plugin
