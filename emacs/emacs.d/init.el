@@ -20,10 +20,7 @@
 (setq ansi-color-for-comint-mode t)
 (setq comint-prompt-read-only nil)
 
-(add-to-list 'load-path "~/.emacs.d/php-mode")
-(require 'php-mode)
-(require 'which-func)
-(add-to-list 'which-func-modes 'php-mode)
+(require 'maio-php)
 
 (require-and-exec 'package
   (add-to-list 'package-archives
@@ -53,7 +50,6 @@
 (add-hook 'clojure-mode-hook 'midje-mode)
 
 (add-to-list 'auto-mode-alist '("\\.t$" . perl-mode))
-(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.body$" . sql-mode))
 (add-to-list 'auto-mode-alist '("\\.spec$" . sql-mode))
 
@@ -87,6 +83,9 @@
 
 (evil-define-key 'visual perl-mode-map
   "=" 'perltidy-dwim)
+
+(evil-define-key 'normal php-mode-map
+  "K" 'my-php-function-lookup)
 
 (global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
 
@@ -124,20 +123,6 @@
     (mapc 'kill-buffer (buffer-list)))
 
 (load-theme 'zenburn)
-
-(setq php-mode-force-pear t)
-(add-hook 'php-mode-hook
-          (lambda ()
-            (defun ywb-php-lineup-arglist-intro (langelem)
-              (save-excursion
-                (goto-char (cdr langelem))
-                (vector (+ (current-column) c-basic-offset))))
-            (defun ywb-php-lineup-arglist-close (langelem)
-              (save-excursion
-                (goto-char (cdr langelem))
-                (vector (current-column))))
-            (c-set-offset 'arglist-intro 'ywb-php-lineup-arglist-intro)
-            (c-set-offset 'arglist-close 'ywb-php-lineup-arglist-close)))
 
 (require 'anything-project)
 (require 'anything-match-plugin)
