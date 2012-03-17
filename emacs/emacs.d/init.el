@@ -121,6 +121,7 @@
 
 (load-theme 'zenburn)
 
+(setq php-mode-force-pear t)
 (add-hook 'php-mode-hook
           (lambda ()
             (defun ywb-php-lineup-arglist-intro (langelem)
@@ -152,6 +153,7 @@
 (add-to-list 'load-path "~/.emacs.d/auto-complete")
 (setq ac-ignore-case nil)
 (require-and-exec 'auto-complete-config)
+(define-key ac-completing-map "\t" 'ac-complete)
 (defun ac-common-setup ()
   (add-to-list 'ac-sources 'ac-source-words-in-all-buffer)
   (add-to-list 'ac-sources 'ac-source-yasnippet))
@@ -162,3 +164,4 @@
 (push '(".+\\.t$" flymake-perl-init) flymake-allowed-file-name-masks)
 (add-hook 'perl-mode-hook
 	      (lambda () (flymake-mode t)))
+(server-start)
