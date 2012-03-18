@@ -130,7 +130,7 @@
   (interactive)
     (mapc 'kill-buffer (buffer-list)))
 
-(load-theme 'zenburn)
+(load-theme 'zenburn t)
 
 (require 'anything-project)
 (require 'anything-match-plugin)
