@@ -158,4 +158,6 @@
 (push '(".+\\.t$" flymake-perl-init) flymake-allowed-file-name-masks)
 (add-hook 'perl-mode-hook
 	      (lambda () (flymake-mode t)))
-(server-start)
+
+(require 'server)
+(unless (server-running-p) (server-start))
