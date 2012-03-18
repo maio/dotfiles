@@ -20,6 +20,10 @@
 (setq ansi-color-for-comint-mode t)
 (setq comint-prompt-read-only nil)
 
+;; Magit
+(setq magit-rewrite-inclusive nil)
+(setq magit-status-buffer-switch-function 'switch-to-buffer)
+
 (require 'maio-php)
 
 (require-and-exec 'package
@@ -42,6 +46,7 @@
                        ack-and-a-half
                        flymake
                        flymake-cursor
+                       rainbow-mode
                        yasnippet yasnippet-bundle)))
     (dolist (package my-packages)
       (when (not (package-installed-p package))
