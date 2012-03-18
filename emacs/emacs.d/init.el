@@ -202,3 +202,9 @@
   minor-mode-alist  ;; list of minor modes
   " %-" ;; fill with '-'
   ))
+
+;; Use UTF-8 dammit
+(prefer-coding-system       'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
