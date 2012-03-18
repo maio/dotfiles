@@ -36,7 +36,7 @@
                        starter-kit-lisp
                        starter-kit-bindings
                        undo-tree
-                       paredit autopair
+                       autopair
                        project
                        goto-last-change
                        clojure-mode midje-mode
@@ -47,6 +47,7 @@
                        flymake
                        flymake-cursor
                        rainbow-mode
+                       diminish
                        yasnippet yasnippet-bundle)))
     (dolist (package my-packages)
       (when (not (package-installed-p package))
@@ -69,6 +70,7 @@
 (require 'evil)
 (evil-mode 1)
 (define-key evil-emacs-state-map (kbd "C-c") 'evil-normal-state)
+(define-key evil-replace-state-map (kbd "C-c") 'evil-normal-state)
 (define-key evil-insert-state-map (kbd "C-c") 'evil-normal-state)
 (define-key evil-insert-state-map (kbd "C-e") 'end-of-line)
 (define-key evil-visual-state-map (kbd "C-c") 'evil-normal-state)
@@ -119,6 +121,7 @@
 
 (require-and-exec 'autopair
   (autopair-global-mode 1))
+(setq autopair-autowrap t)
 
 (require 'tramp)
 (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
@@ -157,7 +160,45 @@
 (require 'flymake-cursor)
 (push '(".+\\.t$" flymake-perl-init) flymake-allowed-file-name-masks)
 (add-hook 'perl-mode-hook
-	      (lambda () (flymake-mode t)))
+    (lambda () (flymake-mode t)))
 
-(require 'server)
-(unless (server-running-p) (server-start))
+(require 'diminish)
+(eval-after-load 'yasnippet '(diminish 'yas/minor-mode "YS"))
+(eval-after-load 'eldoc '(diminish 'eldoc-mode))
+(eval-after-load 'undo-tree '(diminish 'undo-tree-mode))
+(eval-after-load 'hi-lock '(diminish 'hi-lock-mode))
+(eval-after-load 'auto-complete '(diminish 'auto-complete-mode "AC"))
+(eval-after-load 'autopair '(diminish 'autopair-mode "()"))
+(eval-after-load 'simple '(diminish 'auto-fill-function))
+
+(setq-default
+ mode-line-format
+ (list
+  '(evil-mode ("" evil-mode-line-tag))
+  ;; modified mark
+  "%* "
+
+  ;; the buffer name; the file name as a tool tip
+  '(:eval (propertize "%b " 'face 'font-lock-keyword-face
+                      'help-echo (buffer-file-name)))
+
+  ;; current function
+  '(which-func-mode ("" which-func-format " "))
+
+  ;; line and column
+  "" ;; '%02' to set to 2 chars at least; prevents flickering
+  (propertize "%02l" 'face 'font-lock-type-face) ","
+  (propertize "%02c" 'face 'font-lock-type-face)
+  " "
+
+  ;; relative position, size of file
+  (propertize "%p " 'face 'font-lock-constant-face) ;; % above top
+
+  ;; the current major mode for the buffer.
+  '(:eval (propertize "%m" 'face 'font-lock-string-face
+                      'help-echo buffer-file-coding-system))
+
+  ;; i don't want to see minor-modes; but if you want, uncomment this:
+  minor-mode-alist  ;; list of minor modes
+  " %-" ;; fill with '-'
+  ))
