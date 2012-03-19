@@ -7,4 +7,7 @@
         (progn ,@body)
     (message (format "%s not loaded" ,feature))))
 
+(defun in-mode? (mode)
+  (eq major-mode mode))
+
 (provide 'maio-util)

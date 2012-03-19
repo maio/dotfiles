@@ -105,9 +105,16 @@
 (setq evil-leader/leader ","
       evil-leader/in-all-states t)
 (require 'evil-leader)
+
+(defun my-eval-defun ()
+  (interactive)
+  (if (in-mode? 'clojure-mode)
+      (slime-eval-defun)
+    (eval-defun nil)))
+
 (evil-leader/set-key
   "," 'evil-buffer
-  "e" 'eval-defun
+  "e" 'my-eval-defun
   "b" 'anything-for-files
   "v" 'edit-init
   "w" 'save-buffer
