@@ -25,6 +25,7 @@
 (setq magit-status-buffer-switch-function 'switch-to-buffer)
 
 (require 'maio-php)
+(require 'perl-mode)
 
 (require-and-exec 'package
   (add-to-list 'package-archives
