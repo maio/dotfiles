@@ -48,6 +48,7 @@
                        flymake-cursor
                        rainbow-mode
                        diminish
+                       zenburn-theme
                        yasnippet yasnippet-bundle)))
     (dolist (package my-packages)
       (when (not (package-installed-p package))
