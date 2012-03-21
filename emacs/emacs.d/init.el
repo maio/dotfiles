@@ -63,6 +63,14 @@
 
 (defun edit-init () (interactive) (find-file "~/.emacs.d/init.el"))
 
+(defun toggle-comment-on-line-or-region ()
+  "Comments or uncomments current current line or whole lines in region."
+  (interactive)
+  (if (region-active-p)
+      (comment-or-uncomment-region (region-beginning) (region-end))
+    (comment-or-uncomment-region (line-beginning-position)
+                                 (line-end-position))))
+
 (require 'feature-mode)
 
 ;; VIM emulation
@@ -83,7 +91,7 @@
 (define-key evil-normal-state-map "L" 'evil-last-non-blank)
 (define-key evil-visual-state-map "L" 'evil-last-non-blank)
 (define-key evil-normal-state-map (kbd "C-w") 'delete-trailing-whitespace)
-(define-key evil-normal-state-map (kbd "C-SPC") 'comment-or-uncomment-region-or-line)
+(define-key evil-normal-state-map (kbd "C-SPC") 'toggle-comment-on-line-or-region)
 (define-key evil-motion-state-map (kbd "C-v") 'evil-visual-char)
 (define-key evil-motion-state-map "v" 'evil-visual-block)
 
@@ -139,7 +147,7 @@
   (interactive)
     (mapc 'kill-buffer (buffer-list)))
 
-(load-theme 'zenburn t)
+(load-theme 'cofi-dark t)
 
 (require 'anything-project)
 (require 'anything-match-plugin)
@@ -217,3 +225,7 @@
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
+
+(defun recompile-my-files ()
+  (interactive)
+  (byte-recompile-directory "~/.emacs.d/" 0))
