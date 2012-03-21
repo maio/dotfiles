@@ -149,6 +149,8 @@
 
 (load-theme 'cofi-dark t)
 
+(add-hook 'after-save-hook 'evil-normal-state)
+
 (require 'anything-project)
 (require 'anything-match-plugin)
 (setq anything-for-files-prefered-list
