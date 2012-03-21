@@ -178,6 +178,7 @@
   (add-to-list 'ac-sources 'ac-source-words-in-all-buffer)
   (add-to-list 'ac-sources 'ac-source-yasnippet))
 (ac-config-default)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 
 (require 'flymake)
 (require 'flymake-cursor)
