@@ -143,7 +143,7 @@
 (require 'tramp)
 (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
 
-(defun close-all-buffers ()
+(defun kill-all-buffers ()
   (interactive)
     (mapc 'kill-buffer (buffer-list)))
 
@@ -152,6 +152,10 @@
 (add-hook 'after-save-hook 'evil-normal-state)
 
 (require 'anything-project)
+(ap:add-project
+ :name 'default
+ :look-for '(".git"))
+
 (require 'anything-match-plugin)
 (setq anything-for-files-prefered-list
   '(anything-c-source-ffap-line
@@ -198,27 +202,29 @@
   "%* "
 
   ;; the buffer name; the file name as a tool tip
-  '(:eval (propertize "%b " 'face 'font-lock-keyword-face
+  '(:eval (propertize "%b "
                       'help-echo (buffer-file-name)))
-
-  ;; current function
-  '(which-func-mode ("" which-func-format " "))
 
   ;; line and column
   "" ;; '%02' to set to 2 chars at least; prevents flickering
-  (propertize "%02l" 'face 'font-lock-type-face) ","
-  (propertize "%02c" 'face 'font-lock-type-face)
+  (propertize "%02l") ","
+  (propertize "%02c")
   " "
 
   ;; relative position, size of file
-  (propertize "%p " 'face 'font-lock-constant-face) ;; % above top
+  (propertize "%p ") ;; % above top
 
   ;; the current major mode for the buffer.
-  '(:eval (propertize "%m" 'face 'font-lock-string-face
+  '(:eval (propertize "%m"
                       'help-echo buffer-file-coding-system))
 
   ;; i don't want to see minor-modes; but if you want, uncomment this:
   minor-mode-alist  ;; list of minor modes
+
+  " "
+  ;; current function
+  '(which-func-mode ("" which-func-format " "))
+
   " %-" ;; fill with '-'
   ))
 
