@@ -4,7 +4,7 @@
   "cofi theme.")
 
 (let ((bg "#202020")
-      (fg "#FFFFFF")
+      (fg "#AAAAAA")
       (vc-added "green")
       (vc-removed "red")
       (vc-changed "blue")
