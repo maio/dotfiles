@@ -23,6 +23,10 @@
 ;; Magit
 (setq magit-rewrite-inclusive nil)
 (setq magit-status-buffer-switch-function 'switch-to-buffer)
+(evil-add-hjkl-bindings magit-status-mode-map 'emacs
+  "K" 'magit-discard-item
+  "l" 'magit-key-mode-popup-logging
+  "h" 'magit-toggle-diff-refine-hunk)
 
 (require 'maio-php)
 (require 'perl-mode)
@@ -50,6 +54,7 @@
                        rainbow-mode
                        diminish
                        zenburn-theme
+                       popup
                        yasnippet yasnippet-bundle)))
     (dolist (package my-packages)
       (when (not (package-installed-p package))
@@ -128,6 +133,7 @@
   "b" 'anything-for-files
   "v" 'edit-init
   "w" 'save-buffer
+  "g" 'magit-status
   "t" 'anything-project)
 
 ;;;; Devel
