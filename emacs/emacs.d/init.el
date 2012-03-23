@@ -265,3 +265,5 @@
 
 (remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)
 (hl-line-mode nil)
+
+(put 'narrow-to-region 'disabled nil)
