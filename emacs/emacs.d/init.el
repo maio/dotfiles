@@ -196,7 +196,7 @@
   (add-to-list 'recentf-exclude "emacs.d"))
 
 (add-to-list 'load-path "~/.emacs.d/auto-complete")
-(setq ac-ignore-case nil)
+(setq ac-ignore-case t)
 (require-and-exec 'auto-complete-config)
 (define-key ac-completing-map "\t" 'ac-complete)
 (defun ac-common-setup ()
