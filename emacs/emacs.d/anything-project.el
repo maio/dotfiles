@@ -74,12 +74,7 @@
 
 ;; almost copied from `anything-find-resource--project-root-files'.
 (defvar ap:default-project-root-files
-    '("build.xml" "prj.el" ".project" "pom.xml"
-      "Makefile" "configure" "Rakefile" "Info.plist"
-      "NAnt.build" "xpi" "Makefile.SH" ".git"
-
-      "CVS"
-      ))
+    '(".git"))
 
 ;; Internal variables
 (defvar ap:projects nil)
@@ -459,21 +454,9 @@ directory, open this directory."
            :test 'string=))
 
 (ap:add-project
- :name 'perl
- :look-for '("Makefile.PL" "Build.PL")
- :include-regexp '("\\.pm$" "\\.t$" "\\.pl$" "\\.PL$") 
-)
-
-(ap:add-project
  :name 'default
  :look-for ap:default-project-root-files
  )
-
-;;; PHP symfony
-(ap:add-project
- :name 'symfony
- :look-for 'ap:symfony-root-detector
- :grep-extensions '("\\.php"))
 
 (defun ap:symfony-root-detector (files)
   (let ((symfony-files '("symfony" "apps" "config")))
@@ -483,15 +466,5 @@ directory, open this directory."
              files
              :test 'string=))
      symfony-files)))
-
-;;; PHP cake
-(ap:add-project
- :name 'cake
- :look-for 'ap:cake-root-detector
- :grep-extensions '("\\.php"))
-(defun ap:cake-root-detector (files)
-  (ap:all-files-exist '("index.php" "controllers" "config") files))
-
-
 
 (provide 'anything-project)

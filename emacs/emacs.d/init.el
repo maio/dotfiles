@@ -30,6 +30,7 @@
 
 (require 'maio-php)
 (require 'perl-mode)
+(defalias 'cperl-mode 'perl-mode)
 
 (require-and-exec 'package
   (add-to-list 'package-archives
@@ -99,6 +100,23 @@
 (define-key evil-normal-state-map (kbd "C-SPC") 'toggle-comment-on-line-or-region)
 (define-key evil-motion-state-map (kbd "C-v") 'evil-visual-char)
 (define-key evil-motion-state-map "v" 'evil-visual-block)
+
+(evil-define-command maio/evil-maybe-write ()
+  :repeat change
+  (interactive)
+  (let ((modified (buffer-modified-p))
+        (entry-key ?,)
+        (exit-key ?w))
+    (insert entry-key)
+    (let ((evt (read-event (format "Insert %c to save buffer" exit-key) nil 0.5)))
+      (cond
+       ((null evt) (message ""))
+       ((and (integerp evt) (char-equal evt exit-key))
+        (delete-char -1)
+        (set-buffer-modified-p modified)
+        (save-buffer))
+       (t (push evt unread-command-events))))))
+(define-key evil-insert-state-map "," 'maio/evil-maybe-write)
 
 (evil-define-key 'normal perl-mode-map
   "=" 'perltidy-dwim)
@@ -190,7 +208,7 @@
 (require 'flymake-cursor)
 (push '(".+\\.t$" flymake-perl-init) flymake-allowed-file-name-masks)
 (add-hook 'perl-mode-hook
-    (lambda () (flymake-mode t)))
+    (lambda () (flymake-mode nil)))
 
 (require 'diminish)
 (eval-after-load 'yasnippet '(diminish 'yas/minor-mode "YS"))
@@ -244,3 +262,6 @@
 (defun recompile-my-files ()
   (interactive)
   (byte-recompile-directory "~/.emacs.d/" 0))
+
+(remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)
+(hl-line-mode nil)
