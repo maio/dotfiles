@@ -8,7 +8,7 @@
 (setq backup-inhibited t)
 (global-auto-revert-mode 1)
 (setq fill-column 80)
-(setq tab-width 4)
+(setq-default tab-width 4)
 (setq c-basic-offset 4)
 (setq tab-width 4)
 (setq-default indent-tabs-mode nil)
