@@ -23,10 +23,6 @@
 ;; Magit
 (setq magit-rewrite-inclusive nil)
 (setq magit-status-buffer-switch-function 'switch-to-buffer)
-(evil-add-hjkl-bindings magit-status-mode-map 'emacs
-  "K" 'magit-discard-item
-  "l" 'magit-key-mode-popup-logging
-  "h" 'magit-toggle-diff-refine-hunk)
 
 (require 'maio-php)
 (require 'perl-mode)
@@ -100,6 +96,10 @@
 (define-key evil-normal-state-map (kbd "C-SPC") 'toggle-comment-on-line-or-region)
 (define-key evil-motion-state-map (kbd "C-v") 'evil-visual-char)
 (define-key evil-motion-state-map "v" 'evil-visual-block)
+(evil-add-hjkl-bindings magit-status-mode-map 'emacs
+  "K" 'magit-discard-item
+  "l" 'magit-key-mode-popup-logging
+  "h" 'magit-toggle-diff-refine-hunk)
 
 (evil-define-command maio/evil-maybe-write ()
   :repeat change
@@ -114,7 +114,8 @@
        ((and (integerp evt) (char-equal evt exit-key))
         (delete-char -1)
         (set-buffer-modified-p modified)
-        (save-buffer))
+        (save-buffer)
+        (push 'escape unread-command-events))
        (t (push evt unread-command-events))))))
 (define-key evil-insert-state-map "," 'maio/evil-maybe-write)
 
@@ -142,7 +143,7 @@
 (defun my-eval-defun ()
   (interactive)
   (if (in-mode? 'clojure-mode)
-      (slime-eval-defun)
+      (lisp-eval-defun)
     (eval-defun nil)))
 
 (evil-leader/set-key
