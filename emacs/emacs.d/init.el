@@ -79,6 +79,10 @@
 (add-to-list 'load-path "~/.emacs.d/evil")
 (setq evil-move-cursor-back nil)
 (setq evil-want-C-u-scroll t)
+(setq evil-want-C-i-jump t)
+(setq evil-repeat-move-cursor nil)
+(setq evil-regexp-search nil)
+(setq evil-search-wrap nil)
 (require 'evil)
 (evil-mode 1)
 (define-key evil-emacs-state-map (kbd "C-c") 'evil-normal-state)
@@ -93,13 +97,28 @@
 (define-key evil-normal-state-map "L" 'evil-last-non-blank)
 (define-key evil-visual-state-map "L" 'evil-last-non-blank)
 (define-key evil-normal-state-map (kbd "C-w") 'delete-trailing-whitespace)
-(define-key evil-normal-state-map (kbd "C-SPC") 'toggle-comment-on-line-or-region)
+(define-key evil-normal-state-map "3" 'toggle-comment-on-line-or-region)
+(define-key evil-visual-state-map "3" 'toggle-comment-on-line-or-region)
 (define-key evil-motion-state-map (kbd "C-v") 'evil-visual-char)
 (define-key evil-motion-state-map "v" 'evil-visual-block)
 (evil-add-hjkl-bindings magit-status-mode-map 'emacs
   "K" 'magit-discard-item
   "l" 'magit-key-mode-popup-logging
   "h" 'magit-toggle-diff-refine-hunk)
+(evil-add-hjkl-bindings rmail-summary-mode-map 'emacs
+  "K" 'rmail-summary-kill-label)
+
+(loop for (mode . state) in '((inferior-emacs-lisp-mode      . emacs)
+                              (pylookup-mode                 . emacs)
+                              (comint-mode                   . emacs)
+                              (shell-mode                    . emacs)
+                              (term-mode                     . emacs)
+                              (rmail-mode                    . emacs)
+                              (rmail-summary-mode            . emacs)
+                              (bc-menu-mode                  . emacs)
+                              (magit-branch-manager-mode-map . emacs)
+                              (rdictcc-buffer-mode           . emacs))
+      do (evil-set-initial-state mode state))
 
 (evil-define-command maio/evil-maybe-write ()
   :repeat change
