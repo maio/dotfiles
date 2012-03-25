@@ -12,7 +12,6 @@
 (setq c-basic-offset 4)
 (setq tab-width 4)
 (setq-default indent-tabs-mode nil)
-(setq-default show-trailing-whitespace t)
 (column-number-mode 1)
 
 ;; Shell
@@ -52,6 +51,7 @@
                        diminish
                        zenburn-theme
                        popup
+                       fuzzy
                        yasnippet yasnippet-bundle)))
     (dolist (package my-packages)
       (when (not (package-installed-p package))
@@ -82,14 +82,13 @@
 (setq evil-want-C-i-jump t)
 (setq evil-repeat-move-cursor nil)
 (setq evil-regexp-search nil)
-(setq evil-search-wrap nil)
 (require 'evil)
 (evil-mode 1)
-(define-key evil-emacs-state-map (kbd "C-c") 'evil-normal-state)
-(define-key evil-replace-state-map (kbd "C-c") 'evil-normal-state)
-(define-key evil-insert-state-map (kbd "C-c") 'evil-normal-state)
+(define-key evil-emacs-state-map (kbd "C-g") 'evil-normal-state)
+(define-key evil-replace-state-map (kbd "C-g") 'evil-normal-state)
+(define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+(define-key evil-visual-state-map (kbd "C-g") 'evil-normal-state)
 (define-key evil-insert-state-map (kbd "C-e") 'end-of-line)
-(define-key evil-visual-state-map (kbd "C-c") 'evil-normal-state)
 (define-key evil-motion-state-map (kbd "TAB") "%")
 (define-key evil-motion-state-map (kbd "gp") "`[V`]")
 (define-key evil-normal-state-map "H" 'evil-first-non-blank)
@@ -107,13 +106,15 @@
   "h" 'magit-toggle-diff-refine-hunk)
 (evil-add-hjkl-bindings rmail-summary-mode-map 'emacs
   "K" 'rmail-summary-kill-label)
+(evil-add-hjkl-bindings rmail-mode-map 'normal
+  "q" (lambda () (interactive) (kill-buffer (current-buffer))))
 
 (loop for (mode . state) in '((inferior-emacs-lisp-mode      . emacs)
                               (pylookup-mode                 . emacs)
                               (comint-mode                   . emacs)
                               (shell-mode                    . emacs)
                               (term-mode                     . emacs)
-                              (rmail-mode                    . emacs)
+                              (rmail-mode                    . normal)
                               (rmail-summary-mode            . emacs)
                               (bc-menu-mode                  . emacs)
                               (magit-branch-manager-mode-map . emacs)
@@ -153,26 +154,6 @@
 (add-to-list 'load-path "~/.emacs.d/evil-plugins/surround")
 (require 'surround)
 (global-surround-mode 1)
-
-(add-to-list 'load-path "~/.emacs.d/evil-plugins/leader")
-(setq evil-leader/leader ","
-      evil-leader/in-all-states t)
-(require 'evil-leader)
-
-(defun my-eval-defun ()
-  (interactive)
-  (if (in-mode? 'clojure-mode)
-      (lisp-eval-defun)
-    (eval-defun nil)))
-
-(evil-leader/set-key
-  "," 'evil-buffer
-  "e" 'my-eval-defun
-  "b" 'anything-for-files
-  "v" 'edit-init
-  "w" 'save-buffer
-  "g" 'magit-status
-  "t" 'anything-project)
 
 ;;;; Devel
 (which-func-mode 1)
@@ -216,13 +197,21 @@
 
 (add-to-list 'load-path "~/.emacs.d/auto-complete")
 (setq ac-ignore-case t)
+(setq ac-delay 0.1)
+(setq ac-auto-show-menu nil)
+(setq ac-quick-help-delay 0.5)
 (require-and-exec 'auto-complete-config)
 (define-key ac-completing-map "\t" 'ac-complete)
+(define-key ac-completing-map "\C-n" 'ac-next)
+(define-key ac-completing-map "\C-p" 'ac-previous)
+;; (define-key ac-completing-map [return] nil)
+;; (define-key ac-completing-map "\r" nil)
 (defun ac-common-setup ()
   (add-to-list 'ac-sources 'ac-source-words-in-all-buffer)
   (add-to-list 'ac-sources 'ac-source-yasnippet))
 (ac-config-default)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+(add-to-list 'ac-modes 'eshell-mode)
 
 (require 'flymake)
 (require 'flymake-cursor)
@@ -287,3 +276,29 @@
 (hl-line-mode nil)
 
 (put 'narrow-to-region 'disabled nil)
+
+(defun maio/space-after-comma () (interactive) (insert ", "))
+(defun maio/return-after-comma () (interactive) (insert ",") (push 'return unread-command-events))
+(defun my-eval-defun ()
+  (interactive)
+  (if (in-mode? 'clojure-mode)
+      (lisp-eval-defun)
+    (eval-defun nil)))
+
+(define-key key-translation-map [?,] [(control ?,)])
+(global-set-key (kbd "C-, SPC") 'maio/space-after-comma)
+(global-set-key (kbd "C-, RET") 'maio/return-after-comma)
+(global-set-key (kbd "C-, s") 'save-buffer)
+(global-set-key (kbd "C-, w") 'save-buffer)
+(global-set-key (kbd "C-, v") 'edit-init)
+(global-set-key (kbd "C-, t") 'anything-project)
+(global-set-key (kbd "C-, C-x") 'evil-buffer)
+(global-set-key (kbd "C-, e") 'my-eval-defun)
+(global-set-key (kbd "C-, b") 'anything-for-files)
+(global-set-key (kbd "C-, g") 'magit-status)
+(global-set-key (kbd "C-w") 'evil-delete-backward-word)
+
+(defun show-trailing-whitespace () (setq show-trailing-whitespace t))
+(add-hook 'prog-mode-hook 'show-trailing-whitespace)
+
+(defun shell () (interactive) (eshell))
