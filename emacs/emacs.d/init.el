@@ -199,7 +199,7 @@
   (add-to-list 'recentf-exclude "emacs.d"))
 
 (add-to-list 'load-path "~/.emacs.d/auto-complete")
-(setq ac-ignore-case t)
+(setq ac-ignore-case 'smart)
 (setq ac-delay 0.1)
 (setq ac-auto-show-menu nil)
 (setq ac-quick-help-delay 0.5)
@@ -216,11 +216,11 @@
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (add-to-list 'ac-modes 'eshell-mode)
 
-(require 'flymake)
-(require 'flymake-cursor)
-(push '(".+\\.t$" flymake-perl-init) flymake-allowed-file-name-masks)
-(add-hook 'perl-mode-hook
-    (lambda () (flymake-mode nil)))
+;; (require 'flymake)
+;; (require 'flymake-cursor)
+;; (push '(".+\\.t$" flymake-perl-init) flymake-allowed-file-name-masks)
+;; (add-hook 'perl-mode-hook
+;;     (lambda () (flymake-mode nil)))
 
 (require 'diminish)
 (eval-after-load 'yasnippet '(diminish 'yas/minor-mode "YS"))
