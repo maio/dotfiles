@@ -65,6 +65,7 @@
 (add-to-list 'auto-mode-alist '("\\.spec$" . sql-mode))
 
 (defun edit-init () (interactive) (find-file "~/.emacs.d/init.el"))
+(defun kill-current-buffer () (interactive) (kill-buffer (current-buffer)))
 
 (defun toggle-comment-on-line-or-region ()
   "Comments or uncomments current current line or whole lines in region."
@@ -108,7 +109,8 @@
 (evil-add-hjkl-bindings rmail-summary-mode-map 'emacs
   "K" 'rmail-summary-kill-label)
 (evil-add-hjkl-bindings rmail-mode-map 'normal
-  "q" (lambda () (interactive) (kill-buffer (current-buffer))))
+  "q" 'kill-current-buffer
+  "H" 'rmail-summary)
 
 (loop for (mode . state) in '((inferior-emacs-lisp-mode      . emacs)
                               (pylookup-mode                 . emacs)
@@ -297,7 +299,7 @@
 (global-set-key (kbd "C-, e") 'my-eval-defun)
 (global-set-key (kbd "C-, b") 'anything-for-files)
 (global-set-key (kbd "C-, g") 'magit-status)
-(global-set-key (kbd "C-, k") (lambda () (interactive) (kill-buffer (current-buffer))))
+(global-set-key (kbd "C-, k") 'kill-current-buffer)
 (global-set-key (kbd "C-w") 'evil-delete-backward-word)
 
 (defun show-trailing-whitespace () (setq show-trailing-whitespace t))
