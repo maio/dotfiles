@@ -52,6 +52,7 @@
                        zenburn-theme
                        popup
                        fuzzy
+                       multi-eshell
                        yasnippet yasnippet-bundle)))
     (dolist (package my-packages)
       (when (not (package-installed-p package))
@@ -296,6 +297,7 @@
 (global-set-key (kbd "C-, e") 'my-eval-defun)
 (global-set-key (kbd "C-, b") 'anything-for-files)
 (global-set-key (kbd "C-, g") 'magit-status)
+(global-set-key (kbd "C-, k") (lambda () (interactive) (kill-buffer (current-buffer))))
 (global-set-key (kbd "C-w") 'evil-delete-backward-word)
 
 (defun show-trailing-whitespace () (setq show-trailing-whitespace t))
