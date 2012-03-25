@@ -292,7 +292,7 @@
 (global-set-key (kbd "C-, w") 'save-buffer)
 (global-set-key (kbd "C-, v") 'edit-init)
 (global-set-key (kbd "C-, t") 'anything-project)
-(global-set-key (kbd "C-, C-x") 'evil-buffer)
+(global-set-key (kbd "C-, C-,") 'evil-buffer)
 (global-set-key (kbd "C-, e") 'my-eval-defun)
 (global-set-key (kbd "C-, b") 'anything-for-files)
 (global-set-key (kbd "C-, g") 'magit-status)
