@@ -83,7 +83,7 @@
 (setq evil-want-C-u-scroll t)
 (setq evil-want-C-i-jump t)
 (setq evil-repeat-move-cursor nil)
-(setq evil-regexp-search nil)
+(setq evil-regexp-search t)
 (require 'evil)
 (evil-mode 1)
 (define-key evil-emacs-state-map (kbd "C-g") 'evil-normal-state)
@@ -106,6 +106,8 @@
   "K" 'magit-discard-item
   "l" 'magit-key-mode-popup-logging
   "h" 'magit-toggle-diff-refine-hunk)
+(evil-add-hjkl-bindings magit-log-mode-map 'emacs
+  "l" 'magit-key-mode-popup-logging)
 (evil-add-hjkl-bindings rmail-summary-mode-map 'emacs
   "K" 'rmail-summary-kill-label)
 (evil-add-hjkl-bindings rmail-mode-map 'normal
