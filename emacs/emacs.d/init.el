@@ -123,6 +123,7 @@
                               (rmail-summary-mode            . emacs)
                               (bc-menu-mode                  . emacs)
                               (magit-branch-manager-mode-map . emacs)
+                              (magit-log-edit-mode           . insert)
                               (rdictcc-buffer-mode           . emacs))
       do (evil-set-initial-state mode state))
 
