@@ -24,8 +24,7 @@
 (setq magit-status-buffer-switch-function 'switch-to-buffer)
 
 (require 'maio-php)
-(require 'perl-mode)
-(defalias 'cperl-mode 'perl-mode)
+(require 'maio-perl)
 
 (require-and-exec 'package
   (add-to-list 'package-archives
@@ -145,10 +144,10 @@
        (t (push evt unread-command-events))))))
 (define-key evil-insert-state-map "," 'maio/evil-maybe-write)
 
-(evil-define-key 'normal perl-mode-map
+(evil-define-key 'normal cperl-mode-map
   "=" 'perltidy-dwim)
 
-(evil-define-key 'visual perl-mode-map
+(evil-define-key 'visual cperl-mode-map
   "=" 'perltidy-dwim)
 
 (evil-define-key 'normal php-mode-map
