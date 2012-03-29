@@ -12,4 +12,6 @@
       cperl-indent-parens-as-block t
                 cperl-tab-always-indent t)
 
+(add-to-list 'auto-mode-alist '("\\.t$" . perl-mode))
+
 (provide 'maio-perl)

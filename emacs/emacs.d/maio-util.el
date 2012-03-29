@@ -14,4 +14,20 @@
   (interactive)
   (byte-recompile-directory "~/.emacs.d/" 0))
 
+(defun toggle-comment-on-line-or-region ()
+  "Comments or uncomments current current line or whole lines in region."
+  (interactive)
+  (if (region-active-p)
+      (comment-or-uncomment-region (region-beginning) (region-end))
+    (comment-or-uncomment-region (line-beginning-position)
+                                 (line-end-position))))
+
+(defun edit-init () (interactive) (find-file "~/.emacs.d/init.el"))
+(defun kill-current-buffer () (interactive) (kill-buffer (current-buffer)))
+(defun kill-all-buffers ()
+  (interactive)
+    (mapc 'kill-buffer (buffer-list)))
+
+(defun shell () (interactive) (eshell))
+
 (provide 'maio-util)
