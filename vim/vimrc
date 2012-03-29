@@ -150,6 +150,8 @@ nmap s vabsba
 inoremap <C-j> <C-O>o
 inoremap <C-k> <C-O>O
 inoremap <C-l> <C-O>a
+imap <C-g> <C-c>
+imap jk <C-c>
 
 nnoremap <Space> @q
 nnoremap <silent> <C-l> :noh<CR><C-l>

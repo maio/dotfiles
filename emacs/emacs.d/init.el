@@ -202,7 +202,7 @@
   (add-to-list 'recentf-exclude "emacs.d"))
 
 (add-to-list 'load-path "~/.emacs.d/auto-complete")
-(setq ac-ignore-case 'smart)
+(setq ac-ignore-case nil)
 (setq ac-delay 0.1)
 (setq ac-auto-show-menu nil)
 (setq ac-quick-help-delay 0.5)
