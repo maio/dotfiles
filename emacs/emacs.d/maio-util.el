@@ -10,4 +10,8 @@
 (defun in-mode? (mode)
   (eq major-mode mode))
 
+(defun recompile-my-files ()
+  (interactive)
+  (byte-recompile-directory "~/.emacs.d/" 0))
+
 (provide 'maio-util)

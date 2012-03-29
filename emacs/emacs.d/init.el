@@ -274,10 +274,6 @@
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 
-(defun recompile-my-files ()
-  (interactive)
-  (byte-recompile-directory "~/.emacs.d/" 0))
-
 (remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)
 (hl-line-mode nil)
 
@@ -290,6 +286,23 @@
   (if (in-mode? 'clojure-mode)
       (lisp-eval-defun)
     (eval-defun nil)))
+
+(evil-define-command cofi/evil-maybe-exit ()
+  :repeat change
+  (interactive)
+  (let ((modified (buffer-modified-p))
+        (entry-key ?j)
+        (exit-key ?k))
+    (insert entry-key)
+    (let ((evt (read-event (format "Insert %c to exit insert state" exit-key) nil 0.5)))
+      (cond
+       ((null evt) (message ""))
+       ((and (integerp evt) (char-equal evt exit-key))
+          (delete-char -1)
+          (set-buffer-modified-p modified)
+          (push 'escape unread-command-events))
+       (t (push evt unread-command-events))))))
+(define-key evil-insert-state-map "j" 'cofi/evil-maybe-exit)
 
 (define-key key-translation-map [?,] [(control ?,)])
 (global-set-key (kbd "C-, SPC") 'maio/space-after-comma)
