@@ -16,3 +16,9 @@
 [submodule "emacs/emacs.d/php-mode"]
 	path = emacs/emacs.d/php-mode
 	url = https://github.com/ejmr/php-mode.git
+[submodule "emacs/emacs.d/helm"]
+	path = emacs/emacs.d/helm
+	url = https://github.com/emacs-helm/helm.git
+[submodule "emacs/emacs.d/projectile"]
+	path = emacs/emacs.d/projectile
+	url = https://github.com/bbatsov/projectile.git

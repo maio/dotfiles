@@ -12,7 +12,6 @@
                        starter-kit-bindings
                        undo-tree
                        autopair
-                       project
                        goto-last-change
                        clojure-mode midje-mode
                        anything
@@ -40,11 +39,14 @@
 (require 'feature-mode)
 (require 'perltidy)
 (require 'maio-modeline)
-;; (require 'maio-completion)
+(require 'maio-completion)
+;; (require 'maio-anything)
 (require 'maio-prog)
 (require 'maio-git)
+(require 'maio-helm)
 
 (require 'tramp)
 (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
 
 (load-theme 'cofi-dark t)
+
