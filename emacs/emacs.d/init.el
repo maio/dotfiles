@@ -44,6 +44,7 @@
 (require 'maio-prog)
 (require 'maio-git)
 (require 'maio-helm)
+(require 'maio-keys)
 
 (require 'tramp)
 (add-to-list 'tramp-remote-path 'tramp-own-remote-path)

@@ -11,7 +11,4 @@
 (add-to-list 'load-path "~/.emacs.d/projectile")
 (require 'projectile)
 
-(global-set-key (kbd "C-, t") 'helm-projectile)
-(global-set-key (kbd "C-, b") 'helm-mini)
-
 (provide 'maio-helm)
