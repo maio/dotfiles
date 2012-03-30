@@ -30,4 +30,10 @@
 
 (defun shell () (interactive) (eshell))
 
+(defun my-eval-defun ()
+  (interactive)
+  (if (in-mode? 'clojure-mode)
+      (lisp-eval-defun)
+    (eval-defun nil)))
+
 (provide 'maio-util)

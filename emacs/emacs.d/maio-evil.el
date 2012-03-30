@@ -96,23 +96,6 @@
 
 (defun maio/space-after-comma () (interactive) (insert ", "))
 (defun maio/return-after-comma () (interactive) (insert ",") (push 'return unread-command-events))
-(defun my-eval-defun ()
-  (interactive)
-  (if (in-mode? 'clojure-mode)
-      (lisp-eval-defun)
-    (eval-defun nil)))
-
-(define-key key-translation-map [?,] [(control ?,)])
-(global-set-key (kbd "C-, SPC") 'maio/space-after-comma)
-(global-set-key (kbd "C-, RET") 'maio/return-after-comma)
-(global-set-key (kbd "C-, s") 'save-buffer)
-(global-set-key (kbd "C-, w") 'save-buffer)
-(global-set-key (kbd "C-, v") 'edit-init)
-(global-set-key (kbd "C-, C-,") 'evil-buffer)
-(global-set-key (kbd "C-, e") 'my-eval-defun)
-(global-set-key (kbd "C-, g") 'magit-status)
-(global-set-key (kbd "C-, k") 'kill-current-buffer)
-(global-set-key (kbd "C-w") 'evil-delete-backward-word)
 
 ;; Evil plugins
 (add-to-list 'load-path "~/.emacs.d/evil-plugins/surround")
