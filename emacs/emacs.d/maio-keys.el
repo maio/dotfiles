@@ -15,6 +15,7 @@
 (global-set-key (leader "f") 'helm-projectile)
 (global-set-key (leader "b") 'helm-mini)
 (global-set-key (leader "a") 'ack-and-a-half)
+(global-set-key (leader "1") 'delete-other-windows)
 (global-set-key (kbd "C-w") 'evil-delete-backward-word)
 
 (provide 'maio-keys)
