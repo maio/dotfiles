@@ -22,3 +22,6 @@
 [submodule "emacs/emacs.d/projectile"]
 	path = emacs/emacs.d/projectile
 	url = https://github.com/bbatsov/projectile.git
+[submodule "emacs/emacs.d/cperl-mode"]
+	path = emacs/emacs.d/cperl-mode
+	url = https://github.com/jrockway/cperl-mode.git

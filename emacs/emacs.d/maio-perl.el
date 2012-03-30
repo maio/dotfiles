@@ -1,3 +1,4 @@
+(add-to-list 'load-path "~/.emacs.d/cperl-mode")
 (defalias 'perl-mode 'cperl-mode)
 (setq cperl-electric-parens nil)
 (setq cperl-indent-level 4)
