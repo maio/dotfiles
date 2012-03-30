@@ -18,4 +18,13 @@
 (global-set-key (leader "1") 'delete-other-windows)
 (global-set-key (kbd "C-w") 'evil-delete-backward-word)
 
+(defun cofi/region-to-snippet (begin end)
+  "Write new snippet based on current region."
+  (interactive "r")
+  (let ((region (buffer-substring begin end)))
+    (yas/new-snippet)
+    (save-excursion
+      (goto-char (point-max))
+      (insert region))))
+
 (provide 'maio-keys)
