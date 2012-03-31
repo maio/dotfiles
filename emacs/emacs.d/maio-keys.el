@@ -18,6 +18,4 @@
 (global-set-key (leader "1") 'delete-other-windows)
 (global-set-key (kbd "C-w") 'evil-delete-backward-word)
 
-(define-key magit-log-edit-mode-map (leader "w") 'magit-log-edit-commit)
-
 (provide 'maio-keys)
