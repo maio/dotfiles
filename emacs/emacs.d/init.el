@@ -42,6 +42,7 @@
 (require 'maio-completion)
 ;; (require 'maio-anything)
 (require 'maio-prog)
+(require 'maio-org)
 (require 'maio-git)
 (require 'maio-helm)
 (require 'maio-keys)

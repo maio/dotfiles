@@ -1,2 +1,4 @@
 vim/vim/addons
 *.elc
+/emacs/emacs.d/ac-comphist.dat
+/emacs/emacs.d/.smex-items
