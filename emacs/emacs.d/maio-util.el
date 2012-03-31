@@ -36,4 +36,13 @@
       (lisp-eval-defun)
     (eval-defun nil)))
 
+(defun cofi/region-to-snippet (begin end)
+  "Write new snippet based on current region."
+  (interactive "r")
+  (let ((region (buffer-substring begin end)))
+    (yas/new-snippet)
+    (save-excursion
+      (goto-char (point-max))
+      (insert region))))
+
 (provide 'maio-util)
