@@ -12,6 +12,7 @@
 (add-to-list 'ac-modes 'eshell-mode)
 
 (define-key ac-completing-map "\t" 'ac-complete)
+(define-key ac-completing-map [tab] 'ac-complete)
 (define-key ac-completing-map "\C-n" 'ac-next)
 (define-key ac-completing-map "\C-p" 'ac-previous)
 
