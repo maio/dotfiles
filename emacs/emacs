@@ -1,3 +1,4 @@
+(set-default 'autopair-dont-activate #'(lambda () (eq major-mode 'sldb-mode)))
 (load-file "~/.emacs.d/init.el")
 
 (custom-set-variables

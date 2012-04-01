@@ -9,17 +9,17 @@
     (package-refresh-contents))
   (let ((my-packages '(starter-kit
                        starter-kit-lisp
-                       starter-kit-bindings
                        undo-tree
                        autopair
                        goto-last-change
-                       clojure-mode midje-mode
+                       slime
+                       clojure-mode
+                       midje-mode
                        ack-and-a-half
                        flymake
                        flymake-cursor
                        rainbow-mode
                        diminish
-                       zenburn-theme
                        popup
                        fuzzy
                        multi-eshell
