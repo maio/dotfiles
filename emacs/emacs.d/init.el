@@ -14,9 +14,6 @@
                        autopair
                        goto-last-change
                        clojure-mode midje-mode
-                       anything
-                       anything-config
-                       anything-match-plugin
                        ack-and-a-half
                        flymake
                        flymake-cursor
@@ -40,7 +37,6 @@
 (require 'perltidy)
 (require 'maio-modeline)
 (require 'maio-completion)
-;; (require 'maio-anything)
 (require 'maio-prog)
 (require 'maio-org)
 (require 'maio-git)
