@@ -25,3 +25,6 @@
 [submodule "emacs/emacs.d/cperl-mode"]
 	path = emacs/emacs.d/cperl-mode
 	url = https://github.com/jrockway/cperl-mode.git
+[submodule "emacs/emacs.d/enotify"]
+	path = emacs/emacs.d/enotify
+	url = https://github.com/laynor/enotify.git
