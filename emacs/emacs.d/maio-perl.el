@@ -15,4 +15,11 @@
 
 (add-to-list 'auto-mode-alist '("\\.t$" . perl-mode))
 
+(require 'cperl-mode)
+(evil-define-key 'normal cperl-mode-map
+  "=" 'perltidy-dwim)
+
+(evil-define-key 'visual cperl-mode-map
+  "=" 'perltidy-dwim)
+
 (provide 'maio-perl)

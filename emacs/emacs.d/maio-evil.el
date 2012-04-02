@@ -85,15 +85,6 @@
 
 (define-key evil-insert-state-map "," 'maio/evil-maybe-write)
 
-(evil-define-key 'normal cperl-mode-map
-  "=" 'perltidy-dwim)
-
-(evil-define-key 'visual cperl-mode-map
-  "=" 'perltidy-dwim)
-
-(evil-define-key 'normal php-mode-map
-  "K" 'my-php-function-lookup)
-
 (defun maio/space-after-comma () (interactive) (insert ", "))
 (defun maio/return-after-comma () (interactive) (insert ",") (push 'return unread-command-events))
 

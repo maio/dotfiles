@@ -50,4 +50,7 @@
           (message "Could not extract function info. Press M-F1 to go the description."))))
     (kill-buffer buf)))
 
+(evil-define-key 'normal php-mode-map
+  "K" 'my-php-function-lookup)
+
 (provide 'maio-php)
