@@ -9,7 +9,7 @@
 	url = http://github.com/cofi/evil-leader
 [submodule "emacs/emacs.d/evil"]
 	path = emacs/emacs.d/evil
-	url = git://gitorious.org/evil/evil.git
+	url = https://git.gitorious.org/evil/evil.git
 [submodule "emacs/emacs.d/auto-complete"]
 	path = emacs/emacs.d/auto-complete
 	url = http://cx4a.org/repo/auto-complete.git
