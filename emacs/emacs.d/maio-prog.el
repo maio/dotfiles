@@ -4,7 +4,6 @@
 
 (require-and-exec 'autopair
   (autopair-global-mode 1))
-(setq autopair-autowrap t)
 
 (defun show-trailing-whitespace () (setq show-trailing-whitespace t))
 (add-hook 'prog-mode-hook 'show-trailing-whitespace)
