@@ -2,8 +2,8 @@
 
 (which-func-mode 1)
 
-(require-and-exec 'autopair
-  (autopair-global-mode 1))
+(require 'autopair)
+(autopair-global-mode t)
 
 (defun show-trailing-whitespace () (setq show-trailing-whitespace t))
 (add-hook 'prog-mode-hook 'show-trailing-whitespace)
