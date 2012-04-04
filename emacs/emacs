@@ -8,12 +8,12 @@
  ;; If there is more than one, they won't work right.
  '(ack-and-a-half-ignore-case t)
  '(ack-and-a-half-regexp-search nil)
- '(custom-safe-themes (quote ("7ec2d1c73249c206cce9ebcadee61dc5469b566eea1fe095b78273c96f28c0ca" "baed08a10ff9393ce578c3ea3e8fd4f8c86e595463a882c55f3bd617df7e5a45" "7acc0466fce1bc967ce1561c8c4fdcbf4358b4ae692577562a3ed747c109f9d7" "54d1bcf3fcf758af4812f98eb53b5d767f897442753e1aa468cfeb221f8734f9" default)))
+ '(custom-safe-themes (quote ("6cb4352e7ddb143bc260f120dd340f963b59cf9574649a6e94b548a5c8451ae6" "7ec2d1c73249c206cce9ebcadee61dc5469b566eea1fe095b78273c96f28c0ca" "baed08a10ff9393ce578c3ea3e8fd4f8c86e595463a882c55f3bd617df7e5a45" "7acc0466fce1bc967ce1561c8c4fdcbf4358b4ae692577562a3ed747c109f9d7" "54d1bcf3fcf758af4812f98eb53b5d767f897442753e1aa468cfeb221f8734f9" default)))
  '(perl-indent-continued-arguments 0))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(cperl-array-face ((t (:weight bold))))
- '(cperl-hash-face ((t (:slant italic :weight bold)))))
+ '(cperl-array-face ((t (:foreground "orange" :weight normal))))
+ '(cperl-hash-face ((t (:foreground "orange" :weight normal)))))
