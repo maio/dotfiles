@@ -38,6 +38,7 @@
 (require 'maio-modeline)
 (require 'maio-completion)
 (require 'maio-prog)
+(require 'maio-sql)
 (require 'maio-org)
 (require 'maio-git)
 (require 'maio-helm)
