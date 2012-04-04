@@ -11,6 +11,7 @@
 (setq tab-width 4)
 (setq-default indent-tabs-mode nil)
 (column-number-mode 1)
+(idle-highlight-mode 1)
 
 (put 'narrow-to-region 'disabled nil)
 
