@@ -33,7 +33,7 @@
 (defun my-eval-defun ()
   (interactive)
   (if (in-mode? 'clojure-mode)
-      (lisp-eval-defun)
+      (slime-eval-defun)
     (eval-defun nil)))
 
 (defun cofi/region-to-snippet (begin end)
