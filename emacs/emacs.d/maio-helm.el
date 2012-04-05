@@ -9,6 +9,6 @@
 (require 'helm-match-plugin)
 (helm-mode 1)
 (add-to-list 'load-path "~/.emacs.d/projectile")
-(require 'projectile)
+(require 'helm-projectile)
 
 (provide 'maio-helm)
