@@ -14,6 +14,11 @@
 (idle-highlight-mode 1)
 
 (put 'narrow-to-region 'disabled nil)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+(setq mouse-wheel-progressive-speed nil)
+(setq mouse-wheel-follow-mouse 't)
+(setq scroll-step           1
+      scroll-conservatively 10000)
 
 ;; Use UTF-8 dammit
 (prefer-coding-system       'utf-8)
