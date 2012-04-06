@@ -45,4 +45,10 @@
       (goto-char (point-max))
       (insert region))))
 
+(defun force-save-buffer ()
+  (interactive)
+  (progn
+    (set-buffer-modified-p t)
+    (save-buffer 0)))
+
 (provide 'maio-util)
