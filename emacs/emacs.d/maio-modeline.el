@@ -6,7 +6,7 @@
 (eval-after-load 'auto-complete '(diminish 'auto-complete-mode "AC"))
 (eval-after-load 'autopair '(diminish 'autopair-mode "()"))
 (eval-after-load 'simple '(diminish 'auto-fill-function))
-(require 'maio-enotify)
+;; (require 'maio-enotify)
 
 (setq-default
  mode-line-format
@@ -19,8 +19,8 @@
   '(:eval (propertize "%b "
                       'help-echo (buffer-file-name)))
 
-  'enotify-mode-line-string
-  " "
+  ;; 'enotify-mode-line-string
+  ;; " "
 
   ;; line and column
   "" ;; '%02' to set to 2 chars at least; prevents flickering
