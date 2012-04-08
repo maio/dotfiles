@@ -18,7 +18,8 @@
   (command-execute (cdr (assoc key maio/leader-action-alist))))
 
 (defun maio/should-insert-leader? ()
-  (cond ((eq evil-state 'normal) nil)
+  (cond ((in-mode? 'Custom-mode) nil)
+        ((eq evil-state 'normal) nil)
         (buffer-read-only nil)
         (t t)))
 
@@ -37,7 +38,9 @@
         (maio/perform-leader-action-for-key evt))
        (t (push evt unread-command-events))))))
 
-(define-key evil-motion-state-map "," nil)
-(global-set-key "," 'maio/maybe-leader)
+(define-key evil-emacs-state-map "," 'maio/maybe-leader)
+(define-key evil-insert-state-map "," 'maio/maybe-leader)
+(define-key evil-normal-state-map "," 'maio/maybe-leader)
+(define-key evil-motion-state-map "," 'maio/maybe-leader)
 
 (provide 'maio-keys)
