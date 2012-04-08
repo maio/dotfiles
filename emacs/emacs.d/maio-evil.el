@@ -66,28 +66,6 @@
 
 (define-key evil-insert-state-map "j" 'cofi/evil-maybe-exit)
 
-(evil-define-command maio/evil-maybe-write ()
-  :repeat change
-  (interactive)
-  (let ((modified (buffer-modified-p))
-        (entry-key ?,)
-        (exit-key ?w))
-    (insert entry-key)
-    (let ((evt (read-event (format "Insert %c to save buffer" exit-key) nil 0.5)))
-      (cond
-       ((null evt) (message ""))
-       ((and (integerp evt) (char-equal evt exit-key))
-        (delete-char -1)
-        (set-buffer-modified-p modified)
-        (save-buffer)
-        (push 'escape unread-command-events))
-       (t (push evt unread-command-events))))))
-
-(define-key evil-insert-state-map "," 'maio/evil-maybe-write)
-
-(defun maio/space-after-comma () (interactive) (insert ", "))
-(defun maio/return-after-comma () (interactive) (insert ",") (push 'return unread-command-events))
-
 ;; Evil plugins
 (add-to-list 'load-path "~/.emacs.d/evil-plugins/surround")
 (require 'surround)

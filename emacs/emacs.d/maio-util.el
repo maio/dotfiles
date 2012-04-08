@@ -47,8 +47,10 @@
 
 (defun force-save-buffer ()
   (interactive)
-  (progn
-    (set-buffer-modified-p t)
-    (save-buffer 0)))
+  (cond
+   ((in-mode? 'magit-log-edit-mode) (magit-log-edit-commit))
+   (t (progn
+        (set-buffer-modified-p t)
+        (command-execute 'save-buffer)))))
 
 (provide 'maio-util)
