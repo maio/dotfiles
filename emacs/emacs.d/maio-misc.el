@@ -1,6 +1,6 @@
 (add-to-list 'exec-path "/opt/local/bin")
 (add-to-list 'exec-path "~/bin")
-(set-face-attribute 'default nil :height 150)
+(set-face-attribute 'default nil :height 170)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (setq backup-inhibited t)
