@@ -48,4 +48,5 @@
 (require 'tramp)
 (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
 
+(global-font-lock-mode 0)
 (load-theme 'cofi-dark t)
