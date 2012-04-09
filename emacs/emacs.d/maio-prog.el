@@ -16,4 +16,5 @@
 ;; (add-hook 'perl-mode-hook
 ;;     (lambda () (flymake-mode nil)))
 
+(require 'maio-guard)
 (provide 'maio-prog)
