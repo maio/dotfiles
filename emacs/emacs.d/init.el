@@ -11,6 +11,7 @@
                        starter-kit-lisp
                        undo-tree
                        autopair
+                       ace-jump-mode
                        goto-last-change
                        slime
                        clojure-mode

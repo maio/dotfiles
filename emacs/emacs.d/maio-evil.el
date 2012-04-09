@@ -36,6 +36,9 @@
 (define-key evil-visual-state-map "3" 'toggle-comment-on-line-or-region)
 (define-key evil-motion-state-map (kbd "C-v") 'evil-visual-char)
 (define-key evil-motion-state-map "v" 'evil-visual-block)
+;; make it easy to switch to visual-char mode from visual-block mode
+(define-key evil-visual-state-map "v" 'evil-visual-char)
+
 (evil-add-hjkl-bindings magit-status-mode-map 'emacs
   "K" 'magit-discard-item
   "l" 'magit-key-mode-popup-logging
@@ -65,6 +68,28 @@
        (t (push evt unread-command-events))))))
 
 (define-key evil-insert-state-map "j" 'cofi/evil-maybe-exit)
+
+;; ace-jump integration
+;; make ace jump look like a single command to evil
+(require 'ace-jump-mode)
+(setq ace-jump-mode-case-sensitive-search nil)
+
+(defadvice ace-jump-word-mode (after evil activate)
+  (recursive-edit))
+
+(defadvice ace-jump-char-mode (after evil activate)
+  (recursive-edit))
+
+(defadvice ace-jump-line-mode (after evil activate)
+  (recursive-edit))
+
+(defadvice ace-jump-done (after evil activate)
+  (exit-recursive-edit))
+
+(define-key evil-normal-state-map (kbd "SPC") 'ace-jump-word-mode)
+(define-key evil-visual-state-map (kbd "SPC") 'ace-jump-word-mode)
+(define-key evil-motion-state-map (kbd "SPC") 'ace-jump-word-mode)
+(define-key evil-normal-state-map (kbd "C-SPC") 'ace-jump-line-mode)
 
 ;; Evil plugins
 (add-to-list 'load-path "~/.emacs.d/evil-plugins/surround")
