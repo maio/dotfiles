@@ -11,7 +11,7 @@
   (find-file (git-file-full-path name)))
 
 (defun helm-c-git-list ()
-  (magit-git-lines "ls-files"))
+  (magit-git-lines "ls-files" "--full-name" "--" (git-root-dir)))
 
 (defvar helm-c-source-git-list
   `((name . "Git files")
