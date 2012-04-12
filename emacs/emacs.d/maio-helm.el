@@ -12,5 +12,6 @@
 (helm-mode 1)
 (add-to-list 'load-path "~/.emacs.d/projectile")
 (require 'helm-projectile)
+(require 'maio-helm-git)
 
 (provide 'maio-helm)

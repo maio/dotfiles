@@ -5,7 +5,7 @@
         (?b . helm-mini)
         (?k . kill-current-buffer)
         (?t . helm-c-etags-select)
-        (?f . helm-projectile)
+        (?f . helm-git)
         (?v . edit-init)
         (?e . my-eval-defun)
         (?a . ack-and-a-half)
