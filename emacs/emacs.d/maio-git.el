@@ -6,6 +6,6 @@
   (interactive)
   (magit-section-action (item info)
     ((commit)
-       (magit-run-git "publish" info)))))
+       (magit-run-git "publish" info))))
 
 (provide 'maio-git)

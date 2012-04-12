@@ -12,6 +12,7 @@
 (setq-default indent-tabs-mode nil)
 (column-number-mode 1)
 (idle-highlight-mode 1)
+(setq ring-bell-function 'ignore)
 
 (put 'narrow-to-region 'disabled nil)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
