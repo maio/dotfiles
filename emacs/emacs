@@ -15,6 +15,7 @@
  ;; If there is more than one, they won't work right.
  '(cperl-array-face ((t (:foreground "orange" :weight normal))))
  '(cperl-hash-face ((t (:foreground "orange" :slant normal :weight normal))))
+ '(helm-match ((t (:inherit hl-line))))
  '(idle-highlight ((t (:inherit hl-line))))
  '(show-paren-match ((t (:background "gray12" :foreground "green"))))
  '(show-paren-mismatch ((t (:background "gray12" :foreground "red")))))
