@@ -53,4 +53,7 @@
         (set-buffer-modified-p t)
         (command-execute 'save-buffer)))))
 
+(defun set-font-size (size)
+  (set-face-attribute 'default nil :height size))
+
 (provide 'maio-util)

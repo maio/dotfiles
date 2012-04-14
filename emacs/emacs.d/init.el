@@ -29,6 +29,7 @@
       (when (not (package-installed-p package))
         (package-install package)))))
 
+(require 'maio-ui)
 (require 'maio-misc)
 (require 'maio-evil)
 (require 'maio-shell)
@@ -48,12 +49,3 @@
 (require 'tramp)
 (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
 
-(global-font-lock-mode 0)
-
-;; override font-lock-mode
-(define-minor-mode font-lock-mode
-  nil nil nil
-  :after-hook (font-lock-initial-fontify)
-  (setq font-lock-mode nil))
-
-(load-theme 'cofi-dark t)

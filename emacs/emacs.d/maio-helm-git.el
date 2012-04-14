@@ -14,7 +14,7 @@
   (magit-git-lines "ls-files" "--full-name" "--" (git-root-dir)))
 
 (defvar helm-c-source-git-list
-  `((name . "Git files")
+  `((name . "Git files list")
     (candidates . helm-c-git-list)
     (volatile)
     (keymap . ,helm-generic-files-map)
