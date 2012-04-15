@@ -13,6 +13,7 @@
       cperl-indent-parens-as-block t
                 cperl-tab-always-indent t)
 
+(add-to-list 'which-func-modes 'cperl-mode)
 (add-to-list 'auto-mode-alist '("\\.t$" . perl-mode))
 
 (require 'cperl-mode)
