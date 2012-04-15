@@ -23,4 +23,5 @@
 (evil-define-key 'visual cperl-mode-map
   "=" 'perltidy-dwim)
 
+(require 'editortools) ;; refactorings
 (provide 'maio-perl)
