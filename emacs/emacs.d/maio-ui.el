@@ -21,5 +21,6 @@
   (set-font-size 190))
 
 (regular-mode)
+;; (presentation-mode)
 
 (provide 'maio-ui)
