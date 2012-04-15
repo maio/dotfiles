@@ -21,4 +21,5 @@
  '(show-paren-match ((t (:background "gray12" :foreground "green"))))
  '(show-paren-mismatch ((t (:background "gray12" :foreground "red")))))
 
+(set-default 'autopair-dont-activate #'(lambda () (eq major-mode 'sldb-mode)))
 (load-file "~/.emacs.d/init.el")
