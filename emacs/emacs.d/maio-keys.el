@@ -1,7 +1,8 @@
 (require 'maio-leader)
+
 (setq maio/leader-action-alist
       '((?w . force-save-buffer)
-        (?, . evil-buffer)
+        (?, . other-buffer-or-window)
         (?b . helm-mini)
         (?k . kill-current-buffer)
         (?t . helm-c-etags-select)

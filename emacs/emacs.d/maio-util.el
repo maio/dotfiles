@@ -56,4 +56,10 @@
 (defun set-font-size (size)
   (set-face-attribute 'default nil :height size))
 
+(defun other-buffer-or-window ()
+  (interactive)
+  (if (window-parent)
+      (command-execute 'other-window)
+    (command-execute 'evil-buffer)))
+
 (provide 'maio-util)
