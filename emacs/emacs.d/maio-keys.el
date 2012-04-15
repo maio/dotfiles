@@ -6,6 +6,7 @@
         (?k . kill-current-buffer)
         (?t . helm-c-etags-select)
         (?f . helm-git)
+        (?r . helm-resume)
         (?v . edit-init)
         (?e . my-eval-defun)
         (?a . ack-and-a-half)
