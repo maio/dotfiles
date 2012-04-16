@@ -62,4 +62,8 @@
       (command-execute 'other-window)
     (command-execute 'evil-buffer)))
 
+(defun find-config-file ()
+  (interactive)
+  (ido-find-file-in-dir "~/.emacs.d/"))
+
 (provide 'maio-util)

@@ -8,7 +8,7 @@
         (?t . helm-c-etags-select)
         (?f . helm-git)
         (?r . helm-resume)
-        (?v . edit-init)
+        (?v . find-config-file)
         (?e . my-eval-defun)
         (?a . ack-and-a-half)
         (?1 . delete-other-windows)
