@@ -6,7 +6,7 @@
   (interactive)
   (when (not (magit-section-action (item info)
                ((commit)
-                (message "publish"))))
-    (message "submit")))
+                (magit-run-git "publish" info))))
+    (magit-run-git "submit")))
 
 (provide 'maio-git)
