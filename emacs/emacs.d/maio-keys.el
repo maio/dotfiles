@@ -8,6 +8,7 @@
         (?t . helm-c-etags-select)
         (?f . helm-git)
         (?r . helm-resume)
+        (?s . helm-occur)
         (?v . find-config-file)
         (?e . my-eval-defun)
         (?a . ack-and-a-half)
