@@ -15,6 +15,7 @@
 
 (add-to-list 'which-func-modes 'cperl-mode)
 (add-to-list 'auto-mode-alist '("\\.t$" . perl-mode))
+(add-to-list 'auto-mode-alist '("\\.psgi$" . perl-mode))
 
 (require 'cperl-mode)
 (evil-define-key 'normal cperl-mode-map
