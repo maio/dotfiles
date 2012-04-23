@@ -16,5 +16,6 @@
         (?g . magit-status)))
 
 (global-set-key (kbd "M-x") 'helm-M-x)
+(define-key evil-normal-state-map (kbd "RET") 'midje-check-fact)
 
 (provide 'maio-keys)
