@@ -12,6 +12,7 @@
   (let ((my-packages '(starter-kit
                        starter-kit-lisp
                        undo-tree
+                       auto-complete
                        autopair
                        ace-jump-mode
                        goto-last-change

@@ -1,4 +1,3 @@
-(add-to-list 'load-path "~/.emacs.d/auto-complete")
 (setq ac-ignore-case nil)
 (setq ac-delay 0.1)
 (setq ac-auto-show-menu nil)

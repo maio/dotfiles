@@ -10,9 +10,6 @@
 [submodule "emacs/emacs.d/evil"]
 	path = emacs/emacs.d/evil
 	url = http://git.gitorious.org/evil/evil.git
-[submodule "emacs/emacs.d/auto-complete"]
-	path = emacs/emacs.d/auto-complete
-	url = http://cx4a.org/repo/auto-complete.git
 [submodule "emacs/emacs.d/php-mode"]
 	path = emacs/emacs.d/php-mode
 	url = http://github.com/ejmr/php-mode.git
