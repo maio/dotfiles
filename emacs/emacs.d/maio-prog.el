@@ -1,4 +1,5 @@
 (add-hook 'clojure-mode-hook 'midje-mode)
+(add-hook 'clojure-mode-hook 'eldoc-mode)
 
 (which-func-mode 1)
 
