@@ -17,6 +17,10 @@
 (add-to-list 'auto-mode-alist '("\\.t$" . perl-mode))
 (add-to-list 'auto-mode-alist '("\\.psgi$" . perl-mode))
 
+;; Template Toolkit
+(add-to-list 'auto-mode-alist '("\\.tmpl$" . html-mode))
+(add-to-list 'auto-mode-alist '("\\.tt$" . html-mode))
+
 (require 'cperl-mode)
 (evil-define-key 'normal cperl-mode-map
   "=" 'perltidy-dwim)

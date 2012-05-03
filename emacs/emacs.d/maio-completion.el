@@ -9,6 +9,7 @@
 (ac-config-default)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (add-to-list 'ac-modes 'eshell-mode)
+(add-to-list 'ac-modes 'sql-mode)
 
 (define-key ac-completing-map "\t" 'ac-complete)
 (define-key ac-completing-map [tab] 'ac-complete)
