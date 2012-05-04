@@ -13,7 +13,7 @@
 (column-number-mode 1)
 (idle-highlight-mode 1)
 (setq ring-bell-function 'ignore)
-(setq split-width-threshold 79)
+(setq split-width-threshold nil)
 
 (put 'narrow-to-region 'disabled nil)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
