@@ -6,7 +6,7 @@
         (?b . helm-mini)
         (?k . kill-current-buffer)
         (?t . helm-c-etags-select)
-        (?f . helm-git)
+        (?f . helm-git-find-files)
         (?r . helm-resume)
         (?s . helm-occur)
         (?v . find-config-file)
