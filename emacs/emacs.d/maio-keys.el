@@ -11,6 +11,7 @@
         (?s . helm-occur)
         (?v . find-config-file)
         (?e . my-eval-defun)
+        (?n . maio-narrow-to-defun-clone)
         (?a . ack-and-a-half)
         (?1 . delete-other-windows)
         (?g . magit-status)))

@@ -17,5 +17,11 @@
 ;; (add-hook 'perl-mode-hook
 ;;     (lambda () (flymake-mode nil)))
 
+(defun maio-narrow-to-defun-clone ()
+  (interactive)
+  (message (which-function))
+  (clone-indirect-buffer (which-function) t)
+  (narrow-to-defun))
+
 (require 'maio-guard)
 (provide 'maio-prog)
