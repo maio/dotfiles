@@ -64,10 +64,11 @@
        ((and (integerp evt) (char-equal evt exit-key))
           (delete-char -1)
           (set-buffer-modified-p modified)
-          (push 'escape unread-command-events))
+          (evil-force-normal-state))
        (t (push evt unread-command-events))))))
 
 (define-key evil-insert-state-map "j" 'cofi/evil-maybe-exit)
+(define-key evil-emacs-state-map "j" 'cofi/evil-maybe-exit)
 
 ;; ace-jump integration
 ;; make ace jump look like a single command to evil
