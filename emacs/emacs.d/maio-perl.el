@@ -22,6 +22,8 @@
 (add-to-list 'auto-mode-alist '("\\.tt$" . html-mode))
 
 (require 'cperl-mode)
+(add-hook 'cperl-mode-hook 'esk-prog-mode-hook)
+
 (evil-define-key 'normal cperl-mode-map
   "=" 'perltidy-dwim)
 

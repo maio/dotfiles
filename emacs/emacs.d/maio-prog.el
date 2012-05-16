@@ -4,10 +4,10 @@
 (which-func-mode 1)
 
 (require 'autopair)
-(autopair-global-mode t)
 
 (defun show-trailing-whitespace () (setq show-trailing-whitespace t))
 (add-hook 'prog-mode-hook 'show-trailing-whitespace)
+(add-hook 'prog-mode-hook 'autopair-on)
 
 (global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
 
