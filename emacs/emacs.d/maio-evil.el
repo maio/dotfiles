@@ -64,7 +64,9 @@
        ((and (integerp evt) (char-equal evt exit-key))
           (delete-char -1)
           (set-buffer-modified-p modified)
-          (evil-force-normal-state))
+          (if (evil-emacs-state-p)
+              (evil-normal-state)
+            (push 'escape unread-command-events)))
        (t (push evt unread-command-events))))))
 
 (define-key evil-insert-state-map "j" 'cofi/evil-maybe-exit)
