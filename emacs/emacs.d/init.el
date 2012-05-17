@@ -18,6 +18,7 @@
                        goto-last-change
                        slime
                        clojure-mode
+                       expand-region
                        midje-mode
                        ack-and-a-half
                        flymake
