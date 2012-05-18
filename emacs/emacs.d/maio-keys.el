@@ -18,5 +18,6 @@
 
 (global-set-key (kbd "M-x") 'helm-M-x)
 (define-key evil-normal-state-map (kbd "RET") 'midje-check-fact)
+(define-key magit-status-mode-map (kbd "p") 'maio-git-submit)
 
 (provide 'maio-keys)
