@@ -1,6 +1,9 @@
 (add-hook 'clojure-mode-hook 'midje-mode)
 (add-hook 'clojure-mode-hook 'eldoc-mode)
 
+(eval-after-load 'slime
+  '(setq slime-protocol-version 'ignore))
+
 (which-func-mode 1)
 
 (require 'autopair)
