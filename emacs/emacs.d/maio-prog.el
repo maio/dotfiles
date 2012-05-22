@@ -26,5 +26,9 @@
   (clone-indirect-buffer (which-function) t)
   (narrow-to-defun))
 
+(setq whitespace-action '(auto-cleanup))
+(setq whitespace-style '(face trailing lines-tail) whitespace-line-column 80)
+(whitespace-mode)
+
 (require 'maio-guard)
 (provide 'maio-prog)
