@@ -72,7 +72,7 @@ let mapleader=","
 let maplocalleader = "\\"
 
 set runtimepath+=~/.vim/vim-addons/vim-addon-manager
-call vam#ActivateAddons(['Command-T','a',"xptemplate","fugitive","taglist","unimpaired","surround","repeat","mustache","tComment","VimClojure","ctrlp","VimOrganizer","Gundo","Powerline"])
+call vam#ActivateAddons(['a',"xptemplate","fugitive","taglist","unimpaired","surround","repeat","mustache","tComment","VimClojure","ctrlp","VimOrganizer","Gundo","Powerline"])
 let g:alternateExtensions_{'pm'} = "t"
 let g:alternateExtensions_{'pl'} = "t"
 let g:alternateExtensions_{'t'} = "pm,pl"
@@ -160,8 +160,7 @@ nnoremap Q gqap
 vnoremap Q gq
 
 map <Leader>e :e %%
-map <leader>t :CommandTGit<cr>
-map <leader>b :CommandTBuffer<cr>
+map <leader>f :CtrlP<cr>
 
 map <Leader>w :w<CR>
 map <Leader>. `.

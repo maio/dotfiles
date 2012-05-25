@@ -5,6 +5,7 @@
       helm-allow-skipping-current-buffer nil)
 (setq helm-mp-matching-method 'multi2)
 (setq helm-M-x-requires-pattern 0)
+(setq helm-ff-transformer-show-only-basename nil)
 
 (add-to-list 'load-path "~/.emacs.d/helm")
 (require 'helm-config)

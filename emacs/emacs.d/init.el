@@ -13,22 +13,19 @@
                        starter-kit-lisp
                        undo-tree
                        auto-complete
-                       autopair
                        ace-jump-mode
                        goto-last-change
                        slime
                        clojure-mode
-                       expand-region
                        midje-mode
                        ack-and-a-half
                        flymake
                        flymake-cursor
-                       rainbow-mode
                        diminish
                        popup
                        fuzzy
-                       multi-eshell
-                       yasnippet yasnippet-bundle)))
+                       yasnippet
+                       yasnippet-bundle)))
     (dolist (package my-packages)
       (when (not (package-installed-p package))
         (package-install package)))))

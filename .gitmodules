@@ -21,7 +21,7 @@
 	url = http://github.com/bbatsov/projectile.git
 [submodule "emacs/emacs.d/cperl-mode"]
 	path = emacs/emacs.d/cperl-mode
-	url = http://github.com/jrockway/cperl-mode.git
+	url = http://github.com/maio/cperl-mode.git
 [submodule "emacs/emacs.d/enotify"]
 	path = emacs/emacs.d/enotify
 	url = http://github.com/laynor/enotify.git

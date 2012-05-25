@@ -5,20 +5,12 @@
   '(setq slime-protocol-version 'ignore))
 
 (which-func-mode 1)
-
-(require 'autopair)
+(electric-pair-mode 1)
+(electric-indent-mode 1)
+(electric-layout-mode 1)
 
 (defun show-trailing-whitespace () (setq show-trailing-whitespace t))
 (add-hook 'prog-mode-hook 'show-trailing-whitespace)
-(add-hook 'prog-mode-hook 'autopair-on)
-
-(global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
-
-;; (require 'flymake)
-;; (require 'flymake-cursor)
-;; (push '(".+\\.t$" flymake-perl-init) flymake-allowed-file-name-masks)
-;; (add-hook 'perl-mode-hook
-;;     (lambda () (flymake-mode nil)))
 
 (defun maio-narrow-to-defun-clone ()
   (interactive)
