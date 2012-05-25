@@ -7,6 +7,10 @@
   :after-hook (font-lock-initial-fontify)
   (setq font-lock-mode nil))
 
+(defun toggle-fullscreen ()
+  (when (fboundp 'ns-toggle-fullscreen)
+    (ns-toggle-fullscreen)))
+
 ;; custom display modes
 (defun regular-mode ()
   (interactive)
