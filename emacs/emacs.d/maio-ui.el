@@ -8,7 +8,7 @@
   (setq font-lock-mode nil))
 
 (defun toggle-fullscreen ()
-  (when (fboundp 'ns-toggle-fullscreen)
+  (when (and (fboundp 'ns-toggle-fullscreen) window-system)
     (ns-toggle-fullscreen)))
 
 ;; custom display modes
@@ -26,5 +26,8 @@
 
 (regular-mode)
 ;; (presentation-mode)
+
+(require 'escreen)
+(escreen-install)
 
 (provide 'maio-ui)

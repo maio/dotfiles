@@ -24,6 +24,7 @@
                        diminish
                        popup
                        fuzzy
+                       escreen
                        yasnippet
                        yasnippet-bundle)))
     (dolist (package my-packages)
