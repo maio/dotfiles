@@ -38,6 +38,8 @@
 (define-key evil-motion-state-map "v" 'evil-visual-block)
 ;; make it easy to switch to visual-char mode from visual-block mode
 (define-key evil-visual-state-map "v" 'evil-visual-char)
+(define-key evil-insert-state-map (kbd "<C-return>") 'evil-open-above)
+(define-key evil-visual-state-map "u" nil)
 
 (evil-add-hjkl-bindings magit-status-mode-map 'emacs
   "K" 'magit-discard-item
