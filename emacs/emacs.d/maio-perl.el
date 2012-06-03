@@ -23,11 +23,12 @@
 (require 'cperl-mode)
 (add-hook 'cperl-mode-hook 'esk-prog-mode-hook)
 
-(evil-define-key 'normal cperl-mode-map
-  "=" 'perltidy-dwim)
+(evil-define-key 'normal cperl-mode-map "=" 'perltidy-dwim)
+(evil-define-key 'visual cperl-mode-map "=" 'perltidy-dwim)
+(define-key cperl-mode-map ";" 'maio/electric-semicolon)
+(define-key cperl-mode-map (kbd "SPC") 'maio/electric-space)
+(define-key cperl-mode-map (kbd "RET") 'maio/electric-return)
 
-(evil-define-key 'visual cperl-mode-map
-  "=" 'perltidy-dwim)
+(add-hook 'cperl-mode-hook 'autopair-on)
 
-(require 'editortools) ;; refactorings
 (provide 'maio-perl)

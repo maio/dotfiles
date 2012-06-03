@@ -17,7 +17,27 @@
         (?g . magit-status)))
 
 (global-set-key (kbd "M-x") 'helm-M-x)
-(define-key evil-normal-state-map (kbd "RET") 'midje-check-fact)
+(evil-define-key 'normal clojure-mode-map (kbd "RET") 'midje-check-fact)
 (define-key magit-status-mode-map (kbd "p") 'maio-git-submit)
+
+(defun maio/electric-semicolon ()
+  (interactive)
+  (call-interactively 'move-end-of-line)
+  (when (not (looking-back ";"))
+    (insert ";")))
+
+(defun maio/electric-space ()
+  (interactive)
+  (cond ((looking-back "(\\|{")
+         (insert "  ")
+         (backward-char))
+        (t (insert " "))))
+
+(defun maio/electric-return ()
+  (interactive)
+  (cond ((looking-back "(\\|{")
+         (newline-and-indent)
+         (call-interactively 'evil-open-above))
+        (t (newline-and-indent))))
 
 (provide 'maio-keys)

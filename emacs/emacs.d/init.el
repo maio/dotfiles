@@ -25,6 +25,8 @@
                        popup
                        fuzzy
                        escreen
+                       autopair
+                       iedit
                        yasnippet
                        yasnippet-bundle)))
     (dolist (package my-packages)

@@ -4,8 +4,9 @@
 (eval-after-load 'slime
   '(setq slime-protocol-version 'ignore))
 
+(require 'autopair)
 (which-func-mode 1)
-(electric-pair-mode 1)
+(electric-pair-mode 0)
 (electric-indent-mode 1)
 (electric-layout-mode 1)
 
@@ -22,5 +23,13 @@
 (setq whitespace-style '(face trailing lines-tail) whitespace-line-column 80)
 (whitespace-mode)
 
+(require 'ansi-color)
+(defun colorize-compilation-buffer ()
+  (toggle-read-only)
+  (ansi-color-apply-on-region (point-min) (point-max))
+  (toggle-read-only))
+(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+
+(require 'iedit)
 (require 'maio-guard)
 (provide 'maio-prog)

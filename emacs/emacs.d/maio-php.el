@@ -21,6 +21,8 @@
             (c-set-offset 'arglist-intro 'ywb-php-lineup-arglist-intro)
             (c-set-offset 'arglist-close 'ywb-php-lineup-arglist-close)))
 
+(add-hook 'php-mode-hook 'autopair-on)
+
 (defun my-php-function-lookup ()
   (interactive)
   (let* ((function (symbol-name (or (symbol-at-point)
