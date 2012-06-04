@@ -28,6 +28,8 @@
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 
+(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
+
 (remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)
 (hl-line-mode nil)
 

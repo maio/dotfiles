@@ -8,6 +8,7 @@
         (?t . helm-c-etags-select)
         (?f . helm-git-find-files)
         (?r . helm-resume)
+        (?x . helm-M-x)
         (?s . helm-occur)
         (?v . find-config-file)
         (?e . my-eval-defun)
@@ -16,7 +17,6 @@
         (?1 . delete-other-windows)
         (?g . magit-status)))
 
-(global-set-key (kbd "M-x") 'helm-M-x)
 (evil-define-key 'normal clojure-mode-map (kbd "RET") 'midje-check-fact)
 (define-key magit-status-mode-map (kbd "p") 'maio-git-submit)
 
