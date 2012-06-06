@@ -40,4 +40,12 @@
          (call-interactively 'evil-open-above))
         (t (newline-and-indent))))
 
+(defun maio/makefile-newline ()
+  (interactive)
+  (insert "\\")
+  (newline-and-indent))
+
+(eval-after-load 'make-mode
+  '(define-key makefile-gmake-mode-map (kbd "C-j") 'maio/makefile-newline))
+
 (provide 'maio-keys)
