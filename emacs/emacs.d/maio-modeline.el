@@ -6,7 +6,7 @@
 (eval-after-load 'auto-complete '(diminish 'auto-complete-mode "AC"))
 (eval-after-load 'autopair '(diminish 'autopair-mode "()"))
 (eval-after-load 'simple '(diminish 'auto-fill-function))
-;; (require 'maio-enotify)
+(eval-after-load 'flymake '(diminish 'flymake-mode "Fly"))
 
 (setq-default
  mode-line-format

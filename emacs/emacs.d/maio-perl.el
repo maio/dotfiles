@@ -22,6 +22,7 @@
 
 (require 'cperl-mode)
 (add-hook 'cperl-mode-hook 'esk-prog-mode-hook)
+(add-hook 'cperl-mode-hook 'flymake-mode)
 
 (evil-define-key 'normal cperl-mode-map "=" 'perltidy-dwim)
 (evil-define-key 'visual cperl-mode-map "=" 'perltidy-dwim)
