@@ -22,7 +22,7 @@
 
 (defun maio/electric-semicolon ()
   (interactive)
-  (call-interactively 'move-end-of-line)
+  (call-interactively 'end-of-line)
   (when (not (looking-back ";"))
     (insert ";")))
 
