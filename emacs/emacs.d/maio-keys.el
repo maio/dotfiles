@@ -24,7 +24,8 @@
   (interactive)
   (call-interactively 'end-of-line)
   (when (not (looking-back ";"))
-    (insert ";")))
+    (insert ";")
+    (indent-according-to-mode)))
 
 (defun maio/electric-space ()
   (interactive)
