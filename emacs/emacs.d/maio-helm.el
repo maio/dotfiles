@@ -6,7 +6,7 @@
 (add-to-list 'load-path "~/.emacs.d/helm")
 (require 'helm-config)
 (require 'helm-match-plugin)
-(helm-mode 1)
+(helm-mode 0)
 (add-to-list 'load-path "~/.emacs.d/projectile")
 (require 'helm-projectile)
 (require 'maio-helm-git)
