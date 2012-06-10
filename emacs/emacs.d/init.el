@@ -27,6 +27,7 @@
                        escreen
                        autopair
                        iedit
+                       expand-region
                        yasnippet
                        yasnippet-bundle)))
     (dolist (package my-packages)
