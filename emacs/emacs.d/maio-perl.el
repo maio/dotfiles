@@ -31,4 +31,7 @@
      (define-key cperl-mode-map (kbd "SPC") 'maio/electric-space)
      (define-key cperl-mode-map (kbd "RET") 'maio/electric-return)))
 
+(setq flymake-perlcritic-severity 3)
+(require 'flymake-perlcritic)
+
 (provide 'maio-perl)

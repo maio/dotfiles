@@ -21,6 +21,7 @@
                        ack-and-a-half
                        flymake
                        flymake-cursor
+                       flymake-perlcritic
                        diminish
                        popup
                        fuzzy
