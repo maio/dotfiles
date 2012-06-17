@@ -56,5 +56,6 @@
   "K" 'my-php-function-lookup)
 (define-key php-mode-map ";" 'maio/electric-semicolon)
 (define-key php-mode-map (kbd "SPC") 'maio/electric-space)
+(define-key php-mode-map (kbd "C-;") 'maio/mark-all-like-this)
 
 (provide 'maio-php)

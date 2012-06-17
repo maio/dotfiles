@@ -30,6 +30,14 @@
   (toggle-read-only))
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
-(require 'iedit)
+(require 'mark-more-like-this)
+(defun maio/mark-all-like-this ()
+  (interactive)
+  (evil-visual-char)
+  (call-interactively 'mark-all-like-this)
+  (evil-exchange-point-and-mark)
+  (evil-normal-state)
+  (back))
+
 (require 'maio-guard)
 (provide 'maio-prog)

@@ -14,6 +14,7 @@
 (idle-highlight-mode 1)
 (setq ring-bell-function 'ignore)
 (setq split-width-threshold 79)
+(setq ido-use-filename-at-point nil)
 
 (put 'narrow-to-region 'disabled nil)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))

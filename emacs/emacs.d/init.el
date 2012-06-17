@@ -27,7 +27,7 @@
                        fuzzy
                        escreen
                        autopair
-                       iedit
+                       mark-multiple
                        expand-region
                        yasnippet
                        yasnippet-bundle)))
