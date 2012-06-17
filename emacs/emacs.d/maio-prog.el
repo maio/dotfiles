@@ -36,8 +36,7 @@
   (evil-visual-char)
   (call-interactively 'mark-all-like-this)
   (evil-exchange-point-and-mark)
-  (evil-normal-state)
-  (back))
+  (evil-normal-state))
 
 (require 'maio-guard)
 (provide 'maio-prog)
