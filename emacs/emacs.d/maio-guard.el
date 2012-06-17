@@ -12,6 +12,9 @@
         (compilation-scroll-output t))
     (cd (projectile-get-project-root))
     (compile "make guard")
+    (other-buffer-or-window)
+    (rename-buffer "*guard*")
+    (other-buffer-or-window)
     (cd old-path)))
 
 (provide 'maio-guard)
