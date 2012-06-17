@@ -28,6 +28,7 @@
                        escreen
                        autopair
                        mark-multiple
+                       key-chord
                        expand-region
                        yasnippet
                        yasnippet-bundle)))
