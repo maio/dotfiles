@@ -15,7 +15,7 @@
 (defun regular-mode ()
   (interactive)
   (disable-theme 'dichromacy)
-  (set-font-size 160)
+  (set-font-size 120)
   (load-theme 'cofi-dark t))
 
 (defun presentation-mode ()
