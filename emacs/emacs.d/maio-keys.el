@@ -19,10 +19,6 @@
 (evil-define-key 'normal clojure-mode-map (kbd "RET") 'midje-check-fact)
 (define-key magit-status-mode-map (kbd "p") 'maio-git-submit)
 
-(require 'expand-region)
-(define-key evil-normal-state-map (kbd "C-w") 'er/expand-region)
-(define-key evil-visual-state-map (kbd "C-w") 'er/expand-region)
-
 (defun maio/electric-semicolon ()
   (interactive)
   (call-interactively 'end-of-line)

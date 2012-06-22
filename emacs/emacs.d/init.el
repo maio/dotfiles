@@ -29,7 +29,6 @@
                        autopair
                        mark-multiple
                        key-chord
-                       expand-region
                        yasnippet
                        yasnippet-bundle)))
     (dolist (package my-packages)
