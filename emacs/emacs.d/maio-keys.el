@@ -52,4 +52,6 @@
 (eval-after-load 'make-mode
   '(define-key makefile-gmake-mode-map (kbd "C-j") 'maio/makefile-newline))
 
+(global-set-key (kbd "C-;") 'maio/mark-all-like-this)
+
 (provide 'maio-keys)

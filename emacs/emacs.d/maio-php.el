@@ -52,10 +52,8 @@
           (message "Could not extract function info. Press M-F1 to go the description."))))
     (kill-buffer buf)))
 
-(evil-define-key 'normal php-mode-map
-  "K" 'my-php-function-lookup)
+(evil-define-key 'normal php-mode-map "K" 'my-php-function-lookup)
 (define-key php-mode-map ";" 'maio/electric-semicolon)
 (define-key php-mode-map (kbd "SPC") 'maio/electric-space)
-(define-key php-mode-map (kbd "C-;") 'maio/mark-all-like-this)
 
 (provide 'maio-php)
