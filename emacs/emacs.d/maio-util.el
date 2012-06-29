@@ -12,7 +12,7 @@
 
 (defun recompile-my-files ()
   (interactive)
-  (byte-recompile-directory "~/.emacs.d/" 0))
+  (byte-recompile-directory "~/.emacs.d/"))
 
 (defun toggle-comment-on-line-or-region ()
   "Comments or uncomments current current line or whole lines in region."
