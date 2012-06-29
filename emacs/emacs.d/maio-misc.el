@@ -13,7 +13,7 @@
 (column-number-mode 1)
 (idle-highlight-mode 1)
 (setq ring-bell-function 'ignore)
-(setq split-width-threshold 79)
+(setq split-height-threshold nil)
 (setq ido-use-filename-at-point nil)
 (setq autopair-blink nil)
 
