@@ -1,3 +1,4 @@
+(require 'magit)
 (require 'key-chord)
 (key-chord-mode 1)
 (key-chord-define-global (kbd ",,") 'other-buffer-or-window)
@@ -5,7 +6,7 @@
 (key-chord-define-global (kbd ",b") 'helm-mini)
 (key-chord-define-global (kbd ",k") 'kill-current-buffer)
 (key-chord-define-global (kbd ",t") 'helm-c-etags-select)
-(key-chord-define-global (kbd ",f") 'helm-git-find-files)
+(key-chord-define-global (kbd ",f") 'helm-ls-git-ls)
 (key-chord-define-global (kbd ",r") 'helm-resume)
 (key-chord-define-global (kbd ",x") 'helm-M-x)
 (key-chord-define-global (kbd ",s") 'helm-occur)

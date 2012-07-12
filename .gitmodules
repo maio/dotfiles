@@ -25,6 +25,6 @@
 [submodule "emacs/emacs.d/enotify"]
 	path = emacs/emacs.d/enotify
 	url = http://github.com/laynor/enotify.git
-[submodule "emacs/emacs.d/helm-git"]
-	path = emacs/emacs.d/helm-git
-	url = git@github.com:maio/helm-git.git
+[submodule "emacs/emacs.d/helm-ls-git"]
+	path = emacs/emacs.d/helm-ls-git
+	url = http://github.com/emacs-helm/helm-ls-git.git
