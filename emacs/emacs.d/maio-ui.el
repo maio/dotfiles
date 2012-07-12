@@ -24,9 +24,6 @@
   (load-theme 'dichromacy t)
   (set-font-size 190))
 
-(regular-mode)
-;; (presentation-mode)
-
 (require 'escreen)
 (escreen-install)
 
