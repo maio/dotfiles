@@ -17,6 +17,9 @@
 (key-chord-define-global (kbd ",1") 'delete-other-windows)
 (key-chord-define-global (kbd ",g") 'magit-status)
 
+(key-chord-define evil-insert-state-map (kbd "jk") 'evil-normal-state)
+(key-chord-define evil-emacs-state-map (kbd "jk") 'evil-normal-state)
+
 (evil-define-key 'normal clojure-mode-map (kbd "RET") 'midje-check-fact)
 (define-key magit-status-mode-map (kbd "p") 'maio-git-submit)
 
