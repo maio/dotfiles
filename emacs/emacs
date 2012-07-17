@@ -16,6 +16,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(cursor ((t (:background "orange"))))
  '(helm-match ((t (:inherit hl-line))))
  '(helm-selection ((t (:background "ForestGreen"))))
  '(helm-source-header ((t (:background "#22083397778B" :foreground "white"))))
