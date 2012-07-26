@@ -1,5 +1,6 @@
 (add-to-list 'exec-path "/opt/local/bin")
 (add-to-list 'exec-path "~/bin")
+(setenv "PATH" (concat "~/bin" ":" (getenv "PATH")))
 (set-face-attribute 'default nil :height 150)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
