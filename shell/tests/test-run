@@ -8,7 +8,7 @@ fi
 EMACS_SERVER=`emacsclient --eval '"OK"' || echo ""`
 
 if [ "$EMACS_SERVER" != "" ]; then
-    emacsclient --eval "(set-face-background 'modeline \"Gray\")" > /dev/null
+    emacsclient --eval "(set-face-background 'modeline \"Black\")" > /dev/null
     exit 0
 fi
 
