@@ -70,9 +70,9 @@
 (defadvice ace-jump-done (after evil activate)
   (exit-recursive-edit))
 
-(define-key evil-normal-state-map (kbd "SPC") 'ace-jump-char-mode)
-(define-key evil-visual-state-map (kbd "SPC") 'ace-jump-char-mode)
-(define-key evil-motion-state-map (kbd "SPC") 'ace-jump-char-mode)
+(define-key evil-normal-state-map (kbd "SPC") 'ace-jump-word-mode)
+(define-key evil-visual-state-map (kbd "SPC") 'ace-jump-word-mode)
+(define-key evil-motion-state-map (kbd "SPC") 'ace-jump-word-mode)
 (define-key evil-normal-state-map (kbd "C-SPC") 'ace-jump-line-mode)
 
 ;; Evil plugins
