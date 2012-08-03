@@ -19,6 +19,7 @@
 (setq autopair-blink nil)
 (setq x-select-enable-clipboard t)
 (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
+(setq require-final-newline nil)
 
 (put 'narrow-to-region 'disabled nil)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
