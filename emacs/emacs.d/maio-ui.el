@@ -24,7 +24,7 @@
   (interactive)
   (disable-theme 'cofi-dark)
   (load-theme 'dichromacy t)
-  (set-font-size 190)
+  (set-font-size 140)
   (toggle-fullscreen)
   (toggle-fullscreen))
 
