@@ -1,4 +1,5 @@
 # name: it
+# condition: (save-excursion (backward-word) (eq (point) (yas/real-line-beginning)))
 # --
 it "${1:what}" => sub {
     $0

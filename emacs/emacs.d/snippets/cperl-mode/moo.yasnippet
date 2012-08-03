@@ -1,7 +1,11 @@
 # -*- mode: snippet -*-
-# name: has
+# name: moo
 # condition: (save-excursion (backward-word) (eq (point) (yas/real-line-beginning)))
 # --
-has '$1' => (
-    is => 'ro',$2
-);$0
+package $1;
+use Moose;
+
+$0
+
+no Moose;
+__PACKAGE__->meta->make_immutable;

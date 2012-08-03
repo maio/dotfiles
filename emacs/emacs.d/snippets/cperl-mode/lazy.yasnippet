@@ -1,7 +1,6 @@
 # -*- mode: snippet -*-
-# name: has
+# name: lazy
 # condition: (save-excursion (backward-word) (eq (point) (yas/real-line-beginning)))
 # --
-has '$1' => (
-    is => 'ro',$2
-);$0
+lazy => 1,
+builder => '_build_$1',$0
