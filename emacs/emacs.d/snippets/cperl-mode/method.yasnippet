@@ -1,12 +1,7 @@
 # -*- mode: snippet -*-
-# name: moo
+# name: method
 # condition: (save-excursion (backward-word) (eq (point) (yas/real-line-beginning)))
 # --
-package $1;
-use Moose;
-use Method::Signatures;
-
-$0
-
-no Moose;
-__PACKAGE__->meta->make_immutable;
+method $1($2) {
+    $0
+}
