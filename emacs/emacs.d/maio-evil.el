@@ -40,6 +40,7 @@
 (define-key evil-visual-state-map "v" 'evil-visual-char)
 (define-key evil-insert-state-map (kbd "<C-return>") 'evil-open-above)
 (define-key evil-visual-state-map "u" nil)
+(define-key evil-insert-state-map "\C-x\C-l" 'evil-complete-previous-line)
 
 (evil-add-hjkl-bindings magit-status-mode-map 'emacs
   "K" 'magit-discard-item
