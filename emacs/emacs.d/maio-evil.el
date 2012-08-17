@@ -22,7 +22,6 @@
 
 (define-key evil-emacs-state-map (kbd "C-g") 'evil-normal-state)
 (define-key evil-replace-state-map (kbd "C-g") 'evil-normal-state)
-(define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
 (define-key evil-visual-state-map (kbd "C-g") 'evil-normal-state)
 (define-key evil-insert-state-map (kbd "C-e") 'end-of-line)
 (define-key evil-motion-state-map (kbd "TAB") "%")
