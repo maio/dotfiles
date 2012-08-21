@@ -54,21 +54,8 @@
   "H" 'rmail-summary)
 
 ;; ace-jump integration
-;; make ace jump look like a single command to evil
 (require 'ace-jump-mode)
 (setq ace-jump-mode-case-sensitive-search nil)
-
-(defadvice ace-jump-word-mode (after evil activate)
-  (recursive-edit))
-
-(defadvice ace-jump-char-mode (after evil activate)
-  (recursive-edit))
-
-(defadvice ace-jump-line-mode (after evil activate)
-  (recursive-edit))
-
-(defadvice ace-jump-done (after evil activate)
-  (exit-recursive-edit))
 
 (define-key evil-normal-state-map (kbd "SPC") 'ace-jump-word-mode)
 (define-key evil-visual-state-map (kbd "SPC") 'ace-jump-word-mode)
