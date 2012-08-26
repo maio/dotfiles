@@ -1,6 +1,8 @@
 (add-hook 'clojure-mode-hook 'midje-mode)
 (add-hook 'clojure-mode-hook 'eldoc-mode)
 
+(add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode))
+
 (eval-after-load 'slime
   '(setq slime-protocol-version 'ignore))
 
