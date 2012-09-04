@@ -17,4 +17,12 @@
     (other-buffer-or-window)
     (cd old-path)))
 
+(defun guard-or-goto-guard ()
+  (interactive)
+  (if (get-buffer "*guard*")
+      (progn
+        (switch-to-buffer-other-window "*guard*")
+        (end-of-buffer))
+    (guard)))
+
 (provide 'maio-guard)

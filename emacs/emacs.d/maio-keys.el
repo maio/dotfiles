@@ -16,6 +16,7 @@
 (key-chord-define-global (kbd ",a") 'ack-and-a-half)
 (key-chord-define-global (kbd ",1") 'delete-other-windows)
 (key-chord-define-global (kbd ",g") 'magit-status)
+(key-chord-define-global (kbd "GG") 'guard-or-goto-guard)
 
 (key-chord-define evil-insert-state-map (kbd "jk") 'evil-normal-state)
 (key-chord-define evil-emacs-state-map (kbd "jk") 'evil-normal-state)
