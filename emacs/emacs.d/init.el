@@ -1,4 +1,5 @@
 (add-to-list 'load-path "~/.emacs.d")
+(require 'advice)     ; required by ido (until they fix dependencies)
 (require 'maio-util)
 
 (require-and-exec 'package
