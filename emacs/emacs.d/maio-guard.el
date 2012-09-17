@@ -10,7 +10,7 @@
   (server-start)
   (let ((old-path default-directory)
         (compilation-scroll-output t))
-    (cd (projectile-get-project-root))
+    (cd (projectile-project-root))
     (compile "make guard")
     (other-buffer-or-window)
     (rename-buffer "*guard*")
