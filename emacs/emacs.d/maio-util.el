@@ -33,7 +33,7 @@
 (defun my-eval-defun ()
   (interactive)
   (if (in-mode? 'clojure-mode)
-      (slime-eval-defun)
+      (nrepl-eval-expression-at-point)
     (eval-defun nil)))
 
 (defun cofi/region-to-snippet (begin end)

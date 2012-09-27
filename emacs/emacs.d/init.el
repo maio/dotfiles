@@ -12,19 +12,19 @@
     (package-refresh-contents))
   (let ((my-packages '(starter-kit
                        starter-kit-lisp
+                       popup
                        undo-tree
                        auto-complete
                        ace-jump-mode
                        goto-last-change
-                       slime
                        clojure-mode
+                       nrepl
                        midje-mode
                        ack-and-a-half
                        flymake
                        flymake-cursor
                        flymake-perlcritic
                        diminish
-                       popup
                        fuzzy
                        escreen
                        autopair
