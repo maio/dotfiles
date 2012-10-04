@@ -17,8 +17,9 @@
 (setq split-height-threshold nil)
 (setq ido-use-filename-at-point nil)
 (setq autopair-blink nil)
-(setq x-select-enable-clipboard t)
-(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
+(when (system-type-is-gnu)
+  (setq x-select-enable-clipboard t)
+  (setq interprogram-paste-function 'x-cut-buffer-or-selection-value))
 (setq require-final-newline nil)
 
 (put 'narrow-to-region 'disabled nil)
