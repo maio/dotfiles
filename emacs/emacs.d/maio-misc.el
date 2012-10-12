@@ -22,6 +22,11 @@
   (setq interprogram-paste-function 'x-cut-buffer-or-selection-value))
 (setq require-final-newline nil)
 
+(setq extended-command-history
+      (list "helm-do-grep"
+            "recompile-my-files"
+            "magit-blame-mode"))
+
 (put 'narrow-to-region 'disabled nil)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 (setq mouse-wheel-progressive-speed nil)
