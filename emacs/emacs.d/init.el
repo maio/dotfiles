@@ -12,6 +12,7 @@
     (package-refresh-contents))
   (let ((my-packages '(starter-kit
                        starter-kit-lisp
+                       s
                        popup
                        undo-tree
                        auto-complete
