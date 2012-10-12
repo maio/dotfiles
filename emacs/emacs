@@ -21,6 +21,7 @@
  '(helm-selection ((t (:background "ForestGreen"))))
  '(helm-source-header ((t (:background "#22083397778B" :foreground "white"))))
  '(idle-highlight ((t (:inherit hl-line))))
+ '(italic ((t (:underline nil :slant italic))))
  '(show-paren-match ((t (:background "gray12" :foreground "green"))))
  '(show-paren-mismatch ((t (:background "gray12" :foreground "red")))))
 
