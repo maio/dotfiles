@@ -59,3 +59,5 @@
 
 (regular-mode)
 (toggle-fullscreen)
+(desktop-save-mode 1)
+(savehist-mode 1)
