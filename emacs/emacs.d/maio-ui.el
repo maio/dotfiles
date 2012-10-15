@@ -1,6 +1,8 @@
 (require 'maio-util)
 (global-font-lock-mode 0)
 
+(set-default-font "Source Code Pro")
+
 ;; override font-lock-mode
 (define-minor-mode font-lock-mode
   nil nil nil
