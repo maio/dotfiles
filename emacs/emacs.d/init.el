@@ -2,6 +2,8 @@
 (require 'advice)     ; required by ido (until they fix dependencies)
 (require 'maio-util)
 
+(defvar hippie-expand-try-functions-list '())
+
 (require-and-exec 'package
   (add-to-list 'package-archives
                '("melpa" . "http://melpa.milkbox.net/packages/") t)
