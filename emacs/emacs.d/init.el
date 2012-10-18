@@ -35,6 +35,7 @@
                        autopair
                        mark-multiple
                        key-chord
+                       xclip
                        yasnippet
                        yasnippet-bundle)))
     (dolist (package my-packages)

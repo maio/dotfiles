@@ -17,9 +17,6 @@
 (setq split-height-threshold nil)
 (setq ido-use-filename-at-point nil)
 (setq autopair-blink nil)
-(when (system-type-is-gnu)
-  (setq x-select-enable-clipboard t)
-  (setq interprogram-paste-function 'x-cut-buffer-or-selection-value))
 (setq require-final-newline nil)
 
 (setq extended-command-history
@@ -44,19 +41,6 @@
 
 (remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)
 (hl-line-mode nil)
-
-;; enable copy/paste in terminal
-(unless window-system
-  (when (getenv "DISPLAY")
-    (defun xsel-cut-function (text &optional push)
-      (with-temp-buffer
-        (insert text)
-        (call-process-region (point-min) (point-max) "xsel" nil 0 nil "--clipboard" "--input")))
-    (defun xsel-paste-function ()
-      (let ((xsel-output (shell-command-to-string "xsel --clipboard --output")))
-        (unless (string= (car kill-ring) xsel-output)
-          xsel-output)))
-    (setq interprogram-cut-function 'xsel-cut-function)
-    (setq interprogram-paste-function 'xsel-paste-function)))
+(xclip-mode 1)
 
 (provide 'maio-misc)
