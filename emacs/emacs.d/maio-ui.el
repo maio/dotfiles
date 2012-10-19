@@ -16,7 +16,7 @@
 ;; custom display modes
 (defun regular-mode ()
   (interactive)
-  (disable-theme 'dichromacy)
+  (disable-theme 'solarized-light)
   (if (system-type-is-gnu)
     (set-font-size 120)
     (set-font-size 170))
@@ -27,7 +27,7 @@
 (defun presentation-mode ()
   (interactive)
   (disable-theme 'cofi-dark)
-  (load-theme 'dichromacy t)
+  (load-theme 'solarized-light t)
   (if (system-type-is-gnu)
     (set-font-size 140)
     (set-font-size 180))

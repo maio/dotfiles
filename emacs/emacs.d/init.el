@@ -36,6 +36,7 @@
                        mark-multiple
                        key-chord
                        xclip
+                       solarized-theme
                        yasnippet
                        yasnippet-bundle)))
     (dolist (package my-packages)
