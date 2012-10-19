@@ -23,4 +23,9 @@
       (message "Going to submit all pending commits")
       (magit-run-git "submit" (maio-get-first-word story)))))
 
+;; remove light background from diff added/removed faces
+(custom-set-faces
+ '(diff-added ((t (:inherit diff-changed :foreground "green4"))))
+ '(diff-removed ((t (:inherit diff-changed :foreground "red3")))))
+
 (provide 'maio-git)

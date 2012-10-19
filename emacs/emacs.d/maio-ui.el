@@ -37,4 +37,7 @@
 (require 'escreen)
 (escreen-install)
 
+(custom-set-faces
+ '(hl-line ((t (:inherit highlight)))))
+
 (provide 'maio-ui)
