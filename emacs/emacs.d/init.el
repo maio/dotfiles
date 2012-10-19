@@ -37,6 +37,7 @@
                        key-chord
                        xclip
                        solarized-theme
+                       projectile
                        yasnippet
                        yasnippet-bundle)))
     (dolist (package my-packages)
