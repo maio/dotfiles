@@ -67,6 +67,11 @@
 (define-key evil-motion-state-map (kbd "SPC") 'ace-jump-word-mode)
 (define-key evil-normal-state-map (kbd "C-SPC") 'ace-jump-line-mode)
 
+;; sackspace
+(require 'sackspace)
+(sack/install-in-evil)
+(define-key evil-insert-state-map (kbd "<DEL>") 'sack/tabstop)
+
 ;; Evil plugins
 (add-to-list 'load-path "~/.emacs.d/evil-plugins/surround")
 (require 'surround)
