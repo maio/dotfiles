@@ -40,5 +40,16 @@
   (evil-exchange-point-and-mark)
   (evil-normal-state))
 
+(defun maio/mark-all-like-this-in-defun ()
+  (interactive)
+  (save-excursion
+    (save-restriction
+      (widen)
+      (narrow-to-defun)
+      (call-interactively 'mark-all-like-this)))
+  (evil-visual-char)
+  (evil-exchange-point-and-mark)
+  (evil-normal-state))
+
 (require 'maio-guard)
 (provide 'maio-prog)

@@ -42,6 +42,7 @@
 (define-key evil-visual-state-map "u" nil)
 (define-key evil-insert-state-map "\C-x\C-l" 'evil-complete-previous-line)
 (define-key evil-visual-state-map (kbd "R") 'maio/mark-all-like-this)
+(define-key evil-visual-state-map (kbd "r") 'maio/mark-all-like-this-in-defun)
 (define-key evil-visual-state-map "Q" "gq")
 (define-key evil-normal-state-map "Q" "gqap")
 
