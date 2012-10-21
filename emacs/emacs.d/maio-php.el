@@ -12,12 +12,10 @@
 (add-hook 'php-mode-hook
           (lambda ()
             (defun php-statement-block-intro (langelem)
-              (message "statement debug %s" c-syntactic-context)
               (save-excursion
                 (goto-char (cdr langelem))
                 (vector (+ (current-column) c-basic-offset))))
-            (defun php-statement-block-close (langelem)
-              (message "statement close debug %s" c-syntactic-context)
+            (defun php-block-close (langelem)
               (save-excursion
                 (goto-char (cdr langelem))
                 (vector (current-column))))
