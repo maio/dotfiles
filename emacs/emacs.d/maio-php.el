@@ -8,18 +8,21 @@
 (require-and-exec 'which-func
   (add-to-list 'which-func-modes 'php-mode))
 
+;; http://www.xemacs.org/Documentation/packages/html/cc-mode_10.html#SEC38
 (add-hook 'php-mode-hook
           (lambda ()
-            (defun ywb-php-lineup-arglist-intro (langelem)
+            (defun php-statement-block-intro (langelem)
+              (message "statement debug %s" c-syntactic-context)
               (save-excursion
                 (goto-char (cdr langelem))
                 (vector (+ (current-column) c-basic-offset))))
-            (defun ywb-php-lineup-arglist-close (langelem)
+            (defun php-statement-block-close (langelem)
+              (message "statement close debug %s" c-syntactic-context)
               (save-excursion
                 (goto-char (cdr langelem))
                 (vector (current-column))))
-            (c-set-offset 'arglist-intro 'ywb-php-lineup-arglist-intro)
-            (c-set-offset 'arglist-close 'ywb-php-lineup-arglist-close)))
+            (c-set-offset 'statement-block-intro 'php-statement-block-intro)
+            (c-set-offset 'block-close 'php-block-close)))
 
 (add-hook 'php-mode-hook 'autopair-on)
 
