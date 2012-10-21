@@ -10,7 +10,7 @@
   (server-start)
   (let ((old-path default-directory)
         (compilation-scroll-output t))
-    (cd (projectile-project-root))
+    (cd (helm-ls-git-root-dir))
     (compile "make guard")
     (other-buffer-or-window)
     (rename-buffer "*guard*")
