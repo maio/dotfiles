@@ -15,5 +15,7 @@
 (define-key ac-completing-map [tab] 'ac-complete)
 (define-key ac-completing-map "\C-n" 'ac-next)
 (define-key ac-completing-map "\C-p" 'ac-previous)
+(define-key ac-completing-map "\r" nil)
+(define-key ac-completing-map [return] nil)
 
 (provide 'maio-completion)
