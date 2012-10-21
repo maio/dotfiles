@@ -4,6 +4,7 @@
 (ac-config-default)
 (add-to-list 'ac-modes 'eshell-mode)
 (add-to-list 'ac-modes 'sql-mode)
+(add-to-list 'ac-modes 'makefile-gmake-mode)
 
 (define-key ac-completing-map "\t" 'ac-complete)
 (define-key ac-completing-map [tab] 'ac-complete)
