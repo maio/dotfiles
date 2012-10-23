@@ -19,7 +19,7 @@
     (when (not (magit-section-action (item info)
                  ((commit)
                   (message "Going to submit current commit")
-                  (magit-run-git "publish" info))))
+                  (magit-run-git "publish" info (maio-get-first-word story)))))
       (message "Going to submit all pending commits")
       (magit-run-git "submit" (maio-get-first-word story)))))
 
