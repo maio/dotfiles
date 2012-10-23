@@ -46,6 +46,7 @@
 (define-key evil-visual-state-map "Q" "gq")
 (define-key evil-normal-state-map "Q" "gqap")
 
+(evil-add-hjkl-bindings magit-mode-map 'emacs)
 (evil-add-hjkl-bindings magit-diff-mode-map 'emacs)
 (evil-add-hjkl-bindings magit-status-mode-map 'emacs
   "K" 'magit-discard-item
