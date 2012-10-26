@@ -20,8 +20,7 @@
 (setq require-final-newline nil)
 
 (setq extended-command-history
-      (list "helm-git-grep"
-            "recompile-my-files"
+      (list "recompile-my-files"
             "maio/copy-file-name-to-clipboard"
             "magit-blame-mode"))
 
