@@ -13,6 +13,7 @@
                               (comint-mode                   . emacs)
                               (shell-mode                    . emacs)
                               (term-mode                     . emacs)
+                              (helm-grep-mode               . emacs)
                               (rmail-mode                    . normal)
                               (rmail-summary-mode            . emacs)
                               (bc-menu-mode                  . emacs)

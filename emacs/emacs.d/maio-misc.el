@@ -20,8 +20,9 @@
 (setq require-final-newline nil)
 
 (setq extended-command-history
-      (list "helm-do-grep"
+      (list "helm-git-grep"
             "recompile-my-files"
+            "maio/copy-file-name-to-clipboard"
             "magit-blame-mode"))
 
 (put 'narrow-to-region 'disabled nil)
