@@ -21,7 +21,7 @@
   (interactive)
   (if (get-buffer "*guard*")
       (progn
-        (switch-to-buffer-other-window "*guard*")
+        (switch-to-buffer "*guard*")
         (end-of-buffer))
     (guard)))
 
