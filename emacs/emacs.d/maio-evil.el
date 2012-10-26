@@ -8,6 +8,7 @@
 (require 'evil)
 (evil-mode 1)
 (loop for (mode . state) in '((inferior-emacs-lisp-mode      . emacs)
+                              (nrepl-mode                    . emacs)
                               (pylookup-mode                 . emacs)
                               (comint-mode                   . emacs)
                               (shell-mode                    . emacs)
