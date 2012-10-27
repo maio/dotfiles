@@ -16,6 +16,7 @@
 (key-chord-define-global (kbd ";1") 'delete-other-windows)
 (key-chord-define-global (kbd ";g") 'magit-status)
 (key-chord-define-global (kbd "GG") 'guard-or-goto-guard)
+(key-chord-define-global (kbd ";q") 'delete-window)
 
 (evil-define-key 'normal clojure-mode-map (kbd "RET") 'midje-check-fact)
 (define-key magit-status-mode-map (kbd "p") 'maio-git-submit)
