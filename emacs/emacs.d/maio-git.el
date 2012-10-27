@@ -28,4 +28,7 @@
  '(diff-added ((t (:inherit diff-changed :foreground "green4"))))
  '(diff-removed ((t (:inherit diff-changed :foreground "red3")))))
 
+(defadvice magit-toggle-section (after scroll-line-to-top () activate)
+  (call-interactively 'evil-scroll-line-to-top))
+
 (provide 'maio-git)
