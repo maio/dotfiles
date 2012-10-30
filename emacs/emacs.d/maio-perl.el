@@ -21,10 +21,18 @@
 (add-to-list 'auto-mode-alist '("\\.tmpl$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.tt$" . html-mode))
 
+;; flycheck
+(require 'flycheck)
+(defvar flycheck-checker-perl
+  '(:command ("perl" "-w" "-c" source) :modes cperl-mode))
+
+(add-to-list 'flycheck-checkers 'flycheck-checker-perl)
+
 (eval-after-load 'cperl-mode
   '(progn
      (add-hook 'cperl-mode-hook 'esk-prog-mode-hook)
      (add-hook 'cperl-mode-hook 'autopair-on)
+     (add-hook 'cperl-mode-hook 'flycheck-mode)
      (evil-define-key 'normal cperl-mode-map "=" 'perltidy-dwim)
      (evil-define-key 'visual cperl-mode-map "=" 'perltidy-dwim)
      (define-key cperl-mode-map ";" 'maio/electric-semicolon)

@@ -26,9 +26,7 @@
                        nrepl
                        midje-mode
                        ack-and-a-half
-                       flymake
-                       flymake-cursor
-                       flymake-perlcritic
+                       flycheck
                        diminish
                        fuzzy
                        escreen
