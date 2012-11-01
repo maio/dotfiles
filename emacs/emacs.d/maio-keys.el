@@ -20,6 +20,7 @@
 
 (evil-define-key 'normal clojure-mode-map (kbd "RET") 'midje-check-fact)
 (define-key magit-status-mode-map (kbd "p") 'maio-git-submit)
+(key-chord-define magit-status-mode-map (kbd ";a") 'maio-git-amend)
 (key-chord-define magit-log-edit-mode-map (kbd ";a") 'magit-log-edit-toggle-amending)
 
 (evil-define-command cofi/evil-maybe-exit ()

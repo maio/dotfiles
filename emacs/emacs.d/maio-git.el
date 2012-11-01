@@ -13,6 +13,10 @@
 (defun maio-get-first-word (s)
   (first (split-string s " ")))
 
+(defun maio-git-amend ()
+  (interactive)
+  (magit-log-edit '4))
+
 (defun maio-git-submit ()
   (interactive)
   (let ((story (maio-read-story-string)))
