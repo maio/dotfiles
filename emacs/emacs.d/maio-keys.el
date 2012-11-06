@@ -23,6 +23,7 @@
 (define-key magit-status-mode-map (kbd "p") 'maio-git-submit)
 (key-chord-define magit-status-mode-map (kbd ";a") 'maio-git-amend)
 (key-chord-define magit-log-edit-mode-map (kbd ";a") 'magit-log-edit-toggle-amending)
+(define-key isearch-mode-map (kbd "C-g") 'isearch-abort)
 
 (evil-define-command cofi/evil-maybe-exit ()
   :repeat change
