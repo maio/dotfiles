@@ -22,7 +22,8 @@
 (setq extended-command-history
       (list "recompile-my-files"
             "maio/copy-file-name-to-clipboard"
-            "magit-blame-mode"))
+            "magit-blame-mode"
+            "kill-all-buffers"))
 
 (put 'narrow-to-region 'disabled nil)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
