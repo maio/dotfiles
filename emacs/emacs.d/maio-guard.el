@@ -5,6 +5,25 @@
 (add-to-list 'compilation-error-regexp-alist
              '("^\\(.*?\\):\\([0-9]+\\)$" 1 2))
 
+(defvar guard-suspended-p nil)
+
+(defun guard-suspend ()
+  (message "suspending guard")
+  (shell-command "pkill -USR1 -u maio -f 'ruby.*guard'"))
+
+(defun guard-resume ()
+  (message "resuming guard")
+  (shell-command "pkill -USR2 -u maio -f 'ruby.*guard'"))
+
+(defadvice magit-pull (before guard-suspend () activate)
+  (setq guard-suspended-p t)
+  (guard-suspend))
+
+(defadvice magit-process-sentinel (after guard-resume () activate)
+  (when guard-suspended-p
+    (setq guard-suspended-p nil)
+    (guard-resume)))
+
 (defun guard ()
   (interactive)
   (server-start)
