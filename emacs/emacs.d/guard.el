@@ -1,0 +1,10 @@
+(defun guard-notify (type title message)
+  (when (string= type "pending")
+    (set-face-background 'modeline "Black"))
+  (when (string= type "success")
+    (set-face-background 'modeline "ForestGreen"))
+  (when (string= type "failed")
+    (set-face-background 'modeline "Firebrick")
+    (message message)))
+
+(provide 'guard)
