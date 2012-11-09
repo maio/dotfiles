@@ -68,7 +68,7 @@ syntax on
 set hidden
 filetype plugin on
 filetype plugin indent on
-let mapleader=","
+let mapleader=";"
 let maplocalleader = "\\"
 
 set runtimepath+=~/.vim/vim-addons/vim-addon-manager
