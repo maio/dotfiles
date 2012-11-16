@@ -7,13 +7,16 @@
 
 (defvar guard-suspended-p nil)
 
+(defun guard-send-signal (signal)
+  (shell-command (concat "pkill -" signal " -u " (user-login-name) " -f 'ruby.*guard'")))
+
 (defun guard-suspend ()
   (message "suspending guard")
-  (shell-command "pkill -USR1 -u maio -f 'ruby.*guard'"))
+  (guard-send-signal "USR1"))
 
 (defun guard-resume ()
   (message "resuming guard")
-  (shell-command "pkill -USR2 -u maio -f 'ruby.*guard'"))
+  (guard-send-signal "USR2"))
 
 (defadvice magit-pull (before guard-suspend () activate)
   (setq guard-suspended-p t)
