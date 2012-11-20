@@ -20,8 +20,12 @@
 ;; guard-notify-message
 (require 's)
 
+(defun guard-message-body-preview ()
+  "Return first 7 lines of trimmed message body"
+  (s-join "\n" (subseq (s-lines (s-trim body)) 0 7)))
+
 (defun guard-notify-message-body (title body)
-  (message (s-trim body)))
+  (message (guard-message-body-preview body)))
 
 (add-hook 'guard-notify-failed-hook 'guard-notify-message-body)
 
