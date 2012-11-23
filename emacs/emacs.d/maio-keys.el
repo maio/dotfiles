@@ -32,6 +32,7 @@
 (define-key evil-motion-state-map "gm" 'guard-notify-message-show)
 (evil-define-key 'normal compilation-minor-mode-map (kbd "RET") 'compile-goto-error)
 (evil-define-key 'normal compilation-minor-mode-map (kbd "q") 'quit-window)
+(define-key evil-normal-state-map "ge" 'guard-goto-first-error)
 
 (evil-define-command cofi/evil-maybe-exit ()
   :repeat change

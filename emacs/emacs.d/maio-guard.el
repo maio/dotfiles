@@ -47,4 +47,11 @@
         (end-of-buffer))
     (guard)))
 
+(defun guard-goto-first-error ()
+  (interactive)
+  (with-current-buffer (guard-notify-message-get-buffer)
+    (goto-char 0)
+    (compilation-next-error 1)
+    (compile-goto-error)))
+
 (provide 'maio-guard)
