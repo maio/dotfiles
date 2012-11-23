@@ -42,6 +42,5 @@
 
 (remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)
 (hl-line-mode nil)
-(xclip-mode 1)
 
 (provide 'maio-misc)
