@@ -28,6 +28,11 @@
 (key-chord-define magit-log-edit-mode-map (kbd ";a") 'magit-log-edit-toggle-amending)
 (define-key isearch-mode-map (kbd "C-g") 'isearch-abort)
 
+;; guard
+(define-key evil-motion-state-map "gm" 'guard-notify-message-show)
+(evil-define-key 'normal compilation-minor-mode-map (kbd "RET") 'compile-goto-error)
+(evil-define-key 'normal compilation-minor-mode-map (kbd "q") 'quit-window)
+
 (evil-define-command cofi/evil-maybe-exit ()
   :repeat change
   (interactive)

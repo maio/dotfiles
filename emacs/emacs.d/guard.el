@@ -20,14 +20,46 @@
 ;; guard-notify-message
 (require 's)
 
+(defun guard-notify-message-get-buffer ()
+  (with-current-buffer (get-buffer-create "*guard-message*")
+    (compilation-minor-mode t)
+    (current-buffer)))
+
+(defun guard-notify-message-buffer-visible-p ()
+  (when (get-buffer-window (guard-notify-message-get-buffer)) t))
+
+(defun guard-notify-message-close-buffer (&rest ignore)
+  (when (guard-notify-message-buffer-visible-p)
+    (delete-window (get-buffer-window (guard-notify-message-get-buffer)))))
+
+(defun guard-notify-message-show ()
+  (interactive)
+  (switch-to-buffer (guard-notify-message-get-buffer)))
+
 (defun guard-message-body-preview (body)
   "Return first 7 lines of trimmed message body"
-  (s-join "\n" (subseq (s-lines (s-trim body)) 0 7)))
+  (let ((lines (s-lines (s-trim body)))
+        (max-lines 7))
+    (s-join "\n" (subseq lines 0 (min max-lines (length lines))))))
+
+(defun guard-notify-message (body)
+  (with-current-buffer (guard-notify-message-get-buffer)
+    (let ((prev-point (point)))
+      (when (not (guard-notify-message-buffer-visible-p))
+        (message (guard-message-body-preview body)))
+      (erase-buffer)
+      (insert (s-trim body))
+      (goto-char prev-point))))
 
 (defun guard-notify-message-failed-body (title body)
-  (message (guard-message-body-preview body)))
+  (guard-notify-message body))
+
+(defun guard-notify-message-success-body (title body)
+  (guard-notify-message "PASS"))
 
 (add-hook 'guard-notify-failed-hook 'guard-notify-message-failed-body)
+(add-hook 'guard-notify-success-hook 'guard-notify-message-success-body)
+(add-hook 'guard-notify-success-hook 'guard-notify-message-close-buffer)
 
 ;; guard-notify-modeline
 (defcustom guard-notify-modeline-pending-color "Black"
