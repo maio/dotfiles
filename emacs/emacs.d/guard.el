@@ -24,10 +24,10 @@
   "Return first 7 lines of trimmed message body"
   (s-join "\n" (subseq (s-lines (s-trim body)) 0 7)))
 
-(defun guard-notify-message-body (title body)
+(defun guard-notify-message-failed-body (title body)
   (message (guard-message-body-preview body)))
 
-(add-hook 'guard-notify-failed-hook 'guard-notify-message-body)
+(add-hook 'guard-notify-failed-hook 'guard-notify-message-failed-body)
 
 ;; guard-notify-modeline
 (defcustom guard-notify-modeline-pending-color "Black"
