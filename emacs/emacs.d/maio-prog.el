@@ -2,6 +2,7 @@
 (add-hook 'clojure-mode-hook 'eldoc-mode)
 
 (add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.scss$" . css-mode))
 
 (eval-after-load 'slime
   '(setq slime-protocol-version 'ignore))
