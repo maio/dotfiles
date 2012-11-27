@@ -18,7 +18,7 @@
   (message "resuming guard")
   (guard-send-signal "USR2"))
 
-(defadvice magit-pull (before guard-suspend () activate)
+(defadvice magit-run-git-async (before guard-suspend () activate)
   (setq guard-suspended-p t)
   (guard-suspend))
 
@@ -26,6 +26,16 @@
   (when guard-suspended-p
     (setq guard-suspended-p nil)
     (guard-resume)))
+
+(defadvice magit-run-git (around guard-suspend () activate)
+  (guard-suspend)
+  ad-do-it
+  (guard-resume))
+
+(defadvice magit-run-git-with-input (around guard-suspend () activate)
+  (guard-suspend)
+  ad-do-it
+  (guard-resume))
 
 (defun guard ()
   (interactive)
