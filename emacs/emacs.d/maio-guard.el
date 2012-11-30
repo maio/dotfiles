@@ -8,6 +8,7 @@
 (defvar guard-suspended-p nil)
 
 (defun guard-send-signal (signal)
+  ;; handle when guard is not running - pkill returns non-zero exit code
   (shell-command (concat "pkill -" signal " -u " (user-login-name) " -f 'ruby.*guard'")))
 
 (defun guard-suspend ()
