@@ -72,7 +72,6 @@ let mapleader=";"
 let maplocalleader = "\\"
 
 set runtimepath+=~/.vim/vim-addons/vim-addon-manager
-call vam#ActivateAddons(['a',"xptemplate","fugitive","taglist","unimpaired","surround","repeat","mustache","tComment","VimClojure","ctrlp","VimOrganizer","Gundo","Powerline"])
 let g:alternateExtensions_{'pm'} = "t"
 let g:alternateExtensions_{'pl'} = "t"
 let g:alternateExtensions_{'t'} = "pm,pl"
