@@ -47,6 +47,7 @@
 (define-key evil-visual-state-map (kbd "r") 'maio/mark-all-like-this-in-defun)
 (define-key evil-visual-state-map "Q" "gq")
 (define-key evil-normal-state-map "Q" "gqap")
+(define-key evil-normal-state-map "S" "vabsba")
 
 (evil-add-hjkl-bindings magit-mode-map 'emacs)
 (evil-add-hjkl-bindings magit-diff-mode-map 'emacs)
