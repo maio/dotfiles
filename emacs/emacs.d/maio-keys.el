@@ -27,6 +27,8 @@
 (key-chord-define magit-status-mode-map (kbd ";a") 'maio-git-amend)
 (key-chord-define magit-log-edit-mode-map (kbd ";a") 'magit-log-edit-toggle-amending)
 (define-key isearch-mode-map (kbd "C-g") 'isearch-abort)
+(evil-define-key 'normal nrepl-mode-map (kbd "RET") 'nrepl-return)
+(defadvice nrepl-return (after normal-state () activate) (evil-normal-state))
 
 ;; guard
 (define-key evil-motion-state-map "gm" 'guard-notify-message-show)
