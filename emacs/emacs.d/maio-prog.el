@@ -1,6 +1,3 @@
-(add-hook 'clojure-mode-hook 'midje-mode)
-(add-hook 'clojure-mode-hook 'eldoc-mode)
-
 (add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.scss$" . css-mode))
 
