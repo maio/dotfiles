@@ -19,7 +19,6 @@
 (key-chord-define-global (kbd ";q") 'delete-window)
 
 (define-key evil-motion-state-map "gl" 'magit-file-log)
-(evil-define-key 'normal clojure-mode-map (kbd "RET") 'midje-check-fact)
 (define-key magit-status-mode-map (kbd "p") 'maio-git-submit)
 (define-key evil-normal-state-map (kbd "RET")
   (lambda ()

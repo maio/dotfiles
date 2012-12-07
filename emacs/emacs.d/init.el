@@ -24,7 +24,6 @@
                        goto-last-change
                        clojure-mode
                        nrepl
-                       midje-mode
                        ack-and-a-half
                        flycheck
                        diminish
