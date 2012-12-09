@@ -28,6 +28,8 @@
 (define-key isearch-mode-map (kbd "C-g") 'isearch-abort)
 (evil-define-key 'normal nrepl-mode-map (kbd "RET") 'nrepl-return)
 (defadvice nrepl-return (after normal-state () activate) (evil-normal-state))
+(evil-define-key 'normal nrepl-mode-map (kbd "(")
+  (lambda () (interactive) (insert "(") (evil-insert-state)))
 
 ;; guard
 (define-key evil-motion-state-map "gm" 'guard-notify-message-show)
