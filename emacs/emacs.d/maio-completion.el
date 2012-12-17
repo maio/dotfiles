@@ -3,6 +3,7 @@
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (ac-config-default)
 (setq ac-ignore-case nil)
+(setq ac-use-menu-map t)
 (add-to-list 'ac-modes 'eshell-mode)
 (add-to-list 'ac-modes 'sql-mode)
 (add-to-list 'ac-modes 'makefile-gmake-mode)
