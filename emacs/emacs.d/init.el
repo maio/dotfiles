@@ -23,6 +23,7 @@
                        ace-jump-mode
                        goto-last-change
                        clojure-mode
+                       js3-mode
                        nrepl
                        ack-and-a-half
                        flycheck
