@@ -49,6 +49,7 @@
 (require 'maio-perl)
 (require 'maio-python)
 (require 'maio-clojure)
+(require 'maio-javascript)
 (require 'feature-mode)
 (require 'perltidy)
 (require 'maio-modeline)
