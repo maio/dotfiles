@@ -35,4 +35,6 @@
 (defadvice magit-toggle-section (after scroll-line-to-top () activate)
   (call-interactively 'evil-scroll-line-to-top))
 
+(add-hook 'magit-commit-mode-hook 'turn-on-flyspell)
+
 (provide 'maio-git)
