@@ -25,6 +25,7 @@
                        clojure-mode
                        js3-mode
                        nrepl
+                       ac-nrepl
                        ack-and-a-half
                        flycheck
                        diminish
