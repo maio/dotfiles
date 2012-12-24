@@ -7,9 +7,6 @@
 [submodule "emacs/emacs.d/evil-plugins/leader"]
 	path = emacs/emacs.d/evil-plugins/leader
 	url = http://github.com/cofi/evil-leader
-[submodule "emacs/emacs.d/evil"]
-	path = emacs/emacs.d/evil
-	url = http://git.gitorious.org/evil/evil.git
 [submodule "emacs/emacs.d/cperl-mode"]
 	path = emacs/emacs.d/cperl-mode
 	url = http://github.com/maio/cperl-mode.git

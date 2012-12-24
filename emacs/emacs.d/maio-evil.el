@@ -1,5 +1,4 @@
 ;; VIM emulation
-(add-to-list 'load-path "~/.emacs.d/evil")
 (setq evil-move-cursor-back nil)
 (setq evil-want-C-u-scroll t)
 (setq evil-want-C-i-jump t)

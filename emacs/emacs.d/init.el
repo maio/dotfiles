@@ -39,7 +39,8 @@
                        solarized-theme
                        yasnippet
                        yasnippet-bundle
-                       helm)))
+                       helm
+                       evil)))
     (dolist (package my-packages)
       (when (not (package-installed-p package))
         (package-install package)))))
