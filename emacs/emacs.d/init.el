@@ -14,8 +14,10 @@
   (package-initialize)
   (when (not package-archive-contents)
     (package-refresh-contents))
-  (let ((my-packages '(starter-kit
+  (let ((my-packages '(auto-compile
+                       starter-kit
                        starter-kit-lisp
+                       starter-kit-eshell
                        s
                        popup
                        undo-tree
@@ -41,6 +43,10 @@
     (dolist (package my-packages)
       (when (not (package-installed-p package))
         (package-install package)))))
+
+(require 'auto-compile)
+(auto-compile-on-load-mode 1)
+(auto-compile-on-save-mode 1)
 
 (require 'maio-ui)
 (require 'maio-misc)
