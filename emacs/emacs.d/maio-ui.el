@@ -27,7 +27,7 @@
 (defun presentation-mode ()
   (interactive)
   (disable-theme 'cofi-dark)
-  (load-theme 'cofi-light t)
+  (load-theme 'solarized-light t)
   (if (system-type-is-gnu)
     (set-font-size 140)
     (set-font-size 180))

@@ -69,7 +69,7 @@
 (require 'tramp)
 (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
 
-(regular-mode)
+(presentation-mode)
 (toggle-fullscreen)
 (desktop-save-mode 1)
 (savehist-mode 1)
