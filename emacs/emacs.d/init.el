@@ -37,7 +37,8 @@
                        xclip
                        solarized-theme
                        yasnippet
-                       yasnippet-bundle)))
+                       yasnippet-bundle
+                       helm)))
     (dolist (package my-packages)
       (when (not (package-installed-p package))
         (package-install package)))))

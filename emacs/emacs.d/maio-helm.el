@@ -5,7 +5,6 @@
       helm-buffer-max-length 40
       helm-yank-symbol-first t)
 
-(add-to-list 'load-path "~/.emacs.d/helm")
 (require 'helm-config)
 (require 'helm-match-plugin)
 (helm-mode 1)

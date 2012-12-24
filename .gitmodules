@@ -13,9 +13,6 @@
 [submodule "emacs/emacs.d/php-mode"]
 	path = emacs/emacs.d/php-mode
 	url = http://github.com/ejmr/php-mode.git
-[submodule "emacs/emacs.d/helm"]
-	path = emacs/emacs.d/helm
-	url = http://github.com/emacs-helm/helm.git
 [submodule "emacs/emacs.d/cperl-mode"]
 	path = emacs/emacs.d/cperl-mode
 	url = http://github.com/maio/cperl-mode.git
