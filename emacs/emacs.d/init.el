@@ -25,6 +25,7 @@
                        ace-jump-mode
                        goto-last-change
                        clojure-mode
+                       feature-mode
                        php-mode
                        js3-mode
                        nrepl
@@ -57,7 +58,6 @@
 (require 'maio-python)
 (require 'maio-clojure)
 (require 'maio-javascript)
-(require 'feature-mode)
 (require 'perltidy)
 (require 'maio-modeline)
 (require 'maio-completion)
