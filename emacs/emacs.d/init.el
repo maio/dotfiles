@@ -23,6 +23,7 @@
                        ace-jump-mode
                        goto-last-change
                        clojure-mode
+                       php-mode
                        js3-mode
                        nrepl
                        ac-nrepl

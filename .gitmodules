@@ -10,9 +10,6 @@
 [submodule "emacs/emacs.d/evil"]
 	path = emacs/emacs.d/evil
 	url = http://git.gitorious.org/evil/evil.git
-[submodule "emacs/emacs.d/php-mode"]
-	path = emacs/emacs.d/php-mode
-	url = http://github.com/ejmr/php-mode.git
 [submodule "emacs/emacs.d/cperl-mode"]
 	path = emacs/emacs.d/cperl-mode
 	url = http://github.com/maio/cperl-mode.git

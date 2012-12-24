@@ -1,5 +1,4 @@
 (require 'maio-util)
-(add-to-list 'load-path "~/.emacs.d/php-mode")
 
 (require-and-exec 'php-mode
   (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
