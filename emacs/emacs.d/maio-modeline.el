@@ -19,9 +19,6 @@
   '(:eval (propertize "%b "
                       'help-echo (buffer-file-name)))
 
-  ;; 'enotify-mode-line-string
-  ;; " "
-
   ;; line and column
   "" ;; '%02' to set to 2 chars at least; prevents flickering
   (propertize "%02l") ","
