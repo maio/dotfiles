@@ -32,6 +32,7 @@
                        nrepl
                        ac-nrepl
                        flycheck
+                       flymake-cursor
                        diminish
                        autopair
                        mark-multiple
