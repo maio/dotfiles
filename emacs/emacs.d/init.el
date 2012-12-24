@@ -27,15 +27,11 @@
                        js3-mode
                        nrepl
                        ac-nrepl
-                       ack-and-a-half
                        flycheck
                        diminish
-                       fuzzy
-                       escreen
                        autopair
                        mark-multiple
                        key-chord
-                       xclip
                        solarized-theme
                        yasnippet
                        yasnippet-bundle

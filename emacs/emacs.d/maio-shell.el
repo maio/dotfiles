@@ -13,8 +13,6 @@
         (concat "/opt/local/bin:/opt/perl/bin:/usr/local/bin:"
                 (getenv "PATH")))
 
-(define-key term-raw-map escreen-prefix-char escreen-map)
-
 (defun maio/term-enter ()
   (interactive)
   (call-interactively 'evil-goto-line)

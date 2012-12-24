@@ -34,7 +34,4 @@
   (toggle-fullscreen)
   (toggle-fullscreen))
 
-(require 'escreen)
-(escreen-install)
-
 (provide 'maio-ui)
