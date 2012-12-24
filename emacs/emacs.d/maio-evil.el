@@ -77,7 +77,6 @@
 (define-key evil-insert-state-map (kbd "<DEL>") 'sack/tabstop)
 
 ;; Evil plugins
-(add-to-list 'load-path "~/.emacs.d/evil-plugins/surround")
 (require 'surround)
 (global-surround-mode 1)
 (add-hook 'after-save-hook 'evil-normal-state)

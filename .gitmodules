@@ -1,9 +1,6 @@
 [submodule "vim/vim/vim-addons/vim-addon-manager"]
 	path = vim/vim/vim-addons/vim-addon-manager
 	url = http://github.com/MarcWeber/vim-addon-manager.git
-[submodule "emacs/emacs.d/evil-plugins/surround"]
-	path = emacs/emacs.d/evil-plugins/surround
-	url = http://github.com/timcharper/evil-surround.git
 [submodule "emacs/emacs.d/cperl-mode"]
 	path = emacs/emacs.d/cperl-mode
 	url = http://github.com/maio/cperl-mode.git

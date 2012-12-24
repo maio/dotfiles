@@ -40,7 +40,8 @@
                        yasnippet
                        yasnippet-bundle
                        helm
-                       evil)))
+                       evil
+                       surround)))
     (dolist (package my-packages)
       (when (not (package-installed-p package))
         (package-install package)))))
