@@ -19,7 +19,6 @@
 (setq autopair-blink nil)
 (setq require-final-newline nil)
 (setq next-line-add-newlines nil)
-(setq yas/root-directory '("~/.emacs.d/snippets"))
 
 (setq extended-command-history
       (list "recompile-my-files"

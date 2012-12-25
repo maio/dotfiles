@@ -8,7 +8,8 @@
  '(js3-consistent-level-indent-inner-bracket t)
  '(js3-indent-level 4)
  '(pcomplete-ignore-case t)
- '(perl-indent-continued-arguments 0))
+ '(perl-indent-continued-arguments 0)
+ '(yas/root-directory (quote ("~/.emacs.d/snippets/"))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
