@@ -19,9 +19,7 @@
 (key-chord-define-global (kbd ";q") 'delete-window)
 
 (define-key evil-motion-state-map "gl" 'magit-file-log)
-(define-key evil-normal-state-map (kbd "RET")
-  (lambda ()
-    (interactive) (save-excursion (evil-first-non-blank) (newline-and-indent))))
+(define-key evil-normal-state-map (kbd "RET") 'maio/newline-above)
 (define-key isearch-mode-map (kbd "C-g") 'isearch-abort)
 
 ;; guard
@@ -72,6 +70,10 @@
          (newline-and-indent)
          (call-interactively 'evil-open-above))
         (t (newline-and-indent))))
+
+(defun maio/newline-above ()
+  (interactive)
+  (save-excursion (evil-first-non-blank) (newline-and-indent)))
 
 (defun maio/makefile-newline ()
   (interactive)
