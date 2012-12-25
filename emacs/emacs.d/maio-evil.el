@@ -54,6 +54,9 @@
   "K" 'magit-discard-item
   "l" 'magit-key-mode-popup-logging
   "h" 'magit-toggle-diff-refine-hunk)
+(evil-add-hjkl-bindings rebase-mode-map 'emacs
+  "K" 'rebase-mode-kill-line
+  "h" 'describe-mode)
 (evil-add-hjkl-bindings magit-log-mode-map 'emacs
   "l" 'magit-key-mode-popup-logging)
 (evil-add-hjkl-bindings rmail-summary-mode-map 'emacs
