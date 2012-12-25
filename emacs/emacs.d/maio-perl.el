@@ -1,8 +1,5 @@
 (add-to-list 'load-path "~/.emacs.d/cperl-mode")
 (defalias 'perl-mode 'cperl-mode)
-(custom-set-faces
- '(cperl-array-face ((t (:foreground "Green" :weight bold))))
- '(cperl-hash-face ((t (:foreground "Red" :slant italic :weight bold)))))
 
 (setq cperl-indent-level 4
       cperl-close-paren-offset -4
