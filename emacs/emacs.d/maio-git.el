@@ -1,3 +1,5 @@
+(require 'magit)
+
 (setq magit-rewrite-inclusive nil)
 (setq magit-status-buffer-switch-function 'switch-to-buffer)
 
@@ -36,5 +38,9 @@
   (call-interactively 'evil-scroll-line-to-top))
 
 (add-hook 'magit-commit-mode-hook 'turn-on-flyspell)
+
+(define-key magit-status-mode-map (kbd "p") 'maio-git-submit)
+(key-chord-define magit-status-mode-map (kbd ";a") 'maio-git-amend)
+(key-chord-define magit-log-edit-mode-map (kbd ";a") 'magit-log-edit-toggle-amending)
 
 (provide 'maio-git)

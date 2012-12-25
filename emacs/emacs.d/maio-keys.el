@@ -19,17 +19,10 @@
 (key-chord-define-global (kbd ";q") 'delete-window)
 
 (define-key evil-motion-state-map "gl" 'magit-file-log)
-(define-key magit-status-mode-map (kbd "p") 'maio-git-submit)
 (define-key evil-normal-state-map (kbd "RET")
   (lambda ()
     (interactive) (save-excursion (evil-first-non-blank) (newline-and-indent))))
-(key-chord-define magit-status-mode-map (kbd ";a") 'maio-git-amend)
-(key-chord-define magit-log-edit-mode-map (kbd ";a") 'magit-log-edit-toggle-amending)
 (define-key isearch-mode-map (kbd "C-g") 'isearch-abort)
-(evil-define-key 'normal nrepl-mode-map (kbd "RET") 'nrepl-return)
-(defadvice nrepl-return (after normal-state () activate) (evil-normal-state))
-(evil-define-key 'normal nrepl-mode-map (kbd "(")
-  (lambda () (interactive) (insert "(") (evil-insert-state)))
 
 ;; guard
 (define-key evil-motion-state-map "gm" 'guard-notify-message-show)
