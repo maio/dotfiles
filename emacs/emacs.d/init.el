@@ -1,10 +1,5 @@
 (add-to-list 'load-path "~/.emacs.d")
-(require 'advice)     ; required by ido (until they fix dependencies)
 (require 'maio-util)
-
-;; things for backwards compatibility - try to remove them in future
-(defvar hippie-expand-try-functions-list '())
-(put 'modeline 'face-alias 'mode-line)
 
 (require-and-exec 'package
   (add-to-list 'package-archives
