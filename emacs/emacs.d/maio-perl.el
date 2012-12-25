@@ -20,9 +20,13 @@
 
 ;; flycheck
 (require 'flycheck)
-(defvar flycheck-checker-perl
-  '(:command ("perl" "-w" "-c" source) :modes cperl-mode))
 
+;; this has been submitted to flycheck - remove
+(defvar flycheck-checker-perl
+  '(:command
+    ("perl" "-w" "-c" source)
+    :error-patterns (("\\(.*\\) at \\([^ \n]+\\) line \\([0-9]+\\)[,.\n]" 2 3 nil 1))
+    :modes cperl-mode))
 (add-to-list 'flycheck-checkers 'flycheck-checker-perl)
 
 (eval-after-load 'cperl-mode
