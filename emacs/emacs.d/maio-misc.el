@@ -21,7 +21,7 @@
 (setq next-line-add-newlines nil)
 
 (setq extended-command-history
-      (list "recompile-my-files"
+      (list "customize-group"
             "maio/copy-file-name-to-clipboard"
             "magit-blame-mode"
             "kill-all-buffers"))
