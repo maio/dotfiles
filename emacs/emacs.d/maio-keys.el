@@ -21,6 +21,7 @@
 (define-key evil-motion-state-map "gl" 'magit-file-log)
 (define-key evil-normal-state-map (kbd "RET") 'maio/newline-above)
 (define-key isearch-mode-map (kbd "C-g") 'isearch-abort)
+(evil-define-key 'normal cperl-mode-map (kbd "K") 'cperl-perldoc-at-point)
 
 ;; guard
 (define-key evil-motion-state-map "gm" 'guard-notify-message-show)
