@@ -1,6 +1,9 @@
 (setq-default compilation-scroll-output t)
 (require 'compile)
 
+;; required by guard emacs notifier
+(put 'modeline 'face-alias 'mode-line)
+
 ;; phpunit errors
 (add-to-list 'compilation-error-regexp-alist
              '("^\\(.*?\\):\\([0-9]+\\)$" 1 2))
