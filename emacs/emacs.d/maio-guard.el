@@ -46,7 +46,7 @@
   (server-start)
   (let ((old-path default-directory)
         (compilation-scroll-output t))
-    (cd (helm-ls-git-root-dir))
+    (cd (locate-dominating-file default-directory "Guardfile"))
     (compile "make guard")
     (other-buffer-or-window)
     (rename-buffer "*guard*")
