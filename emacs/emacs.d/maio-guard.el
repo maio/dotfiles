@@ -12,7 +12,7 @@
 
 (defun guard-send-signal (signal)
   ;; handle when guard is not running - pkill returns non-zero exit code
-  (shell-command (concat "pkill -" signal " -u " (user-login-name) " -f 'ruby.*guard'")))
+  (shell-command (concat "pkill -" signal " -u `id -u -n` -f 'ruby.*guard'")))
 
 (defun guard-suspend ()
   (message "suspending guard")
