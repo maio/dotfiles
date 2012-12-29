@@ -23,13 +23,14 @@
 (key-chord-define-global (kbd ";x") 'helm-M-x)
 (key-chord-define-global (kbd ";s") 'helm-occur)
 (key-chord-define-global (kbd ";v") 'find-config-file)
-(key-chord-define-global (kbd ";e") 'my-eval-defun)
 (key-chord-define-global (kbd ";n") 'maio-narrow-to-defun-clone)
 (key-chord-define-global (kbd ";a") 'helm-git-grep)
 (key-chord-define-global (kbd ";1") 'delete-other-windows)
 (key-chord-define-global (kbd ";g") 'magit-status)
 (key-chord-define-global (kbd "GG") 'guard-or-goto-guard)
 (key-chord-define-global (kbd ";q") 'delete-window)
+
+(key-chord-define lisp-mode-shared-map (kbd ";e") 'my-eval-defun)
 
 (define-key evil-motion-state-map "gl" 'magit-file-log)
 (define-key evil-normal-state-map (kbd "RET") 'maio/newline-above)
