@@ -19,6 +19,7 @@
 (setq autopair-blink nil)
 (setq require-final-newline nil)
 (setq next-line-add-newlines nil)
+(setq tramp-verbose 2)
 
 (setq extended-command-history
       (list "customize-group"
