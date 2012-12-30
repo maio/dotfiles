@@ -23,6 +23,9 @@
 
 ;; for some weird reason it needs to be in hook
 (add-hook 'eshell-mode-hook
-          '(lambda () (evil-define-key 'normal eshell-mode-map [return] 'maio/term-enter)))
+          '(lambda ()
+             (evil-define-key 'normal eshell-mode-map [return] 'maio/term-enter)
+             (custom-set-faces
+              '(eshell-prompt ((t (:foreground "dark gray" :weight bold)))))))
 
 (provide 'maio-shell)
