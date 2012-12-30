@@ -53,7 +53,7 @@
     (kill-buffer buf)))
 
 (evil-define-key 'normal php-mode-map "K" 'my-php-function-lookup)
-(define-key php-mode-map ";" 'maio/electric-semicolon)
+(key-chord-define php-mode-map ";;" 'maio/electric-semicolon)
 (define-key php-mode-map (kbd "SPC") 'maio/electric-space)
 
 (provide 'maio-php)

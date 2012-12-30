@@ -36,7 +36,7 @@
      (add-hook 'cperl-mode-hook 'flycheck-mode)
      (evil-define-key 'normal cperl-mode-map "=" 'perltidy-dwim)
      (evil-define-key 'visual cperl-mode-map "=" 'perltidy-dwim)
-     (define-key cperl-mode-map ";" 'maio/electric-semicolon)
+     (key-chord-define cperl-mode-map ";;" 'maio/electric-semicolon)
      (define-key cperl-mode-map (kbd "SPC") 'maio/electric-space)
      (define-key cperl-mode-map (kbd "RET") 'maio/electric-return)))
 

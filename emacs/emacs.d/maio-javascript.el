@@ -6,6 +6,6 @@
   '(progn
      (add-hook 'js3-mode-hook 'autopair-on)
      (add-hook 'js3-mode-hook 'auto-complete-mode)
-     (define-key js3-mode-map ";" 'maio/electric-semicolon)))
+     (key-chord-define js3-mode-map ";;" 'maio/electric-semicolon)))
 
 (provide 'maio-javascript)
