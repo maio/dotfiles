@@ -15,11 +15,14 @@
 
 (defun maio/term-enter ()
   (interactive)
-  (call-interactively 'evil-goto-line)
-  (call-interactively 'end-of-line)
-  (evil-emacs-state))
+  (goto-char (point-max))
+  (evil-insert-state))
 
 (evil-define-key 'normal term-raw-map (kbd "i") 'maio/term-enter)
-(evil-define-key 'normal term-raw-map (kbd "RET") 'maio/term-enter)
+(evil-define-key 'normal term-raw-map [return] 'maio/term-enter)
+
+;; for some weird reason it needs to be in hook
+(add-hook 'eshell-mode-hook
+          '(lambda () (evil-define-key 'normal eshell-mode-map [return] 'maio/term-enter)))
 
 (provide 'maio-shell)
