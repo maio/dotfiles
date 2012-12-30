@@ -32,6 +32,7 @@
 
 (key-chord-define lisp-mode-shared-map (kbd ";e") 'my-eval-defun)
 
+(define-key evil-insert-state-map (kbd "M-<backspace>") 'backward-kill-word)
 (define-key evil-motion-state-map "gl" 'magit-file-log)
 (define-key evil-normal-state-map (kbd "RET") 'maio/newline-above)
 (define-key isearch-mode-map (kbd "C-g") 'isearch-abort)
