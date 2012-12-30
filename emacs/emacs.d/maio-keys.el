@@ -33,6 +33,7 @@
 
 (key-chord-define lisp-mode-shared-map (kbd ";e") 'my-eval-defun)
 
+(key-chord-define evil-insert-state-map (kbd "jk") 'evil-normal-state)
 (define-key evil-insert-state-map (kbd "M-<backspace>") 'backward-kill-word)
 (define-key evil-motion-state-map "gl" 'magit-file-log)
 (define-key evil-normal-state-map (kbd "RET") 'maio/newline-above)
@@ -48,24 +49,6 @@
   (lambda ()
     (interactive)
     (insert (substring-no-properties (car kill-ring)))))
-
-(evil-define-command cofi/evil-maybe-exit ()
-  :repeat change
-  (interactive)
-  (let ((modified (buffer-modified-p))
-        (entry-key ?j)
-        (exit-key ?k))
-    (insert entry-key)
-    (let ((evt (read-event (format "Insert %c to exit insert state" exit-key) nil 0.5)))
-      (cond
-       ((null evt) (message ""))
-       ((and (integerp evt) (char-equal evt exit-key))
-          (delete-char -1)
-          (set-buffer-modified-p modified)
-          (push 'escape unread-command-events))
-       (t (push evt unread-command-events))))))
-
-(define-key evil-insert-state-map (kbd "j") 'cofi/evil-maybe-exit)
 
 (defun maio/electric-semicolon ()
   (interactive)
