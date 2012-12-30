@@ -1,6 +1,7 @@
 (require 'magit)
 (require 'key-chord)
-(setq key-chord-one-key-delay 0.2)
+(setq key-chord-one-key-delay 0.3)
+(setq key-chord-two-keys-delay 1)
 
 ;; custom key-chord-define
 (defun key-chord-define (keymap keys command)
