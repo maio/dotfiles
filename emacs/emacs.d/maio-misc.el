@@ -23,6 +23,7 @@
 
 (setq extended-command-history
       (list "customize-group"
+            "maio/compile-in-git-root"
             "maio/copy-file-name-to-clipboard"
             "magit-blame-mode"
             "kill-all-buffers"))
