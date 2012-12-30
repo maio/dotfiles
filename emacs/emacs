@@ -9,6 +9,7 @@
  '(js3-indent-level 4)
  '(pcomplete-ignore-case t)
  '(perl-indent-continued-arguments 0)
+ '(tramp-remote-process-environment (quote ("HISTFILE=$HOME/.tramp_history" "HISTSIZE=1" "LC_ALL=C" "TERM=dumb" "EMACS=t" "INSIDE_EMACS='24.2.91.1,tramp:2.2.6-24.3'" "CDPATH=" "HISTORY=" "MAIL=" "MAILCHECK=" "MAILPATH=" "PAGER=\"\"" "autocorrect=" "correct=")))
  '(yas/root-directory (quote ("~/.emacs.d/snippets/"))))
 
 (custom-set-faces
