@@ -22,6 +22,9 @@
 (setq tramp-verbose 2)
 
 (setq extended-command-history
+;; (setq debug-on-quit t)
+;; (setq debug-on-error t)
+
       (list "customize-group"
             "maio/compile-in-git-root"
             "maio/copy-file-name-to-clipboard"
