@@ -31,6 +31,7 @@
 (key-chord-define-global (kbd ";g") 'magit-status)
 (key-chord-define-global (kbd "GG") 'guard-or-goto-guard)
 (key-chord-define-global (kbd ";q") 'delete-window)
+(key-chord-define-global (kbd ";c") 'maio/compile-in-git-root)
 
 (key-chord-define lisp-mode-shared-map (kbd ";e") 'my-eval-defun)
 
