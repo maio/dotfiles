@@ -16,6 +16,7 @@
 
 (key-chord-mode 1)
 (key-chord-define-global (kbd ",,") 'evil-buffer)
+(key-chord-define-global (kbd ",;") 'other-window)
 (key-chord-define-global (kbd ";w") 'force-save-buffer)
 (key-chord-define-global (kbd ";b") 'maio/helm-mini)
 (key-chord-define-global (kbd ";k") 'kill-current-buffer)
