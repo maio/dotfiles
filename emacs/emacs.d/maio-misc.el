@@ -22,11 +22,12 @@
 (setq next-line-add-newlines nil)
 (setq tramp-verbose 2)
 
-(setq extended-command-history
 ;; (setq debug-on-quit t)
 ;; (setq debug-on-error t)
 
-      (list "customize-group"
+(setq extended-command-history
+      (list "helm-bookmarks"
+            "customize-group"
             "maio/compile-in-git-root"
             "maio/copy-file-name-to-clipboard"
             "magit-blame-mode"
