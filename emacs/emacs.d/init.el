@@ -29,6 +29,7 @@
                        flycheck
                        flymake-cursor
                        diminish
+                       bookmark+
                        autopair
                        mark-multiple
                        key-chord
@@ -63,6 +64,7 @@
 (require 'maio-org)
 (require 'maio-git)
 (require 'maio-helm)
+(require 'maio-bookmark)
 (require 'maio-keys)
 
 (require 'tramp)
