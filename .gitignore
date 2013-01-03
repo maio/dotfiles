@@ -11,3 +11,4 @@ vim/vim/addons
 /emacs/emacs.d/tramp
 /emacs/emacs.d/url/cookies
 /emacs/emacs.d/helm-c-adaptive-history
+/emacs/emacs.d/bookmarks.local
