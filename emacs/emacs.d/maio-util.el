@@ -90,4 +90,7 @@
   (interactive)
   (switch-to-buffer-other-window compilation-last-buffer))
 
+(defun maio/run-prog-mode-hook ()
+  (run-hooks 'prog-mode-hook))
+
 (provide 'maio-util)

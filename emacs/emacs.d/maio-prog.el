@@ -1,8 +1,12 @@
 (add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.scss$" . css-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache$" . mustache-mode))
 
 (eval-after-load 'slime
   '(setq slime-protocol-version 'ignore))
+
+(eval-after-load "mustache-mode"
+  '(add-hook 'mustache-mode-hook 'maio/run-prog-mode-hook))
 
 (require 'autopair)
 (which-func-mode 1)
@@ -12,6 +16,7 @@
 
 (defun show-trailing-whitespace () (setq show-trailing-whitespace t))
 (add-hook 'prog-mode-hook 'show-trailing-whitespace)
+(add-hook 'prog-mode-hook 'autopair-on)
 
 (defun maio-narrow-to-defun-clone ()
   (interactive)

@@ -22,6 +22,7 @@
                        goto-last-change
                        clojure-mode
                        feature-mode
+                       mustache-mode
                        php-mode
                        js3-mode
                        nrepl
