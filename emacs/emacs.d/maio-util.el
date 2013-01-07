@@ -28,6 +28,14 @@
   (interactive)
     (mapc 'kill-buffer (buffer-list)))
 
+(defun kill-buffer-if-not-current (buffer)
+  (when (not (eq (current-buffer) buffer))
+    (kill-buffer buffer)))
+
+(defun kill-other-buffers ()
+  (interactive)
+  (mapc 'kill-buffer-if-not-current (buffer-list)))
+
 (defun shell () (interactive) (eshell))
 
 (defun my-eval-defun ()

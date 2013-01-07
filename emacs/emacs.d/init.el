@@ -23,6 +23,7 @@
                        clojure-mode
                        feature-mode
                        mustache-mode
+                       yaml-mode
                        php-mode
                        js3-mode
                        nrepl
