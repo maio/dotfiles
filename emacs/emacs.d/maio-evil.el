@@ -14,6 +14,7 @@
                               (term-mode                     . emacs)
                               (help-mode                     . emacs)
                               (helm-grep-mode                . emacs)
+                              (grep-mode                     . emacs)
                               (rmail-mode                    . normal)
                               (rmail-summary-mode            . emacs)
                               (bc-menu-mode                  . emacs)
@@ -64,6 +65,7 @@
 (evil-add-hjkl-bindings rmail-mode-map 'normal
   "q" 'kill-current-buffer
   "H" 'rmail-summary)
+(evil-add-hjkl-bindings grep-mode-map 'emacs)
 
 ;; ace-jump integration
 (require 'ace-jump-mode)
