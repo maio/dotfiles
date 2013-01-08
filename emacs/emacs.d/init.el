@@ -68,6 +68,7 @@
 (require 'maio-helm)
 (require 'maio-bookmark)
 (require 'maio-keys)
+(require 'git-grep)
 
 (require 'tramp)
 (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
