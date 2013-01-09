@@ -23,7 +23,10 @@
                                  (line-end-position))))
 
 (defun edit-init () (interactive) (find-file "~/.emacs.d/init.el"))
-(defun kill-current-buffer () (interactive) (kill-buffer (current-buffer)))
+(defun kill-current-buffer ()
+  (interactive)
+  (kill-buffer (current-buffer))
+  (when (window-parent) (delete-window)))
 (defun kill-all-buffers ()
   (interactive)
     (mapc 'kill-buffer (buffer-list)))
