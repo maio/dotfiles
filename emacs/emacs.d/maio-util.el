@@ -1,4 +1,4 @@
-(require 'cl)
+(require 'cl-lib)
 
 (defmacro require-and-exec (feature &optional &rest body)
   "Require the feature and execute body if it was successfull loaded."
