@@ -16,7 +16,6 @@
   (helm-other-buffer '(helm-c-source-buffers-list
                        helm-c-source-bookmarks
                        helm-c-source-recentf
-                       helm-c-source-ls-git
                        helm-c-source-buffer-not-found)
                      "*helm mini*"))
 
