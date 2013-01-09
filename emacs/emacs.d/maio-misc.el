@@ -31,6 +31,7 @@
             "customize-group"
             "maio/compile-in-git-root"
             "maio/copy-file-name-to-clipboard"
+            "git-grep"
             "magit-blame-mode"
             "kill-other-buffers"
             "kill-all-buffers"))
