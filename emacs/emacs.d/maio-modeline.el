@@ -7,6 +7,7 @@
 (eval-after-load 'autopair '(diminish 'autopair-mode "()"))
 (eval-after-load 'simple '(diminish 'auto-fill-function))
 (eval-after-load 'flymake '(diminish 'flymake-mode "Fly"))
+(eval-after-load 'paredit '(diminish 'paredit-mode "(e)"))
 
 (setq-default
  mode-line-format
@@ -28,12 +29,9 @@
   ;; relative position, size of file
   (propertize "%p ") ;; % above top
 
-  ;; the current major mode for the buffer.
-  '(:eval (propertize "%m"
-                      'help-echo buffer-file-coding-system))
-
+  mode-line-modes
   ;; i don't want to see minor-modes; but if you want, uncomment this:
-  minor-mode-alist  ;; list of minor modes
+  ;; minor-mode-alist  ;; list of minor modes
 
   " "
   ;; current function
