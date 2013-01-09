@@ -36,8 +36,6 @@
   (interactive)
   (mapc 'kill-buffer-if-not-current (buffer-list)))
 
-(defun shell () (interactive) (eshell))
-
 (defun my-eval-defun ()
   (interactive)
   (if (in-mode? 'clojure-mode)
