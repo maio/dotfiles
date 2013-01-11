@@ -1,6 +1,6 @@
 # name: they
 # key: they
-# condition: (save-excursion (backward-word) (eq (point) (yas--real-line-beginning)))
+# condition: (maio/looking-at-empty-line?)
 # --
 they "${1:what}" => sub {
     $0

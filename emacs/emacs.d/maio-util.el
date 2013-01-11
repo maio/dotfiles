@@ -99,6 +99,12 @@
   (interactive)
   (switch-to-buffer-other-window compilation-last-buffer))
 
+(defun maio/looking-at-bol? ()
+  (save-excursion (backward-word) (eq (point) (line-beginning-position))))
+
+(defun maio/looking-at-empty-line? ()
+  (save-excursion (backward-word) (eq (point) (yas--real-line-beginning))))
+
 (defun maio/run-prog-mode-hook ()
   (run-hooks 'prog-mode-hook))
 

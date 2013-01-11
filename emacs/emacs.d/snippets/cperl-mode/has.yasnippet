@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # name: has
 # key: has
-# condition: (save-excursion (backward-word) (eq (point) (yas--real-line-beginning)))
+# condition: (maio/looking-at-bol?)
 # --
 has '$1' => (
     is => 'ro',$2
