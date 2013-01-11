@@ -10,13 +10,22 @@
 (helm-mode 1)
 (require 'maio-helm-git)
 
-(defun maio/helm-mini ()
-  "Preconfigured `helm' lightweight version \(buffer -> recentf\)."
+(defun maio/helm ()
   (interactive)
-  (helm-other-buffer '(helm-c-source-buffers-list
-                       helm-c-source-bookmarks
-                       helm-c-source-recentf
-                       helm-c-source-buffer-not-found)
-                     "*helm mini*"))
+  (let ((helm-source-filter '("Buffers" "Bookmarks" "Recentf" "Create buffer")))
+    (helm :sources '(helm-c-source-buffers-list
+                     helm-c-source-bookmarks
+                     helm-c-source-recentf
+                     helm-c-source-ls-git
+                     helm-c-source-buffer-not-found)
+          :buffer "*helm mini*")))
+
+(defun maio/helm-ls-git-only ()
+  (interactive)
+  (when (and (member 'helm-c-source-ls-git helm-sources)
+             (equal helm-buffer "*helm mini*"))
+    (helm-set-source-filter '("Git files"))))
+
+(key-chord-define helm-map (kbd ";g") 'maio/helm-ls-git-only)
 
 (provide 'maio-helm)
