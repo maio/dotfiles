@@ -18,7 +18,7 @@
                      helm-c-source-recentf
                      helm-c-source-ls-git
                      helm-c-source-buffer-not-found)
-          :buffer "*helm mini*")))
+          :buffer "*helm maio*")))
 
 (defun maio/helm-ls-git-only ()
   (interactive)
