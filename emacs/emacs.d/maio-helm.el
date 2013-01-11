@@ -22,8 +22,7 @@
 
 (defun maio/helm-ls-git-only ()
   (interactive)
-  (when (and (member 'helm-c-source-ls-git helm-sources)
-             (equal helm-buffer "*helm mini*"))
+  (when (member 'helm-c-source-ls-git helm-sources)
     (helm-set-source-filter '("Git files"))))
 
 (key-chord-define helm-map (kbd ";g") 'maio/helm-ls-git-only)
