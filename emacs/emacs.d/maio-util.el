@@ -49,7 +49,7 @@
   "Write new snippet based on current region."
   (interactive "r")
   (let ((region (buffer-substring begin end)))
-    (yas/new-snippet)
+    (yas-new-snippet)
     (save-excursion
       (goto-char (point-max))
       (insert region))))

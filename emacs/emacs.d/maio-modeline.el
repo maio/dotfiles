@@ -1,5 +1,5 @@
 (require 'diminish)
-(eval-after-load 'yasnippet '(diminish 'yas/minor-mode "YS"))
+(eval-after-load 'yasnippet '(diminish 'yas-minor-mode "YS"))
 (eval-after-load 'eldoc '(diminish 'eldoc-mode))
 (eval-after-load 'undo-tree '(diminish 'undo-tree-mode))
 (eval-after-load 'hi-lock '(diminish 'hi-lock-mode))
