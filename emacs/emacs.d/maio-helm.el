@@ -10,8 +10,15 @@
 (helm-mode 1)
 (require 'maio-helm-git)
 
+(defun helm-set-default-directory (buffer-name directory)
+  (let ((buffer (get-buffer buffer-name)))
+    (when buffer
+      (with-current-buffer buffer
+        (setq default-directory directory)))))
+
 (defun maio/helm ()
   (interactive)
+  (helm-set-default-directory "*helm maio*" default-directory)
   (helm :sources '(helm-c-source-buffers-list
                    helm-c-source-bookmarks
                    helm-c-source-recentf
