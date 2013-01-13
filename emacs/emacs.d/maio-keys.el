@@ -19,7 +19,6 @@
 (key-chord-define-global (kbd ",;") 'other-window)
 (key-chord-define-global (kbd ";w") 'force-save-buffer)
 (key-chord-define-global (kbd ";b") 'maio/helm)
-(key-chord-define-global (kbd ";f") 'helm-ls-git-ls)
 (key-chord-define-global (kbd ";k") 'kill-current-buffer)
 (key-chord-define-global (kbd ";t") 'helm-c-etags-select)
 (key-chord-define-global (kbd ";r") 'helm-resume)
