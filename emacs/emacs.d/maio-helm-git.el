@@ -1,5 +1,6 @@
 (add-to-list 'load-path "~/.emacs.d/helm-ls-git")
 (require 'helm-ls-git)
+(setq helm-ls-git-show-abs-or-relative 'relative)
 
 ;; source - https://github.com/lewang/helm-cmd-t/blob/master/helm-cmd-t.el
 (defun helm-git-grep (cache-buffer &optional globs)
