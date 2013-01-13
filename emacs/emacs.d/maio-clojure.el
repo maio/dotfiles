@@ -16,7 +16,7 @@
 (eval-after-load "clojure-mode"
   '(evil-define-key 'normal clojure-mode-map (kbd "gs") 'maio/nrepl))
 
-(evil-define-key 'normal nrepl-mode-map (kbd "RET") 'nrepl-return)
+(evil-define-key 'normal nrepl-interaction-mode-map (kbd "RET") 'nrepl-return)
 (defadvice nrepl-return (after normal-state () activate) (evil-normal-state))
 (evil-define-key 'normal nrepl-mode-map (kbd "(")
   (lambda () (interactive) (insert "(") (evil-insert-state)))
