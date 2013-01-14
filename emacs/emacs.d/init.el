@@ -15,6 +15,7 @@
                        starter-kit-lisp
                        starter-kit-eshell
                        s
+                       dash
                        popup
                        sackspace
                        undo-tree
