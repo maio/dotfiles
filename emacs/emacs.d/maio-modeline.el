@@ -29,13 +29,14 @@
   ;; relative position, size of file
   (propertize "%p ") ;; % above top
 
+  ;; current function
+  '(which-func-mode ("" which-func-format " "))
+
   mode-line-modes
   ;; i don't want to see minor-modes; but if you want, uncomment this:
   ;; minor-mode-alist  ;; list of minor modes
 
   " "
-  ;; current function
-  '(which-func-mode ("" which-func-format " "))
 
   " %-" ;; fill with '-'
   ))
