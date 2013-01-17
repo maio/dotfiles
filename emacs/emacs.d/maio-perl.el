@@ -20,6 +20,7 @@
 
 (eval-after-load 'cperl-mode
   '(progn
+     (require 'perltidy)
      (add-hook 'cperl-mode-hook 'esk-prog-mode-hook)
      (add-hook 'cperl-mode-hook 'autopair-on)
      (evil-define-key 'normal cperl-mode-map "=" 'perltidy-dwim)

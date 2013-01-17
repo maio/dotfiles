@@ -59,7 +59,6 @@
 (require 'maio-python)
 (require 'maio-clojure)
 (require 'maio-javascript)
-(require 'perltidy)
 (require 'maio-modeline)
 (require 'maio-completion)
 (require 'maio-prog)
