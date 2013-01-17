@@ -38,7 +38,6 @@
                        autopair
                        mark-multiple
                        key-chord
-                       solarized-theme
                        yasnippet
                        helm
                        evil
