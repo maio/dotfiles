@@ -30,6 +30,7 @@
                        js3-mode
                        nrepl
                        ac-nrepl
+                       dired-details
                        flycheck
                        flymake-cursor
                        diminish
@@ -68,6 +69,7 @@
 (require 'maio-git)
 (require 'maio-helm)
 (require 'maio-bookmark)
+(require 'maio-dired)
 (require 'maio-keys)
 (require 'git-grep)
 
