@@ -21,7 +21,7 @@
                        undo-tree
                        auto-complete
                        ace-jump-mode
-                       goto-last-change
+                       goto-chg
                        clojure-mode
                        feature-mode
                        mustache-mode
