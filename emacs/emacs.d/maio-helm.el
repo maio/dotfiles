@@ -31,4 +31,7 @@
 
 (key-chord-define helm-map (kbd ";g") 'maio/helm-ls-git-only)
 
+(require 'helm-compile)
+(key-chord-define-global (kbd ";c") 'helm-compile)
+
 (provide 'maio-helm)

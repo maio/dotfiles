@@ -30,10 +30,9 @@
 (key-chord-define-global (kbd ";g") 'magit-status)
 (key-chord-define-global (kbd "GG") 'guard-or-goto-guard)
 (key-chord-define-global (kbd ";q") 'delete-window)
-(key-chord-define-global (kbd ";c") 'maio/compile-in-git-root)
 
-(evil-define-key 'normal lisp-mode-shared-map (kbd "M-.") 'elisp-slime-nav-find-elisp-thing-at-point)
 (key-chord-define lisp-mode-shared-map (kbd ";e") 'my-eval-defun)
+(evil-define-key 'normal lisp-mode-shared-map (kbd "M-.") 'elisp-slime-nav-find-elisp-thing-at-point)
 
 (key-chord-define evil-insert-state-map (kbd "jk") 'evil-normal-state)
 (define-key evil-insert-state-map (kbd "M-<backspace>") 'backward-kill-word)
