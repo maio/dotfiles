@@ -22,6 +22,7 @@
 (setq require-final-newline nil)
 (setq next-line-add-newlines nil)
 (setq tramp-verbose 2)
+(setq recentf-max-saved-items 100)
 
 ;; (setq debug-on-quit t)
 ;; (setq debug-on-error t)
