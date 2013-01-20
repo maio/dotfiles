@@ -3,9 +3,16 @@
 
 (set-frame-font "Source Code Pro Regular")
 
+(defun maio/no-bold-or-underline-please ()
+  (mapc
+  (lambda (face)
+    (set-face-attribute face nil :weight 'normal :underline nil))
+  (face-list)))
+
 ;; custom display modes
 (defun regular-mode ()
   (interactive)
+  (maio/no-bold-or-underline-please)
   (if (system-type-is-gnu)
     (set-font-size 120)
     (set-font-size 160)))
