@@ -32,6 +32,7 @@
 (key-chord-define-global (kbd ";q") 'delete-window)
 (key-chord-define-global (kbd ";c") 'maio/compile-in-git-root)
 
+(evil-define-key 'normal lisp-mode-shared-map (kbd "M-.") 'elisp-slime-nav-find-elisp-thing-at-point)
 (key-chord-define lisp-mode-shared-map (kbd ";e") 'my-eval-defun)
 
 (key-chord-define evil-insert-state-map (kbd "jk") 'evil-normal-state)
