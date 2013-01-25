@@ -48,6 +48,7 @@
 (define-key evil-visual-state-map "Q" "gq")
 (define-key evil-normal-state-map "Q" "gqap")
 (define-key evil-normal-state-map "S" "vabsba")
+(evil-define-key 'visual surround-mode-map "S" "sba")
 
 (evil-add-hjkl-bindings magit-mode-map 'emacs)
 (evil-add-hjkl-bindings magit-diff-mode-map 'emacs)
