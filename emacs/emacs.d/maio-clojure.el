@@ -16,10 +16,6 @@
   '(progn
      (add-hook 'nrepl-mode-hook 'autopair-on)
      (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
-     (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
-     (defadvice nrepl-return (after normal-state () activate) (evil-normal-state))
-     (evil-define-key 'normal nrepl-interaction-mode-map (kbd "RET") 'nrepl-return)
-     (evil-define-key 'normal nrepl-mode-map (kbd "(")
-       (lambda () (interactive) (insert "(") (evil-insert-state)))))
+     (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)))
 
 (provide 'maio-clojure)
