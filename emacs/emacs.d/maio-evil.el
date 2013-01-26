@@ -99,11 +99,4 @@
 (define-key evil-inner-text-objects-map "s" 'evil-inner-symbol)
 (define-key evil-outer-text-objects-map "s" 'evil-symbol)
 
-(defun indent-last-paste ()
-  (execute-kbd-macro "gp")
-  (call-interactively 'indent-region))
-
-(defadvice evil-paste-after (after maio-paste () activate) (indent-last-paste))
-(defadvice evil-paste-before (after maio-paste () activate) (indent-last-paste))
-
 (provide 'maio-evil)
