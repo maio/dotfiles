@@ -10,6 +10,7 @@
 (setq fill-column 80)
 (setq-default tab-width 4)
 (setq c-basic-offset 4)
+(setq standard-indent 4)
 (setq tab-width 4)
 (setq yaml-indent-offset 4)
 (setq-default indent-tabs-mode nil)
@@ -23,6 +24,9 @@
 (setq next-line-add-newlines nil)
 (setq tramp-verbose 2)
 (setq recentf-max-saved-items 100)
+
+(add-hook 'text-mode-hook
+          (lambda() (setq indent-line-function 'insert-tab)))
 
 ;; (setq debug-on-quit t)
 ;; (setq debug-on-error t)
