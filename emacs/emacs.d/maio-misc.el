@@ -25,8 +25,9 @@
 (setq tramp-verbose 2)
 (setq recentf-max-saved-items 100)
 
-(add-hook 'text-mode-hook
-          (lambda() (setq indent-line-function 'insert-tab)))
+(defun maio/indent () (setq indent-line-function 'insert-tab))
+(add-hook 'text-mode-hook 'maio/indent)
+(add-hook 'sql-mode-hook 'maio/indent)
 
 ;; (setq debug-on-quit t)
 ;; (setq debug-on-error t)
