@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: stdin
+# --
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+while ( <STDIN> ) {
+    chomp;
+    my $line = $_;
+    say $line;
+    print $line . "\n";
+}
