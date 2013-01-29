@@ -17,12 +17,13 @@
   (recompile))
 
 (defun helm-compile---compile (command)
-  (with-helm-default-directory (helm-compile--get-default-directory)
-      (progn
-        (push command compile-history)
-        (compile command)
-        (with-current-buffer compilation-last-buffer
-          (rename-buffer (helm-compile--buffer-for-command command))))))
+  (with-temp-buffer
+    (with-helm-default-directory (helm-compile--get-default-directory)
+        (progn
+          (push command compile-history)
+          (compile command)
+          (with-current-buffer compilation-last-buffer
+            (rename-buffer (helm-compile--buffer-for-command command)))))))
 
 (defun helm-compile--compile (command)
   (if (get-buffer (helm-compile--buffer-for-command command))
