@@ -21,7 +21,7 @@
 (defun presentation-mode ()
   (interactive)
   (if (system-type-is-gnu)
-    (set-font-size 170)
-    (set-font-size 170)))
+    (set-font-size 180)
+    (set-font-size 180)))
 
 (provide 'maio-ui)
