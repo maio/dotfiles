@@ -25,6 +25,7 @@
 (setq tramp-verbose 2)
 (setq recentf-max-saved-items 100)
 (setq truncate-lines t)
+(setq transient-mark-mode nil)
 
 (defun maio/indent () (setq indent-line-function 'insert-tab))
 (add-hook 'text-mode-hook 'maio/indent)
