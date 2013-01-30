@@ -1,6 +1,5 @@
 ;; VIM emulation
 (setq evil-move-cursor-back nil)
-(setq evil-want-C-u-scroll t)
 (setq evil-want-C-i-jump t)
 (setq evil-repeat-move-cursor nil)
 (setq evil-regexp-search t)
