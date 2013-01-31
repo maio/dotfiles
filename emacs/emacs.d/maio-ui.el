@@ -1,9 +1,9 @@
 (require 'maio-util)
 (global-font-lock-mode 0)
 
-(if (system-type-is-gnu)
-    (set-frame-font "Terminus Bold")
-  (set-frame-font "Source Code Pro Regular"))
+(defun maio/set-font (font size)
+  (set-frame-font font)
+  (set-font-size size))
 
 (defun maio/no-bold-or-underline-please ()
   (mapc
@@ -15,13 +15,13 @@
 (defun regular-mode ()
   (interactive)
   (if (system-type-is-gnu)
-    (set-font-size 160)
-    (set-font-size 160)))
+      (maio/set-font "Terminus Bold" 150)
+    (maio/set-font "Source Code Pro Regular" 160)))
 
 (defun presentation-mode ()
   (interactive)
   (if (system-type-is-gnu)
-    (set-font-size 180)
-    (set-font-size 180)))
+      (maio/set-font "Terminus Bold" 180)
+    (maio/set-font "Source Code Pro Regular" 180)))
 
 (provide 'maio-ui)
