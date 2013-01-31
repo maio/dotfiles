@@ -62,13 +62,13 @@
 (add-hook 'guard-notify-success-hook 'guard-notify-message-close-buffer)
 
 ;; guard-notify-modeline
-(defcustom guard-notify-modeline-pending-color "Black"
+(defcustom guard-notify-modeline-pending-color "gray"
   "Modeline color for pending notification"
   :group 'guard)
-(defcustom guard-notify-modeline-success-color "ForestGreen"
+(defcustom guard-notify-modeline-success-color "lawn green"
   "Modeline color for success notification"
   :group 'guard)
-(defcustom guard-notify-modeline-failed-color "Firebrick"
+(defcustom guard-notify-modeline-failed-color "orange"
   "Modeline color for failed notification"
   :group 'guard)
 
