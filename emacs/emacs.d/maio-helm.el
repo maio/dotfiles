@@ -22,14 +22,9 @@
   (helm :sources '(helm-c-source-buffers-list
                    helm-c-source-bookmarks
                    helm-c-source-recentf
+                   helm-c-source-ls-git
                    helm-c-source-buffer-not-found)
         :buffer "*helm maio*"))
-
-(defun maio/helm-ls-git-only ()
-  (interactive)
-  (helm-set-sources '(helm-c-source-ls-git)))
-
-(key-chord-define helm-map (kbd ";g") 'maio/helm-ls-git-only)
 
 (require 'helm-compile)
 (key-chord-define-global (kbd ";c") 'helm-compile)
