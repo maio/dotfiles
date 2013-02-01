@@ -27,7 +27,8 @@
 (setq truncate-lines t)
 (setq transient-mark-mode nil)
 
-(defun maio/indent () (setq indent-line-function 'insert-tab))
+(defun maio/indent ()
+  (setq indent-line-function 'indent-relative-maybe))
 (add-hook 'text-mode-hook 'maio/indent)
 (add-hook 'sql-mode-hook 'maio/indent)
 
