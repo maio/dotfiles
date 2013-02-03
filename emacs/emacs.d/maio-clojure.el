@@ -16,6 +16,7 @@
   '(progn
      (add-hook 'nrepl-mode-hook 'autopair-on)
      (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
-     (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)))
+     (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+     (key-chord-define nrepl-mode-map (kbd ";k") 'nrepl-quit)))
 
 (provide 'maio-clojure)
