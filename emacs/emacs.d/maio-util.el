@@ -76,6 +76,11 @@
   (with-helm-default-directory "~/.emacs.d/"
       (call-interactively 'helm-find-files)))
 
+(defun maio/find-project ()
+  (interactive)
+  (with-helm-default-directory "~/Projects/"
+      (call-interactively 'helm-find-files)))
+
 (defun maio/copy-file-name-to-clipboard ()
   "Copy the current buffer file name to the clipboard."
   (interactive)
