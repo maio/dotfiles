@@ -24,6 +24,7 @@
 (define-key evil-emacs-state-map (kbd "C-g") 'evil-normal-state)
 (define-key evil-replace-state-map (kbd "C-g") 'evil-normal-state)
 (define-key evil-visual-state-map (kbd "C-g") 'evil-normal-state)
+(define-key evil-normal-state-map (kbd "C-SPC") 'set-mark-command)
 (define-key evil-insert-state-map (kbd "C-e") 'end-of-line)
 (define-key evil-motion-state-map (kbd "TAB") "%")
 (define-key evil-motion-state-map (kbd "<tab>") "%")
@@ -74,7 +75,6 @@
 (define-key evil-normal-state-map (kbd "SPC") 'ace-jump-word-mode)
 (define-key evil-visual-state-map (kbd "SPC") 'ace-jump-word-mode)
 (define-key evil-motion-state-map (kbd "SPC") 'ace-jump-word-mode)
-(define-key evil-normal-state-map (kbd "C-SPC") 'ace-jump-line-mode)
 
 ;; sackspace
 (require 'sackspace)
