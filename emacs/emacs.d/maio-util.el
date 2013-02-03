@@ -71,7 +71,7 @@
       (command-execute 'other-window)
     (command-execute 'evil-buffer)))
 
-(defun find-config-file ()
+(defun maio/find-config-file ()
   (interactive)
   (with-helm-default-directory "~/.emacs.d/"
       (call-interactively 'helm-find-files)))
