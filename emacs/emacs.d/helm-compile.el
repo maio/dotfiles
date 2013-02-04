@@ -16,26 +16,28 @@
   (push command compile-history)
   (recompile))
 
-(defun helm-compile---compile (command)
+(defun helm-compile---compile (command &optional comint)
   (with-temp-buffer
     (with-helm-default-directory (helm-compile--get-default-directory)
         (progn
           (push command compile-history)
-          (compile command)
+          (compile command comint)
           (with-current-buffer compilation-last-buffer
             (rename-buffer (helm-compile--buffer-for-command command)))))))
 
-(defun helm-compile--compile (command)
+(defun helm-compile--compile (command &optional comint)
   (if (get-buffer (helm-compile--buffer-for-command command))
       (helm-compile---recompile command)
-    (helm-compile---compile command)))
+    (helm-compile---compile command comint)))
 
 (defvar helm-c-source-compile
   '((name . "Compile")
     (dummy)
     (action
      . (("Compile" . (lambda (candidate)
-                       (helm-compile--compile candidate)))))))
+                       (helm-compile--compile candidate)))
+        ("Compile (Comint)" . (lambda (candidate)
+                                (helm-compile--compile candidate t)))))))
 
 (defvar helm-c-source-compile-history
   '((name . "Compile History")
@@ -43,6 +45,8 @@
     (action
      . (("Compile" . (lambda (candidate)
                        (helm-compile--compile candidate)))
+        ("Compile (Comint)" . (lambda (candidate)
+                                (helm-compile--compile candidate t)))
         ("Remove from history" . (lambda (ignore)
                                    (mapc (lambda (candidate) (delete candidate compile-history))
                                          (helm-marked-candidates))))))))
