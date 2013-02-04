@@ -19,6 +19,7 @@
 (defun show-trailing-whitespace () (setq show-trailing-whitespace t))
 (add-hook 'prog-mode-hook 'show-trailing-whitespace)
 (add-hook 'prog-mode-hook 'autopair-on)
+(add-hook 'html-mode-hook 'autopair-on)
 (add-hook 'prog-mode-hook 'turn-on-typing-speed)
 
 (defun maio-narrow-to-defun-clone ()
