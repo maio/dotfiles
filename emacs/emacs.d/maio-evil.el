@@ -98,4 +98,9 @@
 (define-key evil-inner-text-objects-map "o" 'evil-inner-symbol)
 (define-key evil-outer-text-objects-map "o" 'evil-symbol)
 
+(setq eshell-prompt-function
+  (lambda ()
+    (concat (eshell/pwd) "\n$ "))
+  eshell-prompt-regexp (concat "^" (regexp-quote "$")))
+
 (provide 'maio-evil)
