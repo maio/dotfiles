@@ -101,6 +101,10 @@
   "Return true if system is darwin-based (Mac OS X)"
   (string-equal system-type "darwin"))
 
+(defun maio/goto-scratch-buffer ()
+  (interactive)
+  (switch-to-buffer "*scratch*"))
+
 (defun maio/goto-compilation-buffer ()
   (interactive)
   (switch-to-buffer-other-window compilation-last-buffer))
