@@ -37,6 +37,7 @@
                        bookmark+
                        autopair
                        mark-multiple
+                       multiple-cursors
                        key-chord
                        yasnippet
                        helm
@@ -70,6 +71,7 @@
 (require 'maio-bookmark)
 (require 'maio-dired)
 (require 'maio-keys)
+(require 'maio-multiple-cursors)
 (require 'git-grep)
 
 (require 'tramp)
