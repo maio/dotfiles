@@ -95,7 +95,7 @@
   "Select symbol."
   (evil-an-object-range count beg end type #'forward-symbol))
 
-(define-key evil-inner-text-objects-map "s" 'evil-inner-symbol)
-(define-key evil-outer-text-objects-map "s" 'evil-symbol)
+(define-key evil-inner-text-objects-map "o" 'evil-inner-symbol)
+(define-key evil-outer-text-objects-map "o" 'evil-symbol)
 
 (provide 'maio-evil)
