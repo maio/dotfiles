@@ -1,3 +1,4 @@
+(require 's)
 (require 'helm)
 
 (defvar helm-compile-locate-dominating-file ".git"
