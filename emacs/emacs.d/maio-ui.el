@@ -1,5 +1,8 @@
 (require 'maio-util)
+
 (global-font-lock-mode 0)
+;; Enable font-lock for modes where it makes sense
+(add-hook 'diff-mode-hook 'font-lock-mode)
 
 (defun maio/set-font (font size)
   (set-frame-font font)
