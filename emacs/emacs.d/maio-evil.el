@@ -8,7 +8,7 @@
 (loop for (mode . state) in '((inferior-emacs-lisp-mode      . emacs)
                               (nrepl-mode                    . insert)
                               (pylookup-mode                 . emacs)
-                              (comint-mode                   . emacs)
+                              (comint-mode                   . normal)
                               (shell-mode                    . emacs)
                               (term-mode                     . emacs)
                               (help-mode                     . emacs)
