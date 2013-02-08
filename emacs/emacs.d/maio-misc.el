@@ -2,6 +2,7 @@
 (add-to-list 'exec-path "/usr/local/bin")
 (add-to-list 'exec-path "~/bin")
 (setenv "PATH" (concat "~/bin" ":" (getenv "PATH")))
+(setenv "RLWRAP" "")
 (set-face-attribute 'default nil :height 150)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
