@@ -10,6 +10,9 @@
 (eval-after-load "mustache-mode"
   '(add-hook 'mustache-mode-hook 'maio/run-prog-mode-hook))
 
+(eval-after-load "feature-mode"
+  '(add-hook 'feature-mode-hook 'flyspell-mode))
+
 (require 'autopair)
 (which-func-mode 1)
 (electric-pair-mode 0)
