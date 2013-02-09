@@ -72,6 +72,29 @@
 (require 'ace-jump-mode)
 (setq ace-jump-mode-case-sensitive-search nil)
 
+(evil-define-motion evil-ace-jump-char-mode (count)
+  :type exclusive
+  (ace-jump-mode 5)
+  (recursive-edit))
+
+(evil-define-motion evil-ace-jump-line-mode (count)
+  :type line
+  (ace-jump-mode 9)
+  (recursive-edit))
+
+(evil-define-motion evil-ace-jump-word-mode (count)
+  :type exclusive
+  (ace-jump-mode 1)
+  (recursive-edit))
+
+(evil-define-motion evil-ace-jump-char-direct-mode (count)
+  :type inclusive
+  (ace-jump-mode 5)
+  (forward-char 1)
+  (recursive-edit))
+
+(add-hook 'ace-jump-mode-end-hook 'exit-recursive-edit)
+
 ;; idea from vim-seek (could also be used for f (evil-find-char)
 (defun maio/ace-jump-two-char-mode (query-char query-char-2)
   "AceJump char mode"
@@ -88,8 +111,9 @@
                                      (char-to-string query-char-2)))))
 
 (define-key evil-normal-state-map (kbd "SPC") 'maio/ace-jump-two-char-mode)
-(define-key evil-visual-state-map (kbd "SPC") 'ace-jump-word-mode)
-(define-key evil-motion-state-map (kbd "SPC") 'ace-jump-word-mode)
+(define-key evil-motion-state-map (kbd "/") 'evil-ace-jump-char-mode)
+(define-key evil-normal-state-map (kbd "/") 'evil-search-forward)
+(define-key evil-motion-state-map (kbd "SPC") 'evil-ace-jump-line-mode)
 
 ;; sackspace
 (require 'sackspace)
