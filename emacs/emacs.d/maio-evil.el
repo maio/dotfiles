@@ -72,7 +72,22 @@
 (require 'ace-jump-mode)
 (setq ace-jump-mode-case-sensitive-search nil)
 
-(define-key evil-normal-state-map (kbd "SPC") 'ace-jump-word-mode)
+;; idea from vim-seek (could also be used for f (evil-find-char)
+(defun maio/ace-jump-two-char-mode (query-char query-char-2)
+  "AceJump char mode"
+  (interactive (list (read-char "First Char:")
+                     (read-char "Second:")))
+
+  (if (eq (ace-jump-char-category query-char) 'other)
+    (error "[AceJump] Non-printable character"))
+
+  ;; others : digit , alpha, punc
+  (setq ace-jump-query-char query-char)
+  (setq ace-jump-current-mode 'ace-jump-char-mode)
+  (ace-jump-do (regexp-quote (concat (char-to-string query-char)
+                                     (char-to-string query-char-2)))))
+
+(define-key evil-normal-state-map (kbd "SPC") 'maio/ace-jump-two-char-mode)
 (define-key evil-visual-state-map (kbd "SPC") 'ace-jump-word-mode)
 (define-key evil-motion-state-map (kbd "SPC") 'ace-jump-word-mode)
 
