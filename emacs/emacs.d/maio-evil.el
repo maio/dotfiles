@@ -68,7 +68,7 @@
   "H" 'rmail-summary)
 (evil-add-hjkl-bindings grep-mode-map 'emacs)
 
-;; ace-jump integration
+;; ace-jump integration https://github.com/winterTTr/ace-jump-mode/issues/20
 (require 'ace-jump-mode)
 (setq ace-jump-mode-case-sensitive-search nil)
 
