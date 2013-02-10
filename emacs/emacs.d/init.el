@@ -35,6 +35,7 @@
                        flymake-cursor
                        diminish
                        bookmark+
+                       diff-hl
                        autopair
                        mark-multiple
                        multiple-cursors
