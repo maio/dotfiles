@@ -8,4 +8,6 @@
 (setq ac-quick-help-delay 1)
 (setq ac-dwim t)
 
+(add-hook 'comint-mode-hook 'auto-complete-mode)
+
 (provide 'maio-completion)
