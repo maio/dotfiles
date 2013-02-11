@@ -11,6 +11,7 @@
 (key-chord-define-global (kbd ";r") 'helm-resume)
 (key-chord-define-global (kbd ";x") 'helm-M-x)
 (key-chord-define-global (kbd ";s") 'helm-occur)
+(define-key evil-normal-state-map (kbd "/") 'helm-occur)
 (key-chord-define-global (kbd ";v") 'maio/find-config-file)
 (key-chord-define-global (kbd ";n") 'maio-narrow-to-defun-clone)
 (key-chord-define-global (kbd ";1") 'delete-other-windows)
