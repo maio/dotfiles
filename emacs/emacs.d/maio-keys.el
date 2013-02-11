@@ -21,6 +21,13 @@
 (key-chord-define-global (kbd ";q") 'delete-window)
 (key-chord-define-global (kbd ";*") 'maio/goto-scratch-buffer)
 
+;; marked buffer
+(defvar maio-marked-buffer nil)
+(define-key evil-normal-state-map (kbd "ge")
+  (lambda () (interactive) (switch-to-buffer maio-marked-buffer)))
+(key-chord-define-global (kbd "GE")
+  (lambda () (interactive) (setq maio-marked-buffer (current-buffer))))
+
 (key-chord-define lisp-mode-shared-map (kbd ";e") 'my-eval-defun)
 (evil-define-key 'normal lisp-mode-shared-map (kbd "M-.") 'elisp-slime-nav-find-elisp-thing-at-point)
 
@@ -35,7 +42,6 @@
 (define-key evil-motion-state-map "gm" 'guard-notify-message-show)
 (evil-define-key 'normal compilation-minor-mode-map (kbd "RET") 'compile-goto-error)
 (evil-define-key 'normal compilation-minor-mode-map (kbd "q") 'quit-window)
-(define-key evil-normal-state-map "ge" 'guard-goto-first-error)
 (define-key evil-insert-state-map (kbd "C-y")
   (lambda ()
     (interactive)
