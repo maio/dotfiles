@@ -12,7 +12,7 @@
          (default-directory (helm-ls-git-root-dir))
          ;; Expand filename of each candidate with the git root dir.
          ;; The filename will be in the help-echo prop.
-         (helm-c-grep-default-directory-fn `(lambda () (helm-ls-git-root-dir-localname))))
+         (helm-c-grep-default-directory-fn `(lambda () (helm-ls-git-root-dir))))
     (helm-do-grep-1 globs)))
 
 (provide 'maio-helm-git)

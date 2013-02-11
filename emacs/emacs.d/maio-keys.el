@@ -16,6 +16,7 @@
 (key-chord-define-global (kbd ";n") 'maio-narrow-to-defun-clone)
 (key-chord-define-global (kbd ";1") 'delete-other-windows)
 (key-chord-define-global (kbd ";g") 'magit-status)
+(key-chord-define-global (kbd ";f") 'helm-git-grep)
 (key-chord-define-global (kbd "GG") 'guard-or-goto-guard)
 (key-chord-define-global (kbd ";q") 'delete-window)
 (key-chord-define-global (kbd ";*") 'maio/goto-scratch-buffer)
