@@ -27,7 +27,6 @@
 (setq recentf-max-saved-items 100)
 (setq truncate-lines t)
 (setq transient-mark-mode nil)
-(setq ispell-personal-dictionary "~/.dict")
 
 (defun maio/indent ()
   (setq indent-line-function 'indent-relative-maybe))
