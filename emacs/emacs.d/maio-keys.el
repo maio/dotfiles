@@ -3,7 +3,7 @@
 
 (key-chord-mode 1)
 (key-chord-define-global (kbd ",,") 'evil-buffer)
-(key-chord-define-global (kbd ",;") 'other-window)
+(key-chord-define-global (kbd ";a") 'other-window)
 (key-chord-define-global (kbd ";w") 'force-save-buffer)
 (key-chord-define-global (kbd ";b") 'maio/helm)
 (key-chord-define-global (kbd ";k") 'kill-current-buffer)
@@ -15,6 +15,8 @@
 (key-chord-define-global (kbd ";v") 'maio/find-config-file)
 (key-chord-define-global (kbd ";n") 'maio-narrow-to-defun-clone)
 (key-chord-define-global (kbd ";1") 'delete-other-windows)
+(key-chord-define-global (kbd ";2") 'split-window-below)
+(key-chord-define-global (kbd ";3") 'split-window-right)
 (key-chord-define-global (kbd ";g") 'magit-status)
 (key-chord-define-global (kbd ";f") 'helm-git-grep)
 (key-chord-define-global (kbd "GG") 'guard-or-goto-guard)
