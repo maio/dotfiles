@@ -25,4 +25,9 @@
 
 (add-hook 'sqlplus-mode-hook 'ac-sqlplus-mode-setup)
 
+(key-chord-define sqlplus-mode-map (kbd ";e")
+                  (lambda () (interactive)
+                    (call-interactively 'sqlplus-send-current)
+                    (evil-normal-state)))
+
 (provide 'maio-sql)

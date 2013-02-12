@@ -22,7 +22,6 @@
 (key-chord-define-global (kbd ";*") 'maio/goto-scratch-buffer)
 
 (key-chord-define lisp-mode-shared-map (kbd ";e") 'my-eval-defun)
-(key-chord-define sqlplus-mode-map (kbd ";e") 'sqlplus-send-current)
 (evil-define-key 'normal lisp-mode-shared-map (kbd "M-.") 'elisp-slime-nav-find-elisp-thing-at-point)
 
 (key-chord-define evil-insert-state-map (kbd "jk") 'evil-normal-state)
