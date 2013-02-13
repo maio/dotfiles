@@ -45,9 +45,7 @@
 (evil-define-key 'normal compilation-minor-mode-map (kbd "RET") 'compile-goto-error)
 (evil-define-key 'normal compilation-minor-mode-map (kbd "q") 'quit-window)
 (define-key evil-insert-state-map (kbd "C-y")
-  (lambda ()
-    (interactive)
-    (insert (substring-no-properties (car kill-ring)))))
+  (lambda () (interactive) (call-interactively 'evil-paste-before) (forward-char)))
 
 (defun maio/electric-semicolon ()
   (interactive)
