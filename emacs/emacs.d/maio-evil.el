@@ -36,7 +36,6 @@
 (define-key evil-normal-state-map (kbd "C-w") 'delete-trailing-whitespace)
 (define-key evil-normal-state-map "3" 'toggle-comment-on-line-or-region)
 (define-key evil-visual-state-map "3" 'toggle-comment-on-line-or-region)
-(define-key evil-motion-state-map (kbd "C-v") 'er/expand-region)
 (define-key evil-motion-state-map "v" 'evil-visual-block)
 ;; make it easy to switch to visual-char mode from visual-block mode
 (define-key evil-visual-state-map "v" 'evil-visual-char)
