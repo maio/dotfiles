@@ -62,19 +62,19 @@
 (add-hook 'guard-notify-success-hook 'guard-notify-message-close-buffer)
 
 ;; guard-notify-modeline
-(defcustom guard-notify-modeline-pending-color "gray"
+(defcustom guard-notify-modeline-pending-color "white"
   "Modeline color for pending notification"
   :group 'guard)
-(defcustom guard-notify-modeline-success-color "lawn green"
+(defcustom guard-notify-modeline-success-color "black"
   "Modeline color for success notification"
   :group 'guard)
-(defcustom guard-notify-modeline-failed-color "orange"
+(defcustom guard-notify-modeline-failed-color "yellow"
   "Modeline color for failed notification"
   :group 'guard)
 
 (defun guard-notify-modeline (type title body)
   (let ((modeline-color (intern (concat "guard-notify-modeline-" type "-color"))))
-    (set-face-background 'modeline (symbol-value modeline-color))))
+    (set-face-foreground 'modeline (symbol-value modeline-color))))
 
 (add-hook 'guard-notify-hook 'guard-notify-modeline)
 
