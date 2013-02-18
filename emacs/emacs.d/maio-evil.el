@@ -9,7 +9,7 @@
                               (nrepl-mode                    . insert)
                               (pylookup-mode                 . emacs)
                               (comint-mode                   . normal)
-                              (shell-mode                    . emacs)
+                              (shell-mode                    . insert)
                               (term-mode                     . emacs)
                               (help-mode                     . emacs)
                               (helm-grep-mode                . emacs)
