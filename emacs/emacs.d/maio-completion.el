@@ -8,6 +8,9 @@
 (setq ac-quick-help-delay 1)
 (setq ac-dwim t)
 
+(define-key ac-completing-map "\r" nil)
+(define-key ac-completing-map [return] nil)
+
 (add-hook 'comint-mode-hook 'auto-complete-mode)
 
 (provide 'maio-completion)
