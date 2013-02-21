@@ -80,5 +80,4 @@
 (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
 
 (regular-mode)
-(desktop-save-mode 1)
 (savehist-mode 1)
