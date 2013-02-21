@@ -22,6 +22,7 @@
 (key-chord-define-global (kbd "GG") 'guard-or-goto-guard)
 (key-chord-define-global (kbd ";q") 'delete-window)
 (key-chord-define-global (kbd ";*") 'maio/goto-scratch-buffer)
+(key-chord-define-global (kbd ";`") 'shell)
 
 ;; marked buffer
 (defvar maio-marked-buffer nil)
