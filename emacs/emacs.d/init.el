@@ -23,6 +23,7 @@
                        ace-jump-mode
                        goto-chg
                        clojure-mode
+                       midje-mode
                        feature-mode
                        mustache-mode
                        yaml-mode
