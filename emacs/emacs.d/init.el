@@ -73,6 +73,7 @@
 (require 'maio-helm)
 (require 'maio-bookmark)
 (require 'maio-dired)
+(require 'maio-erc)
 (require 'maio-keys)
 (require 'maio-multiple-cursors)
 (require 'git-grep)
