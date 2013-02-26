@@ -76,6 +76,7 @@
 (require 'maio-erc)
 (require 'maio-keys)
 (require 'maio-multiple-cursors)
+(require 'maio-local nil t)
 (require 'git-grep)
 
 (require 'tramp)
