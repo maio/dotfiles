@@ -68,7 +68,7 @@
 (defcustom guard-notify-modeline-success-color "black"
   "Modeline color for success notification"
   :group 'guard)
-(defcustom guard-notify-modeline-failed-color "yellow"
+(defcustom guard-notify-modeline-failed-color "red"
   "Modeline color for failed notification"
   :group 'guard)
 
@@ -76,6 +76,6 @@
   (let ((modeline-color (intern (concat "guard-notify-modeline-" type "-color"))))
     (set-face-foreground 'modeline (symbol-value modeline-color))))
 
-(add-hook 'guard-notify-hook 'guard-notify-modeline)
+;; (add-hook 'guard-notify-hook 'guard-notify-modeline)
 
 (provide 'guard)
