@@ -16,3 +16,4 @@ vim/vim/addons
 /emacs/emacs.d/server
 /emacs/emacs.d/var
 /emacs/emacs.d/snippets/sql-mode/connect.yasnippet
+/emacs/emacs.d/maio-local.el
