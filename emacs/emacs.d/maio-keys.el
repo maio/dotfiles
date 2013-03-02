@@ -35,7 +35,6 @@
 (evil-define-key 'normal lisp-mode-shared-map (kbd "M-.") 'elisp-slime-nav-find-elisp-thing-at-point)
 
 (key-chord-define evil-insert-state-map (kbd "jk") 'evil-normal-state)
-(key-chord-define evil-emacs-state-map (kbd "jk") 'evil-normal-state)
 (define-key evil-insert-state-map (kbd "M-<backspace>") 'backward-kill-word)
 (define-key evil-motion-state-map "gl" 'magit-file-log)
 (define-key evil-normal-state-map (kbd "RET") 'maio/newline-above)
