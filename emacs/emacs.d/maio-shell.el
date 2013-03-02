@@ -17,5 +17,6 @@
 (evil-define-key 'normal term-raw-map [return] 'maio/term-enter)
 
 (add-hook 'shell-mode-hook 'font-lock-mode)
+(add-hook 'term-mode-hook 'font-lock-mode)
 
 (provide 'maio-shell)
