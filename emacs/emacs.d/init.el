@@ -17,7 +17,6 @@
                        s
                        dash
                        popup
-                       sackspace
                        undo-tree
                        auto-complete
                        ace-jump-mode

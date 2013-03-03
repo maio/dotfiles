@@ -115,11 +115,6 @@
 (define-key evil-normal-state-map (kbd "/") 'evil-search-forward)
 (define-key evil-motion-state-map (kbd "SPC") 'evil-ace-jump-line-mode)
 
-;; sackspace
-(require 'sackspace)
-(sack/install-in-evil)
-(define-key evil-insert-state-map (kbd "<DEL>") 'sack/tabstop)
-
 ;; Evil plugins
 (require 'surround)
 (global-surround-mode 1)
