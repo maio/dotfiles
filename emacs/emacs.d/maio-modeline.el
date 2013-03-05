@@ -1,8 +1,5 @@
 (require 'diminish)
 
-(require 'powerline)
-(powerline-default-theme)
-
 (eval-after-load 'yasnippet '(diminish 'yas-minor-mode "YS"))
 (eval-after-load 'eldoc '(diminish 'eldoc-mode))
 (eval-after-load 'undo-tree '(diminish 'undo-tree-mode))

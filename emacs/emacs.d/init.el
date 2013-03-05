@@ -40,7 +40,6 @@
                        mark-multiple
                        multiple-cursors
                        key-chord
-                       powerline
                        yasnippet
                        helm
                        evil
