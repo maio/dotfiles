@@ -48,6 +48,12 @@
   (evil-change-to-initial-state nil t))
 
 (setcdr evil-insert-state-map nil) ;; make insert state like emacs state
+(define-key evil-insert-state-map "\C-n" 'evil-complete-next)
+(define-key evil-insert-state-map "\C-p" 'evil-complete-previous)
+(define-key evil-insert-state-map [escape] 'evil-normal-state)
+(define-key evil-insert-state-map "\C-x\C-n" 'evil-complete-next-line)
+(define-key evil-insert-state-map "\C-x\C-p" 'evil-complete-previous-line)
+(define-key evil-insert-state-map "\C-x\C-l" 'evil-complete-previous-line)
 (define-key evil-emacs-state-map (kbd "C-g") 'evil-normal-state)
 (define-key evil-replace-state-map (kbd "C-g") 'evil-normal-state)
 (define-key evil-visual-state-map (kbd "C-g") 'evil-normal-state)
@@ -67,7 +73,6 @@
 (define-key evil-visual-state-map "v" 'evil-visual-char)
 (define-key evil-insert-state-map (kbd "<C-return>") 'evil-open-above)
 (define-key evil-visual-state-map "u" nil)
-(define-key evil-insert-state-map "\C-x\C-l" 'evil-complete-previous-line)
 (define-key evil-visual-state-map (kbd "R") 'maio/mark-all-like-this)
 (define-key evil-visual-state-map (kbd "r") 'maio/mark-all-like-this-in-defun)
 (define-key evil-visual-state-map "Q" "gq")
