@@ -141,6 +141,7 @@
   (ace-jump-do (regexp-quote (concat (char-to-string query-char)
                                      (char-to-string query-char-2)))))
 
+(evil-define-key 'normal dired-mode-map (kbd "SPC") 'maio/ace-jump-two-char-mode)
 (define-key evil-normal-state-map (kbd "SPC") 'maio/ace-jump-two-char-mode)
 (define-key evil-motion-state-map (kbd "/") 'evil-ace-jump-char-mode)
 (define-key evil-normal-state-map (kbd "/") 'evil-search-forward)
