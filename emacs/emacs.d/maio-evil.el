@@ -18,7 +18,8 @@
                               (rmail-summary-mode            . emacs)
                               (bc-menu-mode                  . emacs)
                               (magit-branch-manager-mode     . emacs)
-                              (rdictcc-buffer-mode           . emacs))
+                              (rdictcc-buffer-mode           . emacs)
+                              (wdired-mode                   . normal))
       do (evil-set-initial-state mode state))
 
 (setcdr evil-insert-state-map nil) ;; make insert state like emacs state
