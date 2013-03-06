@@ -152,16 +152,4 @@
 (global-surround-mode 1)
 (add-hook 'after-save-hook 'evil-normal-state)
 
-;; symbol object
-(evil-define-text-object evil-inner-symbol (count &optional beg end type)
-  "Select symbol."
-  (evil-inner-object-range count beg end type #'forward-symbol))
-
-(evil-define-text-object evil-symbol (count &optional beg end type)
-  "Select symbol."
-  (evil-an-object-range count beg end type #'forward-symbol))
-
-(define-key evil-inner-text-objects-map "o" 'evil-inner-symbol)
-(define-key evil-outer-text-objects-map "o" 'evil-symbol)
-
 (provide 'maio-evil)
