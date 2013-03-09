@@ -13,7 +13,7 @@
   (goto-char (point-max))
   (evil-insert-state))
 
-(evil-define-key 'normal term-raw-map (kbd "i") 'maio/term-enter)
+(evil-define-key 'normal term-raw-map "i" 'maio/term-enter)
 (evil-define-key 'normal term-raw-map [return] 'maio/term-enter)
 
 (add-hook 'shell-mode-hook 'font-lock-mode)

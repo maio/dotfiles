@@ -7,6 +7,6 @@
 (when (file-exists-p "~/.emacs.d/bookmarks.local")
   (bookmark-load "~/.emacs.d/bookmarks.local" nil 'nosave))
 
-(define-key evil-motion-state-map (kbd "gb") 'bookmark-jump)
+(define-key evil-motion-state-map "gb" 'bookmark-jump)
 
 (provide 'maio-bookmark)

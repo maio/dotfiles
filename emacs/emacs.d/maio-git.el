@@ -41,8 +41,8 @@
 
 (add-hook 'magit-commit-mode-hook 'turn-on-flyspell)
 
-(define-key magit-status-mode-map (kbd "p") 'maio-git-submit)
-(key-chord-define magit-status-mode-map (kbd "ca") 'maio-git-amend)
-(key-chord-define magit-status-mode-map (kbd "cc") 'magit-log-edit)
+(define-key magit-status-mode-map "p" 'maio-git-submit)
+(key-chord-define magit-status-mode-map "ca" 'maio-git-amend)
+(key-chord-define magit-status-mode-map "cc" 'magit-log-edit)
 
 (provide 'maio-git)

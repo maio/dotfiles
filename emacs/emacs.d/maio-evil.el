@@ -60,7 +60,7 @@
 (define-key evil-normal-state-map (kbd "C-SPC") 'set-mark-command)
 (define-key evil-motion-state-map (kbd "TAB") "%")
 (define-key evil-motion-state-map (kbd "<tab>") "%")
-(define-key evil-motion-state-map (kbd "gp") "`[V`]")
+(define-key evil-motion-state-map "gp" "`[V`]")
 (define-key evil-normal-state-map "H" 'evil-first-non-blank)
 (define-key evil-visual-state-map "H" 'evil-first-non-blank)
 (define-key evil-normal-state-map "L" 'evil-last-non-blank)
@@ -73,8 +73,8 @@
 (define-key evil-visual-state-map "v" 'evil-visual-char)
 (define-key evil-insert-state-map (kbd "<C-return>") 'evil-open-above)
 (define-key evil-visual-state-map "u" nil)
-(define-key evil-visual-state-map (kbd "R") 'maio/mark-all-like-this)
-(define-key evil-visual-state-map (kbd "r") 'maio/mark-all-like-this-in-defun)
+(define-key evil-visual-state-map "R" 'maio/mark-all-like-this)
+(define-key evil-visual-state-map "r" 'maio/mark-all-like-this-in-defun)
 (define-key evil-visual-state-map "Q" "gq")
 (define-key evil-normal-state-map "Q" "gqap")
 (define-key evil-normal-state-map "S" "vabsba")
@@ -143,8 +143,8 @@
 
 (evil-define-key 'normal dired-mode-map (kbd "SPC") 'maio/ace-jump-two-char-mode)
 (define-key evil-normal-state-map (kbd "SPC") 'maio/ace-jump-two-char-mode)
-(define-key evil-motion-state-map (kbd "/") 'evil-ace-jump-char-mode)
-(define-key evil-normal-state-map (kbd "/") 'evil-search-forward)
+(define-key evil-motion-state-map "/" 'evil-ace-jump-char-mode)
+(define-key evil-normal-state-map "/" 'evil-search-forward)
 (define-key evil-motion-state-map (kbd "SPC") 'evil-ace-jump-line-mode)
 
 ;; Evil plugins

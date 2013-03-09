@@ -27,6 +27,6 @@
         :buffer "*helm maio*"))
 
 (require 'helm-compile)
-(key-chord-define-global (kbd ";c") 'helm-compile)
+(key-chord-define-global ";c" 'helm-compile)
 
 (provide 'maio-helm)

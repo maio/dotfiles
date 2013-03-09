@@ -3,7 +3,7 @@
 (require-and-exec 'php-mode
   (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
   (setq php-mode-force-pear t)
-  (evil-define-key 'normal php-mode-map (kbd "gs") 'maio/goto-compilation-buffer))
+  (evil-define-key 'normal php-mode-map "gs" 'maio/goto-compilation-buffer))
 
 (require-and-exec 'which-func
   (add-to-list 'which-func-modes 'php-mode))

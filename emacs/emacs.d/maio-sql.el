@@ -25,7 +25,7 @@
 
 (add-hook 'sqlplus-mode-hook 'ac-sqlplus-mode-setup)
 
-(key-chord-define sqlplus-mode-map (kbd ";e")
+(key-chord-define sqlplus-mode-map ";e"
                   (lambda () (interactive)
                     (call-interactively 'sqlplus-send-current)
                     (evil-normal-state)))
