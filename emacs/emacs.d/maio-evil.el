@@ -58,6 +58,8 @@
 (define-key evil-replace-state-map (kbd "C-g") 'evil-normal-state)
 (define-key evil-visual-state-map (kbd "C-g") 'evil-normal-state)
 (define-key evil-normal-state-map (kbd "C-SPC") 'set-mark-command)
+(define-key evil-normal-state-map "b" 'backward-word)
+(define-key evil-normal-state-map "w" 'forward-word)
 (define-key evil-motion-state-map (kbd "TAB") "%")
 (define-key evil-motion-state-map (kbd "<tab>") "%")
 (define-key evil-motion-state-map "gp" "`[V`]")
