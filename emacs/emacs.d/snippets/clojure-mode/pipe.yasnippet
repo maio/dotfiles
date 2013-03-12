@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: pipe
+# key: pipe
+# --
+(loop []
+  (when-let [line (read-line)]
+    $0
+    (recur)))

@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: exec
+# key: exec
+# --
+#!/usr/bin/env lein exec
+
+(use '[leiningen.exec :only (deps)])
+
+(deps '[[clj-time "0.4.4"]])
+(use '[clj-time.core :only [now]])
+(use 'clojure.pprint)
+
+(pprint *command-line-args*)
