@@ -15,9 +15,6 @@
 
 (require 'autopair)
 (which-func-mode 1)
-(electric-pair-mode 0)
-(electric-indent-mode 1)
-(electric-layout-mode 1)
 
 (defun show-trailing-whitespace () (setq show-trailing-whitespace t))
 (add-hook 'prog-mode-hook 'show-trailing-whitespace)
