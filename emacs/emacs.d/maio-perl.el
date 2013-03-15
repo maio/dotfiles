@@ -1,3 +1,4 @@
+(require 'which-func)
 (add-to-list 'load-path "~/.emacs.d/cperl-mode")
 (defalias 'perl-mode 'cperl-mode)
 
