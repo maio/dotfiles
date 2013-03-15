@@ -1,5 +1,6 @@
 (require 'magit)
 (require 'maio-key-chord)
+(require 'maio-helm)
 
 (key-chord-mode 1)
 (key-chord-define-global ",," 'evil-buffer)
