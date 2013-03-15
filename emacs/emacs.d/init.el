@@ -26,7 +26,7 @@
                        feature-mode
                        mustache-mode
                        yaml-mode
-                       php-mode
+                       php+-mode
                        js2-mode
                        nrepl
                        ac-nrepl
