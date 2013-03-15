@@ -1,11 +1,12 @@
-(setq js3-auto-indent-p t)
-(setq js3-enter-indents-newline t)
-(setq js3-indent-on-enter-key t)
+(require 'auto-complete)
+(require 'autopair)
 
-(eval-after-load 'js3-mode
+(add-to-list 'auto-mode-alist '("\\.js" . js2-mode))
+
+(eval-after-load 'js2-mode
   '(progn
-     (add-hook 'js3-mode-hook 'autopair-on)
-     (add-hook 'js3-mode-hook 'auto-complete-mode)
-     (key-chord-define js3-mode-map ";;" 'maio/electric-semicolon)))
+     (add-hook 'js2-mode-hook 'autopair-on)
+     (add-hook 'js2-mode-hook 'auto-complete-mode)
+     (key-chord-define js2-mode-map ";;" 'maio/electric-semicolon)))
 
 (provide 'maio-javascript)
