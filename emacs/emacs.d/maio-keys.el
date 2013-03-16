@@ -27,9 +27,9 @@
 
 ;; marked buffer
 (defvar maio-marked-buffer nil)
-(define-key evil-normal-state-map "ge"
+(define-key evil-normal-state-map "gm"
   (lambda () (interactive) (switch-to-buffer maio-marked-buffer)))
-(key-chord-define-global "GE"
+(key-chord-define-global ";m"
   (lambda () (interactive) (setq maio-marked-buffer (current-buffer))))
 
 (key-chord-define lisp-mode-shared-map ";e" 'my-eval-defun)
@@ -44,11 +44,8 @@
 (evil-define-key 'normal cperl-mode-map "K" 'cperl-perldoc-at-point)
 
 ;; guard
-(define-key evil-motion-state-map "gm" 'guard-notify-message-show)
 (evil-define-key 'normal compilation-minor-mode-map (kbd "RET") 'compile-goto-error)
 (evil-define-key 'normal compilation-minor-mode-map "q" 'quit-window)
-(define-key evil-insert-state-map (kbd "C-y")
-  (lambda () (interactive) (call-interactively 'evil-paste-before) (forward-char)))
 
 (defun maio/electric-semicolon ()
   (interactive)
