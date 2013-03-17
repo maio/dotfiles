@@ -1,3 +1,3 @@
-(require 'php+-mode)
+(require 'php-mode)
 
 (provide 'maio-php)
