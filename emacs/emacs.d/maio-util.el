@@ -65,6 +65,11 @@
 (defun set-font-size (size)
   (set-face-attribute 'default nil :height size))
 
+(defun maio/bury ()
+  (interactive)
+  (bury-buffer)
+  (when (window-parent) (delete-window)))
+
 (defun other-buffer-or-window ()
   (interactive)
   (if (window-parent)

@@ -21,7 +21,7 @@
 (key-chord-define-global ";g" 'magit-status)
 (key-chord-define-global ";f" 'helm-git-grep)
 (key-chord-define-global "GG" 'guard-or-goto-guard)
-(key-chord-define-global ";q" 'delete-window)
+(key-chord-define-global ";q" 'maio/bury)
 (key-chord-define-global ";*" 'maio/goto-scratch-buffer)
 (key-chord-define-global ";`" 'shell)
 
