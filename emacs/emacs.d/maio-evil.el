@@ -76,6 +76,7 @@
 ;; make it easy to switch to visual-char mode from visual-block mode
 (define-key evil-visual-state-map "v" 'evil-visual-char)
 (define-key evil-insert-state-map (kbd "<C-return>") 'evil-open-above)
+(define-key evil-insert-state-map (kbd "M-RET") 'evil-open-below)
 (define-key evil-visual-state-map "u" nil)
 (define-key evil-visual-state-map "R" 'maio/mark-all-like-this)
 (define-key evil-visual-state-map "r" 'maio/mark-all-like-this-in-defun)
