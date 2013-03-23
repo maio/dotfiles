@@ -34,6 +34,10 @@
 
 (key-chord-define lisp-mode-shared-map ";e" 'my-eval-defun)
 (evil-define-key 'normal lisp-mode-shared-map (kbd "M-.") 'elisp-slime-nav-find-elisp-thing-at-point)
+(evil-define-key 'normal lisp-mode-shared-map "Q" 'paredit-reindent-defun)
+(evil-define-key 'normal lisp-mode-shared-map "D" 'paredit-kill)
+(evil-define-key 'normal lisp-mode-shared-map "B" 'backward-up-list)
+(evil-define-key 'insert lisp-mode-shared-map (kbd "C-j") 'paredit-close-round-and-newline)
 
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 (key-chord-define evil-emacs-state-map "jk" 'evil-normal-state)
