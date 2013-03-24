@@ -43,7 +43,8 @@
   (interactive)
   (if (in-mode? 'clojure-mode)
       (nrepl-eval-expression-at-point)
-    (eval-defun nil)))
+    (eval-defun nil))
+  (evil-normal-state))
 
 (defun cofi/region-to-snippet (begin end)
   "Write new snippet based on current region."
