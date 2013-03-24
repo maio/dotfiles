@@ -1588,22 +1588,22 @@ static char * go_next_xpm[] = {
   "XPM format image used as Next Mark icon")
 
 (defconst sqlplus-kill-image
-  (create-image sqlplus-kill-xpm 'xpm t))
+  (when (window-system) (create-image sqlplus-kill-xpm 'xpm t)))
 
 (defconst sqlplus-cancel-image
-  (create-image sqlplus-cancel-xpm 'xpm t))
+  (when (window-system) (create-image sqlplus-cancel-xpm 'xpm t)))
 
 (defconst sqlplus-commit-image
-  (create-image sqlplus-commit-xpm 'xpm t))
+  (when (window-system) (create-image sqlplus-commit-xpm 'xpm t)))
 
 (defconst sqlplus-rollback-image
-  (create-image sqlplus-rollback-xpm 'xpm t))
+  (when (window-system) (create-image sqlplus-rollback-xpm 'xpm t)))
 
 (defconst plsql-prev-mark-image
-  (create-image plsql-prev-mark-xpm 'xpm t))
+  (when (window-system) (create-image plsql-prev-mark-xpm 'xpm t)))
 
 (defconst plsql-next-mark-image
-  (create-image plsql-next-mark-xpm 'xpm t))
+  (when (window-system) (create-image plsql-next-mark-xpm 'xpm t)))
 
 (defvar sqlplus-mode-syntax-table nil
   "Syntax table used while in sqlplus-mode.")
