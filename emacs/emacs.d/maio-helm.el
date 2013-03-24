@@ -10,6 +10,10 @@
 (helm-mode 1)
 (require 'maio-helm-git)
 
+(require 'helm-buffers)
+(add-to-list 'helm-boring-buffer-regexp-list "\\*nrepl-events")
+(add-to-list 'helm-boring-buffer-regexp-list "\\*nrepl-connection")
+
 (defun helm-set-default-directory (buffer-name directory)
   (let ((buffer (get-buffer buffer-name)))
     (when buffer
