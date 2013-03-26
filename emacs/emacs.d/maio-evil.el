@@ -65,6 +65,7 @@
 (define-key evil-motion-state-map (kbd "TAB") "%")
 (define-key evil-motion-state-map (kbd "<tab>") "%")
 (define-key evil-motion-state-map "gp" "`[V`]")
+(define-key evil-normal-state-map "gf" 'helm-find-files)
 (define-key evil-normal-state-map "H" 'evil-first-non-blank)
 (define-key evil-visual-state-map "H" 'evil-first-non-blank)
 (define-key evil-normal-state-map "L" 'evil-last-non-blank)
