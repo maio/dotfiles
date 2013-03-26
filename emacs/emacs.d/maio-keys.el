@@ -40,7 +40,6 @@
 (evil-define-key 'insert lisp-mode-shared-map (kbd "C-j") 'paredit-close-round-and-newline)
 
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
-(key-chord-define evil-emacs-state-map "jk" 'evil-normal-state)
 (define-key evil-insert-state-map (kbd "M-<backspace>") 'backward-kill-word)
 (define-key evil-motion-state-map "gl" 'magit-file-log)
 (define-key evil-normal-state-map (kbd "RET") 'maio/newline-above)
