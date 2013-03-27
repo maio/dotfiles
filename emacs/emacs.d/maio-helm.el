@@ -2,12 +2,18 @@
       helm-allow-skipping-current-buffer nil
       helm-yank-symbol-first t
       helm-input-idle-delay 0.1
+      helm-ff-auto-update-initial-value nil
       helm-ff-maximum-candidate-to-decorate 0)
 
 (require 'helm-config)
 (require 'helm-match-plugin)
 (helm-mode 1)
 (require 'maio-helm-git)
+
+(define-key helm-find-files-map (kbd "C-c SPC") 'helm-ff-run-toggle-auto-update)
+(define-key helm-find-files-map " " 'helm-execute-persistent-action)
+(define-key helm-read-file-map (kbd "C-c SPC") 'helm-ff-run-toggle-auto-update)
+(define-key helm-read-file-map " " 'helm-execute-persistent-action)
 
 (require 'helm-buffers)
 (add-to-list 'helm-boring-buffer-regexp-list "\\*nrepl-events")
