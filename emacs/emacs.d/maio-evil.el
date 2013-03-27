@@ -62,6 +62,8 @@
 (define-key evil-normal-state-map (kbd "C-SPC") 'set-mark-command)
 (define-key evil-normal-state-map "b" 'backward-word)
 (define-key evil-normal-state-map "w" 'forward-word)
+(define-key evil-normal-state-map "h" 'backward-word)
+(define-key evil-normal-state-map "l" 'forward-word)
 (define-key evil-motion-state-map (kbd "TAB") "%")
 (define-key evil-motion-state-map (kbd "<tab>") "%")
 (define-key evil-motion-state-map "gp" "`[V`]")
