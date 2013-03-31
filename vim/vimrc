@@ -30,84 +30,17 @@ set gdefault
 set backupdir=~/.vim/tmp/backup//
 set directory=~/.vim/tmp/swap//
 set backup
-set noswapfile                    " It's 2012, Vim.
-
-" Highlight VCS conflict markers
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-
-" Clojure/Leiningen
-set wildignore+=classes
-set wildignore+=lib
-
-augroup line_return
-    au!
-    au BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \     execute 'normal! g`"zvzz' |
-        \ endif
-augroup END
-
-augroup ft_quickfix
-    au!
-    au Filetype qf setlocal colorcolumn=0 nolist nocursorline nowrap
-augroup END
-
-abbr 9804 9804000000000100
+set noswapfile
 
 " Better Completion
 set completeopt=longest,menuone,preview
 
-if has("persistent_undo")
-    set undofile
-    set undodir=~/.vim/tmp/undo//
-    set undolevels=1000
-    set undoreload=10000
-endif
-
-syntax on
+syntax off
 set hidden
 filetype plugin on
 filetype plugin indent on
 let mapleader=";"
-let maplocalleader = "\\"
 
-set runtimepath+=~/.vim/vim-addons/vim-addon-manager
-let g:alternateExtensions_{'pm'} = "t"
-let g:alternateExtensions_{'pl'} = "t"
-let g:alternateExtensions_{'t'} = "pm,pl"
-let g:alternateExtensions_{'body'} = "sql"
-let g:alternateExtensions_{'m'} = "h"
-let g:alternateExtensions_{'h'} = "m"
-let g:alternateSearchPath = 'sfr:t,..'
-let g:xptemplate_key = '<Tab>'
-let g:xptemplate_vars = "SParg="
-" let g:xptemplate_brace_complete = '([{''"'
-let g:loaded_sql_completion = 1
-let g:ftplugin_sql_omni_key = 'X'
-
-let g:ctrlp_user_command = 'git ls-files -- %s'
-let g:ctrlp_use_caching = 0
-let g:ctrlp_open_new_file = 'r'
-
-let vimclojure#HighlightBuiltins=1
-let vimclojure#HighlightContrib=1
-let vimclojure#DynamicHighlighting=1
-let vimclojure#ParenRainbow=1
-let vimclojure#WantNailgun = 0
-
-let g:slimv_repl_name = 'SLIMV.REPL'
-let g:slimv_repl_split = 4
-let g:slimv_repl_syntax = 1
-let g:slimv_repl_wrap = 0
-let g:slimv_swank_clojure = '!dtach -n /tmp/dtach-swank.sock -r winch lein swank'
-
-" Shortcut for [] {{{
-onoremap ih i[
-onoremap ah a[
-vnoremap ih i[
-vnoremap ah a[
-
-nnoremap <Leader>u :GundoToggle<cr>
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap * *<c-o>
@@ -124,22 +57,14 @@ cnoremap <c-e> <end>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 cmap w!! w !sudo tee % >/dev/null
 
-nnoremap // :TComment<CR>
-vnoremap // :TComment<CR>
-
 nmap ! q:/^
-map - :A<CR>
-
-" handle situation when yank buffer doesn't contain whole line - use normal paste
-nmap p ]p
-nmap P [p
 
 nmap H ^
 nmap L $
 xmap H ^
 xmap L $
 nmap gp `[v`]
-nmap <Leader><Leader> <C-^>
+nmap ,, <C-^>
 
 nmap "" ci"
 nmap '' ci'
@@ -147,58 +72,24 @@ nmap '' ci'
 nmap s vabsba
 
 inoremap <C-j> <C-O>o
-inoremap <C-k> <C-O>O
-inoremap <C-l> <C-O>a
 imap <C-g> <C-c>
+cmap <C-g> <C-c>
 imap jk <C-c>l
 
-nnoremap <Space> @q
 nnoremap <silent> <C-l> :noh<CR><C-l>
-vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 nnoremap Q gqap
 vnoremap Q gq
 
-map <Leader>e :e %%
-map <leader>f :CtrlP<cr>
+map <Leader>f :e %%
 
 map <Leader>w :w<CR>
-map <Leader>. `.
 imap <Leader>w <ESC>:w<CR>
-map <Leader>go :only<CR>
-map <Leader>gd :Gdiff<CR>
-map <Leader>D :diffoff!<CR>
-map <Leader>gs :Gstatus<CR>
-map <Leader>gg yiw:Ggrep <C-r>0
 
-map <Leader>c vip<C-C><C-C>
-map <Leader>= vip=
-
-" handle external paste
-map <Leader>p :set invpaste paste?<CR>
-imap <Leader>p <C-O>:set invpaste paste?<CR>
-set pastetoggle=<Leader>p
 autocmd InsertLeave * :set nopaste paste?
 
 imap ZZ <ESC>:wq<CR>
-imap jj <ESC>j
-imap kk <ESC>k
-imap lll <ESC>l
-imap hh <ESC>h
 
 imap <c-c> <esc>
-xmap s <Plug>VSurround
-
-set errorformat=%f:%l:\ error:\ %m,%f:%l:\ warning:\ %m
-
-" UI style
-colorscheme pablo
-set guioptions=
-set guifont=Monaco:h15
-set background=dark
-hi MatchParen ctermfg=1 ctermbg=10
-
-let Tlist_Process_File_Always = 1
-" set statusline=[%l,%c]\ %<%f%=%([%{Tlist_Get_Tagname_By_Line()}]%)
 
 autocmd BufNewFile,BufRead *.t,*.it :set ft=perl
 autocmd BufNewFile,BufRead Makefile :set noexpandtab
@@ -207,12 +98,6 @@ autocmd Filetype perl :set equalprg=perltidy
 autocmd Filetype php :set equalprg=perltidy
 autocmd Filetype javascript :set equalprg=js_beautify.pl\ -
 autocmd BufNewFile * :%!summon-file - % 2> /dev/null
-
-" dict completion from dict files
-set spellfile=~/.vim/dict.add
-set dict+=~/.vim/dict.add
-set complete=.,w,b,k
-
 
 " conways
 set formatoptions-=cro
@@ -230,72 +115,15 @@ set iskeyword+=@
 set iskeyword-=,
 
 highlight WHITE_ON_RED ctermfg=white ctermbg=red
-call matchadd('WHITE_ON_RED', '_ref[ ]*[[{(]\|_ref[ ]*-[^>]')
-
-set modelines=0
-
-set title "Show filename in titlebar of window
-set titleold=
 
 set autoread
 set backspace=indent,eol,start
 set fileformats=unix,mac,dos
 set noshowmode
 
-au BufReadPost quickfix setlocal number
-                    \ | setlocal nowrap
-                    \ | setlocal modifiable
-                    \ | silent! %s/^[^|]*\//.../
-                    \ | setlocal nomodifiable
-
-
 "=====[ Tab handling ]======================================
 
 set shiftround "Always indent/outdent to nearest tabstop
-
-"== destroyallsoftware
-
-function! ExtractVariable()
-    let name = input("Variable name: ")
-    if name == ''
-        return
-    endif
-    " Enter visual mode (not sure why this is needed since we're already in
-    " visual mode anyway)
-    normal! gv
-
-    " Replace selected text with the variable name
-    exec "normal c" . name
-    " Define the variable on the line above
-    exec "normal! O" . name . " = "
-    " Paste the original selected text to be the variable value
-    normal! $p
-    exec "normal! A;"
-endfunction
-
-function! InlineVariable()
-    " Copy the variable under the cursor into the 'a' register
-    " XXX: How do I copy into a variable so I don't pollute the registers?
-    :normal "ayiw
-    " It takes 4 diws to get the variable, equal sign, and surrounding
-    " whitespace. I'm not sure why. diw is different from dw in this respect.
-    :normal 4diw
-    " Delete the expression into the 'b' register
-    :normal "bdt;
-    " Delete the remnants of the line
-    :normal dd
-    " Go to the end of the previous line so we can start our search for the
-    " usage of the variable to replace. Doing '0' instead of 'k$' doesn't
-    " work; I'm not sure why.
-    normal k$
-    " Find the next occurence of the variable
-    exec '/\<' . @a . '\>'
-    " Replace that occurence with the text we yanked
-    exec ':.s/\<' . @a . '\>/' . @b
-endfunction
-
-vnoremap <leader>rv :call ExtractVariable()<cr>
-nnoremap <leader>ri :call InlineVariable()<cr>
 
 set switchbuf=useopen
 
@@ -303,22 +131,9 @@ set switchbuf=useopen
 
 nnoremap <leader>v :e $MYVIMRC<cr>
 
-" Source
-vnoremap <leader>S y:execute @@<cr>
-nnoremap <leader>S ^vg_y:execute @@<cr>
-
-inoremap <c-l> <c-x><c-l>
-inoremap <c-f> <c-x><c-f>
-
 " Use sane regexes.
 nnoremap / /\v
 vnoremap / /\v
-
-nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
-
-" Split line (sister to [J]oin lines)
-" The normal use of S is covered by cc, so don't worry about shadowing it.
-nnoremap S i<cr><esc><right>mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 
 map <tab> %
 
