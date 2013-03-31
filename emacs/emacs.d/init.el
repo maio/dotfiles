@@ -76,6 +76,7 @@
 (require 'maio-keys)
 (require 'maio-multiple-cursors)
 (when (system-type-is-darwin) (require 'maio-osx))
+(require 'maio-nclip)
 (require 'maio-local nil t)
 (require 'git-grep)
 

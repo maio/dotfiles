@@ -7,3 +7,6 @@
 [submodule "emacs/emacs.d/helm-ls-git"]
 	path = emacs/emacs.d/helm-ls-git
 	url = http://github.com/emacs-helm/helm-ls-git.git
+[submodule "emacs/emacs.d/nclip"]
+	path = emacs/emacs.d/nclip
+	url = https://github.com/maio/nclip.el.git
