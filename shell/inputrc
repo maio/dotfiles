@@ -9,7 +9,5 @@ set convert-meta off
 set input-meta on
 set output-meta on
 
-"\e\e[C": forward-word
-"\e\e[D": backward-word
-"\e[1;5C": forward-word
-"\e[1;5D": backward-word
+"\ep": history-search-backward
+"\en": history-search-forward
