@@ -42,6 +42,7 @@
                        key-chord
                        yasnippet
                        helm
+                       helm-descbinds
                        evil
                        surround)))
     (dolist (package my-packages)

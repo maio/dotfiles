@@ -9,6 +9,7 @@
 (require 'helm-match-plugin)
 (helm-mode 1)
 (require 'maio-helm-git)
+(require 'helm-descbinds)
 
 (define-key helm-find-files-map (kbd "C-c SPC") 'helm-ff-run-toggle-auto-update)
 (define-key helm-find-files-map " " 'helm-execute-persistent-action)
