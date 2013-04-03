@@ -11,7 +11,7 @@
 (key-chord-define-global ";t" 'helm-c-etags-select)
 (key-chord-define-global ";r" 'helm-resume)
 (key-chord-define-global ";x" 'helm-M-x)
-(key-chord-define-global ";s" 'helm-git-grep)
+(key-chord-define-global ";s" 'git-grep)
 (define-key evil-normal-state-map "/" 'helm-occur)
 (key-chord-define-global ";v" 'maio/find-config-file)
 (key-chord-define-global ";n" 'maio-narrow-to-defun-clone)
