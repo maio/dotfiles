@@ -11,11 +11,10 @@
 (defun helm-compile--buffer-for-command (command)
   (concat "*" (s-trim command) "*"))
 
-(defun helm-compile---recompile (command)
+(defun helm-compile---switch-to-buffer (command)
   (switch-to-buffer (helm-compile--buffer-for-command command))
   (delete command compile-history)
-  (push command compile-history)
-  (recompile))
+  (push command compile-history))
 
 (defun helm-compile---compile (command &optional comint)
   (with-temp-buffer
@@ -28,7 +27,7 @@
 
 (defun helm-compile--compile (command &optional comint)
   (if (get-buffer (helm-compile--buffer-for-command command))
-      (helm-compile---recompile command)
+      (helm-compile---switch-to-buffer command)
     (helm-compile---compile command comint)))
 
 (defvar helm-c-source-compile
