@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: progress
+# key: progress
+# --
+#include "update_with_progress_begin.inc"
+
+SELECT 1 AS col FROM dual
+
+PROGRESS_UPDATE_PART_BY_STEP(1000)
+
+UPDATE sometable
+SET col = r_row.col
+...
+
+#include "update_with_progress_end.inc"
