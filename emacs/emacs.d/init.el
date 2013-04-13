@@ -45,7 +45,8 @@
                        helm-descbinds
                        wgrep
                        evil
-                       surround)))
+                       surround
+                       gist)))
     (dolist (package my-packages)
       (when (not (package-installed-p package))
         (package-install package)))))

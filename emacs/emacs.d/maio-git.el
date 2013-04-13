@@ -1,5 +1,6 @@
 (require 'magit)
 (require 'diff-hl)
+(require 'gist)
 
 (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
 (setq magit-rewrite-inclusive nil)
@@ -45,5 +46,6 @@
 (define-key magit-status-mode-map "G" 'magit-shell-command)
 (key-chord-define magit-status-mode-map "ca" 'maio-git-amend)
 (key-chord-define magit-status-mode-map "cc" 'magit-log-edit)
+(key-chord-define gist-mode-map ";w" 'gist-mode-save-buffer)
 
 (provide 'maio-git)
