@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: package
+# key: p
+# condition: (maio/looking-at-bol?)
+# --
+package ${1:`(maio/guess-perl-package-name)`};
+
+use Modern::Perl;
+
+$0
+
+1;

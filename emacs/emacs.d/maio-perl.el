@@ -1,4 +1,7 @@
+(require 's)
+(require 'dash)
 (require 'which-func)
+
 (add-to-list 'load-path "~/.emacs.d/cperl-mode")
 (defalias 'perl-mode 'cperl-mode)
 
@@ -29,5 +32,19 @@
      (key-chord-define cperl-mode-map ";;" 'maio/electric-semicolon)
      (define-key cperl-mode-map (kbd "SPC") 'maio/electric-space)
      (define-key cperl-mode-map (kbd "RET") 'maio/electric-return)))
+
+(defun maio/buffer-path-in-project ()
+  (s-chop-prefix
+   (file-truename (locate-dominating-file default-directory ".git"))
+   buffer-file-name))
+
+(defun maio/starts-with-capital? (s)
+  (let ((case-fold-search nil))
+    (s--truthy?
+     (string-match-p "^[[:upper:]].*$" s))))
+
+(defun maio/guess-perl-package-name ()
+  (s-join "::" (-filter 'maio/starts-with-capital?
+                        (s-split "/" (file-name-sans-extension (maio/buffer-path-in-project))))))
 
 (provide 'maio-perl)
