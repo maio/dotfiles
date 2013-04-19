@@ -2,6 +2,8 @@
       helm-allow-skipping-current-buffer nil
       helm-yank-symbol-first t
       helm-ff-auto-update-initial-value nil
+      helm-idle-delay 0.1
+      helm-input-idle-delay 0.1
       helm-ff-maximum-candidate-to-decorate 0)
 
 (require 'helm-config)
