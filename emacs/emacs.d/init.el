@@ -43,6 +43,7 @@
                        yasnippet
                        helm
                        helm-descbinds
+                       wgrep
                        evil
                        surround)))
     (dolist (package my-packages)
@@ -79,6 +80,7 @@
 (require 'maio-local nil t)
 (require 'git-grep)
 
+(require 'wgrep)
 (require 'tramp)
 (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
 
