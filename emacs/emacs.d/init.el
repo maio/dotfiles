@@ -44,6 +44,7 @@
                        helm
                        helm-descbinds
                        wgrep
+                       dizzee
                        evil
                        surround
                        gist)))
