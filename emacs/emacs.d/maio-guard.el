@@ -28,10 +28,7 @@
   (let ((old-path default-directory)
         (compilation-scroll-output t))
     (cd (locate-dominating-file default-directory "Guardfile"))
-    (compile "make guard")
-    (other-buffer-or-window)
-    (rename-buffer "*guard*")
-    (other-buffer-or-window)
+    (guard-start)
     (cd old-path)))
 
 (defun guard-or-goto-guard ()
