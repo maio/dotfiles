@@ -69,5 +69,14 @@
       (rename-buffer (concat "*" (s-trim compile-command) "*")))
     (cd old-path)))
 
+(defun maio/find-alternative-file ()
+  (interactive)
+  (let ((ext (file-name-extension (buffer-file-name)))
+        (name (file-name-base (buffer-file-name)))
+        (dir (file-name-directory (buffer-file-name))))
+    (cond ((string= ext "pm") (find-file (s-concat dir "/t/" name ".t")))
+          ((string= ext "t") (find-file (s-concat dir "/../" name ".pm")))
+          (t (message "Alternative file has not been found")))))
+
 (require 'maio-guard)
 (provide 'maio-prog)

@@ -27,6 +27,7 @@
      (require 'perltidy)
      (add-hook 'cperl-mode-hook 'esk-prog-mode-hook)
      (add-hook 'cperl-mode-hook 'autopair-on)
+     (evil-define-key 'normal cperl-mode-map "-" 'maio/find-alternative-file)
      (evil-define-key 'normal cperl-mode-map "=" 'perltidy-dwim)
      (evil-define-key 'visual cperl-mode-map "=" 'perltidy-dwim)
      (key-chord-define cperl-mode-map ";;" 'maio/electric-semicolon)
