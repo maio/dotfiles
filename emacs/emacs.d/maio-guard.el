@@ -25,11 +25,8 @@
 (defun guard ()
   (interactive)
   (server-start)
-  (let ((old-path default-directory)
-        (compilation-scroll-output t))
-    (cd (locate-dominating-file default-directory "Guardfile"))
-    (guard-start)
-    (cd old-path)))
+  (let ((compilation-scroll-output t))
+    (guard-start)))
 
 (defun guard-or-goto-guard ()
   (interactive)
