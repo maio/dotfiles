@@ -32,7 +32,7 @@
   (interactive)
   (if (get-buffer "*guard*")
       (progn
-        (switch-to-buffer "*guard*")
+        (guard-start)
         (end-of-buffer))
     (guard)))
 
