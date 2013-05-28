@@ -5,6 +5,7 @@
 (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
 (setq magit-rewrite-inclusive nil)
 (setq magit-status-buffer-switch-function 'switch-to-buffer)
+(setq magit-process-connection-type nil)
 
 (defvar story-history nil)
 
