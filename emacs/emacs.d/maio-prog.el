@@ -76,6 +76,9 @@
         (dir (file-name-directory (buffer-file-name))))
     (cond ((string= ext "pm") (find-file (s-concat dir "/t/" name ".t")))
           ((string= ext "t") (find-file (s-concat dir "/../" name ".pm")))
+          ;; GOA API
+          ((string= ext "body") (find-file (s-concat dir "/t/" name ".sql")))
+          ((string= ext "sql") (find-file (s-concat dir "/../" name ".body")))
           (t (message "Alternative file has not been found")))))
 
 (require 'maio-guard)

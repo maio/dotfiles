@@ -30,4 +30,6 @@
                     (call-interactively 'sqlplus-send-current)
                     (evil-normal-state)))
 
+(evil-define-key 'normal sql-mode-map "-" 'maio/find-alternative-file)
+
 (provide 'maio-sql)
