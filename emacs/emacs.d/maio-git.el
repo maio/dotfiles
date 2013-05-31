@@ -23,6 +23,15 @@
   (interactive)
   (magit-log-edit '4))
 
+(defun maio-gerrit-cr (cr)
+  (magit-section-action (item info)
+    ((commit)
+     (message (concat "CodeReview " cr))
+     (shell-command (concat "ssh gerrit gerrit review " info " --code-review " cr)))))
+
+(defun maio-gerrit-cr-ok () (interactive) (maio-gerrit-cr "+2"))
+(defun maio-gerrit-cr-no-submit () (interactive) (maio-gerrit-cr "-2"))
+
 (defun maio-git-submit ()
   (interactive)
   (let ((story (maio-read-story-string)))
@@ -47,6 +56,8 @@
 (define-key magit-status-mode-map "G" 'magit-shell-command)
 (key-chord-define magit-status-mode-map "ca" 'maio-git-amend)
 (key-chord-define magit-status-mode-map "cc" 'magit-log-edit)
+(key-chord-define magit-status-mode-map "rj" 'maio-gerrit-cr-ok)
+(key-chord-define magit-status-mode-map "rk" 'maio-gerrit-cr-no-submit)
 (key-chord-define gist-mode-map ";w" 'gist-mode-save-buffer)
 
 (provide 'maio-git)
