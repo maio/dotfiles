@@ -27,9 +27,7 @@ set autowrite
 set formatoptions=qrn1
 set gdefault
 
-set backupdir=~/.vim/tmp/backup//
-set directory=~/.vim/tmp/swap//
-set backup
+set nobackup
 set noswapfile
 
 " Better Completion
