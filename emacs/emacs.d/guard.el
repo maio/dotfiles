@@ -78,4 +78,35 @@
 
 ;; (add-hook 'guard-notify-hook 'guard-notify-modeline)
 
+
+;; guard-notify-modeline-text
+(defvar guard-mode-line "?" "What gets displayed on the mode line.")
+(put 'guard-mode-line 'risky-local-variable t)
+
+(defun guard-status-indicator-add-to-mode-line ()
+  (if (boundp 'mode-line-modes)
+      (add-to-list 'mode-line-misc-info '(t guard-mode-line) t)))
+
+(defun guard-status-indicator-remove-from-mode-line ()
+  (if (boundp 'mode-line-modes)
+      (delete '(t guard-mode-line) mode-line-misc-info)))
+
+(defcustom guard-notify-modeline-pending-text "🏃 🏃 "
+  "Modeline text for pending notification"
+  :group 'guard)
+(defcustom guard-notify-modeline-success-text "✅ "
+  "Modeline text for success notification"
+  :group 'guard)
+(defcustom guard-notify-modeline-failed-text "❌❌❌❌❌❌❌❌❌❌❌❌ "
+  "Modeline text for failed notification"
+  :group 'guard)
+
+(defun guard-notify-modeline-text (type title body)
+  (let ((modeline-text (intern (concat "guard-notify-modeline-" type "-text"))))
+    (setq guard-mode-line (symbol-value modeline-text))))
+
+(defun guard-notify-modeline-text-start ()
+  (guard-status-indicator-add-to-mode-line)
+  (add-hook 'guard-notify-hook 'guard-notify-modeline-text))
+
 (provide 'guard)

@@ -20,7 +20,7 @@ module Guard
       # @param [Boolean] silent true if no error messages should be shown
       # @return [Boolean] the availability status
       #
-      def available?(silent = false)
+      def available?(silent = false, options = {})
         result = `#{ DEFAULTS[:client] } --eval "(require 'guard)" 2> /dev/null || echo 'N/A'`
 
         if result.chomp! == 'N/A'

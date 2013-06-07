@@ -1,5 +1,6 @@
 (setq-default compilation-scroll-output t)
 (require 'compile)
+(require 'guard)
 
 ;; required by guard emacs notifier
 (put 'modeline 'face-alias 'mode-line)
@@ -42,5 +43,8 @@
     (goto-char 0)
     (compilation-next-error 1)
     (compile-goto-error)))
+
+;; setup notifications
+(guard-notify-modeline-text-start)
 
 (provide 'maio-guard)
