@@ -37,16 +37,6 @@
 ;; (setq debug-on-quit t)
 ;; (setq debug-on-error t)
 
-(setq extended-command-history
-      (list "helm-bookmarks"
-            "customize-group"
-            "maio/compile-in-git-root"
-            "maio/copy-file-name-to-clipboard"
-            "git-grep"
-            "magit-blame-mode"
-            "kill-other-buffers"
-            "kill-all-buffers"))
-
 (put 'narrow-to-region 'disabled nil)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 (setq mouse-wheel-progressive-speed nil)

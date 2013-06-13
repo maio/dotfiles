@@ -59,17 +59,6 @@
   (evil-exchange-point-and-mark)
   (evil-normal-state))
 
-(defun maio/compile-in-git-root ()
-  (interactive)
-  (let ((old-path default-directory)
-        (compilation-scroll-output t)
-        (compile-command "make "))
-    (cd (locate-dominating-file default-directory ".git"))
-    (call-interactively 'compile)
-    (with-current-buffer compilation-last-buffer
-      (rename-buffer (concat "*" (s-trim compile-command) "*")))
-    (cd old-path)))
-
 (defun maio/find-alternative-file ()
   (interactive)
   (let ((ext (file-name-extension (buffer-file-name)))
