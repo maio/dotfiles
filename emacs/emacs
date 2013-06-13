@@ -19,7 +19,9 @@
  ;; If there is more than one, they won't work right.
  '(hl-line ((t (:inherit highlight))))
  '(idle-highlight ((t (:inherit hl-line))))
- '(italic ((t (:underline nil :slant italic)))))
+ '(italic ((t (:underline nil :slant italic))))
+ '(show-paren-match ((t (:bold t))))
+ '(show-paren-mismatch ((t (:foreground "brightred")))))
 
 (load-file "~/.emacs.d/init.el")
 (put 'dired-find-alternate-file 'disabled nil)

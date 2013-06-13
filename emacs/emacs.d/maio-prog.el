@@ -26,6 +26,9 @@
   (clone-indirect-buffer (which-function) t)
   (narrow-to-defun))
 
+(setq show-paren-delay 0)
+(show-paren-mode 1)
+
 (setq whitespace-action '(auto-cleanup))
 (setq whitespace-style '(face trailing lines-tail) whitespace-line-column 80)
 (whitespace-mode)
