@@ -24,7 +24,7 @@
   (magit-log-edit '4))
 
 (defun maio-gerrit-cr (cr)
-  (magit-section-action (item info)
+  (magit-section-action (item info "review")
     ((commit)
      (message (concat "CodeReview " cr))
      (shell-command (concat "ssh gerrit gerrit review " info " --code-review " cr)))))
@@ -35,6 +35,8 @@
 (defun maio-git-submit ()
   (interactive)
   (let ((story (maio-read-story-string)))
+    (if (magit-current-section)
+        (message "in section"))
     (when (not (magit-section-action (item info "submit")
                  ((commit)
                   (message "Going to submit current commit")
