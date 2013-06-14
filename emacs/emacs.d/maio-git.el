@@ -17,7 +17,7 @@
   (read-string (concat "Story (" (maio-current-story) "): ") "" 'story-history (maio-current-story)))
 
 (defun maio-get-first-word (s)
-  (first (split-string s " ")))
+  (first (s-split-words s)))
 
 (defun maio-git-amend ()
   (interactive)
@@ -34,15 +34,15 @@
 
 (defun maio-git-submit ()
   (interactive)
-  (let ((story (maio-read-story-string)))
-    (if (magit-current-section)
-        (message "in section"))
-    (when (not (magit-section-action (item info "submit")
-                 ((commit)
-                  (message "Going to submit current commit")
-                  (magit-run-git "publish" info (maio-get-first-word story)))))
-      (message "Going to submit all pending commits")
-      (magit-run-git "submit" (maio-get-first-word story)))))
+  (let ((story (maio-get-first-word (maio-read-story-string)))
+        (section (magit-current-section)))
+    (if (string= "commit" (magit-section-type section))
+        (progn
+          (message "Going to submit current commit")
+          (magit-run-git "publish" (magit-section-info section) story))
+      (progn
+        (message "Going to submit all pending commits")
+        (magit-run-git "submit" story)))))
 
 (defun maio-git-reset-hard-origin ()
   (interactive)
