@@ -35,7 +35,7 @@
 (defun maio-git-submit ()
   (interactive)
   (let ((story (maio-read-story-string)))
-    (when (not (magit-section-action (item info)
+    (when (not (magit-section-action (item info "submit")
                  ((commit)
                   (message "Going to submit current commit")
                   (magit-run-git "publish" info (maio-get-first-word story)))))
