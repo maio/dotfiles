@@ -62,8 +62,6 @@
 (define-key evil-normal-state-map (kbd "C-SPC") 'set-mark-command)
 (define-key evil-normal-state-map "b" 'backward-word)
 (define-key evil-normal-state-map "w" 'forward-word)
-(define-key evil-normal-state-map "h" 'backward-word)
-(define-key evil-normal-state-map "l" 'forward-word)
 (define-key evil-motion-state-map (kbd "TAB") "%")
 (define-key evil-motion-state-map (kbd "<tab>") "%")
 (define-key evil-motion-state-map "gp" "`[V`]")
@@ -86,6 +84,8 @@
 (define-key evil-visual-state-map "Q" "gq")
 (define-key evil-normal-state-map "Q" "gqap")
 (define-key evil-normal-state-map "S" "vabsba")
+(define-key evil-normal-state-map (kbd "M-h") 'paredit-backward)
+(define-key evil-normal-state-map (kbd "M-l") 'paredit-forward)
 (evil-define-key 'visual surround-mode-map "S" "sba")
 
 (evil-add-hjkl-bindings magit-mode-map 'emacs)
