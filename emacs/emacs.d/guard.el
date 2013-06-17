@@ -80,7 +80,7 @@
 
 
 ;; guard-notify-modeline-text
-(defvar guard-mode-line "?" "What gets displayed on the mode line.")
+(defvar guard-mode-line "[G] " "What gets displayed on the mode line.")
 (put 'guard-mode-line 'risky-local-variable t)
 
 (defun guard-status-indicator-add-to-mode-line ()
