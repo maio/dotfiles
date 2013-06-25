@@ -82,6 +82,14 @@
   (with-helm-default-directory "~/.emacs.d/"
       (call-interactively 'helm-find-files)))
 
+(defun maio/current-project-dir ()
+  (locate-dominating-file default-directory ".git"))
+
+(defun maio/git-grep ()
+  (interactive)
+  (with-helm-default-directory (maio/current-project-dir)
+      (call-interactively 'git-grep)))
+
 (defun maio/find-project ()
   (interactive)
   (with-helm-default-directory "~/Projects/"
