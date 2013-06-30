@@ -20,7 +20,7 @@
 
 (eval-after-load 'nrepl
   '(progn
-     (add-hook 'nrepl-mode-hook 'autopair-on)
+     (add-hook 'nrepl-mode-hook 'smartparens-mode)
      (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
      (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
      (key-chord-define nrepl-mode-map ";k" 'nrepl-quit)))

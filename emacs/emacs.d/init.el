@@ -36,7 +36,7 @@
                        diminish
                        bookmark+
                        diff-hl
-                       autopair
+                       smartparens
                        mark-multiple
                        multiple-cursors
                        key-chord

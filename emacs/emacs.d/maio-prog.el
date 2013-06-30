@@ -13,13 +13,14 @@
 (eval-after-load "feature-mode"
   '(add-hook 'feature-mode-hook 'flyspell-mode))
 
-(require 'autopair)
+(require 'smartparens)
+(require 'smartparens-config)
 (which-func-mode 1)
 
 (defun show-trailing-whitespace () (setq show-trailing-whitespace t))
 (add-hook 'prog-mode-hook 'show-trailing-whitespace)
-(add-hook 'prog-mode-hook 'autopair-on)
-(add-hook 'html-mode-hook 'autopair-on)
+(add-hook 'prog-mode-hook 'smartparens-mode)
+(add-hook 'html-mode-hook 'smartparens-mode)
 
 (defun maio-narrow-to-defun-clone ()
   (interactive)

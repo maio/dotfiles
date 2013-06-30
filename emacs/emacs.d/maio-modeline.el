@@ -5,7 +5,7 @@
 (eval-after-load 'undo-tree '(diminish 'undo-tree-mode))
 (eval-after-load 'hi-lock '(diminish 'hi-lock-mode))
 (eval-after-load 'auto-complete '(diminish 'auto-complete-mode "AC"))
-(eval-after-load 'autopair '(diminish 'autopair-mode "()"))
+(eval-after-load 'smartparens '(diminish 'smartparens-mode "()"))
 (eval-after-load 'simple '(diminish 'auto-fill-function))
 (eval-after-load 'flymake '(diminish 'flymake-mode "Fly"))
 (eval-after-load 'paredit '(diminish 'paredit-mode "(e)"))

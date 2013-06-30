@@ -21,7 +21,6 @@
 (setq ring-bell-function 'ignore)
 (setq split-height-threshold nil)
 (setq ido-use-filename-at-point nil)
-(setq autopair-blink nil)
 (setq require-final-newline nil)
 (setq next-line-add-newlines nil)
 (setq tramp-verbose 2)
