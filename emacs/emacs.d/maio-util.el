@@ -127,7 +127,7 @@
   (save-excursion (backward-word) (eq (point) (line-beginning-position))))
 
 (defun maio/looking-at-empty-line? ()
-  (save-excursion (backward-word) (eq (point) (yas--real-line-beginning))))
+  (save-excursion (move-end-of-line 1) (eq (point) (yas--real-line-beginning))))
 
 (defun maio/run-prog-mode-hook ()
   (run-hooks 'prog-mode-hook))
