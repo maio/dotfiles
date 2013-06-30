@@ -73,5 +73,18 @@
           ((string= ext "sql") (find-file (s-concat dir "/../" name ".body")))
           (t (message "Alternative file has not been found")))))
 
+;; make backward kill word delete whitespaces first
+(require 'paredit)
+(defadvice paredit-backward-kill-word (around kill-empty-lines-first () activate)
+  (if (maio/looking-at-empty-line?)
+      (c-hungry-delete-backwards)
+    ad-do-it))
+
+(require 'subword)
+(defadvice subword-backward-kill (around kill-empty-lines-first (arg) activate)
+  (if (maio/looking-at-empty-line?)
+      (c-hungry-delete-backwards)
+    ad-do-it))
+
 (require 'maio-guard)
 (provide 'maio-prog)
