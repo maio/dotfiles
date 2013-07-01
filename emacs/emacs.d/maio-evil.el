@@ -84,6 +84,7 @@
 (define-key evil-visual-state-map "Q" "gq")
 (define-key evil-normal-state-map "Q" "gqap")
 (define-key evil-normal-state-map "S" "vabsba")
+(define-key evil-normal-state-map "s" "gv")
 (define-key evil-normal-state-map (kbd "M-h") 'paredit-backward)
 (define-key evil-normal-state-map (kbd "M-l") 'paredit-forward)
 (evil-define-key 'visual surround-mode-map "S" "sba")
