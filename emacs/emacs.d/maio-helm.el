@@ -38,6 +38,18 @@
                    helm-c-source-buffer-not-found)
         :buffer "*helm maio*"))
 
+(defun maio/helm-occur ()
+  "Same as helm-occur expect it uses regexp-search-ring
+
+This way it's possible to use evil-search-next."
+  (interactive)
+  (setq helm-multi-occur-buffer-list (list (buffer-name (current-buffer))))
+  (helm-occur-init-source)
+  (helm-attrset 'name "Occur" helm-source-occur)
+  (helm :sources 'helm-source-occur
+        :buffer "*helm occur*"
+        :history 'regexp-search-ring))
+
 (require 'helm-compile)
 (key-chord-define-global ";c" 'helm-compile)
 
