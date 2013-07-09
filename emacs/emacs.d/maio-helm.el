@@ -13,6 +13,9 @@
 (require 'maio-helm-git)
 (require 'helm-descbinds)
 
+(require 'savehist)
+(add-to-list 'savehist-additional-variables 'extended-command-history)
+
 (define-key helm-find-files-map (kbd "C-c SPC") 'helm-ff-run-toggle-auto-update)
 (define-key helm-find-files-map " " 'helm-execute-persistent-action)
 (define-key helm-read-file-map (kbd "C-c SPC") 'helm-ff-run-toggle-auto-update)
