@@ -25,6 +25,8 @@
 (key-chord-define-global ";*" 'maio/goto-scratch-buffer)
 (key-chord-define-global ";`" 'shell)
 
+(key-chord-define grep-mode-map ";w" 'rename-buffer)
+
 ;; marked buffer
 (defvar maio-marked-buffer nil)
 (define-key evil-normal-state-map "gm"
