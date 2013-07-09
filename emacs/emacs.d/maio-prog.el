@@ -71,6 +71,9 @@
           ;; GOA API
           ((string= ext "body") (find-file (s-concat dir "/t/" name ".sql")))
           ((string= ext "sql") (find-file (s-concat dir "/../" name ".body")))
+          ;; Pherkin
+          ((string= ext "feature") (find-file (s-concat dir "/step_definitions/" name "_steps.pl")))
+          ((s-contains? "_steps" name) (find-file (s-concat dir "/../" (s-replace "_steps" "" name) ".feature")))
           (t (message "Alternative file has not been found")))))
 
 ;; make backward kill word delete whitespaces first

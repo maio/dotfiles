@@ -34,6 +34,10 @@
      (define-key cperl-mode-map (kbd "SPC") 'maio/electric-space)
      (define-key cperl-mode-map (kbd "RET") 'maio/electric-return)))
 
+(eval-after-load 'feature-mode
+  '(progn
+     (evil-define-key 'normal feature-mode-map "-" 'maio/find-alternative-file)))
+
 (defun maio/buffer-path-in-project ()
   (s-chop-prefix
    (file-truename (locate-dominating-file default-directory ".git"))
