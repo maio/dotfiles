@@ -129,6 +129,15 @@
 (defun maio/looking-at-empty-line? ()
   (save-excursion (move-end-of-line 1) (eq (point) (yas--real-line-beginning))))
 
+(defun maio/looking-at-first-word-on-the-line? ()
+  (save-excursion (backward-word) (eq (point) (yas--real-line-beginning))))
+
+(defun buffer-contains? (string)
+  (save-excursion
+    (save-match-data
+      (goto-char (point-min))
+      (search-forward string nil t))))
+
 (defun maio/run-prog-mode-hook ()
   (run-hooks 'prog-mode-hook))
 

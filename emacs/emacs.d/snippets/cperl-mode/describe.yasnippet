@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # name: describe
-# key: describe
-# condition: (maio/looking-at-empty-line?)
+# key: d
+# condition: (and (maio/looking-at-first-word-on-the-line?) (buffer-contains? "Test::Spec"))
 # --
 describe "${1:what}" => sub {
     $0

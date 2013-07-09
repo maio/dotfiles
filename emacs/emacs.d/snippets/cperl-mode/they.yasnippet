@@ -1,6 +1,6 @@
 # name: they
 # key: they
-# condition: (maio/looking-at-empty-line?)
+# condition: (and (maio/looking-at-first-word-on-the-line?) (buffer-contains? "Test::Spec"))
 # --
 they "${1:what}" => sub {
     $0
