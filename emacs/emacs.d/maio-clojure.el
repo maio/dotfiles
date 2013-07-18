@@ -3,9 +3,9 @@
 
 (defun maio/nrepl ()
   (interactive)
-  (if (get-process "nrepl-server")
+  (if (nrepl-current-connection-buffer)
       (call-interactively 'nrepl-switch-to-repl-buffer)
-    (nrepl-jack-in)))
+    (call-interactively 'nrepl)))
 
 (eval-after-load 'clojure-mode
   '(progn
