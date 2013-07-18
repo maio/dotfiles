@@ -1,4 +1,5 @@
 (require 'magit)
+(require 'rebase-mode)
 (require 'diff-hl)
 (require 'gist)
 
@@ -67,5 +68,6 @@
 (key-chord-define magit-status-mode-map "rk" 'maio-gerrit-cr-no-submit)
 (key-chord-define magit-status-mode-map "xo" 'maio-git-reset-hard-origin)
 (key-chord-define gist-mode-map ";w" 'gist-mode-save-buffer)
+(key-chord-define rebase-mode-map ";w" 'server-edit)
 
 (provide 'maio-git)
