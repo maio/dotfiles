@@ -44,6 +44,7 @@
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 (define-key evil-insert-state-map (kbd "M-<backspace>") 'backward-kill-word)
 (define-key evil-motion-state-map "gl" 'magit-file-log)
+(define-key evil-motion-state-map "g/" 'maio/goto-grep-buffer)
 (define-key evil-normal-state-map (kbd "RET") 'maio/newline-above)
 (define-key isearch-mode-map (kbd "C-g") 'isearch-abort)
 (evil-define-key 'normal cperl-mode-map "K" 'cperl-perldoc-at-point)

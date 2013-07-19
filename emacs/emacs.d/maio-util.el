@@ -90,6 +90,12 @@
   (with-helm-default-directory (maio/current-project-dir)
       (call-interactively 'git-grep)))
 
+(defun maio/goto-grep-buffer ()
+  (interactive)
+  (switch-to-buffer-other-window
+   (first (let ((regexp "\*grep"))
+            (remove-if-not (lambda (buf) (string-match regexp (buffer-name buf)))
+                           (buffer-list))))))
 (defun maio/find-project ()
   (interactive)
   (with-helm-default-directory "~/Projects/"
