@@ -22,6 +22,7 @@
                        ace-jump-mode
                        goto-chg
                        clojure-mode
+                       clojure-test-mode
                        midje-mode
                        feature-mode
                        mustache-mode
