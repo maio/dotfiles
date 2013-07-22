@@ -3,11 +3,12 @@
 (require 'maio-helm)
 
 (key-chord-mode 1)
-(key-chord-define-global ",," 'evil-buffer)
+(key-chord-define-global ",." 'evil-buffer)
 (key-chord-define-global ";a" 'other-window)
 (key-chord-define-global ";w" 'force-save-buffer)
 (key-chord-define-global ";b" 'maio/helm)
 (key-chord-define-global ";k" 'kill-current-buffer)
+(key-chord-define comint-mode-map ";k" 'kill-comint-buffer)
 (key-chord-define-global ";t" 'helm-c-etags-select)
 (key-chord-define-global ";r" 'helm-resume)
 (key-chord-define-global ";x" 'helm-M-x)

@@ -39,6 +39,13 @@
   (interactive)
   (mapc 'kill-buffer-if-not-current (buffer-list)))
 
+(defun kill-comint-buffer ()
+  (interactive)
+  (when (get-buffer-process (current-buffer))
+    (comint-interrupt-subjob)
+    (sleep-for 0 300))
+  (kill-current-buffer))
+
 (defun my-eval-defun ()
   (interactive)
   (if (in-mode? 'clojure-mode)
