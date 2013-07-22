@@ -41,7 +41,6 @@
 (evil-define-key 'normal lisp-mode-shared-map "B" 'backward-up-list)
 (evil-define-key 'insert lisp-mode-shared-map (kbd "C-j") 'paredit-close-round-and-newline)
 
-(key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 (define-key evil-insert-state-map (kbd "M-<backspace>") 'backward-kill-word)
 (define-key evil-motion-state-map "gl" 'magit-file-log)
 (define-key evil-motion-state-map "g/" 'maio/goto-grep-buffer)

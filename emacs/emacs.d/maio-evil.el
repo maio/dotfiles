@@ -89,6 +89,24 @@
 (define-key evil-normal-state-map (kbd "M-l") 'paredit-forward)
 (evil-define-key 'visual surround-mode-map "S" "sba")
 
+(evil-define-command cofi/evil-maybe-exit ()
+  :repeat change
+  (interactive)
+  (let ((modified (buffer-modified-p))
+        (entry-key ?j)
+        (exit-key ?k))
+    (insert entry-key)
+    (let ((evt (read-event (format "Insert %c to exit insert state" exit-key) nil 0.5)))
+      (cond
+       ((null evt) (message ""))
+       ((and (integerp evt) (char-equal evt exit-key))
+          (delete-char -1)
+          (set-buffer-modified-p modified)
+          (push 'escape unread-command-events))
+       (t (push evt unread-command-events))))))
+
+(define-key evil-insert-state-map "j" 'cofi/evil-maybe-exit)
+
 (evil-add-hjkl-bindings magit-mode-map 'emacs)
 (evil-add-hjkl-bindings magit-diff-mode-map 'emacs)
 (evil-add-hjkl-bindings magit-status-mode-map 'emacs
