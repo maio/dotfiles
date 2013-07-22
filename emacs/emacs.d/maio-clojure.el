@@ -13,6 +13,7 @@
      (defadvice clojure-test-run-tests (before save activate) (save-buffer))
      (key-chord-define clojure-test-mode-map ";e" 'clojure-test-run-tests)
      (evil-define-key 'normal clojure-mode-map "gs" 'maio/nrepl)
+     (evil-define-key 'normal clojure-mode-map (kbd "M-.") 'nrepl-jump)
      (add-hook 'clojure-mode-hook 'eldoc-mode)
      (define-clojure-indent  ;; for cucumber tests
        (Before 'defun)
