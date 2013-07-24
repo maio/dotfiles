@@ -43,7 +43,7 @@
   (interactive)
   (when (get-buffer-process (current-buffer))
     (comint-interrupt-subjob)
-    (sleep-for 0 300))
+    (while (get-buffer-process (current-buffer)) (sleep-for 0 100)))
   (kill-current-buffer))
 
 (defun my-eval-defun ()
