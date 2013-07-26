@@ -53,6 +53,11 @@
     (eval-defun nil))
   (evil-normal-state))
 
+(defun clear-comint-buffer ()
+  (interactive)
+  (let ((comint-buffer-maximum-size 0))
+    (comint-truncate-buffer)))
+
 (defun cofi/region-to-snippet (begin end)
   "Write new snippet based on current region."
   (interactive "r")
