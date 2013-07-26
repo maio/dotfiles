@@ -48,6 +48,8 @@
   (evil-change-to-initial-state nil t))
 
 (setcdr evil-insert-state-map nil) ;; make insert state like emacs state
+(define-key evil-normal-state-map (kbd "C-y")
+  (lambda () (interactive) (insert (current-kill 0))))
 (define-key evil-insert-state-map (kbd "C-y")
   (lambda () (interactive) (insert (current-kill 0))))
 (define-key evil-insert-state-map "\C-n" 'evil-complete-next)
