@@ -23,6 +23,7 @@
                        goto-chg
                        clojure-mode
                        clojure-test-mode
+                       clojure-cheatsheet
                        midje-mode
                        feature-mode
                        mustache-mode
