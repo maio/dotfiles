@@ -18,6 +18,7 @@
                        dash
                        popup
                        undo-tree
+                       git-rebase-mode
                        auto-complete
                        ace-jump-mode
                        goto-chg
