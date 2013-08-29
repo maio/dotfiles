@@ -28,6 +28,8 @@
 (setq truncate-lines t)
 (setq transient-mark-mode nil)
 (setq gc-cons-threshold 20000000)
+(setq help-at-pt-display-when-idle t)
+(help-at-pt-set-timer)
 
 (defun maio/indent ()
   (setq indent-line-function 'indent-relative-maybe))
