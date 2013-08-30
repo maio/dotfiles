@@ -17,6 +17,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(clojure-test-failure-face ((t (:foreground "brightred"))))
  '(hl-line ((t (:inherit highlight))))
  '(idle-highlight ((t (:inherit hl-line))))
  '(italic ((t (:underline nil :slant italic))))
