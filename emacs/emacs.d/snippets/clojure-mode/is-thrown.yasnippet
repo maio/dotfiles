@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: is-thrown
+# key: it
+# --
+(is (thrown-with-msg? ${2:Exception} #"^${3:message}$" ($1)))
