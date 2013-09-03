@@ -62,12 +62,16 @@
 
 (define-key magit-status-mode-map "p" 'maio-git-submit)
 (define-key magit-status-mode-map "G" 'magit-shell-command)
-(key-chord-define magit-status-mode-map "ca" 'maio-git-amend)
-(key-chord-define magit-status-mode-map "cc" 'magit-log-edit)
 (key-chord-define magit-status-mode-map "rj" 'maio-gerrit-cr-ok)
 (key-chord-define magit-status-mode-map "rk" 'maio-gerrit-cr-no-submit)
 (key-chord-define magit-status-mode-map "xo" 'maio-git-reset-hard-origin)
 (key-chord-define gist-mode-map ";w" 'gist-mode-save-buffer)
 (key-chord-define git-rebase-mode-map ";w" 'server-edit)
+(defun maio/commit-commit ()
+  (interactive)
+  (git-commit-commit)
+  (delete-window)
+  (call-interactively 'magit-status))
+(key-chord-define git-commit-mode-map ";w" 'maio/commit-commit)
 
 (provide 'maio-git)
