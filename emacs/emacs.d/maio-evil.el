@@ -58,7 +58,6 @@
 (define-key evil-insert-state-map "\C-x\C-n" 'evil-complete-next-line)
 (define-key evil-insert-state-map "\C-x\C-p" 'evil-complete-previous-line)
 (define-key evil-insert-state-map "\C-x\C-l" 'evil-complete-previous-line)
-(define-key evil-emacs-state-map (kbd "C-g") 'evil-normal-state)
 (define-key evil-replace-state-map (kbd "C-g") 'evil-normal-state)
 (define-key evil-visual-state-map (kbd "C-g") 'evil-normal-state)
 (define-key evil-normal-state-map (kbd "C-SPC") 'set-mark-command)
@@ -91,6 +90,18 @@
 (define-key evil-normal-state-map (kbd "M-l") 'paredit-forward)
 (evil-define-key 'visual surround-mode-map "S" "sba")
 
+;; set modeline color depending on state
+(lexical-let ((default-color (cons (face-background 'mode-line)
+                                   (face-foreground 'mode-line))))
+  (add-hook 'post-command-hook
+            (lambda ()
+              (let ((color (cond ((minibufferp) default-color)
+                                 ((evil-emacs-state-p)  '("#444488" . "white"))
+                                 ((evil-insert-state-p) '("brightwhite" . "black"))
+                                 (t default-color))))
+                (set-face-background 'mode-line (car color))
+                (set-face-foreground 'mode-line (cdr color))))))
+
 (evil-define-command cofi/evil-maybe-exit ()
   :repeat change
   (interactive)
@@ -108,6 +119,8 @@
        (t (push evt unread-command-events))))))
 
 (define-key evil-insert-state-map "j" 'cofi/evil-maybe-exit)
+(define-key evil-emacs-state-map (kbd "<escape>") 'evil-normal-state)
+(define-key evil-emacs-state-map "j" 'cofi/evil-maybe-exit)
 
 (evil-add-hjkl-bindings magit-mode-map 'emacs)
 (evil-add-hjkl-bindings magit-diff-mode-map 'emacs)
