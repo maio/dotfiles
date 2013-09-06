@@ -3,6 +3,10 @@
 (setq evil-want-C-i-jump t)
 (setq evil-repeat-move-cursor nil)
 (setq evil-regexp-search t)
+
+(require 'ace-jump-mode)
+(setq ace-jump-mode-case-sensitive-search nil)
+
 (require 'evil)
 (evil-mode 1)
 (loop for (mode . state) in '((inferior-emacs-lisp-mode      . emacs)
@@ -140,33 +144,6 @@
   "H" 'rmail-summary)
 (evil-add-hjkl-bindings grep-mode-map 'emacs)
 (evil-add-hjkl-bindings helm-grep-mode-map 'emacs)
-
-;; ace-jump integration https://github.com/winterTTr/ace-jump-mode/issues/20
-(require 'ace-jump-mode)
-(setq ace-jump-mode-case-sensitive-search nil)
-
-(evil-define-motion evil-ace-jump-char-mode (count)
-  :type exclusive
-  (ace-jump-mode 5)
-  (recursive-edit))
-
-(evil-define-motion evil-ace-jump-line-mode (count)
-  :type line
-  (ace-jump-mode 9)
-  (recursive-edit))
-
-(evil-define-motion evil-ace-jump-word-mode (count)
-  :type exclusive
-  (ace-jump-mode 1)
-  (recursive-edit))
-
-(evil-define-motion evil-ace-jump-char-direct-mode (count)
-  :type inclusive
-  (ace-jump-mode 5)
-  (forward-char 1)
-  (recursive-edit))
-
-(add-hook 'ace-jump-mode-end-hook 'exit-recursive-edit)
 
 (evil-define-key 'normal dired-mode-map (kbd "SPC") 'evil-ace-jump-char-mode)
 (define-key evil-normal-state-map (kbd "SPC") 'evil-ace-jump-char-mode)
