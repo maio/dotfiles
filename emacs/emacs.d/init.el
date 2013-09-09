@@ -1,5 +1,4 @@
 (add-to-list 'load-path "~/.emacs.d")
-(require 'cl)   ;; required by yasnippet - try to kill this sometime
 (require 'maio-util)
 
 (require-and-exec 'package
