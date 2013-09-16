@@ -1,5 +1,6 @@
 (require 'magit)
 (require 'git-rebase-mode)
+(require 'git-commit-mode)
 (require 'diff-hl)
 (require 'gist)
 
@@ -58,8 +59,6 @@
 (defadvice magit-toggle-section (after scroll-line-to-top () activate)
   (call-interactively 'evil-scroll-line-to-top))
 
-(add-hook 'magit-commit-mode-hook 'turn-on-flyspell)
-
 (define-key magit-status-mode-map "p" 'maio-git-submit)
 (define-key magit-status-mode-map "G" 'magit-shell-command)
 (key-chord-define magit-status-mode-map "rj" 'maio-gerrit-cr-ok)
@@ -73,5 +72,7 @@
   (delete-window)
   (call-interactively 'magit-status))
 (key-chord-define git-commit-mode-map ";w" 'maio/commit-commit)
+(add-hook 'git-commit-mode-hook 'flyspell-mode)
+(add-hook 'git-commit-mode-hook 'flyspell-buffer)
 
 (provide 'maio-git)
