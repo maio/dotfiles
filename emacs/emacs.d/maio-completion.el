@@ -11,6 +11,7 @@
 (setq ac-ignore-case nil)
 (setq ac-use-menu-map t)
 (setq ac-auto-start 3)
+(setq ac-auto-show-menu nil)
 (setq ac-quick-help-delay 1)
 (setq ac-dwim t)
 

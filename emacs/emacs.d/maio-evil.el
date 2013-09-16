@@ -56,7 +56,7 @@
   (lambda () (interactive) (insert (current-kill 0))))
 (define-key evil-insert-state-map (kbd "C-y")
   (lambda () (interactive) (insert (current-kill 0))))
-(define-key evil-insert-state-map "\C-n" 'evil-complete-next)
+(define-key evil-insert-state-map "\C-n" 'auto-complete)
 (define-key evil-insert-state-map "\C-p" 'evil-complete-previous)
 (define-key evil-insert-state-map [escape] 'evil-normal-state)
 (define-key evil-insert-state-map "\C-x\C-n" 'evil-complete-next-line)
