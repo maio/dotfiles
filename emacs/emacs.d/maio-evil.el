@@ -5,6 +5,7 @@
 (setq evil-regexp-search t)
 
 (require 'ace-jump-mode)
+(require 'evil-numbers)
 (setq ace-jump-mode-case-sensitive-search nil)
 
 (require 'evil)
@@ -93,6 +94,9 @@
 (define-key evil-normal-state-map (kbd "M-h") 'paredit-backward)
 (define-key evil-normal-state-map (kbd "M-l") 'paredit-forward)
 (evil-define-key 'visual surround-mode-map "S" "sba")
+(define-key evil-normal-state-map "+" 'evil-numbers/inc-at-pt)
+(define-key evil-normal-state-map "-" 'evil-numbers/dec-at-pt)
+
 
 ;; set modeline color depending on state
 (lexical-let ((default-color (cons (face-background 'mode-line)

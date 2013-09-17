@@ -48,6 +48,7 @@
                        wgrep
                        dizzee
                        evil
+                       evil-numbers
                        surround
                        gist)))
     (dolist (package my-packages)
