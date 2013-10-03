@@ -11,4 +11,4 @@ update: clean
 	@rm -rf emacs/emacs.d/elpa
 
 clean:
-	@find . -name \*.elc | xargs rm
+	@find . -name \*.elc | xargs rm -f .noop
