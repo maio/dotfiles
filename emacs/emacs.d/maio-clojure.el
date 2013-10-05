@@ -46,6 +46,6 @@
      (add-hook 'nrepl-mode-hook 'smartparens-mode)
      (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
      (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
-     (key-chord-define nrepl-mode-map ";k" 'nrepl-quit)))
+     (key-chord-define nrepl-repl-mode-map ";k" 'nrepl-quit)))
 
 (provide 'maio-clojure)
