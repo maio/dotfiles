@@ -43,8 +43,8 @@
 
 (eval-after-load 'nrepl
   '(progn
-     (add-hook 'nrepl-mode-hook 'smartparens-mode)
-     (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+     (add-hook 'nrepl-repl-mode-hook 'smartparens-mode)
+     (add-hook 'nrepl-repl-mode-hook 'ac-nrepl-setup)
      (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
      (key-chord-define nrepl-repl-mode-map ";k" 'nrepl-quit)))
 
