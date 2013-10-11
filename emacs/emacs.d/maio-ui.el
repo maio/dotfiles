@@ -19,13 +19,13 @@
 (defun regular-mode ()
   (interactive)
   (if (system-type-is-gnu)
-      (maio/set-font "Terminus Bold" 150)
+      (maio/set-font "Source Code Pro" 120)
     (maio/set-font "Source Code Pro Regular" 160)))
 
 (defun presentation-mode ()
   (interactive)
   (if (system-type-is-gnu)
-      (maio/set-font "Terminus Bold" 180)
+      (maio/set-font "Source Code Pro" 140)
     (maio/set-font "Source Code Pro Regular" 180)))
 
 (provide 'maio-ui)
