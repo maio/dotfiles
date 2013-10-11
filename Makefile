@@ -1,3 +1,9 @@
+init:
+	@git submodules init
+	@git submodules update
+	@git config --global user.email "marian.schubert@gmail.com"
+	@git config --global user.name "Marian Schubert"
+
 install:
 	@ln -sf `pwd`/shell/inputrc ~/.inputrc
 	@# Emacs
