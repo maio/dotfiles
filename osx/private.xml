@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>Change Right Command Key to ESC</name>
+    <identifier>private.right_command_to_escape</identifier>
+    <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_R, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::COMMAND_R, KeyCode::ESCAPE</autogen>
+  </item>
+</root>
