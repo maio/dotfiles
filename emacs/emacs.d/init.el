@@ -30,6 +30,7 @@
                        yaml-mode
                        php-mode
                        js2-mode
+                       web-mode
                        nrepl
                        ac-nrepl
                        dired-details
@@ -65,6 +66,7 @@
 (require 'maio-evil)
 (require 'maio-shell)
 (require 'maio-php)
+(require 'maio-web)
 (require 'maio-perl)
 (require 'maio-python)
 (require 'maio-clojure)
