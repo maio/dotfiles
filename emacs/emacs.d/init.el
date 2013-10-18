@@ -31,6 +31,7 @@
                        php-mode
                        js2-mode
                        web-mode
+                       haskell-mode
                        nrepl
                        ac-nrepl
                        dired-details
