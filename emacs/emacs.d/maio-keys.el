@@ -24,7 +24,7 @@
 (key-chord-define-global "GG" 'guard-or-goto-guard)
 (key-chord-define-global ";q" 'maio/bury)
 (key-chord-define-global ";*" 'maio/goto-scratch-buffer)
-(key-chord-define-global ";`" 'shell)
+(key-chord-define-global ";`" 'eshell)
 
 (key-chord-define grep-mode-map ";w" 'rename-buffer)
 
