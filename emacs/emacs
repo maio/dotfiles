@@ -12,20 +12,5 @@
  '(safe-local-variable-values (quote ((nrepl-port . "3001") (eval setenv "DATABASE_URL" "postgresql://localhost:5432/wools") (whitespace-line-column . 80) (lexical-binding . t))))
  '(tramp-remote-process-environment (quote ("HISTFILE=$HOME/.tramp_history" "HISTSIZE=1" "LC_ALL=" "TERM=dumb" "EMACS=t" "INSIDE_EMACS='24.2.91.1,tramp:2.2.6-24.3'" "CDPATH=" "HISTORY=" "MAIL=" "MAILCHECK=" "MAILPATH=" "PAGER=\"\"" "autocorrect=" "correct="))))
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(clojure-test-failure-face ((t (:foreground "brightred"))))
- '(highlight ((t (:background "brightwhite"))))
- '(header-line ((t (:inherit highlight))))
- '(hl-line ((t (:inherit highlight))))
- '(magit-item-highlight ((t (:inherit highlight))))
- '(idle-highlight ((t (:inherit hl-line))))
- '(italic ((t (:underline nil :slant italic))))
- '(show-paren-match ((t (:bold t))))
- '(show-paren-mismatch ((t (:foreground "brightred")))))
-
 (load-file "~/.emacs.d/init.el")
 (put 'dired-find-alternate-file 'disabled nil)
