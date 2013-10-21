@@ -35,6 +35,7 @@
      (evil-define-key 'normal clojure-mode-map (kbd "M-.") 'nrepl-jump)
      (add-hook 'clojure-mode-hook 'eldoc-mode)
      (define-clojure-indent  ;; for cucumber tests
+       (go 'defun)
        (Before 'defun)
        (After 'defun)
        (Given 'defun)
