@@ -42,25 +42,6 @@
   (toggle-read-only))
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
-(require 'mark-more-like-this)
-(defun maio/mark-all-like-this ()
-  (interactive)
-  (evil-visual-char)
-  (call-interactively 'mark-all-like-this)
-  (evil-exchange-point-and-mark)
-  (evil-normal-state))
-
-(defun maio/mark-all-like-this-in-defun ()
-  (interactive)
-  (save-excursion
-    (save-restriction
-      (widen)
-      (narrow-to-defun)
-      (call-interactively 'mark-all-like-this)))
-  (evil-visual-char)
-  (evil-exchange-point-and-mark)
-  (evil-normal-state))
-
 (defun maio/find-alternative-file ()
   (interactive)
   (let ((ext (file-name-extension (buffer-file-name)))

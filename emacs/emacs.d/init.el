@@ -41,8 +41,7 @@
                        bookmark+
                        diff-hl
                        smartparens
-                       mark-multiple
-                       multiple-cursors
+                       iedit
                        key-chord
                        yasnippet
                        helm
@@ -83,7 +82,7 @@
 (require 'maio-dired)
 (require 'maio-erc)
 (require 'maio-keys)
-(require 'maio-multiple-cursors)
+(require 'maio-iedit)
 (require 'maio-nclip)
 (require 'maio-local nil t)
 (require 'git-grep)
