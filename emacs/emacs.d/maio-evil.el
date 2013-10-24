@@ -142,11 +142,6 @@
   "h" 'describe-mode)
 (evil-add-hjkl-bindings magit-log-mode-map 'emacs
   "l" 'magit-key-mode-popup-logging)
-(evil-add-hjkl-bindings rmail-summary-mode-map 'emacs
-  "K" 'rmail-summary-kill-label)
-(evil-add-hjkl-bindings rmail-mode-map 'normal
-  "q" 'kill-current-buffer
-  "H" 'rmail-summary)
 (evil-add-hjkl-bindings grep-mode-map 'emacs)
 (evil-add-hjkl-bindings helm-grep-mode-map 'emacs)
 
