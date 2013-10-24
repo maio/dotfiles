@@ -8,6 +8,7 @@
 (setq magit-rewrite-inclusive nil)
 (setq magit-status-buffer-switch-function 'switch-to-buffer)
 (setq magit-diff-refine-hunk t)
+(setq magit-stage-all-confirm nil)
 
 (defvar story-history nil)
 
