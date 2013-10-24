@@ -15,6 +15,7 @@
                               (pylookup-mode                 . emacs)
                               (comint-mode                   . normal)
                               (shell-mode                    . insert)
+                              (git-commit-mode               . insert)
                               (term-mode                     . emacs)
                               (help-mode                     . emacs)
                               (helm-grep-mode                . emacs)
