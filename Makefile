@@ -1,6 +1,6 @@
 init:
-	@git submodules init
-	@git submodules update
+	@git submodule init
+	@git submodule update
 	@git config --global user.email "marian.schubert@gmail.com"
 	@git config --global user.name "Marian Schubert"
 
