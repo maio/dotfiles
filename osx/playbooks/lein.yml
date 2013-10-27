@@ -1,0 +1,6 @@
+---
+
+# requires JDK from http://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+- name: install leiningen
+  homebrew: name=leiningen

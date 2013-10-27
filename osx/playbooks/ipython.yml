@@ -1,0 +1,9 @@
+---
+
+- name: pip
+  easy_install: name=pip
+  
+- name: ipython
+  pip: name=ipython
+
+

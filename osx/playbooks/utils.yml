@@ -1,0 +1,8 @@
+---
+
+- name: tree
+  homebrew: name=tree state=present
+
+- name: ack
+  homebrew: name=ack state=present
+

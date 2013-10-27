@@ -1,0 +1,7 @@
+---
+
+- name: erlang
+  homebrew: name=erlang state=present
+
+- name: rebar
+  homebrew: name=rebar state=present
