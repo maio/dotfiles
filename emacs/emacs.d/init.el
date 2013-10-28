@@ -21,6 +21,7 @@
                        auto-complete
                        ace-jump-mode
                        goto-chg
+                       erlang
                        clojure-mode
                        clojure-test-mode
                        clojure-cheatsheet
@@ -69,6 +70,7 @@
 (require 'maio-web)
 (require 'maio-perl)
 (require 'maio-python)
+(require 'maio-erlang)
 (require 'maio-clojure)
 (require 'maio-javascript)
 (require 'maio-modeline)
