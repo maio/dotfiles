@@ -3,6 +3,6 @@
 - name: tree
   homebrew: name=tree state=present
 
-- name: ack
-  homebrew: name=ack state=present
+- name: ag grep
+  homebrew: name=ag state=present
 

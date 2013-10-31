@@ -35,6 +35,7 @@
                        haskell-mode
                        nrepl
                        ac-nrepl
+                       ag
                        dired-details
                        flycheck
                        flymake-cursor
