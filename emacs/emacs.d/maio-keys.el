@@ -26,6 +26,7 @@
 (key-chord-define-global ";*" 'maio/goto-scratch-buffer)
 (key-chord-define-global ";`" 'eshell)
 (global-set-key (kbd "C-h m") 'helm-descbinds)
+(global-set-key (kbd "M-j") 'enlarge-window)
 
 (key-chord-define grep-mode-map ";w" 'rename-buffer)
 
