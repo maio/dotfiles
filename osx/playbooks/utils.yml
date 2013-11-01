@@ -4,5 +4,5 @@
   homebrew: name=tree state=present
 
 - name: ag grep
-  homebrew: name=ag state=present
+  homebrew: name=the_silver_searcher state=present
 
