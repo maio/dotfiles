@@ -12,7 +12,6 @@
 (key-chord-define-global ";t" 'helm-c-etags-select)
 (key-chord-define-global ";r" 'helm-resume)
 (key-chord-define-global ";x" 'helm-M-x)
-(key-chord-define-global ";s" 'maio/git-grep)
 (define-key evil-normal-state-map "/" 'maio/helm-occur)
 (key-chord-define-global ";v" 'maio/find-config-file)
 (key-chord-define-global ";n" 'maio-narrow-to-defun-clone)
@@ -28,7 +27,12 @@
 (global-set-key (kbd "C-h m") 'helm-descbinds)
 (global-set-key (kbd "M-j") 'enlarge-window)
 
+(require 'ag)
+(require 'grep)
+(require 'wgrep)
 (key-chord-define grep-mode-map ";w" 'rename-buffer)
+(key-chord-define wgrep-mode-map ";w" 'wgrep-finish-edit)
+(key-chord-define-global ";s" 'ag-project)
 
 ;; marked buffer
 (defvar maio-marked-buffer nil)
