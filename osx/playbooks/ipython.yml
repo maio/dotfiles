@@ -1,11 +1,11 @@
 ---
 
 - name: pip
-#  sudo: true
+  sudo: true
   easy_install: name=pip
   
 - name: ipython
-#  sudo: true
+  sudo: true
   pip: name=ipython
 
 
