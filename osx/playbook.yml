@@ -1,6 +1,7 @@
 - hosts: localhost
   connection: local
   tasks:
+      - include: 'playbooks/shell.yml'
       - include: 'playbooks/utils.yml'
       - include: 'playbooks/bash-completion.yml'
       - include: 'playbooks/git.yml'
