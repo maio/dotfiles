@@ -8,5 +8,6 @@
       - include: 'playbooks/mosh.yml'
       - include: 'playbooks/ipython.yml'
       - include: 'playbooks/lein.yml'
+      # - include: 'playbooks/erlang.yml'
 
 
