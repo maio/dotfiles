@@ -36,6 +36,7 @@
                        nrepl
                        ac-nrepl
                        ag
+                       shell-switcher
                        dired-details
                        flycheck
                        flymake-cursor
