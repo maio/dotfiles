@@ -24,7 +24,7 @@
 (key-chord-define-global "GG" 'guard-or-goto-guard)
 (key-chord-define-global ";q" 'maio/bury)
 (key-chord-define-global ";*" 'maio/goto-scratch-buffer)
-(key-chord-define-global ";`" 'eshell)
+(key-chord-define-global ";`" 'shell-switcher-switch-buffer)
 (global-set-key (kbd "C-h m") 'helm-descbinds)
 (global-set-key (kbd "M-j") 'enlarge-window)
 
