@@ -152,6 +152,29 @@
 (define-key evil-normal-state-map "/" 'evil-search-forward)
 (define-key evil-motion-state-map (kbd "SPC") 'evil-ace-jump-line-mode)
 
+;; org mode
+(defun always-insert-item ()
+  "Force insertion of org item"
+  (if (not (org-in-item-p))
+      (insert "\n- ")
+    (org-insert-item)))
+
+(defun evil-org-eol-call (fun)
+  "Go to end of line and call provided function"
+  (end-of-line)
+  (funcall fun)
+  (evil-append nil))
+
+(evil-define-key 'normal org-mode-map
+  "gh" 'outline-up-heading
+  "o" '(lambda () (interactive) (evil-org-eol-call 'always-insert-item))
+  "O" '(lambda () (interactive) (evil-org-eol-call 'org-insert-heading))
+  "t" 'org-todo
+  "H" 'org-beginning-of-line
+  "L" 'org-end-of-line
+  "-" 'org-cycle-list-bullet
+  (kbd "TAB") 'org-cycle)
+
 ;; Evil plugins
 (require 'surround)
 (global-surround-mode 1)
