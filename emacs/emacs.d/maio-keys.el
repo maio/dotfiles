@@ -7,6 +7,7 @@
 (key-chord-define-global ";a" 'other-window)
 (key-chord-define-global ";w" 'force-save-buffer)
 (key-chord-define-global ";b" 'maio/helm)
+(key-chord-define-global ";i" 'imenu)
 (key-chord-define-global ";k" 'kill-current-buffer)
 (key-chord-define comint-mode-map ";k" 'kill-comint-buffer)
 (key-chord-define-global ";t" 'helm-c-etags-select)
