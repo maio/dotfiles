@@ -1,7 +1,10 @@
 ---
 
-- name: user's bin
-  lineinfile: dest=~/.bash_profile create=yes regexp='PATH.+~/bin' line='export PATH="~/bin:$PATH"' insertbefore=BOF
+- name: bash (recent version)
+  homebrew: name=bash state=present
+
+- name: bin dirs with preference (~/bin /usr/local/bin)
+  lineinfile: dest=~/.bash_profile create=yes regexp='PATH.+~/bin' line='export PATH="~/bin:/usr/local/bin:$PATH"' insertbefore=BOF
 
 - name: CDPATH
   lineinfile: dest=~/.bash_profile create=yes regexp='CDPATH' line='export CDPATH=".:~/"'
