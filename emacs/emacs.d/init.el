@@ -45,6 +45,7 @@
                        diff-hl
                        smartparens
                        iedit
+                       sackspace
                        key-chord
                        yasnippet
                        helm
