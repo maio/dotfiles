@@ -16,6 +16,12 @@
   (goto-char (point-max))
   (evil-insert-state))
 
+(defun eshell/clear ()
+  "04Dec2001 - sailor, to clear the eshell buffer."
+  (interactive)
+  (let ((inhibit-read-only t))
+    (erase-buffer)))
+
 (evil-define-key 'normal term-raw-map "i" 'maio/term-enter)
 (evil-define-key 'normal term-raw-map [return] 'maio/term-enter)
 
