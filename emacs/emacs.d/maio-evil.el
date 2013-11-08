@@ -106,8 +106,8 @@
   (add-hook 'post-command-hook
             (lambda ()
               (let ((color (cond ((minibufferp) default-color)
-                                 ((evil-emacs-state-p)  '("#444488" . "white"))
-                                 ((evil-insert-state-p) '("brightwhite" . "black"))
+                                 ((evil-emacs-state-p)  '("light green" . "black"))
+                                 ((evil-insert-state-p) '("light sky blue" . "black"))
                                  (t default-color))))
                 (set-face-background 'mode-line (car color))
                 (set-face-foreground 'mode-line (cdr color))))))
