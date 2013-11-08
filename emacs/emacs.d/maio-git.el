@@ -9,6 +9,8 @@
   "Copy sha1 of commit at point into kill ring."
   (interactive)
   (magit-section-action (item info "copy")
+    ((untracked file)
+     (kill-new info))
     ((commit)
      (kill-new info)
      (message "%s" info))))
