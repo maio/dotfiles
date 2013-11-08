@@ -33,10 +33,6 @@
 (defun maio-get-first-word (s)
   (first (s-split-words s)))
 
-(defun maio-git-amend ()
-  (interactive)
-  (magit-log-edit '4))
-
 (defun maio-gerrit-cr (cr)
   (magit-section-action (item info "review")
     ((commit)
