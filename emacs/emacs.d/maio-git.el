@@ -71,8 +71,8 @@
 (defadvice magit-toggle-section (after scroll-line-to-top () activate)
   (call-interactively 'evil-scroll-line-to-top))
 
-(define-key magit-status-mode-map "p" 'maio-git-submit)
 (define-key magit-status-mode-map "G" 'magit-shell-command)
+(key-chord-define magit-status-mode-map "rp" 'maio-git-submit)
 (key-chord-define magit-status-mode-map "rj" 'maio-gerrit-cr-ok)
 (key-chord-define magit-status-mode-map "rk" 'maio-gerrit-cr-no-submit)
 (key-chord-define magit-status-mode-map "xo" 'maio-git-reset-hard-origin)
