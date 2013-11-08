@@ -30,6 +30,8 @@
 (setq gc-cons-threshold 20000000)
 (setq help-at-pt-display-when-idle t)
 (setq-default compilation-scroll-output t)
+(add-hook 'compilation-start-hook
+          (lambda (process) (setq compilation-scroll-output t)))
 (help-at-pt-set-timer)
 
 (defun maio/indent ()
