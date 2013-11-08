@@ -173,7 +173,8 @@
   "H" 'org-beginning-of-line
   "L" 'org-end-of-line
   "-" 'org-cycle-list-bullet
-  (kbd "TAB") 'org-cycle)
+  (kbd "TAB") 'org-cycle
+  (kbd "<tab>") 'org-cycle)
 
 ;; Evil plugins
 (require 'surround)
