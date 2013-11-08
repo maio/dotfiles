@@ -4,6 +4,15 @@
 (require 'diff-hl)
 (require 'gist)
 
+;; magit fixes
+(defun magit-copy-item-as-kill ()
+  "Copy sha1 of commit at point into kill ring."
+  (interactive)
+  (magit-section-action (item info "copy")
+    ((commit)
+     (kill-new info)
+     (message "%s" info))))
+
 (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
 (setq magit-rewrite-inclusive nil)
 (setq magit-status-buffer-switch-function 'switch-to-buffer)
