@@ -14,5 +14,7 @@
 
 (load-file "~/.emacs.d/init.el")
 (put 'dired-find-alternate-file 'disabled nil)
+
 (custom-set-faces
+ '(magit-header ((t (:underline nil :weight bold))))
  '(magit-item-highlight ((t (:underline nil :weight bold)))))
