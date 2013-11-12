@@ -57,4 +57,9 @@ This way it's possible to use evil-search-next."
 (require 'helm-compile)
 (key-chord-define-global ";c" 'helm-compile)
 
+(require 'eshell)
+(add-hook 'eshell-mode-hook
+          (lambda ()
+            (define-key eshell-mode-map (kbd "M-r") 'helm-eshell-history)))
+
 (provide 'maio-helm)
