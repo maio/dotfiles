@@ -3,6 +3,7 @@ init:
 	@git submodule update
 	@git config --global user.email "marian.schubert@gmail.com"
 	@git config --global user.name "Marian Schubert"
+	@git config --global rebase.autosquash true
 
 install:
 	@ln -sf `pwd`/shell/inputrc ~/.inputrc
