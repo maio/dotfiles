@@ -4,6 +4,7 @@ init:
 	@git config --global user.email "marian.schubert@gmail.com"
 	@git config --global user.name "Marian Schubert"
 	@git config --global rebase.autosquash true
+	@git config --global pull.rebase true
 
 install:
 	@ln -sf `pwd`/shell/inputrc ~/.inputrc
