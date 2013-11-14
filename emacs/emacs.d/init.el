@@ -55,6 +55,7 @@
                        evil
                        evil-numbers
                        surround
+                       pbcopy
                        gist)))
     (dolist (package my-packages)
       (when (not (package-installed-p package))
@@ -88,7 +89,7 @@
 (require 'maio-erc)
 (require 'maio-keys)
 (require 'maio-iedit)
-(require 'maio-nclip)
+(require 'maio-clipboard)
 (require 'maio-local nil t)
 (require 'git-grep)
 
