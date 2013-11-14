@@ -59,6 +59,12 @@
   (when (yes-or-no-p "Discard all uncommitted changes?")
     (magit-reset-head-hard "origin/master")))
 
+(defun maio-git-reset-hard-upstream ()
+  (interactive)
+  (magit-fetch "upstream")
+  (when (yes-or-no-p "Discard all uncommitted changes?")
+    (magit-reset-head-hard "upstream/master")))
+
 ;; remove light background from diff added/removed faces
 (custom-set-faces
  '(diff-added ((t (:inherit diff-changed :foreground "green4"))))
@@ -72,6 +78,7 @@
 (key-chord-define magit-status-mode-map "rj" 'maio-gerrit-cr-ok)
 (key-chord-define magit-status-mode-map "rk" 'maio-gerrit-cr-no-submit)
 (key-chord-define magit-status-mode-map "xo" 'maio-git-reset-hard-origin)
+(key-chord-define magit-status-mode-map "xu" 'maio-git-reset-hard-upstream)
 (key-chord-define gist-mode-map ";w" 'gist-mode-save-buffer)
 (key-chord-define git-rebase-mode-map ";w" 'server-edit)
 (defun maio/commit-commit ()
