@@ -30,4 +30,11 @@
       (maio/set-font "Source Code Pro" 140)
     (maio/set-font "Source Code Pro Regular" 180)))
 
+(when (system-type-is-darwin)
+  (xterm-mouse-mode t)
+  (defun up-slightly () (interactive) (scroll-up 1))
+  (defun down-slightly () (interactive) (scroll-down 1))
+  (global-set-key (kbd "<mouse-4>") 'down-slightly)
+  (global-set-key (kbd "<mouse-5>") 'up-slightly))
+
 (provide 'maio-ui)
