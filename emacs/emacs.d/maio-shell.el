@@ -3,6 +3,7 @@
 (require 'shell)
 (setq ansi-color-for-comint-mode t)
 (setq comint-prompt-read-only t)
+(setq eshell-cmpl-ignore-case t)
 
 (require 'shell-switcher)
 (shell-switcher-mode)
