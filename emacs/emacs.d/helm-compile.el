@@ -58,4 +58,6 @@
    '(helm-c-source-compile-history helm-c-source-compile)
    "*helm compile*"))
 
+(add-to-list 'savehist-additional-variables 'compile-history)
+
 (provide 'helm-compile)
