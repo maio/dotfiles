@@ -6,7 +6,8 @@
 
 (require 'ace-jump-mode)
 (require 'evil-numbers)
-(setq ace-jump-mode-case-sensitive-search nil)
+(setq ace-jump-mode-case-sensitive-search nil
+      ace-jump-mode-gray-background nil)
 
 (require 'evil)
 (evil-mode 1)
@@ -151,7 +152,8 @@
 (evil-add-hjkl-bindings helm-grep-mode-map 'emacs)
 
 (evil-define-key 'normal dired-mode-map (kbd "SPC") 'evil-ace-jump-char-mode)
-(define-key evil-normal-state-map (kbd "SPC") 'evil-ace-jump-char-mode)
+(define-key evil-normal-state-map (kbd "SPC") 'evil-ace-jump-word-mode)
+(key-chord-define evil-normal-state-map (kbd "SPC SPC") 'evil-ace-jump-char-mode)
 (define-key evil-motion-state-map "/" 'evil-ace-jump-char-mode)
 (define-key evil-normal-state-map "/" 'evil-search-forward)
 (define-key evil-motion-state-map (kbd "SPC") 'evil-ace-jump-line-mode)
