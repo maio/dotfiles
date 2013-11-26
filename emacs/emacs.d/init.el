@@ -55,7 +55,7 @@
                        evil
                        evil-numbers
                        surround
-                       pbcopy
+                       xclip
                        gist)))
     (dolist (package my-packages)
       (when (not (package-installed-p package))
