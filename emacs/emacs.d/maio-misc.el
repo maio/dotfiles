@@ -18,6 +18,7 @@
 (setq-default indent-tabs-mode nil)
 (column-number-mode 1)
 (idle-highlight-mode 1)
+(setq tramp-default-method "sshx")
 (setq ring-bell-function 'ignore)
 (setq split-height-threshold nil)
 (setq ido-use-filename-at-point nil)
