@@ -1,3 +1,4 @@
+(require 'f)
 (require 's)
 (require 'helm)
 
@@ -8,27 +9,28 @@
 (defun helm-compile--get-default-directory ()
   (locate-dominating-file (helm-default-directory) helm-compile-locate-dominating-file))
 
-(defun helm-compile--buffer-for-command (command)
-  (concat "*" (s-trim command) "*"))
+(defun helm-compile--buffer-for-command (project command)
+  (concat "*" project " " (s-trim command) "*"))
 
-(defun helm-compile---switch-to-buffer (command)
-  (switch-to-buffer (helm-compile--buffer-for-command command))
+(defun helm-compile---switch-to-buffer (project command)
+  (switch-to-buffer (helm-compile--buffer-for-command project command))
   (delete command compile-history)
   (push command compile-history))
 
-(defun helm-compile---compile (command &optional comint)
+(defun helm-compile---compile (project command &optional comint)
   (with-temp-buffer
-    (with-helm-default-directory (helm-compile--get-default-directory)
-        (progn
-          (push command compile-history)
-          (compile command comint)
-          (with-current-buffer compilation-last-buffer
-            (rename-buffer (helm-compile--buffer-for-command command)))))))
+    (progn
+      (push command compile-history)
+      (compile command comint)
+      (with-current-buffer compilation-last-buffer
+        (rename-buffer (helm-compile--buffer-for-command project command))))))
 
 (defun helm-compile--compile (command &optional comint)
-  (if (get-buffer (helm-compile--buffer-for-command command))
-      (helm-compile---switch-to-buffer command)
-    (helm-compile---compile command comint)))
+  (let* ((default-directory (helm-compile--get-default-directory))
+         (project (f-base default-directory)))
+    (if (get-buffer (helm-compile--buffer-for-command project command))
+        (helm-compile---switch-to-buffer project command)
+      (helm-compile---compile project command comint))))
 
 (defvar helm-c-source-compile
   '((name . "Compile")
