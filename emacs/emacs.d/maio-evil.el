@@ -171,12 +171,9 @@
 
 (evil-define-key 'normal org-mode-map
   "gh" 'outline-up-heading
-  "o" '(lambda () (interactive) (evil-org-eol-call 'always-insert-item))
-  "O" '(lambda () (interactive) (evil-org-eol-call 'org-insert-heading))
   "t" 'org-todo
   "H" 'org-beginning-of-line
   "L" 'org-end-of-line
-  "-" 'org-cycle-list-bullet
   (kbd "TAB") 'org-cycle
   (kbd "<tab>") 'org-cycle)
 
