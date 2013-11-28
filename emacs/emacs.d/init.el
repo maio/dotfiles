@@ -94,8 +94,5 @@
 (require 'git-grep)
 
 (require 'wgrep)
-(require 'tramp)
-(add-to-list 'tramp-remote-path 'tramp-own-remote-path)
-
 (regular-mode)
 (savehist-mode 1)
