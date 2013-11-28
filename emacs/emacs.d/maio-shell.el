@@ -13,6 +13,10 @@
         (concat "/opt/local/bin:/opt/perl/bin:/usr/local/bin:"
                 (getenv "PATH")))
 
+(defun maio/insert-last-argument ()
+  (interactive)
+  (insert (first (last eshell-last-arguments))))
+
 (defun maio/term-enter ()
   (interactive)
   (goto-char (point-max))
@@ -33,8 +37,13 @@
 (evil-define-key 'normal term-raw-map "i" 'maio/term-enter)
 (evil-define-key 'normal term-raw-map [return] 'maio/term-enter)
 
+(defun maio/setup-eshell ()
+  (define-key eshell-mode-map [remap eshell-pcomplete] 'helm-esh-pcomplete)
+  (define-key eshell-mode-map (kbd "M-.") 'maio/insert-last-argument))
+
 (add-hook 'shell-mode-hook 'font-lock-mode)
 (add-hook 'term-mode-hook 'font-lock-mode)
 (set-face-attribute 'eshell-prompt nil :foreground "red" :weight 'bold)
+(add-hook 'eshell-mode-hook 'maio/setup-eshell)
 
 (provide 'maio-shell)
