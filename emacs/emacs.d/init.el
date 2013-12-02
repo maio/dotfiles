@@ -4,8 +4,6 @@
 (require-and-exec 'package
   (add-to-list 'package-archives
                '("melpa" . "http://melpa.milkbox.net/packages/") t)
-  (add-to-list 'package-archives
-               '("marmalade" . "http://marmalade-repo.org/packages/"))
   (package-initialize)
   (when (not package-archive-contents)
     (package-refresh-contents))
@@ -25,6 +23,8 @@
                        clojure-mode
                        clojure-test-mode
                        clojure-cheatsheet
+                       cider
+                       ac-nrepl
                        midje-mode
                        feature-mode
                        mustache-mode
@@ -33,8 +33,6 @@
                        js2-mode
                        web-mode
                        haskell-mode
-                       nrepl
-                       ac-nrepl
                        ag
                        shell-switcher
                        dired-details

@@ -1,6 +1,7 @@
 (eval-after-load 'auto-complete
-  '(add-to-list 'ac-modes 'nrepl-mode))
+  '(add-to-list 'ac-modes 'cider-repl-mode))
 
+;; doesn't work
 (defun maio/nrepl ()
   (interactive)
   (if (nrepl-current-connection-buffer)
@@ -42,11 +43,11 @@
        (When 'defun)
        (Then 'defun))))
 
-(eval-after-load 'nrepl
+(eval-after-load 'cider
   '(progn
-     (add-hook 'nrepl-repl-mode-hook 'turn-on-smartparens-strict-mode)
-     (add-hook 'nrepl-repl-mode-hook 'ac-nrepl-setup)
-     (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
-     (key-chord-define nrepl-repl-mode-map ";k" 'nrepl-quit)))
+     (add-hook 'cider-repl-mode-hook 'turn-on-smartparens-strict-mode)
+     (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
+     (add-hook 'cider-interaction-mode-hook 'ac-nrepl-setup)
+     (key-chord-define cider-repl-mode-map ";k" 'nrepl-quit)))
 
 (provide 'maio-clojure)
