@@ -1,5 +1,6 @@
 (require 'f)
 (require 's)
+(require 'dash)
 (require 'helm)
 
 (defvar helm-compile-locate-dominating-file ".git"
@@ -53,13 +54,20 @@
                                    (mapc (lambda (candidate) (delete candidate compile-history))
                                          (helm-marked-candidates))))))))
 
+(defvar helm-c-source-compilation-buffers
+  '((name . "Compilation Buffer")
+    (candidates . (lambda () (-filter 'compilation-buffer-p (helm-buffer-list))))
+    (action
+     . (("Compile" . (lambda (candidate)
+                       (switch-to-buffer candidate)))))))
+
 (defun helm-compile ()
   "Preconfigured `helm' for compile."
   (interactive)
   (when (and (buffer-file-name) (buffer-modified-p))
     (save-buffer))
   (helm-other-buffer
-   '(helm-c-source-compile-history helm-c-source-compile)
+   '(helm-c-source-compilation-buffers helm-c-source-compile-history helm-c-source-compile)
    "*helm compile*"))
 
 (add-to-list 'savehist-additional-variables 'compile-history)
