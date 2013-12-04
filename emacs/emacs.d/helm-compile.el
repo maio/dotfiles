@@ -56,6 +56,8 @@
 (defun helm-compile ()
   "Preconfigured `helm' for compile."
   (interactive)
+  (when (and (buffer-file-name) (buffer-modified-p))
+    (save-buffer))
   (helm-other-buffer
    '(helm-c-source-compile-history helm-c-source-compile)
    "*helm compile*"))
