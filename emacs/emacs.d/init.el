@@ -48,6 +48,7 @@
                        yasnippet
                        helm
                        helm-descbinds
+                       helm-swoop
                        wgrep
                        dizzee
                        evil

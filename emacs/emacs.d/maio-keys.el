@@ -13,7 +13,7 @@
 (key-chord-define-global ";t" 'helm-c-etags-select)
 (key-chord-define-global ";r" 'helm-resume)
 (key-chord-define-global ";x" 'helm-M-x)
-(define-key evil-normal-state-map "/" 'maio/helm-occur)
+(define-key evil-normal-state-map "/" 'helm-swoop)
 (key-chord-define-global ";v" 'maio/find-config-file)
 (key-chord-define-global ";n" 'maio-narrow-to-defun-clone)
 (key-chord-define-global ";1" 'delete-other-windows)
@@ -27,6 +27,14 @@
 (key-chord-define-global ";`" 'shell-switcher-switch-buffer)
 (global-set-key (kbd "C-h m") 'helm-descbinds)
 (global-set-key (kbd "M-j") 'enlarge-window)
+
+;; helm swoop edit map
+(defadvice helm-swoop--edit (after custom-swoop-keys () activate) (swoop-keys))
+(defvar helm-swoop-edit-map (make-sparse-keymap))
+(defun swoop-keys () (use-local-map helm-swoop-edit-map))
+
+(key-chord-define helm-swoop-edit-map ";w" 'helm-swoop--edit-complete)
+(key-chord-define helm-swoop-edit-map ";k" 'helm-swoop--edit-cancel)
 
 (require 'ag)
 (require 'grep)
