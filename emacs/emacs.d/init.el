@@ -88,6 +88,7 @@
 (require 'maio-keys)
 (require 'maio-iedit)
 (require 'maio-clipboard)
+(require 'maio-modes)
 (require 'maio-local nil t)
 (require 'git-grep)
 
