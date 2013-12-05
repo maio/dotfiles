@@ -160,4 +160,12 @@
 (defun maio/run-prog-mode-hook ()
   (run-hooks 'prog-mode-hook))
 
+(defun maio/setup-tab-indent ()
+  (setq indent-tabs-mode t)
+  (setq indent-line-function 'tab-to-tab-stop)
+  (let ((my-tab-width 4))
+    (setq tab-width my-tab-width)
+    (set (make-local-variable 'tab-stop-list)
+         (number-sequence my-tab-width 200 my-tab-width))))
+
 (provide 'maio-util)
