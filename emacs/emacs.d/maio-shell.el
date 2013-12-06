@@ -34,6 +34,12 @@
   (browse-url "http://localhost:8000/")
   "Server started at http://localhost:8000/")
 
+(defun eshell/rr (&rest commands)
+  (interactive)
+  (save-window-excursion
+    (let ((max-mini-window-height 0))
+      (with-output-to-string (shell-command (s-join " " commands) standard-output)))))
+
 (evil-define-key 'normal term-raw-map "i" 'maio/term-enter)
 (evil-define-key 'normal term-raw-map [return] 'maio/term-enter)
 
