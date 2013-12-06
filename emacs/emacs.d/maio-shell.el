@@ -47,9 +47,6 @@
   (define-key eshell-mode-map (kbd "M-.") 'maio/insert-last-argument)
   (evil-define-key 'normal eshell-mode-map (kbd "RET") 'eshell-send-input))
 
-(defadvice eshell-send-input (after evil-normal-state () activate)
-  (evil-normal-state))
-
 (add-hook 'shell-mode-hook 'font-lock-mode)
 (add-hook 'term-mode-hook 'font-lock-mode)
 (set-face-attribute 'eshell-prompt nil :foreground "red" :weight 'bold)
