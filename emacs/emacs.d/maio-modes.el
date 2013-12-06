@@ -5,6 +5,7 @@
 
 (defun yapp-mode-config ()
   (run-hooks 'prog-mode-hook)
+  (flycheck-mode)
   (setq buffer-offer-save t)
   (maio/setup-tab-indent)
   (setq imenu-extract-index-name-function 'yapp-get-rule-name)
@@ -17,5 +18,16 @@
   '("\\.yp$")
   '(yapp-mode-config)
   "A mode for YAPP")
+
+(eval-after-load 'flycheck
+  '(progn
+     (flycheck-define-checker yapp
+       "An YAPP syntax checker."
+       :command ("yapp" source)
+       :error-patterns
+       ((error line-start "*Error* " (message) ", at line " line "." line-end))
+       :modes yapp-mode)
+
+     (add-to-list 'flycheck-checkers 'yapp)))
 
 (provide 'maio-modes)
