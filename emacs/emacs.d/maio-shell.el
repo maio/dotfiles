@@ -44,7 +44,6 @@
 (evil-define-key 'normal term-raw-map [return] 'maio/term-enter)
 
 (defun maio/setup-eshell ()
-  (define-key eshell-mode-map [remap eshell-pcomplete] 'helm-esh-pcomplete)
   (define-key eshell-mode-map (kbd "M-.") 'maio/insert-last-argument)
   (evil-define-key 'normal eshell-mode-map (kbd "RET") 'eshell-send-input))
 
@@ -56,4 +55,5 @@
 (set-face-attribute 'eshell-prompt nil :foreground "red" :weight 'bold)
 (add-hook 'eshell-mode-hook 'maio/setup-eshell)
 
+(require 'maio-shell-completion)
 (provide 'maio-shell)
