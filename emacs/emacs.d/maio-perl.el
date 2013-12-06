@@ -11,7 +11,8 @@
       cperl-indent-parens-as-block t
       cperl-electric-parens nil
       cperl-invalid-face nil
-      cperl-tab-always-indent t)
+      cperl-tab-always-indent t
+      cperl-electric-backspace-untabify nil)
 
 (add-to-list 'which-func-modes 'cperl-mode)
 (add-to-list 'auto-mode-alist '("\\.t$" . perl-mode))
@@ -27,6 +28,7 @@
      (require 'perltidy)
      (add-hook 'cperl-mode-hook 'esk-prog-mode-hook)
      (add-hook 'cperl-mode-hook 'smartparens-mode)
+     (add-hook 'cperl-mode-hook 'maio/setup-tab-indent)
      (evil-define-key 'normal cperl-mode-map "-" 'maio/find-alternative-file)
      (evil-define-key 'normal cperl-mode-map "=" 'perltidy-dwim)
      (evil-define-key 'visual cperl-mode-map "=" 'perltidy-dwim)
