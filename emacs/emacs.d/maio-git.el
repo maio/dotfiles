@@ -57,7 +57,8 @@
 (defun maio-git-reset-hard-origin ()
   (interactive)
   (when (yes-or-no-p "Discard all uncommitted changes?")
-    (magit-reset-head-hard "origin/master")))
+    (magit-reset-head-hard
+     (magit-get-tracked-branch (magit-get-current-branch)))))
 
 (defun maio-git-reset-hard-upstream ()
   (interactive)
