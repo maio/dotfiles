@@ -136,7 +136,7 @@
 (evil-add-hjkl-bindings magit-mode-map 'emacs)
 (evil-add-hjkl-bindings magit-diff-mode-map 'emacs)
 (evil-add-hjkl-bindings git-rebase-mode-map 'emacs
-  "K" 'git-rebase-mode-kill-line
+  "K" 'git-rebase-kill-line
   "h" 'describe-mode)
 (evil-add-hjkl-bindings magit-log-mode-map 'emacs
   "l" 'magit-key-mode-popup-logging)
