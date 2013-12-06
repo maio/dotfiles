@@ -72,6 +72,7 @@
   (interactive)
   (cond
    ((in-mode? 'magit-log-edit-mode) (magit-log-edit-commit))
+   ((s-starts-with? "*" (buffer-name (current-buffer))) (call-interactively 'rename-buffer))
    (t (progn
         (set-buffer-modified-p t)
         (command-execute 'save-buffer)))))
