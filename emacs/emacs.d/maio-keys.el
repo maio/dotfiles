@@ -41,7 +41,7 @@
 (require 'wgrep)
 (key-chord-define grep-mode-map ";w" 'rename-buffer)
 (key-chord-define wgrep-mode-map ";w" 'wgrep-finish-edit)
-(key-chord-define-global ";s" 'ag-project)
+(key-chord-define-global ";s" 'helm-git-grep)
 
 ;; marked buffer
 (defvar maio-marked-buffer nil)

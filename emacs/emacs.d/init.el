@@ -49,6 +49,7 @@
                        helm
                        helm-descbinds
                        helm-swoop
+                       helm-git-grep
                        wgrep
                        dizzee
                        evil
