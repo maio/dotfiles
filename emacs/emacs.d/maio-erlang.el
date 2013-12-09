@@ -17,6 +17,7 @@
      (add-hook 'erlang-mode-hook 'idle-highlight-mode)
      (add-hook 'erlang-mode-hook 'maio/setup-tab-indent)
      (add-hook 'erlang-mode-hook 'turn-on-sackspace)
+     (add-hook 'erlang-mode-hook 'flycheck-mode)
      (add-hook 'erlang-shell-mode-hook 'turn-on-smartparens-mode)
      (sp-local-pair 'erlang-mode "(" nil :post-handlers '(:add my-add-space-after-sexp-insertion))
      (sp-local-pair 'erlang-mode "{" nil :post-handlers '(:add my-add-space-after-sexp-insertion))

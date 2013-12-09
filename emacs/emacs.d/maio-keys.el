@@ -36,6 +36,12 @@
 (key-chord-define helm-swoop-edit-map ";w" 'helm-swoop--edit-complete)
 (key-chord-define helm-swoop-edit-map ";k" 'helm-swoop--edit-cancel)
 
+;; unimpaired.vim
+(eval-after-load 'flycheck
+  '(progn
+     (define-key evil-normal-state-map (kbd "]q") 'flycheck-next-error)
+     (define-key evil-normal-state-map (kbd "[q") 'flycheck-previous-error)))
+
 (require 'ag)
 (require 'grep)
 (require 'wgrep)
