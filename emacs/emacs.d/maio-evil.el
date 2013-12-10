@@ -100,9 +100,18 @@
 
 
 ;; set modeline color depending on state
+(defvar evil-state-change-hook nil)
+
+(defadvice evil-normal-state (after modeline-color () activate)
+  (run-hooks 'evil-state-change-hook))
+(defadvice evil-emacs-state (after modeline-color () activate)
+  (run-hooks 'evil-state-change-hook))
+(defadvice evil-insert-state (after modeline-color () activate)
+  (run-hooks 'evil-state-change-hook))
+
 (lexical-let ((default-color (cons (face-background 'mode-line)
                                    (face-foreground 'mode-line))))
-  (add-hook 'post-command-hook
+  (add-hook 'evil-state-change-hook
             (lambda ()
               (let ((color (cond ((minibufferp) default-color)
                                  ((evil-emacs-state-p)  '("light green" . "black"))
