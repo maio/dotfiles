@@ -133,6 +133,8 @@
 
 (evil-add-hjkl-bindings bookmark-bmenu-mode-map 'emacs
   "K" 'bookmark-bmenu-delete)
+(evil-add-hjkl-bindings package-menu-mode-map 'emacs
+  "/" 'helm-swoop)
 (evil-add-hjkl-bindings magit-mode-map 'emacs)
 (evil-add-hjkl-bindings magit-diff-mode-map 'emacs)
 (evil-add-hjkl-bindings git-rebase-mode-map 'emacs
