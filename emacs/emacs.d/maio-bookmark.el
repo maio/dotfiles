@@ -1,5 +1,3 @@
-(require 'bookmark+)
-
 (setq bookmark-save-flag 1)
 
 (define-key evil-motion-state-map "gr" 'bookmark-jump)

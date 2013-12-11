@@ -35,6 +35,7 @@
 
 (defun maio/helm ()
   (interactive)
+  (require 'bookmark+)
   (helm-set-default-directory "*helm maio*" default-directory)
   (helm :sources '(helm-c-source-buffers-list
                    helm-c-source-bookmarks
