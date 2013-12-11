@@ -29,12 +29,14 @@
 (global-set-key (kbd "M-j") 'enlarge-window)
 
 ;; helm swoop edit map
-(defadvice helm-swoop--edit (after custom-swoop-keys () activate) (swoop-keys))
-(defvar helm-swoop-edit-map (make-sparse-keymap))
-(defun swoop-keys () (use-local-map helm-swoop-edit-map))
+(eval-after-load 'helm-swoop
+  '(progn
+     (defadvice helm-swoop--edit (after custom-swoop-keys () activate) (swoop-keys))
+     (defvar helm-swoop-edit-map (make-sparse-keymap))
+     (defun swoop-keys () (use-local-map helm-swoop-edit-map))
 
-(key-chord-define helm-swoop-edit-map ";w" 'helm-swoop--edit-complete)
-(key-chord-define helm-swoop-edit-map ";k" 'helm-swoop--edit-cancel)
+     (key-chord-define helm-swoop-edit-map ";w" 'helm-swoop--edit-complete)
+     (key-chord-define helm-swoop-edit-map ";k" 'helm-swoop--edit-cancel)))
 
 ;; unimpaired.vim
 (eval-after-load 'flycheck
@@ -42,11 +44,9 @@
      (define-key evil-normal-state-map (kbd "]q") 'flycheck-next-error)
      (define-key evil-normal-state-map (kbd "[q") 'flycheck-previous-error)))
 
-(require 'ag)
-(require 'grep)
-(require 'wgrep)
-(key-chord-define grep-mode-map ";w" 'rename-buffer)
-(key-chord-define wgrep-mode-map ";w" 'wgrep-finish-edit)
+(eval-after-load 'wgrep
+  '(key-chord-define wgrep-mode-map ";w" 'wgrep-finish-edit))
+
 (key-chord-define-global ";s" 'helm-git-grep)
 
 ;; marked buffer
