@@ -28,29 +28,14 @@
                               (wdired-mode                   . normal))
       do (evil-set-initial-state mode state))
 
-(require 'wdired)
-
 (evil-define-key 'normal dired-mode-map "v" 'evil-visual-block)
 (evil-define-key 'normal dired-mode-map "i" 'evil-insert-state)
 
-(defun change-dired-to-wdired ()
-  (wdired-change-to-wdired-mode))
-
 (add-hook 'dired-mode-hook
           (lambda ()
-            (add-hook 'evil-insert-state-entry-hook 'change-dired-to-wdired nil 'make-it-local)
-            (add-hook 'evil-visual-state-entry-hook 'change-dired-to-wdired nil 'make-it-local)
-            (add-hook 'evil-operator-state-entry-hook 'change-dired-to-wdired nil 'make-it-local)))
-
-;; disable wdired-change-to-dired-mode advice in evil-integration.el
-;; which changes state
-(eval-after-load 'wdired
-  '(progn
-     (ad-disable-advice 'wdired-change-to-dired-mode 'after 'evil)
-     (remove-hook 'wdired-mode-hook #'evil-change-to-initial-state)))
-
-(defadvice wdired-finish-edit (after evil activate)
-  (evil-change-to-initial-state nil t))
+            (add-hook 'evil-insert-state-entry-hook 'wdired-change-to-wdired-mode nil 'make-it-local)
+            (add-hook 'evil-visual-state-entry-hook 'wdired-change-to-wdired-mode nil 'make-it-local)
+            (add-hook 'evil-operator-state-entry-hook 'wdired-change-to-wdired-mode nil 'make-it-local)))
 
 (setcdr evil-insert-state-map nil) ;; make insert state like emacs state
 (define-key evil-normal-state-map (kbd "C-y")
