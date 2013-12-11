@@ -1,5 +1,3 @@
-(require 'sackspace)
-
 (eval-after-load 'auto-complete
   '(progn
      (add-to-list 'ac-modes 'erlang-mode)
