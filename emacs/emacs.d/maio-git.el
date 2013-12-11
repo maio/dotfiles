@@ -1,8 +1,12 @@
+(setq magit-rewrite-inclusive nil)
+(setq magit-status-buffer-switch-function 'switch-to-buffer)
+(setq magit-diff-refine-hunk t)
+(setq magit-stage-all-confirm nil)
+
 (require 'magit)
 (require 'git-rebase-mode)
 (require 'git-commit-mode)
 (require 'diff-hl)
-(require 'gist)
 
 ;; magit fixes
 (defun magit-copy-item-as-kill ()
@@ -16,10 +20,6 @@
      (message "%s" info))))
 
 (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
-(setq magit-rewrite-inclusive nil)
-(setq magit-status-buffer-switch-function 'switch-to-buffer)
-(setq magit-diff-refine-hunk t)
-(setq magit-stage-all-confirm nil)
 
 (defvar story-history nil)
 
@@ -80,10 +80,13 @@
 (key-chord-define magit-status-mode-map "rk" 'maio-gerrit-cr-no-submit)
 (key-chord-define magit-status-mode-map "xo" 'maio-git-reset-hard-origin)
 (key-chord-define magit-status-mode-map "xu" 'maio-git-reset-hard-upstream)
-(key-chord-define gist-mode-map ";w" 'gist-mode-save-buffer)
 (key-chord-define git-commit-mode-map ";w" 'git-commit-commit)
 (key-chord-define git-rebase-mode-map ";w" 'git-rebase-server-edit)
 (add-hook 'git-commit-mode-hook 'flyspell-mode)
 (add-hook 'git-commit-mode-hook 'flyspell-buffer)
+
+(eval-after-load 'gist
+  '(progn
+     (key-chord-define gist-mode-map ";w" 'gist-mode-save-buffer)))
 
 (provide 'maio-git)
