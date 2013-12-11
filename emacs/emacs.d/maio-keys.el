@@ -1,4 +1,3 @@
-(require 'magit)
 (require 'maio-key-chord)
 (require 'maio-helm)
 
