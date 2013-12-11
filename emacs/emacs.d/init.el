@@ -92,8 +92,6 @@
 (require 'maio-clipboard)
 (require 'maio-modes)
 (require 'maio-local nil t)
-(require 'git-grep)
 
-(require 'wgrep)
 (regular-mode)
 (savehist-mode 1)
