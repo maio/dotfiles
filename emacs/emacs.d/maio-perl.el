@@ -1,6 +1,5 @@
 (require 's)
 (require 'dash)
-(require 'which-func)
 
 (add-to-list 'load-path "~/.emacs.d/cperl-mode")
 (defalias 'perl-mode 'cperl-mode)
@@ -14,7 +13,6 @@
       cperl-tab-always-indent t
       cperl-electric-backspace-untabify nil)
 
-(add-to-list 'which-func-modes 'cperl-mode)
 (add-to-list 'auto-mode-alist '("\\.t$" . perl-mode))
 (add-to-list 'auto-mode-alist '("\\.it$" . perl-mode))
 (add-to-list 'auto-mode-alist '("\\.psgi$" . perl-mode))
@@ -26,6 +24,8 @@
 (eval-after-load 'cperl-mode
   '(progn
      (require 'perltidy)
+     (require 'which-func)
+     (add-to-list 'which-func-modes 'cperl-mode)
      (add-hook 'cperl-mode-hook 'esk-prog-mode-hook)
      (add-hook 'cperl-mode-hook 'smartparens-mode)
      (add-hook 'cperl-mode-hook 'maio/setup-tab-indent)
