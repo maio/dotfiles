@@ -23,6 +23,8 @@
 
 (eval-after-load 'cperl-mode
   '(progn
+     (require 'yasnippet)
+     (yas-global-mode t)
      (require 'perltidy)
      (require 'which-func)
      (add-to-list 'which-func-modes 'cperl-mode)

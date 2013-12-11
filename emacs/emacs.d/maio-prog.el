@@ -1,6 +1,4 @@
 (require 's)
-(require 'yasnippet)
-(yas-global-mode 1)
 (global-subword-mode 1)
 
 (add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode))
