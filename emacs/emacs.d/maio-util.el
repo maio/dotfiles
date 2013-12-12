@@ -161,9 +161,16 @@
 (defun maio/run-prog-mode-hook ()
   (run-hooks 'prog-mode-hook))
 
+(defun maio/erlang-tab-to-tab-stop ()
+  (interactive)
+  (if (eq (point) (line-beginning-position))
+      (indent-relative)
+    (tab-to-tab-stop)))
+
 (defun maio/setup-tab-indent ()
   (setq indent-tabs-mode t)
-  (setq indent-line-function 'tab-to-tab-stop)
+  (when (in-mode? 'erlang-mode)
+    (setq indent-line-function 'maio/erlang-tab-to-tab-stop))
   (let ((my-tab-width 4))
     (setq tab-width my-tab-width)
     (set (make-local-variable 'tab-stop-list)
