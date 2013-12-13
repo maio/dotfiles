@@ -50,7 +50,7 @@
 (defun my-eval-defun ()
   (interactive)
   (if (in-mode? 'clojure-mode)
-      (nrepl-eval-expression-at-point)
+      (cider-eval-expression-at-point)
     (eval-defun nil))
   (evil-normal-state))
 

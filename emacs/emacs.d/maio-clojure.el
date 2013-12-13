@@ -5,7 +5,7 @@
 (defun maio/nrepl ()
   (interactive)
   (if (nrepl-current-connection-buffer)
-      (call-interactively 'nrepl-switch-to-repl-buffer)
+      (call-interactively 'cider-switch-to-repl-buffer)
     (call-interactively 'nrepl)))
 
 (defun maio/delete-nrepl-error-window ()
