@@ -21,4 +21,5 @@
  ;; If there is more than one, they won't work right.
  '(idle-highlight ((t (:weight bold))))
  '(magit-header ((t (:weight bold))))
- '(magit-item-highlight ((t (:weight bold)))))
+ '(magit-item-highlight ((t (:weight bold))))
+ '(show-paren-match ((t (:weight bold)))))
