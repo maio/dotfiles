@@ -151,6 +151,13 @@
 (define-key evil-normal-state-map "/" 'evil-search-forward)
 (define-key evil-motion-state-map (kbd "SPC") 'evil-ace-jump-line-mode)
 
+
+(defun maio/count-region-chars (beg end)
+  (interactive "r")
+  (message (format "Chars count: %s" (- end beg))))
+
+(define-key evil-visual-state-map "ga" 'maio/count-region-chars)
+
 ;; org mode
 (eval-after-load 'org
   '(progn
