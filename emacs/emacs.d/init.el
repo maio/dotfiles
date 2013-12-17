@@ -56,6 +56,7 @@
                        evil-numbers
                        surround
                        xclip
+                       expand-region
                        gist)))
     (dolist (package my-packages)
       (when (not (package-installed-p package))
