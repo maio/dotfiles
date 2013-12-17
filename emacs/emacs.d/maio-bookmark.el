@@ -1,6 +1,9 @@
+(require 'maio-key-chord)
+
 (setq bookmark-save-flag 1)
 
-(define-key evil-motion-state-map "gr" 'bookmark-jump)
-(define-key evil-normal-state-map "M" 'bookmark-set)
+(key-chord-define-global ";j" 'helm-bookmarks)
+
+(add-hook 'bookmark-after-jump-hook 'recenter-top-bottom)
 
 (provide 'maio-bookmark)
