@@ -26,7 +26,6 @@
 (setq next-line-add-newlines nil)
 (setq recentf-max-saved-items 100)
 (setq truncate-lines t)
-(setq transient-mark-mode nil)
 (setq gc-cons-threshold 20000000)
 (setq help-at-pt-display-when-idle t)
 (setq-default compilation-scroll-output t)
