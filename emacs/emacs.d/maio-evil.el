@@ -141,8 +141,8 @@
   "K" 'magit-discard-item
   "l" 'magit-key-mode-popup-logging
   "h" 'magit-toggle-diff-refine-hunk
-  "j" 'magit-goto-next-section
-  "k" 'magit-goto-previous-section)
+  (kbd "C-j") 'magit-goto-next-section
+  (kbd "C-k") 'magit-goto-previous-section)
 (evil-add-hjkl-bindings grep-mode-map 'emacs)
 (evil-add-hjkl-bindings helm-grep-mode-map 'emacs)
 
