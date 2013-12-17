@@ -133,6 +133,8 @@
   "h" 'describe-mode)
 (evil-add-hjkl-bindings magit-log-mode-map 'emacs
   "l" 'magit-key-mode-popup-logging)
+(evil-add-hjkl-bindings gist-list-menu-mode-map 'emacs
+  "K" 'gist-kill-current)
 (evil-add-hjkl-bindings magit-status-mode-map 'emacs
   "K" 'magit-discard-item
   "l" 'magit-key-mode-popup-logging
