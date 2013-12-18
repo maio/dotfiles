@@ -3,6 +3,7 @@
 (setq magit-diff-refine-hunk t)
 (setq magit-stage-all-confirm nil)
 
+(require 'maio-magit-notes)
 (require 'magit)
 (require 'git-rebase-mode)
 (require 'git-commit-mode)
@@ -72,6 +73,7 @@
 (key-chord-define magit-status-mode-map "rk" 'maio-gerrit-cr-no-submit)
 (key-chord-define magit-status-mode-map "xo" 'maio-git-reset-hard-origin)
 (key-chord-define magit-status-mode-map "xu" 'maio-git-reset-hard-upstream)
+(key-chord-define magit-status-mode-map ";w" 'magit-edit-branch-notes-file)
 (key-chord-define git-commit-mode-map ";w" 'git-commit-commit)
 (key-chord-define git-rebase-mode-map ";w" 'git-rebase-server-edit)
 (add-hook 'git-commit-mode-hook 'flyspell-mode)
