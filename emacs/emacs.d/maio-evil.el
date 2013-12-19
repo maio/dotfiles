@@ -104,26 +104,6 @@
                 (set-face-background 'mode-line (car color))
                 (set-face-foreground 'mode-line (cdr color))))))
 
-(evil-define-command cofi/evil-maybe-exit ()
-  :repeat change
-  (interactive)
-  (let ((modified (buffer-modified-p))
-        (entry-key ?j)
-        (exit-key ?k))
-    (insert entry-key)
-    (let ((evt (read-event (format "Insert %c to exit insert state" exit-key) nil 0.5)))
-      (cond
-       ((null evt) (message ""))
-       ((and (integerp evt) (char-equal evt exit-key))
-          (delete-char -1)
-          (set-buffer-modified-p modified)
-          (push 'escape unread-command-events))
-       (t (push evt unread-command-events))))))
-
-(define-key evil-insert-state-map "j" 'cofi/evil-maybe-exit)
-(define-key evil-emacs-state-map (kbd "<escape>") 'evil-normal-state)
-(define-key evil-emacs-state-map "j" 'cofi/evil-maybe-exit)
-
 (evil-add-hjkl-bindings bookmark-bmenu-mode-map 'emacs
   "K" 'bookmark-bmenu-delete)
 (evil-add-hjkl-bindings package-menu-mode-map 'emacs
