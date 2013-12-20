@@ -5,8 +5,9 @@
 
 ;;;### (autoloads (dz-subp-stop dz-comint-pop dz-pop dz-dir-excursion
 ;;;;;;  dz-alist-filter dz-regexp-filter dz-akeys dz-split dz-symb-concat
-;;;;;;  dz-xp) "dizzee" "dizzee.el" (20895 13553 0 0))
-;;; Generated autoloads from dizzee.el
+;;;;;;  dz-xp) "dizzee" "../../../../../../.emacs.d/elpa/dizzee-20111009.616/dizzee.el"
+;;;;;;  "89b9fd1ca4e69a3320be02d5de9830bb")
+;;; Generated autoloads from ../../../../../../.emacs.d/elpa/dizzee-20111009.616/dizzee.el
 
 (autoload 'dz-xp "dizzee" "\
 Wrap the results of `expr', evaluating to t or nil when creating predicate-p functions
@@ -61,7 +62,9 @@ Check to see if the process `name' is running stop it if so.
 
 ;;;***
 
-;;;### (autoloads nil nil ("dizzee-pkg.el") (20895 13553 301838 631000))
+;;;### (autoloads nil nil ("../../../../../../.emacs.d/elpa/dizzee-20111009.616/dizzee-pkg.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/dizzee-20111009.616/dizzee.el")
+;;;;;;  (21172 5443 114941 0))
 
 ;;;***
 
