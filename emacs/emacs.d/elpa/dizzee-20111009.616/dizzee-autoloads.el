@@ -1,11 +1,9 @@
 ;;; dizzee-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (dz-subp-stop dz-comint-pop dz-pop dz-dir-excursion
-;;;;;;  dz-alist-filter dz-regexp-filter dz-akeys dz-split dz-symb-concat
-;;;;;;  dz-xp) "dizzee" "../../../../../../.emacs.d/elpa/dizzee-20111009.616/dizzee.el"
+;;;### (autoloads nil "dizzee" "../../../../../../.emacs.d/elpa/dizzee-20111009.616/dizzee.el"
 ;;;;;;  "89b9fd1ca4e69a3320be02d5de9830bb")
 ;;; Generated autoloads from ../../../../../../.emacs.d/elpa/dizzee-20111009.616/dizzee.el
 
@@ -62,17 +60,16 @@ Check to see if the process `name' is running stop it if so.
 
 ;;;***
 
-;;;### (autoloads nil nil ("../../../../../../.emacs.d/elpa/dizzee-20111009.616/dizzee-pkg.el"
+;;;### (autoloads nil nil ("../../../../../../.emacs.d/elpa/dizzee-20111009.616/dizzee-autoloads.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/dizzee-20111009.616/dizzee-pkg.el"
 ;;;;;;  "../../../../../../.emacs.d/elpa/dizzee-20111009.616/dizzee.el")
-;;;;;;  (21172 5443 114941 0))
+;;;;;;  (21176 52106 186765 0))
 
 ;;;***
 
-(provide 'dizzee-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; dizzee-autoloads.el ends here

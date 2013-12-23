@@ -178,7 +178,8 @@ name-running-p
           (message "starting...")
           ,(let ((run `(dz-comint-pop ,service-name ,command (list ,@args))))
              (if cd
-                 `(let ((default-directory ,cd)) ,run)
+                 `(dz-dir-excursion ,cd
+                                    ,run)
                run)))
         (defun ,(intern stop) ()
           "Stop the service"
