@@ -12,7 +12,7 @@
  '(modeline ((t (:background "white smoke" :foreground "#262626" :weight bold))))
  '(minibuffer-prompt ((t (:foreground "#262626" :weight bold))))
  '(default-italic ((t (:italic t))))
- '(font-lock-comment-face ((t (:foreground "#808080"))))
+ '(font-lock-comment-face ((t (:foreground "#262626" :weight bold))))
  '(font-lock-comment-delimiter-face ((t (:foreground "#808080"))))
  '(font-lock-constant-face ((t (:foreground "#262626"))))
  '(font-lock-doc-face ((t (:foreground "#262626"))))
