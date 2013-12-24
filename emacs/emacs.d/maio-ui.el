@@ -1,8 +1,6 @@
 (require 'maio-util)
 
-(global-font-lock-mode 0)
-;; Enable font-lock for modes where it makes sense
-(add-hook 'diff-mode-hook 'font-lock-mode)
+(global-font-lock-mode 1)
 (winner-mode 1)
 
 (defun maio/set-font (font size)
@@ -18,6 +16,7 @@
 ;; custom display modes
 (defun regular-mode ()
   (interactive)
+  (load-theme 'eink t)
   (maio/no-underline-please)
   (if (system-type-is-gnu)
       (maio/set-font "Source Code Pro" 120)
@@ -25,6 +24,7 @@
 
 (defun presentation-mode ()
   (interactive)
+  (load-theme 'eink t)
   (maio/no-underline-please)
   (if (system-type-is-gnu)
       (maio/set-font "Source Code Pro" 140)
