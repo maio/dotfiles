@@ -20,7 +20,7 @@
  '(font-lock-keyword-face ((t (:foreground "#262626"))))
  '(font-lock-preprocessor-face ((t (:foreground "#262626"))))
  '(font-lock-reference-face ((t (:foreground "#262626"))))
- '(font-lock-string-face ((t (:foreground "#a9a9a9"))))
+ '(font-lock-string-face ((t (:foreground "#262626"))))
  '(font-lock-type-face ((t (:foreground "#262626"))))
  '(font-lock-variable-name-face ((t (:foreground "#262626"))))
  '(font-lock-warning-face ((t (:foreground "#262626"))))
