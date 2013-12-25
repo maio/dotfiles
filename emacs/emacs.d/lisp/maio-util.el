@@ -10,10 +10,6 @@
 (defun in-mode? (mode)
   (eq major-mode mode))
 
-(defun recompile-my-files ()
-  (interactive)
-  (byte-recompile-directory "~/.emacs.d/" 0))
-
 (defun toggle-comment-on-line-or-region ()
   "Comments or uncomments current current line or whole lines in region."
   (interactive)
@@ -21,8 +17,6 @@
       (comment-or-uncomment-region (region-beginning) (region-end))
     (comment-or-uncomment-region (line-beginning-position)
                                  (line-end-position))))
-
-(defun edit-init () (interactive) (find-file "~/.emacs.d/init.el"))
 
 (defun kill-current-buffer ()
   (interactive)
@@ -59,15 +53,6 @@
   (let ((comint-buffer-maximum-size 0))
     (comint-truncate-buffer)))
 
-(defun cofi/region-to-snippet (begin end)
-  "Write new snippet based on current region."
-  (interactive "r")
-  (let ((region (buffer-substring begin end)))
-    (yas-new-snippet)
-    (save-excursion
-      (goto-char (point-max))
-      (insert region))))
-
 (defun force-save-buffer ()
   (interactive)
   (cond
@@ -98,11 +83,6 @@
 
 (defun maio/current-project-dir ()
   (locate-dominating-file default-directory ".git"))
-
-(defun maio/git-grep ()
-  (interactive)
-  (with-helm-default-directory (maio/current-project-dir)
-      (call-interactively 'git-grep)))
 
 (defun maio/goto-grep-buffer ()
   (interactive)
