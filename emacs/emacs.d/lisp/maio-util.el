@@ -105,6 +105,11 @@
       (kill-new filename)
       (message "Copied buffer file name '%s' to the clipboard." filename))))
 
+(defun ui-type-is-terminal ()
+  (interactive)
+  "Return true if running in Terminal"
+  (not (display-graphic-p)))
+
 (defun system-type-is-gnu ()
   (interactive)
   "Return true if system is GNU/Linux-based"

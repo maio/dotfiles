@@ -1,10 +1,14 @@
-(require 'xclip)
-(turn-on-xclip)
+(require 'maio-util)
 
-;; make xclip work when in tramp buffer
-(defadvice xclip-set-selection (around tramp-fix () activate)
-  (let ((default-directory "/")) ad-do-it))
-(defadvice xclip-selection-value (around tramp-fix () activate)
-  (let ((default-directory "/")) ad-do-it))
+;; use xclip when running in terminal
+(when (ui-type-is-terminal)
+  (require 'xclip)
+  (turn-on-xclip)
+
+  ;; make xclip work when in tramp buffer
+  (defadvice xclip-set-selection (around tramp-fix () activate)
+    (let ((default-directory "/")) ad-do-it))
+  (defadvice xclip-selection-value (around tramp-fix () activate)
+    (let ((default-directory "/")) ad-do-it)))
 
 (provide 'maio-clipboard)
