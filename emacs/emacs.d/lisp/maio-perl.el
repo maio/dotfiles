@@ -1,7 +1,7 @@
 (require 's)
 (require 'dash)
 
-(add-to-list 'load-path "~/.emacs.d/cperl-mode")
+(add-to-list 'load-path "~/.emacs.d/lisp/cperl-mode")
 (defalias 'perl-mode 'cperl-mode)
 
 (setq cperl-indent-level 4

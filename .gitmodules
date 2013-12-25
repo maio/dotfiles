@@ -1,12 +1,12 @@
 [submodule "vim/vim/vim-addons/vim-addon-manager"]
 	path = vim/vim/vim-addons/vim-addon-manager
 	url = https://github.com/MarcWeber/vim-addon-manager.git
-[submodule "emacs/emacs.d/cperl-mode"]
-	path = emacs/emacs.d/cperl-mode
-	url = https://github.com/maio/cperl-mode.git
-[submodule "emacs/emacs.d/helm-ls-git"]
-	path = emacs/emacs.d/helm-ls-git
+[submodule "emacs/emacs.d/lisp/helm-ls-git"]
+	path = emacs/emacs.d/lisp/helm-ls-git
 	url = https://github.com/emacs-helm/helm-ls-git.git
-[submodule "emacs/emacs.d/nclip"]
-	path = emacs/emacs.d/nclip
+[submodule "emacs/emacs.d/lisp/cperl-mode"]
+	path = emacs/emacs.d/lisp/cperl-mode
+	url = https://github.com/maio/cperl-mode.git
+[submodule "emacs/emacs.d/lisp/nclip"]
+	path = emacs/emacs.d/lisp/nclip
 	url = https://github.com/maio/nclip.el.git

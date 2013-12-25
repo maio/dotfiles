@@ -20,7 +20,9 @@
   (maio/no-underline-please)
   (if (system-type-is-gnu)
       (maio/set-font "Source Code Pro" 120)
-    (maio/set-font "Source Code Pro Regular" 160)))
+    (progn
+      (maio/set-font "Source Code Pro Regular" 160)
+      (toggle-frame-fullscreen))))
 
 (defun presentation-mode ()
   (interactive)

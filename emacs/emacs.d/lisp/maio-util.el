@@ -93,7 +93,7 @@
 
 (defun maio/find-config-file ()
   (interactive)
-  (with-helm-default-directory "~/.emacs.d/"
+  (with-helm-default-directory "~/.emacs.d/lisp/"
       (call-interactively 'helm-find-files)))
 
 (defun maio/current-project-dir ()
