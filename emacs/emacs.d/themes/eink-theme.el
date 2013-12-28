@@ -5,6 +5,7 @@
  'eink
  '(font-lock-builtin-face ((t (:background "white smoke" :foreground "#262626"))))
  '(region ((t (:background "#949494" :foreground "white smoke"))))
+ '(button ((t (:foreground "#262626" :underline t))))
  '(highlight ((t nil)))
  '(cursor ((t (:background "#949494" :foreground "white smoke"))))
  '(show-paren-match-face ((t (:background "#949494" :foreground "white smoke"))))
