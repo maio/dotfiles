@@ -14,7 +14,7 @@
   (if (system-type-is-gnu)
       (maio/set-font "Source Code Pro" 120)
     (progn
-      (maio/set-font "Source Code Pro Regular" 160)
+      (maio/set-font "Source Code Pro Medium" 160)
       (toggle-frame-fullscreen))))
 
 (defun presentation-mode ()
@@ -22,7 +22,7 @@
   (load-theme 'eink t)
   (if (system-type-is-gnu)
       (maio/set-font "Source Code Pro" 140)
-    (maio/set-font "Source Code Pro Regular" 180)))
+    (maio/set-font "Source Code Pro Medium" 180)))
 
 (when (system-type-is-darwin)
   (xterm-mouse-mode t)
