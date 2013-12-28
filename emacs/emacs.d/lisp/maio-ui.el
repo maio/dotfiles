@@ -7,17 +7,10 @@
   (set-frame-font font)
   (set-font-size size))
 
-(defun maio/no-underline-please ()
-  (mapc
-   (lambda (face)
-     (set-face-attribute face nil :underline nil))
-   (face-list)))
-
 ;; custom display modes
 (defun regular-mode ()
   (interactive)
   (load-theme 'eink t)
-  (maio/no-underline-please)
   (if (system-type-is-gnu)
       (maio/set-font "Source Code Pro" 120)
     (progn
@@ -27,7 +20,6 @@
 (defun presentation-mode ()
   (interactive)
   (load-theme 'eink t)
-  (maio/no-underline-please)
   (if (system-type-is-gnu)
       (maio/set-font "Source Code Pro" 140)
     (maio/set-font "Source Code Pro Regular" 180)))
