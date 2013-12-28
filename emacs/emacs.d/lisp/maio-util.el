@@ -161,4 +161,6 @@
     (set (make-local-variable 'tab-stop-list)
          (number-sequence my-tab-width 200 my-tab-width))))
 
+(fset 'raise-exp "\C-vy\C-vvpgv\C-g")
+
 (provide 'maio-util)
