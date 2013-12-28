@@ -86,23 +86,8 @@
 ;; set modeline color depending on state
 (defvar evil-state-change-hook nil)
 
-(defadvice evil-normal-state (after modeline-color () activate)
-  (run-hooks 'evil-state-change-hook))
-(defadvice evil-emacs-state (after modeline-color () activate)
-  (run-hooks 'evil-state-change-hook))
-(defadvice evil-insert-state (after modeline-color () activate)
-  (run-hooks 'evil-state-change-hook))
-
-(lexical-let ((default-color (cons (face-background 'mode-line)
-                                   (face-foreground 'mode-line))))
-  (add-hook 'evil-state-change-hook
-            (lambda ()
-              (let ((color (cond ((minibufferp) default-color)
-                                 ((evil-emacs-state-p)  '("light green" . "black"))
-                                 ((evil-insert-state-p) '("light sky blue" . "black"))
-                                 (t default-color))))
-                (set-face-background 'mode-line (car color))
-                (set-face-foreground 'mode-line (cdr color))))))
+(setq evil-insert-state-cursor "light sky blue")
+(setq evil-emacs-state-cursor "green")
 
 (evil-add-hjkl-bindings bookmark-bmenu-mode-map 'emacs
   "K" 'bookmark-bmenu-delete)
