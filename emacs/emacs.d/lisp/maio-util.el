@@ -90,10 +90,6 @@
    (first (let ((regexp "\*grep"))
             (remove-if-not (lambda (buf) (string-match regexp (buffer-name buf)))
                            (buffer-list))))))
-(defun maio/find-project ()
-  (interactive)
-  (with-helm-default-directory "~/Projects/"
-      (call-interactively 'helm-find-files)))
 
 (defun maio/copy-file-name-to-clipboard ()
   "Copy the current buffer file name to the clipboard."
