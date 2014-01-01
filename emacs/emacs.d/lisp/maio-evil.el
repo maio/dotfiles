@@ -38,10 +38,10 @@
             (add-hook 'evil-operator-state-entry-hook 'wdired-change-to-wdired-mode nil 'make-it-local)))
 
 (setcdr evil-insert-state-map nil) ;; make insert state like emacs state
-(define-key evil-normal-state-map (kbd "C-y")
-  (lambda () (interactive) (insert (current-kill 0))))
-(define-key evil-insert-state-map (kbd "C-y")
-  (lambda () (interactive) (insert (current-kill 0))))
+(define-key evil-normal-state-map [remap yank-pop] nil)
+(define-key evil-normal-state-map (kbd "C-y") 'yank)
+(define-key evil-normal-state-map (kbd "M-y") 'yank-pop)
+(define-key evil-insert-state-map (kbd "C-y") 'yank)
 (define-key evil-insert-state-map "\C-n" 'auto-complete)
 (define-key evil-insert-state-map "\C-p" 'evil-complete-previous)
 (define-key evil-insert-state-map [escape] 'evil-normal-state)
