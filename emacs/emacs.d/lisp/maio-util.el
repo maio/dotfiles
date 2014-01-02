@@ -101,6 +101,11 @@
       (kill-new filename)
       (message "Copied buffer file name '%s' to the clipboard." filename))))
 
+(defun ui-type-is-gui ()
+  (interactive)
+  "Return true if running GUI version of Emacs"
+  (display-graphic-p))
+
 (defun ui-type-is-terminal ()
   (interactive)
   "Return true if running in Terminal"
