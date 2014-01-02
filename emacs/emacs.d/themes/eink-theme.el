@@ -24,7 +24,7 @@
  '(font-lock-string-face ((t (:foreground "#262626"))))
  '(font-lock-type-face ((t (:foreground "#262626"))))
  '(font-lock-variable-name-face ((t (:foreground "#262626"))))
- '(font-lock-warning-face ((t (:foreground "#262626"))))
+ '(font-lock-warning-face ((t (:foreground "#262626" :weight bold))))
  '(link ((t (:foreground "#262626"))))
  '(org-hide ((t (:foreground "#262626"))))
  '(org-level-1 ((t (:foreground "#262626" :weight bold :height 1.1))))
