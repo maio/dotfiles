@@ -77,6 +77,5 @@
 (key-chord-define git-commit-mode-map ";w" 'git-commit-commit)
 (key-chord-define git-rebase-mode-map ";w" 'git-rebase-server-edit)
 (add-hook 'git-commit-mode-hook 'flyspell-mode)
-(add-hook 'git-commit-mode-hook 'flyspell-buffer)
 
 (provide 'maio-magit)
