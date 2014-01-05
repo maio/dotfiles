@@ -25,7 +25,8 @@
                               (magit-branch-manager-mode     . emacs)
                               (rdictcc-buffer-mode           . emacs)
                               (dired-mode                    . normal)
-                              (wdired-mode                   . normal))
+                              (wdired-mode                   . normal)
+                              (makey-key-mode                . emacs))
       do (evil-set-initial-state mode state))
 
 (evil-define-key 'normal dired-mode-map "v" 'evil-visual-block)
