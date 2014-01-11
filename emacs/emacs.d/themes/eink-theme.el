@@ -62,6 +62,9 @@
  '(mode-line ((t (:background "grey90" :foreground "#262626" :box (:line-width -1 :style released-button)))))
  '(default ((t (:background "white smoke" :foreground "#262626"))))
  '(whitespace-line ((t (:background "#262626" :foreground "white smoke"))))
+ '(cperl-hash-face ((t (:foreground "#262626"))))
+ '(cperl-array-face ((t (:foreground "#262626"))))
+ '(cperl-nonoverridable-face ((t (:foreground "#262626"))))
 )
 
 (provide-theme 'eink)
