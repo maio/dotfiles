@@ -4,7 +4,8 @@
 (custom-theme-set-faces
  'eink
  '(font-lock-builtin-face ((t (:background "white smoke" :foreground "#262626"))))
- '(region ((t (:background "grey85" :foreground "white smoke"))))
+ '(region ((t (:background "gray85" :foreground "#262626"))))
+ '(yas-field-highlight-face ((t (:background "gray85" :foreground "#262626"))))
  '(button ((t (:foreground "#262626" :underline t))))
  '(highlight ((t nil)))
  '(cursor ((t (:background "#949494" :foreground "white smoke"))))
