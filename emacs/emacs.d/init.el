@@ -35,6 +35,7 @@
                        web-mode
                        haskell-mode
                        ag
+                       eimp
                        shell-switcher
                        dired-details
                        flycheck

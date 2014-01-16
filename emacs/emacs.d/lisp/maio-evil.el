@@ -26,6 +26,7 @@
                               (rdictcc-buffer-mode           . emacs)
                               (dired-mode                    . normal)
                               (wdired-mode                   . normal)
+                              (eimp-mode                     . emacs)
                               (makey-key-mode                . emacs))
       do (evil-set-initial-state mode state))
 
