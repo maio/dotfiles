@@ -19,6 +19,8 @@
      (kill-new info)
      (message "%s" info))))
 
+;; TODO: remove magit-insert-status-tags-line from magit-status-sections-hook
+
 (defvar story-history nil)
 
 (defun maio-current-story ()
