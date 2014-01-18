@@ -36,6 +36,7 @@
                        haskell-mode
                        ag
                        eimp
+                       puppet-mode
                        shell-switcher
                        dired-details
                        flycheck
