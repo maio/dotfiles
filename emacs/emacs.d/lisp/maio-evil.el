@@ -114,13 +114,11 @@
 (evil-add-hjkl-bindings grep-mode-map 'emacs)
 (evil-add-hjkl-bindings helm-grep-mode-map 'emacs)
 
-(evil-define-key 'normal dired-mode-map (kbd "SPC") 'evil-ace-jump-char-mode)
-(define-key evil-normal-state-map (kbd "SPC") 'evil-ace-jump-word-mode)
-(key-chord-define evil-normal-state-map (kbd "SPC SPC") 'evil-ace-jump-char-mode)
+(evil-define-key 'normal dired-mode-map "f" 'evil-ace-jump-char-mode)
+(define-key evil-normal-state-map "f" 'evil-ace-jump-word-mode)
 (define-key evil-motion-state-map "/" 'evil-ace-jump-char-mode)
-(define-key evil-normal-state-map "/" 'evil-search-forward)
+(define-key evil-normal-state-map "/" 'helm-swoop)
 (define-key evil-motion-state-map (kbd "SPC") 'evil-ace-jump-line-mode)
-
 
 (defun maio/count-region-chars (beg end)
   (interactive "r")

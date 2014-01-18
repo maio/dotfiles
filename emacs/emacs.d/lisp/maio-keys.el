@@ -1,41 +1,33 @@
-(require 'maio-key-chord)
 (require 'maio-helm)
 
-(key-chord-mode 1)
-(key-chord-define-global ",." 'evil-buffer)
-(key-chord-define-global ";a" 'other-window)
-(key-chord-define-global ";w" 'force-save-buffer)
-(key-chord-define-global ";b" 'maio/helm)
-(key-chord-define-global ";i" 'imenu)
-(key-chord-define-global ";k" 'kill-current-buffer)
-(key-chord-define comint-mode-map ";k" 'kill-comint-buffer)
-(key-chord-define-global ";t" 'helm-c-etags-select)
-(key-chord-define-global ";r" 'helm-resume)
-(key-chord-define-global ";x" 'helm-M-x)
-(define-key evil-normal-state-map "/" 'helm-swoop)
-(key-chord-define-global ";v" 'maio/find-config-file)
-(key-chord-define-global ";n" 'maio-narrow-to-defun-clone)
-(key-chord-define-global ";1" 'delete-other-windows)
-(key-chord-define-global ";2" 'split-window-below)
-(key-chord-define-global ";3" 'split-window-right)
-(key-chord-define-global ";g" 'magit-status)
-(key-chord-define-global ";f" 'helm-find-files)
-(key-chord-define-global "GG" 'guard-or-goto-guard)
-(key-chord-define-global ";q" 'maio/bury)
-(key-chord-define-global ";*" 'maio/goto-scratch-buffer)
-(key-chord-define-global ";`" 'shell-switcher-switch-buffer)
+(global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-h m") 'helm-descbinds)
 (global-set-key (kbd "M-j") 'enlarge-window)
+
+(require 'smartrep)
+(smartrep-define-key global-map "C-x" '(("," . previous-buffer)
+                                        ("." . next-buffer)))
+
+(global-set-key (kbd "C-x C-s") 'force-save-buffer)
+(global-set-key (kbd "C-x k") 'kill-current-buffer)
+(global-set-key (kbd "C-x C-g") 'magit-status)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-x C-b") 'maio/helm)
+(global-set-key (kbd "C-x c v") 'maio/find-config-file)
+(global-set-key (kbd "C-x g h") 'maio/goto-scratch-buffer)
+(global-set-key (kbd "C-x g .") 'shell-switcher-switch-buffer)
+(global-set-key (kbd "C-x g /") 'helm-git-grep)
+(global-set-key (kbd "C-x g g") 'guard-or-goto-guard)
+(global-set-key (kbd "C-x n f") 'maio-narrow-to-defun-clone)
+(global-set-key (kbd "C-x c k") 'maio/bury)
+
+(define-key comint-mode-map (kbd "C-x k") 'kill-comint-buffer)
 
 ;; helm swoop edit map
 (eval-after-load 'helm-swoop
   '(progn
-     (defadvice helm-swoop--edit (after custom-swoop-keys () activate) (swoop-keys))
-     (defvar helm-swoop-edit-map (make-sparse-keymap))
-     (defun swoop-keys () (use-local-map helm-swoop-edit-map))
-
-     (key-chord-define helm-swoop-edit-map ";w" 'helm-swoop--edit-complete)
-     (key-chord-define helm-swoop-edit-map ";k" 'helm-swoop--edit-cancel)))
+     (define-key helm-swoop-edit-map (kbd "C-c C-c") 'helm-swoop--edit-complete)
+     (define-key helm-swoop-edit-map (kbd "C-c C-k") 'helm-swoop--edit-cancel)))
 
 ;; unimpaired.vim
 (eval-after-load 'flycheck
@@ -43,19 +35,6 @@
      (define-key evil-normal-state-map (kbd "]q") 'flycheck-next-error)
      (define-key evil-normal-state-map (kbd "[q") 'flycheck-previous-error)))
 
-(eval-after-load 'wgrep
-  '(key-chord-define wgrep-mode-map ";w" 'wgrep-finish-edit))
-
-(key-chord-define-global ";s" 'helm-git-grep)
-
-;; marked buffer
-(defvar maio-marked-buffer nil)
-(define-key evil-normal-state-map "gm"
-  (lambda () (interactive) (switch-to-buffer maio-marked-buffer)))
-(key-chord-define-global ";m"
-  (lambda () (interactive) (setq maio-marked-buffer (current-buffer))))
-
-(key-chord-define lisp-mode-shared-map ";e" 'my-eval-defun)
 (evil-define-key 'normal lisp-mode-shared-map (kbd "M-.") 'elisp-slime-nav-find-elisp-thing-at-point)
 (evil-define-key 'normal lisp-mode-shared-map "Q" 'paredit-reindent-defun)
 (evil-define-key 'normal lisp-mode-shared-map "D" 'paredit-kill)
@@ -72,13 +51,6 @@
 ;; guard
 (evil-define-key 'normal compilation-minor-mode-map (kbd "RET") 'compile-goto-error)
 (evil-define-key 'normal compilation-minor-mode-map "q" 'quit-window)
-
-(defun maio/electric-semicolon ()
-  (interactive)
-  (call-interactively 'end-of-line)
-  (when (not (looking-back ";"))
-    (insert ";")
-    (indent-according-to-mode)))
 
 (defun maio/electric-space ()
   (interactive)

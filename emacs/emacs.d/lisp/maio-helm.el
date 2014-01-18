@@ -57,7 +57,7 @@ This way it's possible to use evil-search-next."
         :history 'regexp-search-ring))
 
 (require 'helm-compile)
-(key-chord-define-global ";c" 'helm-compile)
+(global-set-key (kbd "C-x c c") 'helm-compile)
 
 (require 'eshell)
 (add-hook 'eshell-mode-hook

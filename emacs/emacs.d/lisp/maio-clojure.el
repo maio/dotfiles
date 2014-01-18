@@ -31,7 +31,6 @@
          (call-interactively 'open-line)
          (indent-according-to-mode)
          (midje-insert-failure-message message)))
-     (key-chord-define clojure-test-mode-map ";w" 'clojure-test-run-tests)
      (evil-define-key 'normal clojure-mode-map "gs" 'maio/nrepl)
      (evil-define-key 'normal clojure-mode-map (kbd "M-.") 'nrepl-jump)
      (add-hook 'clojure-mode-hook 'eldoc-mode)
@@ -48,6 +47,6 @@
      (add-hook 'cider-repl-mode-hook 'turn-on-smartparens-strict-mode)
      (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
      (add-hook 'cider-interaction-mode-hook 'ac-nrepl-setup)
-     (key-chord-define cider-repl-mode-map ";k" 'nrepl-quit)))
+     (define-key cider-repl-mode-map (kbd "C-x k") 'nrepl-quit)))
 
 (provide 'maio-clojure)

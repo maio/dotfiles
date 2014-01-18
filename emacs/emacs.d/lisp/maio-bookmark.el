@@ -1,8 +1,4 @@
-(require 'maio-key-chord)
-
 (setq bookmark-save-flag 1)
-
-(key-chord-define-global ";j" 'helm-bookmarks)
 
 (defadvice helm-bookmarks (before bmkp () activate) (require 'bookmark+))
 

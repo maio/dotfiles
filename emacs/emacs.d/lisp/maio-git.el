@@ -8,8 +8,4 @@
 (eval-after-load 'magit
   '(require 'maio-magit))
 
-(eval-after-load 'gist
-  '(progn
-     (key-chord-define gist-mode-map ";w" 'gist-mode-save-buffer)))
-
 (provide 'maio-git)

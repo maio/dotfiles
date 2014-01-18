@@ -34,7 +34,6 @@
      (evil-define-key 'normal cperl-mode-map "-" 'maio/find-alternative-file)
      (evil-define-key 'normal cperl-mode-map "=" 'perltidy-dwim)
      (evil-define-key 'visual cperl-mode-map "=" 'perltidy-dwim)
-     (key-chord-define cperl-mode-map ";;" 'maio/electric-semicolon)
      (define-key cperl-mode-map (kbd "SPC") 'maio/electric-space)
      (define-key cperl-mode-map (kbd "RET") 'maio/electric-return)))
 

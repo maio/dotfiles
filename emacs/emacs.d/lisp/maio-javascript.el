@@ -5,7 +5,6 @@
      (require 'auto-complete)
      (require 'smartparens)
      (add-hook 'js2-mode-hook 'smartparens-mode)
-     (add-hook 'js2-mode-hook 'auto-complete-mode)
-     (key-chord-define js2-mode-map ";;" 'maio/electric-semicolon)))
+     (add-hook 'js2-mode-hook 'auto-complete-mode)))
 
 (provide 'maio-javascript)

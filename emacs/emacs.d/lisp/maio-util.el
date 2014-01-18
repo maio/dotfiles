@@ -41,13 +41,6 @@
     (while (get-buffer-process (current-buffer)) (sleep-for 0 100)))
   (kill-current-buffer))
 
-(defun my-eval-defun ()
-  (interactive)
-  (if (in-mode? 'clojure-mode)
-      (cider-eval-expression-at-point)
-    (eval-defun nil))
-  (evil-normal-state))
-
 (defun clear-comint-buffer ()
   (interactive)
   (let ((comint-buffer-maximum-size 0))

@@ -47,7 +47,6 @@
                        smartparens
                        iedit
                        sackspace
-                       key-chord
                        yasnippet
                        helm
                        helm-descbinds
@@ -69,7 +68,6 @@
 (auto-compile-on-load-mode 1)
 (auto-compile-on-save-mode 1)
 
-(require 'maio-key-chord)
 (require 'maio-ui)
 (require 'maio-misc)
 (require 'maio-evil)

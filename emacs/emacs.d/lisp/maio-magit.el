@@ -21,39 +21,6 @@
 
 ;; TODO: remove magit-insert-status-tags-line from magit-status-sections-hook
 
-(defvar story-history nil)
-
-(defun maio-current-story ()
-  (nth 0 story-history))
-
-(defun maio-read-story-string ()
-  (interactive)
-  (read-string (concat "Story (" (maio-current-story) "): ") "" 'story-history (maio-current-story)))
-
-(defun maio-get-first-word (s)
-  (first (s-split-words s)))
-
-(defun maio-gerrit-cr (cr)
-  (magit-section-action (item info "review")
-    ((commit)
-     (message (concat "CodeReview " cr))
-     (shell-command (concat "ssh gerrit gerrit review " info " --code-review " cr)))))
-
-(defun maio-gerrit-cr-ok () (interactive) (maio-gerrit-cr "+2"))
-(defun maio-gerrit-cr-no-submit () (interactive) (maio-gerrit-cr "-2"))
-
-(defun maio-git-submit ()
-  (interactive)
-  (let ((story (maio-get-first-word (maio-read-story-string)))
-        (section (magit-current-section)))
-    (if (string= "commit" (magit-section-type section))
-        (progn
-          (message "Going to submit current commit")
-          (magit-run-git "publish" (magit-section-info section) story))
-      (progn
-        (message "Going to submit all pending commits")
-        (magit-run-git "submit" story)))))
-
 (defun maio-git-reset-hard-origin ()
   (interactive)
   (when (yes-or-no-p "Discard all uncommitted changes?")
@@ -70,14 +37,6 @@
   (call-interactively 'evil-scroll-line-to-top))
 
 (define-key magit-status-mode-map "G" 'magit-shell-command)
-(key-chord-define magit-status-mode-map "rp" 'maio-git-submit)
-(key-chord-define magit-status-mode-map "rj" 'maio-gerrit-cr-ok)
-(key-chord-define magit-status-mode-map "rk" 'maio-gerrit-cr-no-submit)
-(key-chord-define magit-status-mode-map "xo" 'maio-git-reset-hard-origin)
-(key-chord-define magit-status-mode-map "xu" 'maio-git-reset-hard-upstream)
-(key-chord-define magit-status-mode-map ";w" 'magit-edit-branch-notes-file)
-(key-chord-define git-commit-mode-map ";w" 'git-commit-commit)
-(key-chord-define git-rebase-mode-map ";w" 'git-rebase-server-edit)
 (add-hook 'git-commit-mode-hook 'flyspell-mode)
 
 (provide 'maio-magit)
