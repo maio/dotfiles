@@ -5,6 +5,7 @@
 (global-set-key (kbd "M-j") 'enlarge-window)
 
 (require 'smartrep)
+;; https://github.com/shishi/.emacs.d/blob/master/inits/20-smartrep.el
 (smartrep-define-key global-map "C-x" '(("," . previous-buffer)
                                         ("." . next-buffer)))
 
