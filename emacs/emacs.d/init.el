@@ -46,6 +46,7 @@
                        diff-hl
                        smartparens
                        iedit
+                       smartrep
                        sackspace
                        yasnippet
                        helm
