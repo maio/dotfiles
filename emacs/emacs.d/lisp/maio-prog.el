@@ -44,20 +44,25 @@
   (toggle-read-only))
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
+(defun maio/get-alternative-file (fname)
+  (let ((ext (file-name-extension fname))
+        (name (file-name-base fname))
+        (dir (file-name-directory fname)))
+    (cond ((string= ext "pm") (f-join dir (concat name ".t")))
+          ((string= ext "t") (f-join dir (concat name ".pm")))
+          ;; GOA API
+          ((string= ext "body") (f-join dir "t" (concat name ".sql")))
+          ((string= ext "sql") (f-join dir ".." (concat name ".body")))
+          ;; Pherkin
+          ((string= ext "feature") (f-join dir "step_definitions" (concat name "_steps.pl")))
+          ((s-contains? "_steps" name) (f-join dir ".." (concat (s-replace "_steps" "" name) ".feature"))))))
+
 (defun maio/find-alternative-file ()
   (interactive)
-  (let ((ext (file-name-extension (buffer-file-name)))
-        (name (file-name-base (buffer-file-name)))
-        (dir (file-name-directory (buffer-file-name))))
-    (cond ((string= ext "pm") (find-file (s-concat dir "/t/" name ".t")))
-          ((string= ext "t") (find-file (s-concat dir "/../" name ".pm")))
-          ;; GOA API
-          ((string= ext "body") (find-file (s-concat dir "/t/" name ".sql")))
-          ((string= ext "sql") (find-file (s-concat dir "/../" name ".body")))
-          ;; Pherkin
-          ((string= ext "feature") (find-file (s-concat dir "/step_definitions/" name "_steps.pl")))
-          ((s-contains? "_steps" name) (find-file (s-concat dir "/../" (s-replace "_steps" "" name) ".feature")))
-          (t (message "Alternative file has not been found")))))
+  (let ((afname (maio/get-alternative-file (buffer-file-name))))
+    (if afname
+        (find-file afname)
+      (message "Alternative file has not been found"))))
 
 ;; make backward kill word delete whitespaces first
 (require 'paredit)

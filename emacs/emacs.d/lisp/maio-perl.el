@@ -55,4 +55,16 @@
   (s-join "::" (-filter 'maio/starts-with-capital?
                         (s-split "/" (file-name-sans-extension (maio/buffer-path-in-project))))))
 
+(defun perl-test-file (fname)
+  (if (s-ends-with? ".t" fname)
+      fname
+    (maio/get-alternative-file fname)))
+
+(defun prove ()
+  (interactive)
+  (let ((tfile (perl-test-file (buffer-file-name))))
+    (compile (concat "prove " tfile))
+    (with-current-buffer compilation-last-buffer
+      (rename-buffer (concat "*" "prove " tfile "*")))))
+
 (provide 'maio-perl)
