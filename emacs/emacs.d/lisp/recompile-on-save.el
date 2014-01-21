@@ -1,24 +1,21 @@
 (require 's)
 (require 'dash)
 
-(defvar recompile-on-save-buffers nil)
+(defvar recompile-on-save-hash (make-hash-table))
 
 (defun recompile-on-save (buf)
   (interactive "bcompilation buffer: ")
-  (add-to-list 'recompile-on-save-buffers (get-buffer buf)))
-
-(defun ros--recompile-buffer (buf)
-  (with-current-buffer buf (recompile)))
+  (puthash (current-buffer) (get-buffer buf) recompile-on-save-hash))
 
 (defun ros--recompile-on-save ()
-  (--each (--filter (s-starts-with? (with-current-buffer it default-directory)
-                                    default-directory)
-                    recompile-on-save-buffers)
-    (ros--recompile-buffer it)))
+  (-when-let (compilation-buffer (gethash (current-buffer) recompile-on-save-hash))
+    (with-current-buffer compilation-buffer (recompile))))
 
 (defun ros--recompile-on-save-cleanup ()
-  (setq recompile-on-save-buffers
-        (--filter (buffer-live-p it) recompile-on-save-buffers)))
+  (maphash (lambda (key value)
+             (when (not (and (buffer-live-p key)
+                             (buffer-live-p value)))
+               (remhash key recompile-on-save-hash))) recompile-on-save-hash))
 
 (add-hook 'after-save-hook 'ros--recompile-on-save)
 (add-hook 'kill-buffer-hook 'ros--recompile-on-save-cleanup)
