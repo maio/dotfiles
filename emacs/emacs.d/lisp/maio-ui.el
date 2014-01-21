@@ -14,7 +14,7 @@
   (if (system-type-is-gnu)
       (maio/set-font "Source Code Pro" 120)
     (progn
-      (maio/set-font "Source Code Pro Medium" 160)
+      (maio/set-font "Source Code Pro Medium" 140)
       (when (ui-type-is-gui)
         (toggle-frame-fullscreen)))))
 
