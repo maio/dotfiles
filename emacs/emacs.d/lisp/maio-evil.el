@@ -118,7 +118,7 @@
 (evil-add-hjkl-bindings helm-grep-mode-map 'emacs)
 
 (evil-define-key 'normal dired-mode-map "f" 'evil-ace-jump-char-mode)
-(define-key evil-normal-state-map "f" 'evil-ace-jump-word-mode)
+(define-key evil-normal-state-map (kbd "SPC") 'evil-ace-jump-word-mode)
 (define-key evil-motion-state-map "/" 'evil-ace-jump-char-mode)
 (define-key evil-normal-state-map "/" 'helm-swoop)
 (define-key evil-motion-state-map (kbd "SPC") 'evil-ace-jump-line-mode)
