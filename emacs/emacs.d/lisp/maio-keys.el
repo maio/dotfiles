@@ -15,14 +15,17 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x C-b") 'maio/helm)
 (global-set-key (kbd "C-x c v") 'maio/find-config-file)
-(global-set-key (kbd "C-x g h") 'maio/goto-scratch-buffer)
+(global-set-key (kbd "C-x g s") 'maio/goto-scratch-buffer)
 (global-set-key (kbd "C-x g .") 'shell-switcher-switch-buffer)
 (global-set-key (kbd "C-x g /") 'helm-git-grep)
 (global-set-key (kbd "C-x g g") 'guard-or-goto-guard)
 (global-set-key (kbd "C-x n f") 'maio-narrow-to-defun-clone)
 (global-set-key (kbd "C-x c k") 'maio/bury)
+(global-set-key (kbd "C-x c i") 'imenu)
 
 (define-key comint-mode-map (kbd "C-x k") 'kill-comint-buffer)
+(define-key ido-common-completion-map "\C-p" 'ido-prev-match)
+(define-key ido-common-completion-map "\C-n" 'ido-next-match)
 
 ;; helm swoop edit map
 (eval-after-load 'helm-swoop
