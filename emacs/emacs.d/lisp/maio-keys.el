@@ -3,11 +3,11 @@
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-h m") 'helm-descbinds)
 (global-set-key (kbd "M-j") 'enlarge-window)
+(global-set-key (kbd "C-9") 'previous-buffer)
+(global-set-key (kbd "C-0") 'next-buffer)
 
 (require 'smartrep)
 ;; https://github.com/shishi/.emacs.d/blob/master/inits/20-smartrep.el
-(smartrep-define-key global-map "C-x" '(("," . previous-buffer)
-                                        ("." . next-buffer)))
 
 (global-set-key (kbd "C-x C-s") 'force-save-buffer)
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
