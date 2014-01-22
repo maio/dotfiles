@@ -54,6 +54,8 @@
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 
+(setq compilation-error-regexp-alist '(nil))
+
 (eval-after-load 'image-mode
   (add-hook 'image-mode-hook 'eimp-mode))
 

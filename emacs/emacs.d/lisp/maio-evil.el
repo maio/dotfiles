@@ -27,6 +27,7 @@
                               (dired-mode                    . normal)
                               (wdired-mode                   . normal)
                               (eimp-mode                     . emacs)
+                              (compilation-mode              . emacs)
                               (makey-key-mode                . emacs))
       do (evil-set-initial-state mode state))
 
@@ -101,6 +102,8 @@
   "/" 'helm-swoop)
 (evil-add-hjkl-bindings magit-mode-map 'emacs)
 (evil-add-hjkl-bindings magit-diff-mode-map 'emacs)
+(evil-add-hjkl-bindings compilation-mode-map 'emacs
+  "/" 'helm-swoop)
 (evil-add-hjkl-bindings git-rebase-mode-map 'emacs
   "K" 'git-rebase-kill-line
   "h" 'describe-mode)
