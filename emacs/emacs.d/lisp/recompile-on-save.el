@@ -4,7 +4,13 @@
 (defvar recompile-on-save-hash (make-hash-table))
 
 (defun recompile-on-save (buf)
-  (interactive "bcompilation buffer: ")
+  (interactive
+   (list
+    (completing-read "Compilation buffer: "
+                     (mapcar (lambda (buffer) (cons (buffer-name buffer) buffer))
+                             (remove-if-not (lambda (buffer) (with-current-buffer buffer (eql major-mode 'compilation-mode)))
+                                            (buffer-list)))
+                     (lambda (info) (cdr info))  t)))
   (puthash (current-buffer) (get-buffer buf) recompile-on-save-hash))
 
 (defun ros--recompile-on-save ()
