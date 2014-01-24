@@ -94,6 +94,7 @@
 (require 'maio-iedit)
 (require 'maio-clipboard)
 (require 'maio-modes)
+(require 'maio-experiments)
 (require 'maio-local nil t)
 
 (regular-mode)
