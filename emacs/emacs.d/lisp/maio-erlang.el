@@ -10,6 +10,8 @@
     (insert "  ")
     (left-char 1)))
 
+(pushnew '(erlang "(\\([^ \n]+\\), line \\([0-9]+\\))" 1 2) compilation-error-regexp-alist-alist)
+
 (eval-after-load 'erlang
   '(progn
      (add-to-list 'auto-mode-alist '("rebar\\.config\\'" . erlang-mode))
