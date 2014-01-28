@@ -7,7 +7,9 @@
       helm-ff-maximum-candidate-to-decorate 0
       helm-buffer-max-length 60
       helm-truncate-lines t
-      helm-buffer-details-flag nil)
+      helm-buffer-details-flag nil
+      helm-split-window-default-side 'right
+      helm-swoop-split-direction 'split-window-horizontally)
 
 (require 'helm-config)
 (require 'helm-match-plugin)
