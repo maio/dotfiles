@@ -11,6 +11,9 @@
  '(flycheck-check-syntax-automatically (quote (save mode-enabled)))
  '(js3-consistent-level-indent-inner-bracket t)
  '(js3-indent-level 4)
+ '(magit-status-sections-hook
+   (quote
+    (magit-insert-status-local-line magit-insert-status-remote-line magit-insert-status-head-line magit-insert-status-merge-line magit-insert-status-rebase-lines magit-insert-empty-line magit-insert-bisect-output magit-insert-bisect-rest magit-insert-bisect-log magit-insert-stashes magit-insert-untracked-files magit-insert-pending-changes magit-insert-pending-commits magit-insert-unstaged-changes magit-insert-staged-changes magit-insert-unpulled-commits magit-insert-unpushed-commits)))
  '(pcomplete-ignore-case t)
  '(perl-indent-continued-arguments 0)
  '(safe-local-variable-values (quote ((nrepl-port . "3001") (eval setenv "DATABASE_URL" "postgresql://localhost:5432/wools") (whitespace-line-column . 80) (lexical-binding . t)))))
