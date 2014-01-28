@@ -23,6 +23,7 @@
                               (rmail-summary-mode            . emacs)
                               (bc-menu-mode                  . emacs)
                               (magit-branch-manager-mode     . emacs)
+                              (magit-process-mode            . emacs)
                               (rdictcc-buffer-mode           . emacs)
                               (dired-mode                    . normal)
                               (wdired-mode                   . normal)
@@ -111,6 +112,7 @@
   "l" 'magit-key-mode-popup-logging)
 (evil-add-hjkl-bindings gist-list-menu-mode-map 'emacs
   "K" 'gist-kill-current)
+(evil-add-hjkl-bindings magit-process-mode 'emacs)
 (evil-add-hjkl-bindings magit-status-mode-map 'emacs
   "K" 'magit-discard-item
   "l" 'magit-key-mode-popup-logging
