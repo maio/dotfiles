@@ -21,13 +21,13 @@
 
 ;; TODO: remove magit-insert-status-tags-line from magit-status-sections-hook
 
-(defun maio-git-reset-hard-origin ()
+(defun maio-git-reset-hard-tracking ()
   (interactive)
   (when (yes-or-no-p "Discard all uncommitted changes?")
     (magit-reset-head-hard
      (magit-get-tracked-branch (magit-get-current-branch)))))
 
-(defun maio-git-reset-hard-upstream ()
+(defun maio-git-reset-hard-upstream-master ()
   (interactive)
   (magit-fetch "upstream")
   (when (yes-or-no-p "Discard all uncommitted changes?")
