@@ -66,6 +66,13 @@
  '(cperl-hash-face ((t (:foreground "#262626"))))
  '(cperl-array-face ((t (:foreground "#262626"))))
  '(cperl-nonoverridable-face ((t (:foreground "#262626"))))
-)
+ ;; rpm-spec-mode
+ '(rpm-spec-tag-face ((t (:inherit default))))
+ '(rpm-spec-package-face ((t (:inherit default))))
+ '(rpm-spec-macro-face ((t (:inherit default))))
+ '(rpm-spec-doc-face ((t (:inherit default))))
+ '(rpm-spec-var-face ((t (:inherit default))))
+ '(rpm-spec-ghost-face ((t (:inherit default))))
+ '(rpm-spec-section-face ((t (:inherit default :weight bold)))))
 
 (provide-theme 'eink)

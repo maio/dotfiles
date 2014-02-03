@@ -34,6 +34,7 @@
                        js2-mode
                        web-mode
                        haskell-mode
+                       rpm-spec-mode
                        ag
                        eimp
                        puppet-mode
