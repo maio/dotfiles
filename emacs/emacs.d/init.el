@@ -11,7 +11,6 @@
   (let ((my-packages '(auto-compile
                        starter-kit
                        starter-kit-lisp
-                       starter-kit-eshell
                        s
                        dash
                        popup
@@ -74,6 +73,7 @@
 (require 'maio-misc)
 (require 'maio-evil)
 (require 'maio-shell)
+(require 'maio-eshell)
 (require 'maio-php)
 (require 'maio-web)
 (require 'maio-perl)

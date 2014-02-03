@@ -35,11 +35,11 @@
 
 (defun maio/setup-eshell ()
   (define-key eshell-mode-map (kbd "M-.") 'maio/insert-last-argument)
+  (set-face-attribute 'eshell-prompt nil :foreground "black" :weight 'bold)
   (evil-define-key 'normal eshell-mode-map (kbd "RET") 'eshell-send-input)
   (evil-define-key 'normal eshell-mode-map "H" 'eshell-bol)
   (evil-define-key 'normal eshell-mode-map "L" 'move-end-of-line))
 
-(set-face-attribute 'eshell-prompt nil :foreground "red" :weight 'bold)
 (add-hook 'eshell-mode-hook 'maio/setup-eshell)
 
 (require 'maio-shell-completion)
