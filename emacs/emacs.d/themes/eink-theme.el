@@ -66,6 +66,9 @@
  '(cperl-hash-face ((t (:foreground "#262626"))))
  '(cperl-array-face ((t (:foreground "#262626"))))
  '(cperl-nonoverridable-face ((t (:foreground "#262626"))))
+ ;; helm
+ '(helm-selection-line ((t (:inherit region :weight bold))))
+ '(helm-selection ((t (:inherit region))))
  ;; rpm-spec-mode
  '(rpm-spec-tag-face ((t (:inherit default))))
  '(rpm-spec-package-face ((t (:inherit default))))
