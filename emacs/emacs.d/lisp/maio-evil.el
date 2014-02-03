@@ -101,11 +101,11 @@
 (evil-add-hjkl-bindings bookmark-bmenu-mode-map 'emacs
   "K" 'bookmark-bmenu-delete)
 (evil-add-hjkl-bindings package-menu-mode-map 'emacs
-  "/" 'helm-swoop)
+  "/" 'maio/helm-occur)
 (evil-add-hjkl-bindings magit-mode-map 'emacs)
 (evil-add-hjkl-bindings magit-diff-mode-map 'emacs)
 (evil-add-hjkl-bindings compilation-mode-map 'emacs
-  "/" 'helm-swoop)
+  "/" 'maio/helm-occur)
 (evil-add-hjkl-bindings git-rebase-mode-map 'emacs
   "K" 'git-rebase-kill-line
   "h" 'describe-mode)
@@ -128,7 +128,7 @@
 (evil-define-key 'normal dired-mode-map "f" 'evil-ace-jump-char-mode)
 (define-key evil-normal-state-map (kbd "SPC") 'evil-ace-jump-word-mode)
 (define-key evil-motion-state-map "/" 'evil-ace-jump-char-mode)
-(define-key evil-normal-state-map "/" 'helm-swoop)
+(define-key evil-normal-state-map "/" 'maio/helm-occur)
 (define-key evil-motion-state-map (kbd "SPC") 'evil-ace-jump-line-mode)
 
 (defun maio/count-region-chars (beg end)
