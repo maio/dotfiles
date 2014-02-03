@@ -29,6 +29,7 @@
                               (wdired-mode                   . normal)
                               (eimp-mode                     . emacs)
                               (compilation-mode              . emacs)
+                              (diff-mode                     . emacs)
                               (makey-key-mode                . emacs))
       do (evil-set-initial-state mode state))
 
@@ -121,6 +122,8 @@
   (kbd "C-k") 'magit-goto-previous-section)
 (evil-add-hjkl-bindings grep-mode-map 'emacs)
 (evil-add-hjkl-bindings helm-grep-mode-map 'emacs)
+(evil-add-hjkl-bindings diff-mode-map 'emacs
+  "q" 'quit-window)
 
 (evil-define-key 'normal dired-mode-map "f" 'evil-ace-jump-char-mode)
 (define-key evil-normal-state-map (kbd "SPC") 'evil-ace-jump-word-mode)
