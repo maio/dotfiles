@@ -52,6 +52,7 @@
 This way it's possible to use evil-search-next."
   (interactive)
   (setq helm-multi-occur-buffer-list (list (buffer-name (current-buffer))))
+  (setq isearch-forward t)
   (helm-occur-init-source)
   (helm-attrset 'name "Occur" helm-source-occur)
   (helm :sources 'helm-source-occur
