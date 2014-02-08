@@ -3,6 +3,7 @@
 (setq evil-want-C-i-jump t)
 (setq evil-repeat-move-cursor nil)
 (setq evil-regexp-search t)
+(setq-default evil-symbol-word-search t)
 (setq ace-jump-mode-case-sensitive-search nil
       ace-jump-mode-gray-background nil)
 
