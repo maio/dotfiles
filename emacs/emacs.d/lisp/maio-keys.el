@@ -28,6 +28,8 @@
 (define-key comint-mode-map (kbd "C-x k") 'kill-comint-buffer)
 (define-key ido-common-completion-map "\C-p" 'ido-prev-match)
 (define-key ido-common-completion-map "\C-n" 'ido-next-match)
+(define-key ido-buffer-completion-map "\C-p" 'ido-prev-match)
+(define-key ido-buffer-completion-map "\C-n" 'ido-next-match)
 
 ;; helm swoop edit map
 (eval-after-load 'helm-swoop
