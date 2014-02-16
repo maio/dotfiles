@@ -118,10 +118,6 @@
   (interactive)
   (switch-to-buffer "*scratch*"))
 
-(defun maio/goto-compilation-buffer ()
-  (interactive)
-  (switch-to-buffer-other-window compilation-last-buffer))
-
 (defun maio/looking-at-bol? ()
   (save-excursion (backward-word) (eq (point) (line-beginning-position))))
 
