@@ -19,7 +19,7 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x C-b") 'maio/helm)
 (global-set-key (kbd "C-x c v") 'maio/find-config-file)
-(global-set-key (kbd "C-x g s") 'maio/goto-scratch-buffer)
+(global-set-key (kbd "C-x g s") 'remember-notes)
 (global-set-key (kbd "C-x g .") 'shell-switcher-switch-buffer)
 (global-set-key (kbd "C-x g /") 'helm-git-grep)
 (global-set-key (kbd "C-x g g") 'guard-or-goto-guard)
