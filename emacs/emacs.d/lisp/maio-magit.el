@@ -8,17 +8,6 @@
 (require 'git-rebase-mode)
 (require 'git-commit-mode)
 
-;; magit fixes
-(defun magit-copy-item-as-kill ()
-  "Copy sha1 of commit at point into kill ring."
-  (interactive)
-  (magit-section-action (item info "copy")
-    ((untracked file)
-     (kill-new info))
-    ((commit)
-     (kill-new info)
-     (message "%s" info))))
-
 ;; TODO: remove magit-insert-status-tags-line from magit-status-sections-hook
 
 (defun maio-git-reset-hard-tracking ()
