@@ -47,6 +47,6 @@
      (add-hook 'cider-repl-mode-hook 'turn-on-smartparens-strict-mode)
      (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
      (add-hook 'cider-interaction-mode-hook 'ac-nrepl-setup)
-     (define-key cider-repl-mode-map (kbd "C-x k") 'nrepl-quit)))
+     (define-key cider-repl-mode-map (kbd "C-x k") 'cider-quit)))
 
 (provide 'maio-clojure)
