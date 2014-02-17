@@ -31,6 +31,7 @@
                        yaml-mode
                        php-mode
                        js2-mode
+                       json-mode
                        web-mode
                        haskell-mode
                        rpm-spec-mode
