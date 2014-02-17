@@ -28,7 +28,6 @@
                               (rdictcc-buffer-mode           . emacs)
                               (dired-mode                    . normal)
                               (wdired-mode                   . normal)
-                              (eimp-mode                     . emacs)
                               (compilation-mode              . emacs)
                               (diff-mode                     . emacs)
                               (makey-key-mode                . emacs))
