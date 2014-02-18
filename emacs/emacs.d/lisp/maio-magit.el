@@ -1,7 +1,7 @@
-(setq magit-rewrite-inclusive nil)
-(setq magit-status-buffer-switch-function 'switch-to-buffer)
-(setq magit-diff-refine-hunk t)
-(setq magit-stage-all-confirm nil)
+(setq magit-rewrite-inclusive nil
+      magit-status-buffer-switch-function 'switch-to-buffer
+      magit-diff-refine-hunk t
+      magit-stage-all-confirm nil)
 
 (require 'maio-magit-notes)
 (require 'magit)
