@@ -23,4 +23,10 @@
 
 (global-set-key (kbd "C-x i") 'rotate-windows)
 
+;; org-capture
+(eval-after-load 'org
+  '(progn
+     (setq org-default-notes-file (concat org-directory "/notes.org"))))
+
+(global-set-key (kbd "C-c c") 'org-capture)
 (provide 'maio-experiments)
