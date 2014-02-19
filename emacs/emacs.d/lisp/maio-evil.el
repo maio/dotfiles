@@ -95,6 +95,7 @@
 ;; set modeline color depending on state
 (defvar evil-state-change-hook nil)
 
+(setq evil-normal-state-cursor "black")
 (setq evil-insert-state-cursor "light sky blue")
 (setq evil-emacs-state-cursor "green")
 
