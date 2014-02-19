@@ -1,7 +1,8 @@
 (setq magit-rewrite-inclusive nil
       magit-status-buffer-switch-function 'switch-to-buffer
       magit-diff-refine-hunk t
-      magit-stage-all-confirm nil)
+      magit-stage-all-confirm nil
+      magit-default-tracking-name-function 'magit-default-tracking-name-branch-only)
 
 (require 'maio-magit-notes)
 (require 'magit)
