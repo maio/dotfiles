@@ -60,7 +60,7 @@
  '(ido-subdir ((t (:foreground "#262626"))))
  '(eshell-prompt ((t (:foreground "#262626" :weight bold))))
  '(custom-variable-tag ((t (:foreground "#262626" :weight bold))))
- '(mode-line ((t (:background "grey90" :foreground "#262626" :box (:line-width -1 :style released-button)))))
+ '(mode-line ((t (:background "grey90" :foreground "#262626" :height 0.8 :box (:line-width -1 :style released-button)))))
  '(default ((t (:background "white smoke" :foreground "#262626"))))
  '(whitespace-line ((t (:background "#262626" :foreground "white smoke"))))
  '(cperl-hash-face ((t (:foreground "#262626"))))
