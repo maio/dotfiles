@@ -156,6 +156,7 @@
      (evil-define-key 'normal org-mode-map
        "gh" 'outline-up-heading
        "t" 'org-todo
+       "T" 'org-set-tags
        "H" 'org-beginning-of-line
        "L" 'org-end-of-line
        (kbd "TAB") 'org-cycle
