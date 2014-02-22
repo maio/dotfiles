@@ -68,6 +68,7 @@
 (auto-compile-on-load-mode 1)
 (auto-compile-on-save-mode 1)
 
+(require 'maio-modeline)
 (require 'maio-ui)
 (require 'maio-misc)
 (require 'maio-evil)
@@ -79,7 +80,6 @@
 (require 'maio-erlang)
 (require 'maio-clojure)
 (require 'maio-javascript)
-(require 'maio-modeline)
 (require 'maio-prog)
 (require 'maio-completion)
 (require 'maio-sql)

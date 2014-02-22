@@ -4,6 +4,8 @@
 (eval-after-load 'eldoc '(diminish 'eldoc-mode))
 (eval-after-load 'undo-tree '(diminish 'undo-tree-mode))
 (eval-after-load 'hi-lock '(diminish 'hi-lock-mode))
+(eval-after-load 'subword '(diminish 'subword-mode))
+(eval-after-load 'helm '(diminish 'helm-mode))
 (eval-after-load 'company '(diminish 'company-mode "AC"))
 (eval-after-load 'smartparens '(diminish 'smartparens-mode "()"))
 (eval-after-load 'simple '(diminish 'auto-fill-function))
@@ -15,7 +17,6 @@
  (list " "
        'mode-line-modified
        " "
-       'evil-mode-line-tag
        '(line-number-mode "%l,")
        '(column-number-mode "%c")
        " "
@@ -23,7 +24,6 @@
        " "
        'mode-line-misc-info
        'mode-line-modes
-       "-%-"
        ))
 
 (provide 'maio-modeline)
