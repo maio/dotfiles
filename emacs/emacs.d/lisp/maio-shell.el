@@ -42,5 +42,4 @@
 
 (add-hook 'eshell-mode-hook 'maio/setup-eshell)
 
-(require 'maio-shell-completion)
 (provide 'maio-shell)

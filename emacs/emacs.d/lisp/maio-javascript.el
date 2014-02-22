@@ -3,9 +3,7 @@
 
 (eval-after-load 'js2-mode
   '(progn
-     (require 'auto-complete)
      (require 'smartparens)
-     (add-hook 'js2-mode-hook 'smartparens-mode)
-     (add-hook 'js2-mode-hook 'auto-complete-mode)))
+     (add-hook 'js2-mode-hook 'smartparens-mode)))
 
 (provide 'maio-javascript)

@@ -52,7 +52,7 @@
 (define-key evil-visual-state-map (kbd "C-a") 'evil-first-non-blank)
 (define-key evil-normal-state-map (kbd "C-e") 'evil-last-non-blank)
 (define-key evil-visual-state-map (kbd "C-e") 'evil-last-non-blank)
-(define-key evil-insert-state-map "\C-n" 'auto-complete)
+(define-key evil-insert-state-map "\C-n" 'evil-complete-next)
 (define-key evil-insert-state-map "\C-p" 'evil-complete-previous)
 (define-key evil-insert-state-map [escape] 'evil-normal-state)
 (define-key evil-insert-state-map "\C-x\C-n" 'evil-complete-next-line)

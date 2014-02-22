@@ -1,6 +1,3 @@
-(eval-after-load 'auto-complete
-  '(add-to-list 'ac-modes 'cider-repl-mode))
-
 ;; doesn't work
 (defun maio/nrepl ()
   (interactive)
@@ -45,8 +42,6 @@
 (eval-after-load 'cider
   '(progn
      (add-hook 'cider-repl-mode-hook 'turn-on-smartparens-strict-mode)
-     (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
-     (add-hook 'cider-interaction-mode-hook 'ac-nrepl-setup)
      (define-key cider-repl-mode-map (kbd "C-x k") 'cider-quit)))
 
 (provide 'maio-clojure)

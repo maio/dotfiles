@@ -16,15 +16,14 @@
                        popup
                        undo-tree
                        git-rebase-mode
-                       auto-complete
                        ace-jump-mode
+                       company
                        goto-chg
                        erlang
                        clojure-mode
                        clojure-test-mode
                        clojure-cheatsheet
                        cider
-                       ac-nrepl
                        midje-mode
                        feature-mode
                        mustache-mode

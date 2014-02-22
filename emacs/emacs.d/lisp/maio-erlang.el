@@ -1,10 +1,5 @@
 (require 'maio-util)
 
-(eval-after-load 'auto-complete
-  '(progn
-     (add-to-list 'ac-modes 'erlang-mode)
-     (add-to-list 'ac-modes 'erlang-shell-mode)))
-
 (defun my-add-space-after-sexp-insertion (id action _context)
   (when (eq action 'insert)
     (insert "  ")
