@@ -35,7 +35,8 @@
      (evil-define-key 'normal cperl-mode-map "=" 'perltidy-dwim)
      (evil-define-key 'visual cperl-mode-map "=" 'perltidy-dwim)
      (define-key cperl-mode-map (kbd "SPC") 'maio/electric-space)
-     (define-key cperl-mode-map (kbd "RET") 'maio/electric-return)))
+     (define-key cperl-mode-map (kbd "RET") 'maio/electric-return)
+     (define-key cperl-mode-map (kbd "C-x m t") 'prove)))
 
 (eval-after-load 'feature-mode
   '(progn
