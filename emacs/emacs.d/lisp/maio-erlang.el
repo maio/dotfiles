@@ -10,7 +10,8 @@
     (insert "  ")
     (left-char 1)))
 
-(pushnew '(erlang "(\\([^ \n]+\\), line \\([0-9]+\\))" 1 2) compilation-error-regexp-alist-alist)
+(eval-after-load 'compile
+  '(pushnew '(erlang "(\\([^ \n]+\\), line \\([0-9]+\\))" 1 2) compilation-error-regexp-alist-alist))
 
 (eval-after-load 'erlang
   '(progn
