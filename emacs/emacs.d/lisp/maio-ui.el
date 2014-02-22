@@ -2,6 +2,7 @@
 
 (global-font-lock-mode 1)
 (winner-mode 1)
+(set-fringe-mode 0)
 
 (defun maio/set-font (font size)
   (set-frame-font font)
