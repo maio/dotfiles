@@ -10,6 +10,7 @@
 
 (eval-after-load 'erlang
   '(progn
+     (require 'erlang-eunit)
      (add-to-list 'auto-mode-alist '("rebar\\.config\\'" . erlang-mode))
      (add-hook 'erlang-mode-hook 'turn-on-smartparens-mode)
      (add-hook 'erlang-mode-hook 'maio/setup-tab-indent)
@@ -18,6 +19,7 @@
      (add-hook 'erlang-mode-hook 'maio/run-prog-mode-hook)
      (add-hook 'erlang-shell-mode-hook 'turn-on-smartparens-mode)
      (define-key erlang-mode-map (kbd "M-r") 'raise-exp)
+     (define-key erlang-mode-map (kbd "C-x m t") 'erlang-eunit-compile-and-run-module-tests)
      (sp-local-pair 'erlang-mode "(" nil :post-handlers '(:add my-add-space-after-sexp-insertion))
      (sp-local-pair 'erlang-mode "{" nil :post-handlers '(:add my-add-space-after-sexp-insertion))
      (sp-local-pair 'erlang-mode "[" nil :post-handlers '(:add my-add-space-after-sexp-insertion))
