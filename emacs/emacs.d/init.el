@@ -18,6 +18,7 @@
                        git-rebase-mode
                        ace-jump-mode
                        company
+                       readline-complete
                        goto-chg
                        erlang
                        clojure-mode
