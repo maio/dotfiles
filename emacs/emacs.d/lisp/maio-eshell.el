@@ -14,6 +14,7 @@
      (setenv "PAGER" "cat")
      (add-hook 'eshell-mode-hook ;; for some reason this needs to be a hook
                '(lambda ()
+                  (setq eshell-path-env (getenv "PATH"))
                   (define-key eshell-mode-map [tab] 'company-manual-begin)
                   (define-key eshell-mode-map "\C-a" 'eshell-bol)))
      (setq eshell-cmpl-cycle-completions nil)
