@@ -43,7 +43,6 @@
                        flymake-cursor
                        diminish
                        bookmark+
-                       diff-hl
                        smartparens
                        iedit
                        smartrep
@@ -51,10 +50,8 @@
                        yasnippet
                        helm
                        helm-descbinds
-                       helm-swoop
                        helm-git-grep
                        wgrep
-                       dizzee
                        evil
                        evil-numbers
                        surround

@@ -8,8 +8,7 @@
       helm-buffer-max-length 60
       helm-truncate-lines t
       helm-buffer-details-flag nil
-      helm-full-frame t
-      helm-swoop-split-direction 'split-window-horizontally)
+      helm-full-frame t)
 
 (require 'helm-config)
 (require 'helm-match-plugin)

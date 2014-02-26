@@ -33,12 +33,6 @@
 (define-key ido-buffer-completion-map "\C-p" 'ido-prev-match)
 (define-key ido-buffer-completion-map "\C-n" 'ido-next-match)
 
-;; helm swoop edit map
-(eval-after-load 'helm-swoop
-  '(progn
-     (define-key helm-swoop-edit-map (kbd "C-c C-c") 'helm-swoop--edit-complete)
-     (define-key helm-swoop-edit-map (kbd "C-c C-k") 'helm-swoop--edit-cancel)))
-
 ;; unimpaired.vim
 (eval-after-load 'flycheck
   '(progn
