@@ -30,6 +30,7 @@
      (add-to-list 'which-func-modes 'cperl-mode)
      (add-hook 'cperl-mode-hook 'esk-prog-mode-hook)
      (add-hook 'cperl-mode-hook 'smartparens-mode)
+     (add-hook 'cperl-mode-hook 'flycheck-mode)
      (add-hook 'cperl-mode-hook 'maio/setup-tab-indent)
      (evil-define-key 'normal cperl-mode-map "-" 'maio/find-alternative-file)
      (evil-define-key 'normal cperl-mode-map "=" 'perltidy-dwim)
@@ -37,6 +38,20 @@
      (define-key cperl-mode-map (kbd "SPC") 'maio/electric-space)
      (define-key cperl-mode-map (kbd "RET") 'maio/electric-return)
      (define-key cperl-mode-map (kbd "C-x m t") 'prove)))
+
+(require 'flycheck)
+
+(flycheck-define-checker prove
+  "Run Perl tests using prove"
+  :command ("prove" "--norc" "-v" "--merge" source)
+  :error-patterns
+  ((error line-start "#" (minimal-match (message)) (optional "\n#  ")
+          " at " (file-name) " line " line
+          (or "." (and ", " (zero-or-more not-newline))) line-end))
+  :modes (perl-mode cperl-mode)
+  :predicate (lambda () (s-ends-with-p ".t" (buffer-file-name))))
+
+(add-to-list 'flycheck-checkers 'prove)
 
 (eval-after-load 'feature-mode
   '(progn
