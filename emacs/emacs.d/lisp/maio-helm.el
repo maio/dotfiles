@@ -54,7 +54,6 @@ This way it's possible to use evil-search-next."
   (setq isearch-forward t)
   (helm-occur-init-source)
   (helm-attrset 'name "Occur" helm-source-occur)
-  (helm-attrset 'follow 1 helm-source-occur)
   (helm :sources 'helm-source-occur
         :buffer "*helm occur*"
         :history 'regexp-search-ring))
