@@ -45,8 +45,6 @@
 
 (put 'narrow-to-region 'disabled nil)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
-(setq scroll-step           1
-      scroll-conservatively 10000)
 
 ;; Use UTF-8 dammit
 (prefer-coding-system       'utf-8)
