@@ -59,8 +59,7 @@
                        expand-region
                        gist)))
     (dolist (package my-packages)
-      (when (not (package-installed-p package))
-        (package-install package)))))
+      (ensure-package package))))
 
 (require 'auto-compile)
 (auto-compile-on-load-mode 1)

@@ -1,5 +1,9 @@
 (require 'cl-lib)
 
+(defun ensure-package (package)
+  (when (not (package-installed-p package))
+    (package-install package)))
+
 (defmacro require-and-exec (feature &optional &rest body)
   "Require the feature and execute body if it was successfull loaded."
   (declare (indent 1))
