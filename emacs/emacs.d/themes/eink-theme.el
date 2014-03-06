@@ -70,6 +70,10 @@
  ;; helm
  '(helm-selection-line ((t (:inherit region :weight bold))))
  '(helm-selection ((t (:inherit region))))
+ ;; parenface
+ '(parenface-paren-face ((t (:foreground "#D0D0D0"))))
+ '(parenface-curly-face ((t (:foreground "#D0D0D0"))))
+ '(parenface-bracket-face ((t (:foreground "#D0D0D0"))))
  ;; rpm-spec-mode
  '(rpm-spec-tag-face ((t (:inherit default))))
  '(rpm-spec-package-face ((t (:inherit default))))

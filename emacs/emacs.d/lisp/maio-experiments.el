@@ -34,4 +34,12 @@
 (defadvice evil-search-previous (after recenter () activate) (recenter))
 (defadvice evil-search-next (after recenter () activate) (recenter))
 
+;; parenface
+(ensure-package 'parenface)
+(require 'parenface)
+(add-hook 'cperl-mode-hook 'paren-face-add-keyword)
+(add-hook 'erlang-mode-hook 'paren-face-add-keyword)
+(add-hook 'json-mode-hook 'paren-face-add-keyword)
+(add-hook 'emacs-lisp-mode-hook 'paren-face-add-keyword)
+
 (provide 'maio-experiments)
