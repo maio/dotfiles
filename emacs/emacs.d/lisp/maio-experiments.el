@@ -23,6 +23,12 @@
 
 (global-set-key (kbd "C-x i") 'rotate-windows)
 
+;; read env from shell
+(setenv "PATH" (s-trim (shell-command-to-string "bash -l -c 'echo $PATH'")))
+(setq exec-path (s-split ":" (getenv "PATH")))
+(setenv "ERL_LIBS" (s-trim (shell-command-to-string "bash -l -c 'echo $ERL_LIBS'")))
+(setenv "PERL5LIB" (s-trim (shell-command-to-string "bash -l -c 'echo $PERL5LIB'")))
+
 ;; org-capture
 (eval-after-load 'org
   '(progn

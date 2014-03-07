@@ -1,7 +1,3 @@
-(add-to-list 'exec-path "/opt/local/bin")
-(add-to-list 'exec-path "/usr/local/bin")
-(add-to-list 'exec-path "~/bin")
-(setenv "PATH" (concat "~/bin" ":" (getenv "PATH")))
 (setenv "RLWRAP" "")
 (setenv "PAGER" "cat")
 (set-face-attribute 'default nil :height 150)
