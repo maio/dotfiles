@@ -2,7 +2,6 @@
 
 (global-font-lock-mode 1)
 (winner-mode 1)
-(set-fringe-mode 0)
 
 (defun maio/set-font (font size)
   (set-frame-font font)
@@ -32,5 +31,8 @@
   (defun down-slightly () (interactive) (scroll-down 1))
   (global-set-key (kbd "<mouse-4>") 'down-slightly)
   (global-set-key (kbd "<mouse-5>") 'up-slightly))
+
+(when (ui-type-is-gui)
+  (set-fringe-mode 0))
 
 (provide 'maio-ui)
