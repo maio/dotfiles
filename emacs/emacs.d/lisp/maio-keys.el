@@ -11,7 +11,8 @@
 (smartrep-define-key global-map "C-x" '(("," . previous-buffer)
                                         ("." . next-buffer)
                                         ("h" . winner-undo)
-                                        ("l" . winner-redo)))
+                                        ("l" . winner-redo)
+                                        ("o" . other-window)))
 
 (define-key (current-global-map) [remap save-buffer] 'force-save-buffer)
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
