@@ -48,4 +48,10 @@
 (add-hook 'json-mode-hook 'paren-face-add-keyword)
 (add-hook 'emacs-lisp-mode-hook 'paren-face-add-keyword)
 
+;; golden-ration
+(ensure-package 'golden-ratio)
+(require 'golden-ratio)
+(golden-ratio-mode 1)
+(diminish 'golden-ratio-mode nil)
+
 (provide 'maio-experiments)
