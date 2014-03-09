@@ -8,6 +8,7 @@
       helm-buffer-max-length 60
       helm-truncate-lines t
       helm-buffer-details-flag nil
+      helm-mp-highlight-delay nil
       helm-full-frame t)
 
 (require 'helm-config)
