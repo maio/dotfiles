@@ -22,9 +22,10 @@
     (comment-or-uncomment-region (line-beginning-position)
                                  (line-end-position))))
 
-(defun kill-current-buffer ()
+(defun kill-this-buffer-and-window ()
   (interactive)
-  (kill-buffer (current-buffer)))
+  (call-interactively 'kill-this-buffer)
+  (call-interactively 'delete-window))
 
 (defun kill-all-buffers ()
   (interactive)
@@ -43,7 +44,7 @@
   (when (get-buffer-process (current-buffer))
     (comint-interrupt-subjob)
     (while (get-buffer-process (current-buffer)) (sleep-for 0 100)))
-  (kill-current-buffer))
+  (call-interactively 'kill-this-buffer))
 
 (defun clear-comint-buffer ()
   (interactive)

@@ -16,6 +16,7 @@
 
 (define-key (current-global-map) [remap save-buffer] 'force-save-buffer)
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
+(global-set-key (kbd "C-x K") 'kill-this-buffer-and-window)
 (global-set-key (kbd "C-x C-g") 'magit-status)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x C-b") 'maio/helm)
