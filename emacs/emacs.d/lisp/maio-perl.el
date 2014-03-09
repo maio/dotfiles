@@ -83,4 +83,7 @@
     (with-current-buffer compilation-last-buffer
       (rename-buffer (concat "*" "prove " tfile "*")))))
 
+(require 'recompile-on-save)
+(recompile-on-save-advice prove)
+
 (provide 'maio-perl)
