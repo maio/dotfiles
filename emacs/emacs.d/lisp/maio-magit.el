@@ -11,6 +11,14 @@
 
 ;; TODO: remove magit-insert-status-tags-line from magit-status-sections-hook
 
+(defun maio-git-backup ()
+  (interactive)
+  (magit-git-command "tag -f backup" default-directory))
+
+(defun maio-git-restore ()
+  (interactive)
+  (magit-reset-head-hard "backup"))
+
 (defun maio-git-reset-hard-tracking ()
   (interactive)
   (when (yes-or-no-p "Discard all uncommitted changes?")
