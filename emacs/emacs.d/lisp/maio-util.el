@@ -77,8 +77,7 @@
 
 (defun maio/find-config-file ()
   (interactive)
-  (with-helm-default-directory "~/.emacs.d/lisp/"
-      (call-interactively 'helm-find-files)))
+  (helm-find-files-1 (expand-file-name "~/.emacs.d/lisp/")))
 
 (defun maio/current-project-dir ()
   (locate-dominating-file default-directory ".git"))
