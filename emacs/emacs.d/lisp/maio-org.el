@@ -18,4 +18,7 @@
      (add-hook 'org-mode-hook 'turn-on-smartparens-mode)
      (add-hook 'org-insert-heading-hook 'evil-insert-state)))
 
+;; http://orgmode.org/manual/Handling-links.html
+(global-set-key (kbd "C-c l") 'org-store-link)
+
 (provide 'maio-org)
