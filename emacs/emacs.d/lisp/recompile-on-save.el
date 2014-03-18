@@ -89,9 +89,8 @@
      (defadvice ,function (around recompile-on-save activate)
        (let ((buf (current-buffer)))
          ad-do-it
-         (let ((cbuf (current-buffer)))
-           (with-current-buffer buf
-             (recompile-on-save cbuf)))))))
+         (with-current-buffer buf
+           (recompile-on-save compilation-last-buffer))))))
 
 (defun ros--recompile-on-save ()
   (setq recompile-on-save-list (--filter (buffer-live-p it) recompile-on-save-list))
