@@ -37,6 +37,7 @@
  '(org-quote ((t (:foreground "#262626" :slant italic :inherit org-block))))
  '(org-verse ((t (:inherit org-block :slant italic))))
  '(org-todo ((t (:foreground "#262626" :weight bold))))
+ '(org-link ((t (:foreground "#262626" :underline t))))
  '(org-done ((t (:foreground "#a9a9a9" :weight bold))))
  '(org-agenda-structure ((t (:foreground "#262626" :weight bold))))
  '(org-date ((t (:foreground "#262626") :underline)))
