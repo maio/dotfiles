@@ -1,5 +1,10 @@
 (require 's)
+
 (require 'yasnippet)
+(setq yas-prompt-functions '(yas-ido-prompt))
+(add-hook 'git-commit-mode-hook 'yas-minor-mode-on)
+(yas-reload-all)
+
 (global-subword-mode 1)
 
 (add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode))
