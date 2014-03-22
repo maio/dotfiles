@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (defun rotate-windows ()
   "Rotate your windows"
   (interactive)
@@ -80,5 +82,28 @@
 (require 'golden-ratio)
 (golden-ratio-mode 1)
 (diminish 'golden-ratio-mode nil)
+
+;; eyebrowse
+(ensure-package 'eyebrowse)
+(require 'eyebrowse)
+(require 'dash)
+(progn
+  (let ((map eyebrowse-mode-map))
+    (define-key map (kbd "C-'") 'eyebrowse-last-window-config)
+    (define-key map (kbd "C-\"") 'eyebrowse-close-window-config)
+    (-map (lambda (n)
+            (define-key map (kbd (s-concat "C-" (number-to-string n)))
+              (lambda () (interactive)
+                (eyebrowse-switch-to-window-config n)))) '(1 2 3 4))))
+
+(defadvice magit-status (before eyebrowse-window-0 () activate)
+  (eyebrowse-switch-to-window-config 0)
+  (delete-other-windows))
+
+(defadvice magit-file-log (before eyebrowse-window-0 () activate)
+  (eyebrowse-switch-to-window-config 0)
+  (delete-other-windows))
+
+(eyebrowse-mode)
 
 (provide 'maio-experiments)
