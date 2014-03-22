@@ -91,14 +91,6 @@
 (define-key evil-normal-state-map "+" 'evil-numbers/inc-at-pt)
 (define-key evil-normal-state-map "-" 'evil-numbers/dec-at-pt)
 
-
-;; set modeline color depending on state
-(defvar evil-state-change-hook nil)
-
-(setq evil-normal-state-cursor '("black"))
-(setq evil-insert-state-cursor '("black" (bar . 2)))
-(setq evil-emacs-state-cursor '("green" (bar . 2)))
-
 (evil-add-hjkl-bindings bookmark-bmenu-mode-map 'emacs
   "K" 'bookmark-bmenu-delete)
 (evil-add-hjkl-bindings package-menu-mode-map 'emacs
