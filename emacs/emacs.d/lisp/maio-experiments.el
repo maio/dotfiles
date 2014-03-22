@@ -106,4 +106,11 @@
 
 (eyebrowse-mode)
 
+;; git gutter
+(ensure-package 'git-gutter+)
+(require 'git-gutter+)
+(define-key git-gutter+-mode-map (kbd "C-x g =") 'git-gutter+-show-hunk)
+(define-key git-gutter+-mode-map (kbd "C-x g s") 'git-gutter+-stage-hunks)
+(global-git-gutter+-mode)
+
 (provide 'maio-experiments)
