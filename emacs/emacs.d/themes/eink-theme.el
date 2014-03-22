@@ -9,7 +9,6 @@
  '(button ((t (:foreground "#262626" :underline t))))
  '(highlight ((t nil)))
  '(cursor ((t (:background "#949494" :foreground "white smoke"))))
- '(show-paren-match-face ((t (:background "#949494" :foreground "white smoke"))))
  '(isearch ((t (:background "#e2e2e5" :foreground "#262626"))))
  '(modeline ((t (:background "white smoke" :foreground "#262626" :weight bold))))
  '(minibuffer-prompt ((t (:foreground "#262626" :weight bold))))
@@ -75,11 +74,11 @@
  '(parenface-paren-face ((t (:foreground "#D0D0D0"))))
  '(parenface-curly-face ((t (:foreground "#D0D0D0"))))
  '(parenface-bracket-face ((t (:foreground "#D0D0D0"))))
- ;; parens match
+ ;; show paren
  '(sp-show-pair-match-face ((t (:foreground "black" :weight bold))))
  '(sp-show-pair-mismatch-face ((t (:background "red" :foreground "black" :weight bold))))
- '(show-paren-match-face ((t (:foreground "black" :weight bold))))
- '(show-paren-mismatch-face ((t (:background "red" :foreground "black" :weight bold))))
+ '(show-paren-match ((t (:foreground "black" :weight bold))))
+ '(show-paren-mismatch ((t (:background "red" :foreground "black" :weight bold))))
  ;; rpm-spec-mode
  '(rpm-spec-tag-face ((t (:inherit default))))
  '(rpm-spec-package-face ((t (:inherit default))))
