@@ -13,7 +13,6 @@
                        starter-kit-lisp
                        s
                        dash
-                       popup
                        undo-tree
                        git-rebase-mode
                        ace-jump-mode
