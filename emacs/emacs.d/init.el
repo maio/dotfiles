@@ -21,6 +21,7 @@
                        readline-complete
                        goto-chg
                        erlang
+                       recompile-on-save
                        clojure-mode
                        clojure-test-mode
                        clojure-cheatsheet

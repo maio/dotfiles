@@ -12,8 +12,6 @@
 (eval-after-load "feature-mode"
   '(add-hook 'feature-mode-hook 'flyspell-mode))
 
-(require 'recompile-on-save)
-
 (require 'smartparens)
 (require 'smartparens-config)
 (which-func-mode 1)
