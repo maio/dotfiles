@@ -1,6 +1,7 @@
 (deftheme eink
   "Port of eink.vim theme to emacs")
 
+;; TODO: deduplicate values (see cofi themes)
 (custom-theme-set-faces
  'eink
  '(font-lock-builtin-face ((t (:background "white smoke" :foreground "#262626"))))
