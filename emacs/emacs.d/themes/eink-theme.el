@@ -68,6 +68,9 @@
  '(cperl-hash-face ((t (:foreground "#262626"))))
  '(cperl-array-face ((t (:foreground "#262626"))))
  '(cperl-nonoverridable-face ((t (:foreground "#262626"))))
+ '(idle-highlight ((t (:weight bold))))
+ '(magit-header ((t (:weight bold))))
+ '(magit-item-highlight ((t (:weight bold))))
  ;; helm
  '(helm-selection-line ((t (:inherit region :weight bold))))
  '(helm-selection ((t (:inherit region))))
