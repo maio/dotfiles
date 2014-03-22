@@ -1,4 +1,7 @@
 (require 'maio-util)
+(ensure-package 'smartparens)
+(ensure-package 'sackspace)
+(ensure-package 'flycheck)
 
 (defun my-add-space-after-sexp-insertion (id action _context)
   (when (eq action 'insert)
@@ -11,6 +14,7 @@
 (eval-after-load 'erlang
   '(progn
      (require 'erlang-eunit)
+     (require 'smartparens)
      (add-to-list 'auto-mode-alist '("rebar\\.config\\'" . erlang-mode))
      (add-hook 'erlang-mode-hook 'turn-on-smartparens-mode)
      (add-hook 'erlang-mode-hook 'maio/setup-tab-indent)
