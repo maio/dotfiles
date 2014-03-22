@@ -24,7 +24,6 @@
 (global-set-key (kbd "C-x g s") 'remember-notes)
 (global-set-key (kbd "C-x g .") 'shell-switcher-switch-buffer)
 (global-set-key (kbd "C-x g /") 'helm-git-grep)
-(global-set-key (kbd "C-x g g") 'guard-or-goto-guard)
 (global-set-key (kbd "C-x n f") 'maio-narrow-to-defun-clone)
 (global-set-key (kbd "C-x c k") 'maio/bury)
 (global-set-key (kbd "C-x c i") 'imenu)

@@ -75,5 +75,4 @@
       (c-hungry-delete-backwards)
     ad-do-it))
 
-(require 'maio-guard)
 (provide 'maio-prog)
