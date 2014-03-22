@@ -75,6 +75,11 @@
  '(parenface-paren-face ((t (:foreground "#D0D0D0"))))
  '(parenface-curly-face ((t (:foreground "#D0D0D0"))))
  '(parenface-bracket-face ((t (:foreground "#D0D0D0"))))
+ ;; parens match
+ '(sp-show-pair-match-face ((t (:foreground "black" :weight bold))))
+ '(sp-show-pair-mismatch-face ((t (:background "red" :foreground "black" :weight bold))))
+ '(show-paren-match-face ((t (:foreground "black" :weight bold))))
+ '(show-paren-mismatch-face ((t (:background "red" :foreground "black" :weight bold))))
  ;; rpm-spec-mode
  '(rpm-spec-tag-face ((t (:inherit default))))
  '(rpm-spec-package-face ((t (:inherit default))))
