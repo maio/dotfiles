@@ -2785,12 +2785,22 @@ Value is list (stack token-start token-type in-what)."
       (forward-char 1)))
     (list stack token cs in-what)))
 
+(defun ias (s)
+  "get indent at given stack position"
+  (let ((pos (nth 1 s)))
+    (save-excursion
+      (goto-char pos)
+      (back-to-indentation)
+      (current-indentation))))
+
 (defun erlang-calculate-stack-indent (indent-point state)
   "From the given last position and state (stack) calculate indentation.
 Return nil if inside string, t if in a comment."
   (let* ((stack (and state (car state)))
          (token (nth 1 state))
          (stack-top (and stack (car stack))))
+    ;; (message (format "%s" stack-top))
+    ;; (message (format "%s" (ias stack-top)))
     (cond ((null state)                 ;No state
            0)
           ((nth 3 state)
@@ -2800,6 +2810,18 @@ Return nil if inside string, t if in a comment."
            (if (looking-at "when[^_a-zA-Z0-9]")
                erlang-indent-guard
              0))
+
+          ((eq (car stack-top) '\()
+           (if (looking-at-p ")")
+               (ias stack-top)
+             (if (or (looking-at-p ",") (looking-at-p "]"))
+                 (ias stack-top)
+                 (+ (ias stack-top) erlang-argument-indent))))
+          ((eq (car stack-top) '\-\>)
+           (if (looking-at-p "end")
+               (- (erlang-indent-find-preceding-expr) erlang-argument-indent)
+             (+ (ias stack-top) erlang-argument-indent)))
+
           ((eq (car stack-top) '\()
            ;; Element of list, tuple or part of an expression,
            (cond ((null erlang-argument-indent)
@@ -2812,7 +2834,7 @@ Return nil if inside string, t if in a comment."
 			 (let ((previous (erlang-indent-find-preceding-expr))
 			       (stack-pos (nth 2 stack-top)))
 			   (if (>= previous stack-pos) stack-pos
-			     (- (+ previous erlang-argument-indent) 1))))
+			     previous)))
 		   	(t
 		   	 (nth 2 stack-top))))
 		 ((= (following-char) ?,)
@@ -2890,9 +2912,9 @@ Return nil if inside string, t if in a comment."
 		      (setq skip 5))
 		     ((eq (car stack-top) '->)
 		      ;; If in fun definition use standard indent level not double
-		      ;;(if (not (eq (car (car (cdr stack))) 'fun))
-		      ;; Removed it made multi clause fun's look to bad
-		      (setq off (* 2 erlang-indent-level)))) ;; ) 
+		      (if (not (eq (car (car (cdr stack))) 'fun))
+                  (setq off (* 2 erlang-indent-level))
+                (setq off (* 1 erlang-indent-level)))))
 	       (let ((base (erlang-indent-find-base stack indent-point off skip)))
 		 ;; Special cases
 		 (goto-char indent-point)
@@ -3039,54 +3061,8 @@ This assumes that the preceding expression is either simple
   (save-excursion
     (or arg (setq arg 1))
     (forward-sexp (- arg))
-    (let ((col (current-column)))
-      (skip-chars-backward " \t")
-      ;; Special hack to handle: (note line break)
-      ;; [#myrecord{
-      ;;  foo = foo}]
-      ;; where the call (forward-sexp -1) will fail when point is at the `#'.
-      (or
-       (ignore-errors
-	 ;; Needed to match the colon in "'foo':'bar'".
-	 (cond ((eq (preceding-char) ?:)
-		(backward-char 1)
-		(forward-sexp -1)
-		(current-column))
-	       ((eq  (preceding-char) ?#)
-		;; We may now be at:
-		;; - either a construction of a new record
-		;; - or update of a record, in which case we want
-		;;   the column of the expression to be updated.
-		;;
-		;; To see which of the two cases we are at, we first
-		;; move an expression backwards, check for keywords,
-		;; then immediately an expression forwards.  Moving
-		;; backwards skips past tokens like `,' or `->', but
-		;; when moving forwards again, we won't skip past such
-		;; tokens.  We use this: if, after having moved
-		;; forwards, we're back where we started, then it was
-		;; a record update.
-		;; The check for keywords is to detect cases like:
-		;;   case Something of #record_construction{...}
-		(backward-char 1)
-		(let ((record-start (point))
-		      (record-start-col (current-column)))
-		  (forward-sexp -1)
-		  (let ((preceding-expr-col (current-column))
-			;; white space definition according to erl_scan
-			(white-space "\000-\040\200-\240"))
-		    (if (erlang-at-keyword)
-			;; The (forward-sexp -1) call moved past a keyword
-			(1+ record-start-col)
-		      (forward-sexp 1)
-		      (skip-chars-forward white-space record-start)
-		      ;; Are we back where we started?  If so, it was an update.
-		      (if (= (point) record-start)
-			    preceding-expr-col
-			(goto-char record-start)
-			(1+ (current-column)))))))
-	       (t col)))
-       col))))
+    (back-to-indentation)
+    (current-column)))
 
 (defun erlang-indent-parenthesis (stack-position) 
   (let ((previous (erlang-indent-find-preceding-expr)))
@@ -3126,14 +3102,9 @@ This assumes that the preceding expression is either simple
 Used both by `indent-for-comment' and the Erlang specific indentation
 commands."
   (cond ((looking-at "%%%") 0)
-	((looking-at "%%")
-	 (or (erlang-calculate-indent)
-	     (current-indentation)))
 	(t
-	 (save-excursion
-	   (skip-chars-backward " \t")
-	   (max (if (bolp) 0 (1+ (current-column)))
-		comment-column)))))
+	 (or (erlang-calculate-indent)
+	     (current-indentation)))))
 
 ;;; Erlang movement commands
 
