@@ -9,10 +9,7 @@
 (require 'smartrep)
 ;; https://github.com/shishi/.emacs.d/blob/master/inits/20-smartrep.el
 (smartrep-define-key global-map "C-x" '(("," . previous-buffer)
-                                        ("." . next-buffer)
-                                        ("h" . winner-undo)
-                                        ("l" . winner-redo)
-                                        ("o" . other-window)))
+                                        ("." . next-buffer)))
 
 (define-key (current-global-map) [remap save-buffer] 'force-save-buffer)
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
