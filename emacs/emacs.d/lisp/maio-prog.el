@@ -19,6 +19,10 @@
 
 (require 'smartparens)
 (require 'smartparens-config)
+(setq sp-highlight-pair-overlay nil
+      sp-highlight-wrap-overlay nil
+      sp-highlight-wrap-tag-overlay nil)
+
 (which-func-mode 1)
 
 (defun show-trailing-whitespace () (setq show-trailing-whitespace t))
