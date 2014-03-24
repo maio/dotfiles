@@ -5,4 +5,9 @@
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 
+(eval-after-load 'web-mode
+  '(progn
+     (add-hook 'web-mode-hook 'yas-minor-mode-on)
+     (add-hook 'web-mode-hook (lambda () (auto-fill-mode -1)))))
+
 (provide 'maio-web)
