@@ -23,7 +23,7 @@ indent_funcall(  ) ->
 	).
 
 indent_case(  ) ->
-	case somevalue of
+	_Result = case somevalue of
 		somevalue ->
 			ok,
 			fun (  ) ->
