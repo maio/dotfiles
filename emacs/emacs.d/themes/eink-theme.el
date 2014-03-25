@@ -74,6 +74,9 @@
  ;; helm
  '(helm-selection-line ((t (:inherit region :weight bold))))
  '(helm-selection ((t (:inherit region))))
+ '(helm-ff-directory ((t (:foreground "#262626" :weight bold))))
+ '(helm-ff-symlink ((t (:foreground "#262626" :slant italic))))
+ '(helm-ff-executable ((t (:foreground "#262626"))))
  ;; parenface
  '(parenface-paren-face ((t (:foreground "#D0D0D0"))))
  '(parenface-curly-face ((t (:foreground "#D0D0D0"))))
