@@ -111,6 +111,10 @@
 (require 'git-gutter+)
 (define-key git-gutter+-mode-map (kbd "C-x g =") 'git-gutter+-show-hunk)
 (define-key git-gutter+-mode-map (kbd "C-x g s") 'git-gutter+-stage-hunks)
+(define-key git-gutter+-mode-map (kbd "C-x g r") 'git-gutter+-revert-hunks)
+(define-key evil-normal-state-map (kbd "]d") 'git-gutter+-next-hunk)
+(define-key evil-normal-state-map (kbd "[d") 'git-gutter+-previous-hunk)
+
 (global-git-gutter+-mode)
 
 (provide 'maio-experiments)
