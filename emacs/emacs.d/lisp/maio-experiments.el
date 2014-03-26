@@ -93,10 +93,12 @@
   (let ((map eyebrowse-mode-map))
     (define-key map (kbd "C-'") 'eyebrowse-last-window-config)
     (define-key map (kbd "C-\"") 'eyebrowse-close-window-config)
+    (define-key map (kbd "s-j") 'eyebrowse-next-window-config)
+    (define-key map (kbd "s-k") 'eyebrowse-prev-window-config)
     (-map (lambda (n)
             (define-key map (kbd (s-concat "C-" (number-to-string n)))
               (lambda () (interactive)
-                (eyebrowse-switch-to-window-config n)))) '(1 2 3 4))))
+                (eyebrowse-switch-to-window-config n)))) '(1 2 3 4 5 6))))
 
 (defadvice magit-status (before eyebrowse-window-0 () activate)
   (eyebrowse-switch-to-window-config 0)
