@@ -17,6 +17,7 @@ install:
 update: clean
 	@git submodule foreach git pull origin master
 	@rm -rf emacs/emacs.d/elpa
+	@git checkout emacs/emacs.d/elpa
 	@emacs --batch -l emacs/emacs.d/init.el
 
 clean:
