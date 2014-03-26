@@ -84,4 +84,6 @@
       (c-hungry-delete-backwards)
     ad-do-it))
 
+(setq ediff-split-window-function 'split-window-horizontally)
+
 (provide 'maio-prog)
