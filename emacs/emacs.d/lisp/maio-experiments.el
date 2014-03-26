@@ -82,6 +82,8 @@
 (require 'golden-ratio)
 (golden-ratio-mode 1)
 (diminish 'golden-ratio-mode nil)
+(add-hook 'ediff-mode-hook (lambda () (golden-ratio-mode 0)))
+(add-hook 'ediff-quit-hook (lambda () (golden-ratio-mode 1)))
 
 ;; eyebrowse
 (ensure-package 'eyebrowse)
