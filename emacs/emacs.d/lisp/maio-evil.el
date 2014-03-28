@@ -31,6 +31,7 @@
                               (compilation-mode              . emacs)
                               (diff-mode                     . emacs)
                               (tar-mode                      . emacs)
+                              (archive-mode                  . emacs)
                               (makey-key-mode                . emacs))
       do (evil-set-initial-state mode state))
 
@@ -92,6 +93,7 @@
 (define-key evil-normal-state-map "+" 'evil-numbers/inc-at-pt)
 (define-key evil-normal-state-map "-" 'evil-numbers/dec-at-pt)
 
+(evil-add-hjkl-bindings archive-mode-map 'emacs)
 (evil-add-hjkl-bindings tar-mode-map 'emacs)
 (evil-add-hjkl-bindings bookmark-bmenu-mode-map 'emacs
   "K" 'bookmark-bmenu-delete)
