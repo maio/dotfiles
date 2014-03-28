@@ -37,4 +37,21 @@
 (define-key magit-status-mode-map "G" 'magit-shell-command)
 (add-hook 'git-commit-mode-hook 'flyspell-mode)
 
+(defun magit-blame-kill-commit-id (pos)
+  (interactive "d")
+  (let* ((chunk (get-text-property pos :blame))
+         (commit-info (nth 3 chunk))
+         (commit (plist-get commit-info :sha1)))
+    (kill-new commit)
+    (message commit)))
+
+(eval-after-load 'magit-blame
+  '(progn
+     (define-key magit-blame-map (kbd "C-w") 'magit-blame-kill-commit-id)
+
+     (defadvice magit-blame-mode (after evil-state () activate)
+       (if magit-blame-mode
+           (evil-emacs-state)
+         (evil-normal-state)))))
+
 (provide 'maio-magit)
