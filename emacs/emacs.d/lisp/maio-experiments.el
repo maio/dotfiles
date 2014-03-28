@@ -79,6 +79,7 @@
 
 ;; golden-ration
 (ensure-package 'golden-ratio)
+(setq golden-ratio-exclude-modes '("magit-key-mode"))
 (require 'golden-ratio)
 (golden-ratio-mode 1)
 (diminish 'golden-ratio-mode nil)
