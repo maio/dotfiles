@@ -108,6 +108,10 @@
   (eyebrowse-switch-to-window-config 0)
   (delete-other-windows))
 
+(defadvice ansi-term (before eyebrowse-window-4 () activate)
+  (eyebrowse-switch-to-window-config 4)
+  (delete-other-windows))
+
 (eyebrowse-mode)
 
 ;; git gutter
