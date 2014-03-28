@@ -4828,7 +4828,8 @@ Please unstage it first")))
                      (concat "Delete branch [" info "]? ")))
               (magit-delete-branch info current-prefix-arg)))
     (remote (when (yes-or-no-p "Remove remote? ")
-              (magit-remove-remote info)))))
+              (magit-remove-remote info)))
+    (commit (magit-run-git-async "kill" info))))
 
 ;;;;;; Revert
 
