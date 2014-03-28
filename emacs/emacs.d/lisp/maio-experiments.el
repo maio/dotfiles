@@ -125,4 +125,8 @@
 
 (global-git-gutter+-mode)
 
+;; rx
+;; http://www.lunaryorn.com/2014/03/26/search-based-fontification-with-keywords.html
+(eval-after-load 're-builder '(setq reb-re-syntax 'rx))
+
 (provide 'maio-experiments)
