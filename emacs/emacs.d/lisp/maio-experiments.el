@@ -59,9 +59,8 @@
 (setenv "PERL5LIB" (s-trim (shell-command-to-string "bash -l -c 'echo $PERL5LIB'")))
 
 ;; org-capture
-(eval-after-load 'org
-  '(progn
-     (setq org-default-notes-file (concat org-directory "/notes.org"))))
+(with-eval-after-load 'org
+  (setq org-default-notes-file (concat org-directory "/notes.org")))
 
 (global-set-key (kbd "C-c c") 'org-capture)
 
@@ -128,6 +127,7 @@
 
 ;; rx
 ;; http://www.lunaryorn.com/2014/03/26/search-based-fontification-with-keywords.html
-(eval-after-load 're-builder '(setq reb-re-syntax 'rx))
+(with-eval-after-load 're-builder
+  (setq reb-re-syntax 'rx))
 
 (provide 'maio-experiments)

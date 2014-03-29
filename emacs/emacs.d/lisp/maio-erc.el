@@ -4,14 +4,13 @@
       (insert (format-time-string "%D %H:%M "))
       (insert msg))))
 
-(eval-after-load 'erc
-  '(progn
-     (require 'erc-join)
-     (add-hook 'erc-text-matched-hook 'maio/erc-notify)
+(with-eval-after-load 'erc
+  (require 'erc-join)
+  (add-hook 'erc-text-matched-hook 'maio/erc-notify)
 
-     (setq erc-hide-list '("JOIN" "PART" "QUIT"))
-     (setq erc-autojoin-channels-alist
-           '(("freenode.net" "#ejuan" "#dolnykubin" "#emacs" "#evil-mode"
-              "#clojure")))))
+  (setq erc-hide-list '("JOIN" "PART" "QUIT"))
+  (setq erc-autojoin-channels-alist
+        '(("freenode.net" "#ejuan" "#dolnykubin" "#emacs" "#evil-mode"
+           "#clojure"))))
 
 (provide 'maio-erc)

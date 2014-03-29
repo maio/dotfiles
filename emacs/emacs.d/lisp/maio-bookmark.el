@@ -5,8 +5,8 @@
 
 (add-hook 'bookmark-after-jump-hook 'recenter-top-bottom)
 
-(eval-after-load 'bookmark+
-  '(global-set-key (kbd "C-x j j") 'helm-bookmarks))
+(with-eval-after-load 'bookmark+
+  (global-set-key (kbd "C-x j j") 'helm-bookmarks))
 (global-set-key (kbd "C-x j j") 'helm-bookmarks)
 
 (provide 'maio-bookmark)

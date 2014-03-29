@@ -42,8 +42,7 @@
 
 (add-hook 'eshell-mode-hook 'maio/setup-eshell)
 
-(eval-after-load 'term
-  '(progn
-     (define-key term-raw-escape-map (kbd "C-y") 'term-paste)))
+(with-eval-after-load 'term
+  (define-key term-raw-escape-map (kbd "C-y") 'term-paste))
 
 (provide 'maio-shell)

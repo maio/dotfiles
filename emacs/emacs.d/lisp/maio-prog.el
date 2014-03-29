@@ -11,11 +11,11 @@
 (add-to-list 'auto-mode-alist '("\\.scss$" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache$" . mustache-mode))
 
-(eval-after-load "mustache-mode"
-  '(add-hook 'mustache-mode-hook 'maio/run-prog-mode-hook))
+(with-eval-after-load "mustache-mode"
+  (add-hook 'mustache-mode-hook 'maio/run-prog-mode-hook))
 
-(eval-after-load "feature-mode"
-  '(add-hook 'feature-mode-hook 'flyspell-mode))
+(with-eval-after-load "feature-mode"
+  (add-hook 'feature-mode-hook 'flyspell-mode))
 
 (require 'smartparens)
 (require 'smartparens-config)

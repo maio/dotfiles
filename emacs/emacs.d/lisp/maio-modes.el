@@ -19,15 +19,14 @@
   '(yapp-mode-config)
   "A mode for YAPP")
 
-(eval-after-load 'flycheck
-  '(progn
-     (flycheck-define-checker yapp
-       "An YAPP syntax checker."
-       :command ("yapp" source)
-       :error-patterns
-       ((error line-start "*Error* " (message) ", at line " line "." line-end))
-       :modes yapp-mode)
+(with-eval-after-load 'flycheck
+  (flycheck-define-checker yapp
+    "An YAPP syntax checker."
+    :command ("yapp" source)
+    :error-patterns
+    ((error line-start "*Error* " (message) ", at line " line "." line-end))
+    :modes yapp-mode)
 
-     (add-to-list 'flycheck-checkers 'yapp)))
+  (add-to-list 'flycheck-checkers 'yapp))
 
 (provide 'maio-modes)

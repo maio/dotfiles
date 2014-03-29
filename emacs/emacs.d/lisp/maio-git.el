@@ -3,7 +3,7 @@
  '(diff-added ((t (:inherit diff-changed :foreground "green4"))))
  '(diff-removed ((t (:inherit diff-changed :foreground "red3")))))
 
-(eval-after-load 'magit
-  '(require 'maio-magit))
+(with-eval-after-load 'magit
+  (require 'maio-magit))
 
 (provide 'maio-git)

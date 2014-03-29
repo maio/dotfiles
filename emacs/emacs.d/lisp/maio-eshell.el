@@ -6,26 +6,25 @@
       eshell-cmpl-dir-ignore "\\`\\(\\.\\.?\\|CVS\\|\\.svn\\|\\.git\\)/\\'")
 
 ;;;###autoload
-(eval-after-load 'esh-opt
-  '(progn
-     (require 'em-prompt)
-     (require 'em-term)
-     (require 'em-cmpl)
-     (setenv "PAGER" "cat")
-     (add-hook 'eshell-mode-hook ;; for some reason this needs to be a hook
-               '(lambda ()
-                  (setq eshell-path-env (getenv "PATH"))
-                  (define-key eshell-mode-map [tab] 'company-manual-begin)
-                  (define-key eshell-mode-map "\C-a" 'eshell-bol)))
-     (setq eshell-cmpl-cycle-completions nil)
+(with-eval-after-load 'esh-opt
+  (require 'em-prompt)
+  (require 'em-term)
+  (require 'em-cmpl)
+  (setenv "PAGER" "cat")
+  (add-hook 'eshell-mode-hook ;; for some reason this needs to be a hook
+            '(lambda ()
+               (setq eshell-path-env (getenv "PATH"))
+               (define-key eshell-mode-map [tab] 'company-manual-begin)
+               (define-key eshell-mode-map "\C-a" 'eshell-bol)))
+  (setq eshell-cmpl-cycle-completions nil)
 
-     ;; TODO: submit these via M-x report-emacs-bug
-     (add-to-list 'eshell-visual-commands "ssh")
-     (add-to-list 'eshell-visual-commands "tail")
-     (add-to-list 'eshell-command-completions-alist
-                  '("gunzip" "gz\\'"))
-     (add-to-list 'eshell-command-completions-alist
-                  '("tar" "\\(\\.tar|\\.tgz\\|\\.tar\\.gz\\)\\'"))))
+  ;; TODO: submit these via M-x report-emacs-bug
+  (add-to-list 'eshell-visual-commands "ssh")
+  (add-to-list 'eshell-visual-commands "tail")
+  (add-to-list 'eshell-command-completions-alist
+               '("gunzip" "gz\\'"))
+  (add-to-list 'eshell-command-completions-alist
+               '("tar" "\\(\\.tar|\\.tgz\\|\\.tar\\.gz\\)\\'")))
 
 ;;;###autoload
 (defun eshell/cdg ()

@@ -34,10 +34,9 @@
 (define-key ido-buffer-completion-map "\C-n" 'ido-next-match)
 
 ;; unimpaired.vim
-(eval-after-load 'flycheck
-  '(progn
-     (define-key evil-normal-state-map (kbd "]q") 'flycheck-next-error)
-     (define-key evil-normal-state-map (kbd "[q") 'flycheck-previous-error)))
+(with-eval-after-load 'flycheck
+  (define-key evil-normal-state-map (kbd "]q") 'flycheck-next-error)
+  (define-key evil-normal-state-map (kbd "[q") 'flycheck-previous-error))
 
 (define-key evil-normal-state-map (kbd "]e") 'next-error)
 (define-key evil-normal-state-map (kbd "[e") 'previous-error)
@@ -82,7 +81,7 @@
   (insert "\\")
   (newline-and-indent))
 
-(eval-after-load 'make-mode
-  '(define-key makefile-gmake-mode-map (kbd "C-j") 'maio/makefile-newline))
+(with-eval-after-load 'make-mode
+  (define-key makefile-gmake-mode-map (kbd "C-j") 'maio/makefile-newline))
 
 (provide 'maio-keys)

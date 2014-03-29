@@ -136,28 +136,27 @@
 (define-key evil-visual-state-map "ga" 'maio/count-region-chars)
 
 ;; org mode
-(eval-after-load 'org
-  '(progn
-     (defun always-insert-item ()
-       "Force insertion of org item"
-       (if (not (org-in-item-p))
-           (insert "\n- ")
-         (org-insert-item)))
+(with-eval-after-load 'org
+  (defun always-insert-item ()
+    "Force insertion of org item"
+    (if (not (org-in-item-p))
+        (insert "\n- ")
+      (org-insert-item)))
 
-     (defun evil-org-eol-call (fun)
-       "Go to end of line and call provided function"
-       (end-of-line)
-       (funcall fun)
-       (evil-append nil))
+  (defun evil-org-eol-call (fun)
+    "Go to end of line and call provided function"
+    (end-of-line)
+    (funcall fun)
+    (evil-append nil))
 
-     (evil-define-key 'normal org-mode-map
-       "gh" 'outline-up-heading
-       "t" 'org-todo
-       "T" 'org-set-tags
-       "H" 'org-beginning-of-line
-       "L" 'org-end-of-line
-       (kbd "TAB") 'org-cycle
-       (kbd "<tab>") 'org-cycle)))
+  (evil-define-key 'normal org-mode-map
+    "gh" 'outline-up-heading
+    "t" 'org-todo
+    "T" 'org-set-tags
+    "H" 'org-beginning-of-line
+    "L" 'org-end-of-line
+    (kbd "TAB") 'org-cycle
+    (kbd "<tab>") 'org-cycle))
 
 ;; Evil plugins
 (require 'surround)

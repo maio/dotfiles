@@ -45,13 +45,12 @@
     (kill-new commit)
     (message commit)))
 
-(eval-after-load 'magit-blame
-  '(progn
-     (define-key magit-blame-map (kbd "C-w") 'magit-blame-kill-commit-id)
+(with-eval-after-load 'magit-blame
+  (define-key magit-blame-map (kbd "C-w") 'magit-blame-kill-commit-id)
 
-     (defadvice magit-blame-mode (after evil-state () activate)
-       (if magit-blame-mode
-           (evil-emacs-state)
-         (evil-normal-state)))))
+  (defadvice magit-blame-mode (after evil-state () activate)
+    (if magit-blame-mode
+        (evil-emacs-state)
+      (evil-normal-state))))
 
 (provide 'maio-magit)

@@ -21,23 +21,22 @@
 (add-to-list 'auto-mode-alist '("\\.tmpl$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.tt$" . html-mode))
 
-(eval-after-load 'cperl-mode
-  '(progn
-     (require 'yasnippet)
-     (yas-minor-mode-on)
-     (require 'perltidy)
-     (require 'which-func)
-     (add-to-list 'which-func-modes 'cperl-mode)
-     (add-hook 'cperl-mode-hook 'esk-prog-mode-hook)
-     (add-hook 'cperl-mode-hook 'smartparens-mode)
-     (add-hook 'cperl-mode-hook 'flycheck-mode)
-     (add-hook 'cperl-mode-hook 'maio/setup-tab-indent)
-     (evil-define-key 'normal cperl-mode-map "-" 'maio/find-alternative-file)
-     (evil-define-key 'normal cperl-mode-map "=" 'perltidy-dwim)
-     (evil-define-key 'visual cperl-mode-map "=" 'perltidy-dwim)
-     (define-key cperl-mode-map (kbd "SPC") 'maio/electric-space)
-     (define-key cperl-mode-map (kbd "RET") 'maio/electric-return)
-     (define-key cperl-mode-map (kbd "C-x m t") 'prove)))
+(with-eval-after-load 'cperl-mode
+  (require 'yasnippet)
+  (yas-minor-mode-on)
+  (require 'perltidy)
+  (require 'which-func)
+  (add-to-list 'which-func-modes 'cperl-mode)
+  (add-hook 'cperl-mode-hook 'esk-prog-mode-hook)
+  (add-hook 'cperl-mode-hook 'smartparens-mode)
+  (add-hook 'cperl-mode-hook 'flycheck-mode)
+  (add-hook 'cperl-mode-hook 'maio/setup-tab-indent)
+  (evil-define-key 'normal cperl-mode-map "-" 'maio/find-alternative-file)
+  (evil-define-key 'normal cperl-mode-map "=" 'perltidy-dwim)
+  (evil-define-key 'visual cperl-mode-map "=" 'perltidy-dwim)
+  (define-key cperl-mode-map (kbd "SPC") 'maio/electric-space)
+  (define-key cperl-mode-map (kbd "RET") 'maio/electric-return)
+  (define-key cperl-mode-map (kbd "C-x m t") 'prove))
 
 (require 'flycheck)
 
@@ -53,9 +52,8 @@
 
 (add-to-list 'flycheck-checkers 'prove)
 
-(eval-after-load 'feature-mode
-  '(progn
-     (evil-define-key 'normal feature-mode-map "-" 'maio/find-alternative-file)))
+(with-eval-after-load 'feature-mode
+  (evil-define-key 'normal feature-mode-map "-" 'maio/find-alternative-file))
 
 (defun maio/buffer-path-in-project ()
   (s-chop-prefix

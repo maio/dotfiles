@@ -13,13 +13,11 @@
   (json-xs-save-point
     (call-process-region beg end "json_xs" t t)))
 
-(eval-after-load 'js2-mode
-  '(progn
-     (require 'smartparens)
-     (add-hook 'js2-mode-hook 'smartparens-mode)))
+(with-eval-after-load 'js2-mode
+  (require 'smartparens)
+  (add-hook 'js2-mode-hook 'smartparens-mode))
 
-(eval-after-load 'json-mode
-  '(progn
-     (evil-define-key 'visual json-mode-map "=" 'json-xs-region)))
+(with-eval-after-load 'json-mode
+  (evil-define-key 'visual json-mode-map "=" 'json-xs-region))
 
 (provide 'maio-javascript)
