@@ -17,6 +17,12 @@
 (require 'maio-helm-git)
 (require 'helm-descbinds)
 
+(defun helm-full-frame-off () (setq helm-full-frame nil))
+(defun helm-full-frame-on () (setq helm-full-frame t))
+
+(add-hook 'minibuffer-setup-hook 'helm-full-frame-off)
+(add-hook 'minibuffer-exit-hook 'helm-full-frame-on)
+
 (require 'savehist)
 (add-to-list 'savehist-additional-variables 'extended-command-history)
 
