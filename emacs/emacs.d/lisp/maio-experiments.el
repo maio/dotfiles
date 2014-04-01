@@ -130,4 +130,9 @@
 (with-eval-after-load 're-builder
   (setq reb-re-syntax 'rx))
 
+;; org-reveal
+(ensure-package 'ox-reveal)
+(require 'ox-reveal)
+(setq org-reveal-theme "solarized")
+
 (provide 'maio-experiments)
