@@ -25,6 +25,7 @@
 (global-set-key (kbd "C-x n f") 'maio-narrow-to-defun-clone)
 (global-set-key (kbd "C-x c k") 'maio/bury)
 (global-set-key (kbd "C-x c i") 'imenu)
+(global-set-key (kbd "<s-return>") 'maio/ansi-term)
 
 (define-key comint-mode-map (kbd "C-x k") 'kill-comint-buffer)
 (define-key comint-mode-map (kbd "s-l") 'clear-comint-buffer)

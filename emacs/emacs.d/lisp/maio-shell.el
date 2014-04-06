@@ -42,6 +42,10 @@
 
 (add-hook 'eshell-mode-hook 'maio/setup-eshell)
 
+(defun maio/ansi-term ()
+  (interactive)
+  (ansi-term "/usr/local/bin/bash"))
+
 (with-eval-after-load 'term
   (define-key term-raw-escape-map (kbd "C-y") 'term-paste)
   (define-key term-raw-map (kbd "s-v") 'term-paste)
