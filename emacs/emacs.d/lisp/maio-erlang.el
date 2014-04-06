@@ -28,6 +28,7 @@
   (add-hook 'erlang-mode-hook 'turn-on-sackspace)
   (add-hook 'erlang-mode-hook 'setup-erlang-tab-indent)
   (add-hook 'erlang-mode-hook 'flycheck-mode)
+  (add-hook 'erlang-mode-hook 'yas-minor-mode-on)
   (add-hook 'erlang-mode-hook 'maio/run-prog-mode-hook)
   (add-hook 'erlang-shell-mode-hook 'turn-on-smartparens-mode)
   (define-key erlang-mode-map (kbd "M-r") 'raise-exp)
