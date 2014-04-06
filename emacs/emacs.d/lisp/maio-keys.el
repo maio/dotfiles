@@ -37,9 +37,10 @@
 (with-eval-after-load 'flycheck
   (define-key evil-normal-state-map (kbd "]q") 'flycheck-next-error)
   (define-key evil-normal-state-map (kbd "[q") 'flycheck-previous-error))
-
 (define-key evil-normal-state-map (kbd "]e") 'next-error)
 (define-key evil-normal-state-map (kbd "[e") 'previous-error)
+(with-eval-after-load 'flyspell
+  (define-key evil-normal-state-map (kbd "]z") 'flyspell-goto-next-error))
 
 (evil-define-key 'normal lisp-mode-shared-map (kbd "M-.") 'elisp-slime-nav-find-elisp-thing-at-point)
 (evil-define-key 'normal lisp-mode-shared-map "Q" 'paredit-reindent-defun)
