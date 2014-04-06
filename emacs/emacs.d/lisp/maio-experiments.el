@@ -111,20 +111,21 @@
 
 (defadvice ansi-term (before eyebrowse-window-4 () activate)
   (eyebrowse-switch-to-window-config 4)
-  (delete-other-windows))
+  (if (in-mode? 'term-mode)
+      (split-window-below)
+    (delete-other-windows)))
 
 (eyebrowse-mode)
 
 ;; git gutter
-(ensure-package 'git-gutter+)
-(require 'git-gutter+)
-(define-key git-gutter+-mode-map (kbd "C-x g =") 'git-gutter+-show-hunk)
-(define-key git-gutter+-mode-map (kbd "C-x g s") 'git-gutter+-stage-hunks)
-(define-key git-gutter+-mode-map (kbd "C-x g r") 'git-gutter+-revert-hunks)
-(define-key evil-normal-state-map (kbd "]d") 'git-gutter+-next-hunk)
-(define-key evil-normal-state-map (kbd "[d") 'git-gutter+-previous-hunk)
-
-(global-git-gutter+-mode)
+;; (ensure-package 'git-gutter+)
+;; (require 'git-gutter+)
+;; (define-key git-gutter+-mode-map (kbd "C-x g =") 'git-gutter+-show-hunk)
+;; (define-key git-gutter+-mode-map (kbd "C-x g s") 'git-gutter+-stage-hunks)
+;; (define-key git-gutter+-mode-map (kbd "C-x g r") 'git-gutter+-revert-hunks)
+;; (define-key evil-normal-state-map (kbd "]d") 'git-gutter+-next-hunk)
+;; (define-key evil-normal-state-map (kbd "[d") 'git-gutter+-previous-hunk)
+;; (global-git-gutter+-mode)
 
 ;; rx
 ;; http://www.lunaryorn.com/2014/03/26/search-based-fontification-with-keywords.html
