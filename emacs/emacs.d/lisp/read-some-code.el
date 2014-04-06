@@ -16,6 +16,7 @@
   (when (not (s-ends-with? ".epub" epub-file))
     (error "Output file should have .epub extension."))
   (let ((html-buffer (htmlize-buffer (current-buffer)))
+        (author (s-replace "-mode" "" (format "%s" major-mode)))
         (html-file (make-temp-file "buffer-to-epub" nil ".html")))
     (with-current-buffer html-buffer
       ;; htmlize output contains mix of pre and span tags but iBooks
@@ -25,4 +26,4 @@
       (search-replace-in-buffer "<span" "<pre style=\"display: inline\"")
       (search-replace-in-buffer "</span" "</pre")
       (write-file html-file))
-    (shell-command (format "%s %s %s %s" ebook-convert-bin html-file epub-file ebook-convert-options))))
+    (shell-command (format "%s %s %s %s --authors=%s" ebook-convert-bin html-file epub-file ebook-convert-options author))))
