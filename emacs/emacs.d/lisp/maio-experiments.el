@@ -74,6 +74,7 @@
 (add-hook 'cperl-mode-hook 'paren-face-add-keyword)
 (add-hook 'erlang-mode-hook 'paren-face-add-keyword)
 (add-hook 'json-mode-hook 'paren-face-add-keyword)
+(add-hook 'js2-mode-hook 'paren-face-add-keyword)
 (add-hook 'emacs-lisp-mode-hook 'paren-face-add-keyword)
 
 ;; golden-ration
