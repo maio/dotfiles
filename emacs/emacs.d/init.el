@@ -48,6 +48,7 @@
                        smartrep
                        sackspace
                        yasnippet
+                       htmlize
                        helm
                        helm-descbinds
                        helm-git-grep
