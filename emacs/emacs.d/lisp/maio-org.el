@@ -8,6 +8,7 @@
    '((emacs-lisp . t)
      (ruby . t)
      (python . t)
+     (ditaa . t)
      (sh . t)))
 
   (defun maio/unbind-org-mode-comma ()
