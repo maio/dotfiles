@@ -81,6 +81,9 @@
  '(parenface-paren-face ((t (:foreground "#D0D0D0"))))
  '(parenface-curly-face ((t (:foreground "#D0D0D0"))))
  '(parenface-bracket-face ((t (:foreground "#D0D0D0"))))
+ ;; js2
+ '(js2-function-param ((t (:foreground "#262626"))))
+ '(js2-external-variable ((t (:foreground "#262626"))))
  ;; show paren
  '(sp-show-pair-match-face ((t (:foreground "black" :weight bold))))
  '(sp-show-pair-mismatch-face ((t (:background "red" :foreground "black" :weight bold))))
