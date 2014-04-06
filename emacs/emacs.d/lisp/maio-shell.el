@@ -43,6 +43,8 @@
 (add-hook 'eshell-mode-hook 'maio/setup-eshell)
 
 (with-eval-after-load 'term
-  (define-key term-raw-escape-map (kbd "C-y") 'term-paste))
+  (define-key term-raw-escape-map (kbd "C-y") 'term-paste)
+  (define-key term-raw-map (kbd "s-v") 'term-paste)
+  (define-key term-raw-map (kbd "C-l") 'clear-comint-buffer))
 
 (provide 'maio-shell)
