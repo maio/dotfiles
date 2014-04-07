@@ -22,6 +22,7 @@
 (setq sp-highlight-pair-overlay nil
       sp-highlight-wrap-overlay nil
       sp-highlight-wrap-tag-overlay nil)
+(setq-default sp-autoskip-closing-pair 'always)
 
 (which-func-mode 1)
 
