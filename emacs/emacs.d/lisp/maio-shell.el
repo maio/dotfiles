@@ -46,6 +46,13 @@
   (interactive)
   (ansi-term "/usr/local/bin/bash"))
 
+(defadvice term-sentinel (around auto-close-term-buffer-window (proc msg) activate)
+  (if (memq (process-status proc) '(signal exit))
+      (let ((buffer (process-buffer proc)))
+        ad-do-it
+        (kill-this-buffer-and-window))
+    ad-do-it))
+
 (with-eval-after-load 'term
   (define-key term-raw-escape-map (kbd "C-y") 'term-paste)
   (define-key term-raw-map (kbd "s-v") 'term-paste)
