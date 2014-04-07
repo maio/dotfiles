@@ -149,12 +149,17 @@
     (funcall fun)
     (evil-append nil))
 
+  (evil-define-key 'insert org-mode-map
+    (kbd "M-p") 'org-metaup
+    (kbd "M-n") 'org-metadown)
   (evil-define-key 'normal org-mode-map
     "gh" 'outline-up-heading
     "t" 'org-todo
     "T" 'org-set-tags
     "H" 'org-beginning-of-line
     "L" 'org-end-of-line
+    (kbd "M-p") 'org-metaup
+    (kbd "M-n") 'org-metadown
     (kbd "TAB") 'org-cycle
     (kbd "<tab>") 'org-cycle))
 
