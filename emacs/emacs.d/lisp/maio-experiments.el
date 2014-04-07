@@ -109,11 +109,13 @@
   (eyebrowse-switch-to-window-config 0)
   (delete-other-windows))
 
-(defadvice ansi-term (before eyebrowse-window-4 () activate)
-  (eyebrowse-switch-to-window-config 4)
-  (if (in-mode? 'term-mode)
-      (split-window-below)
-    (delete-other-windows)))
+(defadvice ansi-term (around eyebrowse-window-4 (program &optional new-buffer-name) activate)
+  (let ((dir default-directory)) (eyebrowse-switch-to-window-config 4)
+       (if (in-mode? 'term-mode)
+           (split-window-below)
+         (delete-other-windows))
+       (let ((default-directory dir))
+         ad-do-it)))
 
 (eyebrowse-mode)
 
