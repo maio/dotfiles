@@ -62,7 +62,7 @@
 
 (defun maio/electric-space ()
   (interactive)
-  (cond ((looking-back "(\\|{")
+  (cond ((looking-back "(\\|{\\|\\[")
          (insert "  ")
          (backward-char))
         (t (insert " "))))
