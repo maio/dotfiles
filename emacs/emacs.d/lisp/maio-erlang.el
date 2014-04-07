@@ -34,9 +34,8 @@
   (define-key erlang-mode-map (kbd "M-r") 'raise-exp)
   (define-key erlang-mode-map (kbd "C-x m t") 'erlang-eunit-compile-and-run-module-tests)
   (evil-define-key 'normal erlang-mode-map "gs" 'erlang-shell-display)
-  (sp-local-pair 'erlang-mode "(" nil :post-handlers '(:add my-add-space-after-sexp-insertion))
-  (sp-local-pair 'erlang-mode "{" nil :post-handlers '(:add my-add-space-after-sexp-insertion))
-  (sp-local-pair 'erlang-mode "[" nil :post-handlers '(:add my-add-space-after-sexp-insertion))
+  (define-key erlang-mode-map (kbd "SPC") 'maio/electric-space)
+  (define-key erlang-shell-mode-map (kbd "SPC") 'maio/electric-space)
   (sp-with-modes '(erlang-mode)
     (sp-local-pair "<" ">")))
 
