@@ -117,6 +117,12 @@
        (let ((default-directory dir))
          ad-do-it)))
 
+(defadvice find-file (around eyebrowse-window-1 (filename &optional wildcards) activate)
+  (let ((dir default-directory))
+    (eyebrowse-switch-to-window-config 1)
+    (let ((default-directory dir))
+      ad-do-it)))
+
 (eyebrowse-mode)
 
 ;; git gutter
