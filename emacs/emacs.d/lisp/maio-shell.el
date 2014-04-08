@@ -50,7 +50,10 @@
   (if (memq (process-status proc) '(signal exit))
       (let ((buffer (process-buffer proc)))
         ad-do-it
-        (kill-this-buffer-and-window))
+        (kill-buffer buffer)
+        (if (window-parent)
+            (delete-window)
+          (eyebrowse-close-window-config)))
     ad-do-it))
 
 (with-eval-after-load 'term
