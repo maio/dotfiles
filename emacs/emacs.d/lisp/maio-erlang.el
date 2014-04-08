@@ -20,6 +20,12 @@
         indent-tabs-mode t
         erlang-tab-always-indent t))
 
+(defadvice erlang-compile (before save-buffer () activate)
+  (when (buffer-modified-p) (save-buffer)))
+
+(defadvice erlang-eunit-compile-and-run-module-tests (before save-buffer () activate)
+  (when (buffer-modified-p) (save-buffer)))
+
 (with-eval-after-load 'erlang
   (require 'erlang-eunit)
   (require 'smartparens)
