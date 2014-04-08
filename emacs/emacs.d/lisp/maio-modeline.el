@@ -12,18 +12,4 @@
 (with-eval-after-load 'paredit (diminish 'paredit-mode "(e)"))
 (with-eval-after-load 'flymake (diminish 'flymake-mode "Fly"))
 
-(setq-default
- mode-line-format
- (list " "
-       'mode-line-modified
-       " "
-       '(line-number-mode "%l,")
-       '(column-number-mode "%c")
-       " "
-       'mode-line-buffer-identification
-       " "
-       'mode-line-misc-info
-       'mode-line-modes
-       ))
-
 (provide 'maio-modeline)
