@@ -56,7 +56,17 @@
           (eyebrowse-close-window-config)))
     ad-do-it))
 
+(defun term-char-mode-refocus ()
+  (interactive)
+  (term-char-mode)
+  ;; move cursor to real position as seen by terminal char mode
+  (term-send-raw-string ""))
+
 (with-eval-after-load 'term
+  (defadvice term-line-mode (after evil-normal-state () activate) (evil-normal-state))
+  (defadvice term-char-mode (after evil-emacs-state () activate) (evil-emacs-state))
+  (evil-define-key 'normal term-mode-map [escape] 'term-char-mode-refocus)
+  (evil-define-key 'emacs term-raw-map [escape] 'term-line-mode)
   (define-key term-raw-escape-map (kbd "C-y") 'term-paste)
   (define-key term-raw-map (kbd "s-v") 'term-paste)
   (define-key term-raw-map (kbd "C-l") 'clear-comint-buffer))
