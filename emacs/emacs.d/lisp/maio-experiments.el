@@ -102,6 +102,12 @@
               (lambda () (interactive)
                 (eyebrowse-switch-to-window-config n)))) '(1 2 3 4 5 6))))
 
+;;; eyebrowse build default windows
+(progn
+  (eyebrowse-switch-to-window-config 0)
+  (eyebrowse-switch-to-window-config 4)
+  (eyebrowse-switch-to-window-config 1))
+
 (defadvice magit-status (before eyebrowse-window-0 () activate)
   (eyebrowse-switch-to-window-config 0)
   (delete-other-windows))
