@@ -102,6 +102,21 @@
               (lambda () (interactive)
                 (eyebrowse-switch-to-window-config n)))) '(1 2 3 4 5 6))))
 
+;;; eyebrowse new window setup
+(progn
+  (defvar eyebrowse-new-window-hook nil)
+
+  (defun display-scratch-only ()
+    (delete-other-windows)
+    (switch-to-buffer "*scratch*"))
+
+  (add-hook 'eyebrowse-new-window-hook 'display-scratch-only)
+
+  (defadvice eyebrowse-switch-to-window-config (around handle-new-window-config (slot) activate)
+    (let ((match (assq slot eyebrowse-window-configs)))
+      ad-do-it
+      (when (not match) (run-hooks 'eyebrowse-new-window-hook)))))
+
 ;;; eyebrowse build default windows
 (progn
   (eyebrowse-switch-to-window-config 0)
