@@ -43,7 +43,7 @@
 
 (flycheck-define-checker prove
   "Run Perl tests using prove"
-  :command ("prove" "--norc" "-v" "--merge" source)
+  :command ("prove" "--norc" "-v" "--merge" source-inplace)
   :error-patterns
   ((error line-start "#" (minimal-match (message)) (optional "\n#  ")
           " at " (file-name) " line " line
