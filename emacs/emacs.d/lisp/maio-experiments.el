@@ -88,6 +88,7 @@
 
 ;; eyebrowse
 (ensure-package 'eyebrowse)
+(setq eyebrowse-mode-line-separator " ")
 (require 'eyebrowse)
 (require 'dash)
 (progn
