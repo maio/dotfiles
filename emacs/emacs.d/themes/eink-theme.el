@@ -63,6 +63,7 @@
  '(custom-variable-tag ((t (:foreground "#262626" :weight bold))))
  '(mode-line ((t (:background "grey90" :foreground "#262626" :height 0.8))))
  '(mode-line-inactive ((t (:background "grey90" :foreground "#262626" :height 0.8))))
+ '(mode-line-minor-mode ((t (:background "grey90" :foreground "grey70"))))
  '(default ((t (:background "white smoke" :foreground "#262626"))))
  '(whitespace-line ((t (:background "#262626" :foreground "white smoke"))))
  '(cperl-hash-face ((t (:foreground "#262626"))))

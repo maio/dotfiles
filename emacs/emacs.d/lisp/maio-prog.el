@@ -24,8 +24,6 @@
       sp-highlight-wrap-tag-overlay nil)
 (setq-default sp-autoskip-closing-pair 'always)
 
-(which-func-mode 1)
-
 (defun show-trailing-whitespace () (setq show-trailing-whitespace t))
 (add-hook 'prog-mode-hook 'show-trailing-whitespace)
 (add-hook 'prog-mode-hook 'turn-on-smartparens-mode)
