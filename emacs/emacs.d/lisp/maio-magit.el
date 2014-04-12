@@ -36,6 +36,7 @@
 
 (define-key magit-status-mode-map "G" 'magit-shell-command)
 (add-hook 'git-commit-mode-hook 'flyspell-mode)
+(add-hook 'git-commit-mode-hook 'turn-on-smartparens-mode)
 
 (defun magit-blame-kill-commit-id (pos)
   (interactive "d")
