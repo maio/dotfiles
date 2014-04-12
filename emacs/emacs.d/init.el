@@ -31,6 +31,7 @@
                        yaml-mode
                        php-mode
                        js2-mode
+                       js2-refactor
                        json-mode
                        web-mode
                        rpm-spec-mode

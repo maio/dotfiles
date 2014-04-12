@@ -15,6 +15,7 @@
 
 (with-eval-after-load 'js2-mode
   (require 'smartparens)
+  (js2r-add-keybindings-with-prefix "C-c C-m")
   (add-hook 'js2-mode-hook 'smartparens-mode))
 
 (with-eval-after-load 'json-mode
