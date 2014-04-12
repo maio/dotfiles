@@ -171,6 +171,10 @@
 ;; Evil plugins
 (require 'surround)
 (global-surround-mode 1)
-(add-hook 'after-save-hook 'evil-normal-state)
+
+(defun maio-after-save-state ()
+  (interactive)
+  (when (evil-insert-state-p) (evil-normal-state)))
+(add-hook 'after-save-hook 'maio-after-save-state)
 
 (provide 'maio-evil)
