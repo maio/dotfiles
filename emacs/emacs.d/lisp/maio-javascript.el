@@ -15,10 +15,16 @@
   (json-xs-save-point
     (call-process-region beg end "json_xs" t t)))
 
+(defvar jasmine-compilation-regexp
+  '("Error: \\([^\n]+\\)\n\s+at .* (\\([^:]+\\):\\([[:digit:]]+\\):\\([[:digit:]]+\\))" 2 3 4 nil 1 (1 font-lock-warning-face))
+  "jasmine errors regexp")
+
 (with-eval-after-load 'js2-mode
   (require 'smartparens)
   (js2r-add-keybindings-with-prefix "s-r")
   ;; jasmine stuff
+  (add-to-list 'compilation-error-regexp-alist-alist (cons 'jasmine jasmine-compilation-regexp))
+  (add-to-list 'compilation-error-regexp-alist 'jasmine)
   (add-to-list 'js2-global-externs "it")
   (add-to-list 'js2-global-externs "describe")
   (add-to-list 'js2-global-externs "expect")
