@@ -25,6 +25,13 @@
       (maio/set-font "Source Code Pro" 140)
     (maio/set-font "Source Code Pro Medium" 180)))
 
+(defun dojo-mode ()
+  (interactive)
+  (setq linum-format "%-2d ")
+  (maio/set-font "Source Code Pro Medium" 120)
+  (golden-ratio-mode nil)
+  (add-hook 'prog-mode-hook 'linum-mode))
+
 (when (system-type-is-darwin)
   (xterm-mouse-mode t)
   (defun up-slightly () (interactive) (scroll-up 1))
