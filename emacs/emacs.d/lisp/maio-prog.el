@@ -43,12 +43,13 @@
 (setq whitespace-style '(face trailing lines-tail) whitespace-line-column 80)
 (whitespace-mode)
 
-(require 'ansi-color)
-(defun colorize-compilation-buffer ()
-  (toggle-read-only)
-  (ansi-color-apply-on-region (point-min) (point-max))
-  (toggle-read-only))
-(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+(ignore-errors
+  (require 'ansi-color)
+  (defun my-colorize-compilation-buffer ()
+    (when (eq major-mode 'compilation-mode)
+      (ansi-color-apply-on-region compilation-filter-start (point-max))))
+
+  (add-hook 'compilation-filter-hook 'my-colorize-compilation-buffer))
 
 (defun maio/get-alternative-file (fname)
   (let ((ext (file-name-extension fname))
