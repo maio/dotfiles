@@ -7,7 +7,7 @@
  '(helm-allow-skipping-current-buffer t)
  '(compilation-error-regexp-alist
    (quote
-    (erlang bash python-tracebacks-and-caml cucumber java perl php perl--Test perl--Test2 perl--Test::Harness)))
+    (erlang bash python-tracebacks-and-caml cucumber perl php perl--Test perl--Test2 perl--Test::Harness)))
  '(flycheck-check-syntax-automatically (quote (save mode-enabled)))
  '(js3-consistent-level-indent-inner-bracket t)
  '(js3-indent-level 4)
