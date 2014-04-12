@@ -18,6 +18,8 @@
 (with-eval-after-load 'js2-mode
   (require 'smartparens)
   (js2r-add-keybindings-with-prefix "C-c C-m")
+  ;; minor modes
+  (add-hook 'js2-mode-hook 'yas-minor-mode-on)
   (add-hook 'js2-mode-hook 'smartparens-mode))
 
 (with-eval-after-load 'json-mode
