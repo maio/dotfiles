@@ -34,6 +34,7 @@ Keymap to display on buffer.")
   ""
   :group 'mode-line-faces)
 
+(require 'eyebrowse)
 (setq-default
  mode-line-format
  `(" "
