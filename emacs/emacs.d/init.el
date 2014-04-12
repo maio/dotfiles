@@ -33,11 +33,9 @@
                        js2-mode
                        json-mode
                        web-mode
-                       haskell-mode
                        rpm-spec-mode
                        ag
                        puppet-mode
-                       shell-switcher
                        dired-details
                        flycheck
                        flymake-cursor
@@ -45,7 +43,6 @@
                        bookmark+
                        smartparens
                        iedit
-                       smartrep
                        sackspace
                        yasnippet
                        htmlize

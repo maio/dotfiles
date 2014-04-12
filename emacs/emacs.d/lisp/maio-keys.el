@@ -6,11 +6,6 @@
 (global-set-key (kbd "C-9") 'previous-buffer)
 (global-set-key (kbd "C-0") 'next-buffer)
 
-(require 'smartrep)
-;; https://github.com/shishi/.emacs.d/blob/master/inits/20-smartrep.el
-(smartrep-define-key global-map "C-x" '(("," . previous-buffer)
-                                        ("." . next-buffer)))
-
 (define-key (current-global-map) [remap save-buffer] 'force-save-buffer)
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
 (global-set-key (kbd "C-x K") 'kill-this-buffer-and-window)
@@ -20,7 +15,7 @@
 (global-set-key (kbd "C-x C-b") 'maio/helm)
 (global-set-key (kbd "C-x c v") 'maio/find-config-file)
 (global-set-key (kbd "C-x g s") 'remember-notes)
-(global-set-key (kbd "C-x g .") 'shell-switcher-switch-buffer)
+(global-set-key (kbd "C-x g .") 'eshell)
 (global-set-key (kbd "C-x g /") 'helm-git-grep)
 (global-set-key (kbd "C-x n f") 'maio-narrow-to-defun-clone)
 (global-set-key (kbd "C-x c k") 'maio/bury)

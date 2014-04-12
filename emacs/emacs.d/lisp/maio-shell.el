@@ -4,13 +4,6 @@
 (setq comint-prompt-read-only t)
 (setq eshell-cmpl-ignore-case t)
 
-(require 'shell-switcher)
-(shell-switcher-mode)
-
-(setenv "PATH"
-        (concat "/opt/local/bin:/opt/perl/bin:/usr/local/bin:"
-                (getenv "PATH")))
-
 (defun maio/insert-last-argument ()
   (interactive)
   (insert (first (last eshell-last-arguments))))
@@ -26,12 +19,6 @@
   (start-process "serve" (format "*serve %s*" default-directory) "python" "-m" "SimpleHTTPServer")
   (browse-url "http://localhost:8000/")
   "Server started at http://localhost:8000/")
-
-(defun eshell/rr (&rest commands)
-  (interactive)
-  (save-window-excursion
-    (let ((max-mini-window-height 0))
-      (with-output-to-string (shell-command (s-join " " commands) standard-output)))))
 
 (defun maio/setup-eshell ()
   (define-key eshell-mode-map (kbd "M-.") 'maio/insert-last-argument)
