@@ -17,7 +17,7 @@
 
 (with-eval-after-load 'js2-mode
   (require 'smartparens)
-  (js2r-add-keybindings-with-prefix "C-c C-m")
+  (js2r-add-keybindings-with-prefix "s-r")
   ;; jasmine stuff
   (add-to-list 'js2-global-externs "it")
   (add-to-list 'js2-global-externs "describe")
