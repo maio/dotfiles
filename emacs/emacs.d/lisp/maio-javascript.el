@@ -18,6 +18,16 @@
 (with-eval-after-load 'js2-mode
   (require 'smartparens)
   (js2r-add-keybindings-with-prefix "C-c C-m")
+  ;; jasmine stuff
+  (add-to-list 'js2-global-externs "it")
+  (add-to-list 'js2-global-externs "describe")
+  (add-to-list 'js2-global-externs "expect")
+  (add-to-list 'js2-global-externs "beforeEach")
+  (add-to-list 'js2-global-externs "afterEach")
+  (add-to-list 'js2-global-externs "xdescribe")
+  (add-to-list 'js2-global-externs "xit")
+  (add-to-list 'js2-global-externs "spyOn")
+  (add-to-list 'js2-global-externs "jasmine")
   ;; minor modes
   (add-hook 'js2-mode-hook 'yas-minor-mode-on)
   (add-hook 'js2-mode-hook 'smartparens-mode))
