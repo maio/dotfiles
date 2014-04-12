@@ -7,6 +7,7 @@
 (setq ace-jump-mode-case-sensitive-search nil
       ace-jump-mode-gray-background nil)
 
+(setq-default cursor-type '(bar . 1))
 (setq evil-default-cursor '("gray30" box))
 (setq evil-normal-state-cursor '("gray30" box))
 (setq evil-insert-state-cursor '("gray30" (bar . 1)))
