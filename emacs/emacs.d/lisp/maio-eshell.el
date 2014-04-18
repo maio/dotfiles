@@ -10,7 +10,6 @@
   (require 'em-prompt)
   (require 'em-term)
   (require 'em-cmpl)
-  (setenv "PAGER" "cat")
   (add-hook 'eshell-mode-hook ;; for some reason this needs to be a hook
             '(lambda ()
                (setq eshell-path-env (getenv "PATH"))

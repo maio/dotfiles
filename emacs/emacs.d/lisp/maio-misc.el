@@ -1,5 +1,4 @@
 (setenv "RLWRAP" "")
-(setenv "PAGER" "cat")
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (setq backup-inhibited t)
