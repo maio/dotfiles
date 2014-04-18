@@ -39,6 +39,7 @@
   (global-set-key (kbd "<mouse-5>") 'up-slightly))
 
 (when (ui-type-is-gui)
+  (menu-bar-mode t)
   (set-fringe-mode 0))
 
 (provide 'maio-ui)
