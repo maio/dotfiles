@@ -49,8 +49,13 @@
   (evil-define-key 'normal erlang-mode-map "K" 'erlang-man-function)
   (define-key erlang-mode-map (kbd "SPC") 'maio/electric-space)
   (add-hook 'erlang-shell-mode-hook
-            (lambda () (define-key erlang-shell-mode-map (kbd "SPC") 'maio/electric-space)))
-  (sp-with-modes '(erlang-mode)
-    (sp-local-pair "<" ">")))
+            (lambda ()
+              (define-key erlang-shell-mode-map (kbd "TAB") 'dabbrev-expand)
+              (yas-minor-mode-on)
+              (evil-define-key 'normal erlang-shell-mode-map [escape] 'evil-emacs-state)
+              (evil-define-key 'emacs erlang-shell-mode-map [escape] 'evil-normal-state)
+              (define-key erlang-shell-mode-map (kbd "SPC") 'maio/electric-space)
+              ))
+  (sp-with-modes '(erlang-mode) (sp-local-pair "<<\"" "\">>")))
 
 (provide 'maio-erlang)
