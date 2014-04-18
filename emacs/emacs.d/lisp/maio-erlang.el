@@ -26,6 +26,11 @@
 (defadvice erlang-eunit-compile-and-run-module-tests (before save-buffer () activate)
   (when (buffer-modified-p) (save-buffer)))
 
+(defun aqe-clean-ast ()
+  (interactive)
+  (search-replace-in-buffer "ast," "")
+  (search-replace-in-buffer "{ast_position,[^}]+}" ""))
+
 (with-eval-after-load 'erlang
   (require 'erlang-eunit)
   (require 'smartparens)
