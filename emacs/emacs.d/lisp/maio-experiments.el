@@ -57,6 +57,7 @@
 (setq exec-path (s-split ":" (getenv "PATH")))
 (setenv "ERL_LIBS" (s-trim (shell-command-to-string "bash -l -c 'echo $ERL_LIBS'")))
 (setenv "PERL5LIB" (s-trim (shell-command-to-string "bash -l -c 'echo $PERL5LIB'")))
+(setenv "MANPATH" (s-trim (shell-command-to-string "bash -l -c 'echo $MANPATH'")))
 
 ;; org-capture
 (with-eval-after-load 'org
