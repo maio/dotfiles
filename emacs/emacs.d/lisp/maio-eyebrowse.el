@@ -57,7 +57,7 @@
 
 (defadvice find-file (around eyebrowse-window-1 (filename &optional wildcards) activate)
   (let ((dir default-directory))
-    (when (member eyebrowse-current-slot '(1 4))
+    (when (member eyebrowse-current-slot '(0 4))
       (eyebrowse-switch-to-window-config 1))
     (let ((default-directory dir))
       ad-do-it)))
