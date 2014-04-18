@@ -73,6 +73,8 @@
  '(idle-highlight ((t (:weight bold))))
  '(magit-header ((t (:weight bold))))
  '(magit-item-highlight ((t (:weight bold))))
+ ;; dired
+ '(dired-directory ((t (:weight bold))))
  ;; helm
  '(helm-selection-line ((t (:inherit region :weight bold))))
  '(helm-selection ((t (:inherit region))))
