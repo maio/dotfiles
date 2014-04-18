@@ -69,6 +69,10 @@
   (bury-buffer)
   (when (window-parent) (delete-window)))
 
+(defun previous-other-window ()
+  (interactive)
+  (other-window -1))
+
 (defun other-buffer-or-window ()
   (interactive)
   (if (window-parent)
