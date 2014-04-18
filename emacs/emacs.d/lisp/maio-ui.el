@@ -27,9 +27,8 @@
 
 (defun dojo-mode ()
   (interactive)
+  (maio/set-font "Source Code Pro Medium" 230)
   (setq linum-format "%-2d ")
-  (maio/set-font "Source Code Pro Medium" 120)
-  (golden-ratio-mode nil)
   (add-hook 'prog-mode-hook 'linum-mode))
 
 (when (system-type-is-darwin)
