@@ -46,6 +46,7 @@
   (define-key erlang-mode-map (kbd "M-r") 'raise-exp)
   (define-key erlang-mode-map (kbd "C-x m t") 'erlang-eunit-compile-and-run-module-tests)
   (evil-define-key 'normal erlang-mode-map "gs" 'erlang-shell-display)
+  (evil-define-key 'normal erlang-mode-map "K" 'erlang-man-function)
   (define-key erlang-mode-map (kbd "SPC") 'maio/electric-space)
   (add-hook 'erlang-shell-mode-hook
             (lambda () (define-key erlang-shell-mode-map (kbd "SPC") 'maio/electric-space)))
