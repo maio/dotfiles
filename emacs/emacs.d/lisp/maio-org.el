@@ -11,6 +11,8 @@
      (ditaa . t)
      (sh . t)))
 
+  (setq org-ditaa-jar-path (s-trim (shell-command-to-string "brew ls ditaa | grep jar")))
+
   (defun maio/unbind-org-mode-comma ()
     (org-defkey org-mode-map [(control ?,)] nil))
   (add-hook 'org-mode-hook 'maio/unbind-org-mode-comma)
