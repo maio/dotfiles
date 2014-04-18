@@ -8,8 +8,9 @@
 ;; - turn off minor modes (flyspell, git gutter, ...)
 
 (defun search-replace-in-buffer (search replace)
-  (beginning-of-buffer)
-  (while (re-search-forward search nil t) (replace-match replace)))
+  (save-excursion
+    (beginning-of-buffer)
+    (while (re-search-forward search nil t) (replace-match replace))))
 
 (defun buffer-to-epub (epub-file)
   (interactive "F")
