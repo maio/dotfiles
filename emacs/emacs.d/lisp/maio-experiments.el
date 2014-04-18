@@ -81,11 +81,8 @@
 ;; golden-ration
 (ensure-package 'golden-ratio)
 (setq golden-ratio-exclude-modes '("magit-key-mode"))
-(require 'golden-ratio)
-(golden-ratio-mode 1)
-(diminish 'golden-ratio-mode nil)
-(add-hook 'ediff-mode-hook (lambda () (golden-ratio-mode 0)))
-(add-hook 'ediff-quit-hook (lambda () (golden-ratio-mode 1)))
+(with-eval-after-load 'golden-ratio (diminish 'golden-ratio-mode))
+(global-set-key (kbd "s-g") 'golden-ratio)
 
 ;; git gutter
 ;; (ensure-package 'git-gutter+)
