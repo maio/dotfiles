@@ -4,6 +4,7 @@
 
 (setq company-idle-delay nil)
 (setq company-minimum-prefix-length 3)
+(setq company-dabbrev-downcase nil)
 (push 'company-readline company-backends)
 
 (global-set-key (kbd "C-n") 'company--auto-completion)
