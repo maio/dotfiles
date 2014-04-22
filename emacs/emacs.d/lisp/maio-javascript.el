@@ -19,8 +19,13 @@
   '("Error: \\([^\n]+\\)\n\s+at .* (\\([^:]+\\):\\([[:digit:]]+\\):\\([[:digit:]]+\\))" 2 3 4 nil 1 (1 font-lock-warning-face))
   "jasmine errors regexp")
 
+(defun maio/js2-defaults ()
+  (setq evil-shift-width 2)
+  (setq tab-width 2))
+
 (with-eval-after-load 'js2-mode
   (require 'smartparens)
+  (add-hook 'js2-mode-hook 'maio/js2-defaults)
   (js2r-add-keybindings-with-prefix "s-r")
   ;; jasmine stuff
   (add-to-list 'compilation-error-regexp-alist-alist (cons 'jasmine jasmine-compilation-regexp))
