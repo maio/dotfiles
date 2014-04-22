@@ -23,7 +23,13 @@
   (setq evil-shift-width 2)
   (setq tab-width 2))
 
+(defun js-beautify-dwim (arg)
+  (interactive "P")
+  (let ((perltidy-program "my-js-beautify"))
+    (perltidy-dwim arg)))
+
 (with-eval-after-load 'js2-mode
+  (require 'perltidy)
   (require 'smartparens)
   (add-hook 'js2-mode-hook 'maio/js2-defaults)
   (js2r-add-keybindings-with-prefix "s-r")
@@ -42,7 +48,8 @@
   ;; minor modes
   (add-hook 'js2-mode-hook 'yas-minor-mode-on)
   (add-hook 'js2-mode-hook 'smartparens-mode)
-  (define-key js2-mode-map (kbd "SPC") 'maio/electric-space))
+  (define-key js2-mode-map (kbd "SPC") 'maio/electric-space)
+  (evil-define-key 'visual js2-mode-map "=" 'js-beautify-dwim))
 
 (with-eval-after-load 'json-mode
   (evil-define-key 'visual json-mode-map "=" 'json-xs-region))
