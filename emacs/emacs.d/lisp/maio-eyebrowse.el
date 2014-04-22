@@ -7,13 +7,14 @@
 (progn
   (let ((map eyebrowse-mode-map))
     (define-key map (kbd "C-'") 'eyebrowse-last-window-config)
+    (define-key map (kbd "s-`") 'eyebrowse-last-window-config)
     (define-key map (kbd "C-\"") 'eyebrowse-close-window-config)
     (define-key map (kbd "s-j") 'eyebrowse-next-window-config)
     (define-key map (kbd "s-k") 'eyebrowse-prev-window-config)
     (-map (lambda (n)
-            (define-key map (kbd (s-concat "C-" (number-to-string n)))
+            (define-key map (kbd (s-concat "s-" (number-to-string n)))
               (lambda () (interactive)
-                (eyebrowse-switch-to-window-config n)))) '(1 2 3 4 5 6))))
+                (eyebrowse-switch-to-window-config n)))) '(0 1 2 3 4 5 6))))
 
 ;;; eyebrowse new window setup
 (progn
