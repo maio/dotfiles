@@ -1,12 +1,8 @@
 (setq bookmark-save-flag 1)
-
-(defadvice helm-bookmarks (before bmkp () activate) (require 'bookmark+))
-(defadvice bookmark-jump (before bmkp () activate) (require 'bookmark+))
-
+(add-to-list 'helm-completing-read-handlers-alist '(bookmark-jump . ido))
 (add-hook 'bookmark-after-jump-hook 'recenter-top-bottom)
 
-(with-eval-after-load 'bookmark+
-  (global-set-key (kbd "C-x j j") 'helm-bookmarks))
-(global-set-key (kbd "C-x j j") 'helm-bookmarks)
+(require 'bookmark+)
+(global-set-key (kbd "C-x j j") 'bookmark-jump)
 
 (provide 'maio-bookmark)
