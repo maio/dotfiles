@@ -3,6 +3,9 @@
 (require 'dash)
 (require 'helm)
 
+(defvar helm-compile-pre-compilation-hook nil)
+(defvar helm-compile-compilation-hook nil)
+
 (defvar helm-compile-locate-dominating-file ".git"
   "Locate dominating file before running compilation so that it's executed in
    correct directory (e.g. project root)")
@@ -23,15 +26,19 @@
     (progn
       (push command compile-history)
       (compile command comint)
+      (switch-to-buffer compilation-last-buffer)
       (with-current-buffer compilation-last-buffer
         (rename-buffer (helm-compile--buffer-for-command project command))))))
 
 (defun helm-compile--compile (command &optional comint)
-  (let* ((default-directory (helm-compile--get-default-directory))
-         (project (f-base default-directory)))
-    (if (get-buffer (helm-compile--buffer-for-command project command))
-        (helm-compile---switch-to-buffer project command)
-      (helm-compile---compile project command comint))))
+  (let ((dir (helm-compile--get-default-directory)))
+    (run-hooks 'helm-compile-pre-compilation-hook)
+    (let* ((default-directory dir)
+           (project (f-base default-directory)))
+      (if (get-buffer (helm-compile--buffer-for-command project command))
+          (helm-compile---switch-to-buffer project command)
+        (helm-compile---compile project command comint))
+      (run-hooks 'helm-compile-compilation-hook))))
 
 (defvar helm-c-source-compile
   '((name . "Compile")
@@ -59,6 +66,7 @@
     (candidates . (lambda () (-filter 'compilation-buffer-p (helm-buffer-list))))
     (action
      . (("Compile" . (lambda (candidate)
+                       (run-hooks 'helm-compile-pre-compilation-hook)
                        (switch-to-buffer candidate)))))))
 
 (defun helm-compile ()
@@ -71,5 +79,8 @@
    "*helm compile*"))
 
 (add-to-list 'savehist-additional-variables 'compile-history)
+
+(add-hook 'helm-compile-pre-compilation-hook (lambda () (eyebrowse-switch-to-window-config 0)))
+(add-hook 'helm-compile-compilation-hook 'delete-other-windows)
 
 (provide 'helm-compile)
