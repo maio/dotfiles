@@ -45,6 +45,7 @@
 (evil-define-key 'normal lisp-mode-shared-map "D" 'paredit-kill)
 (evil-define-key 'normal lisp-mode-shared-map "B" 'backward-up-list)
 (evil-define-key 'insert lisp-mode-shared-map (kbd "C-j") 'paredit-close-round-and-newline)
+(define-key emacs-lisp-mode-map (kbd "C-c C-c") '(lambda () (interactive) (eval-buffer) (ert t)))
 
 (define-key evil-insert-state-map (kbd "M-<backspace>") 'backward-kill-word)
 (define-key evil-motion-state-map "gl" 'magit-file-log)

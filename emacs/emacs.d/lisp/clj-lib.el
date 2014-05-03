@@ -1,12 +1,13 @@
 ;;; -*- lexical-binding: t -*-
 
+(require 'dash)
+
 (defmacro clj-comment (&rest body)
   "Ignores body, yields nil."
   nil)
 
-(defun clj-identity (x)
-  "Returns its argument."
-  x)
+(defun clj-partition (n coll)
+  (-partition 2 coll))
 
 (defmacro clj-for (bindings body)
   "List comprehension."
@@ -26,10 +27,10 @@
 (ert-deftest clj-comment ()
   (should (equal (clj-comment pretty much anything) nil)))
 
-(ert-deftest clj-identity-test ()
-  (let ((some-value 'any-value))
-    (should
-     (equal (clj-identity some-value) some-value))))
+(ert-deftest clj-partition ()
+  (should
+   (equal (clj-partition 2 '(1 2 3 4))
+          '((1 2) (3 4)))))
 
 (ert-deftest clj-for ()
   (should
