@@ -4,7 +4,7 @@ install:
 	@ln -sf `pwd`/DefaultKeyBinding.dict "/Users/maio/Library/KeyBindings/DefaultKeyBinding.dict"
 
 /usr/local/bin/brew:
-	@yes | ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+	@yes | ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
 /usr/local/bin/ansible: /usr/local/bin/brew
 	@brew install ansible
