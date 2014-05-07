@@ -9,8 +9,6 @@
     (define-key map (kbd "C-'") 'eyebrowse-last-window-config)
     (define-key map (kbd "s-`") 'eyebrowse-last-window-config)
     (define-key map (kbd "C-\"") 'eyebrowse-close-window-config)
-    (define-key map (kbd "s-j") 'eyebrowse-next-window-config)
-    (define-key map (kbd "s-k") 'eyebrowse-prev-window-config)
     (-map (lambda (n)
             (define-key map (kbd (s-concat "s-" (number-to-string n)))
               (lambda () (interactive)
