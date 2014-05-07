@@ -97,37 +97,26 @@
 ;; rx
 ;; http://www.lunaryorn.com/2014/03/26/search-based-fontification-with-keywords.html
 (with-eval-after-load 're-builder
-  (setq reb-re-syntax 'rx))
+  (setq reb-re-syntax 'rx)
+
+  ;; use flycheck-rx-to-string instead of rx-to-string
+  (defun reb-cook-regexp (re)
+  "Return RE after processing it according to `reb-re-syntax'."
+  (cond ((memq reb-re-syntax '(sregex rx))
+	 (flycheck-rx-to-string (eval (car (read-from-string re)))))
+	(t re))))
 
 ;; org-reveal
-(ensure-package 'ox-reveal)
-(require 'ox-reveal)
-(setq org-reveal-theme "solarized")
+(with-eval-after-load 'org
+  (ensure-package 'ox-reveal)
+  (require 'ox-reveal)
+  (setq org-reveal-theme "solarized"))
 
-;; multiple cursors
-(ensure-package 'multiple-cursors)
-(with-eval-after-load 'mc-mark-more
-  (defvar my-mc-evil-previous-state nil)
-
-  (defun my-mc-evil-switch-to-emacs-state ()
-    (when (and (bound-and-true-p evil-mode)
-               (not (eq evil-state 'emacs)))
-      (setq my-mc-evil-previous-state evil-state)
-      (evil-emacs-state)))
-
-  (defun my-mc-evil-back-to-previous-state ()
-    (when my-mc-evil-previous-state
-      (unwind-protect
-          (case my-mc-evil-previous-state
-            ((normal visual insert) (evil-force-normal-state))
-            (t (message "Don't know how to handle previous state: %S"
-                        my-mc-evil-previous-state)))
-        (setq my-mc-evil-previous-state nil))))
-
-  (add-hook 'multiple-cursors-mode-enabled-hook
-            'my-mc-evil-switch-to-emacs-state)
-  (add-hook 'multiple-cursors-mode-disabled-hook
-            'my-mc-evil-back-to-previous-state))
-(global-set-key (kbd "s-;") 'mc/mark-all-like-this-dwim)
+(ensure-package 'dired-open)
+(with-eval-after-load 'dired
+  (require 'dired-open)
+  (setq dired-open-extensions '(("qt" . "qtshow")
+                                ("qt.opt" . "qtshow")
+                                ("svg" . "open"))))
 
 (provide 'maio-experiments)
