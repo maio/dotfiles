@@ -39,7 +39,6 @@
                        puppet-mode
                        dired-details
                        flycheck
-                       flymake-cursor
                        diminish
                        bookmark+
                        smartparens

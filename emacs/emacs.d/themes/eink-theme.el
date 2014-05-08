@@ -73,6 +73,9 @@
  '(idle-highlight ((t (:weight bold))))
  '(magit-header ((t (:weight bold))))
  '(magit-item-highlight ((t (:weight bold))))
+ ;; flycheck
+ '(flycheck-error ((t (:inherit error))))
+ '(flycheck-warning ((t (:inherit warning))))
  ;; dired
  '(dired-directory ((t (:weight bold))))
  ;; helm
