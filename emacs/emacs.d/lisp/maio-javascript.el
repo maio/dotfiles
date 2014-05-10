@@ -23,10 +23,10 @@
   (setq evil-shift-width 2)
   (setq tab-width 2))
 
-(defun js-beautify-dwim (arg)
-  (interactive "P")
-  (let ((perltidy-program "my-js-beautify"))
-    (perltidy-dwim arg)))
+(defun jsfmt-region (beg end)
+  (interactive "r")
+  (perltidy-save-point
+    (call-process-region beg end "jsfmt" t t t "--format=true")))
 
 (with-eval-after-load 'js2-mode
   (require 'perltidy)
@@ -49,7 +49,7 @@
   (add-hook 'js2-mode-hook 'yas-minor-mode-on)
   (add-hook 'js2-mode-hook 'smartparens-mode)
   (define-key js2-mode-map (kbd "SPC") 'maio/electric-space)
-  (evil-define-key 'visual js2-mode-map "=" 'js-beautify-dwim))
+  (evil-define-key 'visual js2-mode-map "=" 'jsfmt-region))
 
 (with-eval-after-load 'json-mode
   (evil-define-key 'visual json-mode-map "=" 'json-xs-region))
