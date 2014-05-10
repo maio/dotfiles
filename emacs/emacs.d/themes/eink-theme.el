@@ -70,7 +70,7 @@
  '(cperl-hash-face ((t (:foreground "#262626"))))
  '(cperl-array-face ((t (:foreground "#262626"))))
  '(cperl-nonoverridable-face ((t (:foreground "#262626"))))
- '(idle-highlight ((t (:weight bold))))
+ '(idle-highlight ((t (:background "#FFF100"))))
  '(magit-header ((t (:weight bold))))
  '(magit-item-highlight ((t (:weight bold))))
  ;; flycheck
