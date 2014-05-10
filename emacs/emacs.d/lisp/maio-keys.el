@@ -24,6 +24,8 @@
 (global-set-key (kbd "s-j") 'other-window)
 (global-set-key (kbd "s-k") 'previous-other-window)
 (global-set-key (kbd "s-r") 'revert-buffer)
+(global-set-key (kbd "s-[") 'profiler-start)
+(global-set-key (kbd "s-]") 'profiler-report)
 
 (define-key comint-mode-map (kbd "C-x k") 'kill-comint-buffer)
 (define-key comint-mode-map (kbd "s-l") 'clear-comint-buffer)
