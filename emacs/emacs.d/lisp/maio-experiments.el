@@ -126,4 +126,8 @@
 (push '("^\*helm .+\*$" :regexp t) popwin:special-display-config)
 (push '("^\*helm-.+\*$" :regexp t) popwin:special-display-config)
 
+;; helm-cmd-t
+(ensure-package 'helm-cmd-t)
+(global-set-key (kbd "s-t") 'helm-cmd-t)
+
 (provide 'maio-experiments)
