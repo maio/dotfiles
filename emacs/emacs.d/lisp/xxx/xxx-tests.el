@@ -24,6 +24,7 @@
         (delete-region (point-min) (point-max))
         (insert actual)
         (goto-char (point-min))
+        (setq xxx-debug-indent t)
         (ert-fail "indentation doesn't match")))))
 
 (defun xxx-gen-test (fname)

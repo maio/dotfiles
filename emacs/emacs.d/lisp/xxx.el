@@ -6,6 +6,8 @@
 (makunbound 'xxx-smie-grammar)
 (makunbound 'xxx-keywords-regexp)
 
+(defvar xxx-debug-indent nil)
+
 (defvar xxx-indent-basic 4)
 
 (defvar xxx-smie-grammar
@@ -25,7 +27,7 @@
    ))
 
 (defun xxx-smie-rules (kind token)
-  (message "%s %s" kind token)
+  (when xxx-debug-indent (message "%s %s" kind token))
   (case kind
     (:elem
      (case token
@@ -106,6 +108,7 @@
   ;;   )
 
 (define-derived-mode xxx-mode prog-mode "XXX"
+  (make-local-variable 'xxx-debug-indent)
   (make-local-variable 'comment-start)
   (setq comment-start "% ")
   (make-local-variable 'comment-start-skip)
