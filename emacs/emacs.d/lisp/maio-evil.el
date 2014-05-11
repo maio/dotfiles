@@ -38,6 +38,7 @@
                               (diff-mode                     . emacs)
                               (tar-mode                      . emacs)
                               (archive-mode                  . emacs)
+                              (ert-results-mode              . emacs)
                               (makey-key-mode                . emacs))
       do (evil-set-initial-state mode state))
 
@@ -118,6 +119,7 @@
 (evil-add-hjkl-bindings gist-list-menu-mode-map 'emacs
   "K" 'gist-kill-current)
 (evil-add-hjkl-bindings magit-process-mode 'emacs)
+(evil-add-hjkl-bindings ert-results-mode-map 'emacs)
 (evil-add-hjkl-bindings magit-status-mode-map 'emacs
   "K" 'magit-discard-item
   "l" 'magit-key-mode-popup-logging
