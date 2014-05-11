@@ -71,6 +71,7 @@
 (require 'maio-evil)
 (require 'maio-shell)
 (require 'maio-eshell)
+(require 'maio-lisp)
 (require 'maio-web)
 (require 'maio-perl)
 (require 'maio-python)
