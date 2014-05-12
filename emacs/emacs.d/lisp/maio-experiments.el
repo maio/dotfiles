@@ -130,4 +130,8 @@
 (ensure-package 'helm-cmd-t)
 (global-set-key (kbd "s-t") 'helm-cmd-t)
 
+;; move to new window
+(defadvice split-window-right (after switch-to-it () activate) (other-window 1))
+(defadvice split-window-below (after switch-to-it () activate) (other-window 1))
+
 (provide 'maio-experiments)
