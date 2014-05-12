@@ -1,4 +1,5 @@
 (require 'smie)
+(require 'erlang)
 
 ;; SMIE experiment
 ;; http://www.gnu.org/software/emacs/manual/html_node/elisp/SMIE.html
@@ -14,42 +15,57 @@
   (smie-prec2->grammar
    (smie-bnf->prec2
     '((id)
-      (inst ("begin" insts "end")
-            (exp))
-      (insts (insts ";" insts) (inst))
-      (exp ("[" exps "]")
-           ("(" exps ")"))
-      (exps (exps "," exps) (exp))
+
       )
     '((assoc ";"))
     '((assoc ","))
     )
    ))
 
+(defvar xxx-smie-grammar
+  (smie-prec2->grammar
+   (smie-bnf->prec2
+    '((id)
+      (inst (id "=" exp)
+            (id "->" exp)
+            (exp))
+      (insts (insts "," insts) (inst))
+      (exp (exp "+" exp)
+           (exp "*" exp)
+           ("[" exps "]")
+           ("(" exps ")"))
+      (exps (exps "," exps) (exp)))
+    '((assoc ";"))
+    '((assoc ","))
+    '((assoc "+") (assoc "*")))))
+
+
 (defun xxx-smie-rules (kind token)
   (when xxx-debug-indent (message "%s %s" kind token))
   (case kind
     (:elem
      (case token
-       (basic xxx-indent-basic)))
-    (:after
-     (cond
-      ((equal token "[")
-       (when (smie-rule-hanging-p)
-         (when (not (smie-rule-prev-p "["))
-           (smie-rule-parent))))))
+       (basic (if (smie-rule-hanging-p)
+                  (smie-rule-parent)
+                xxx-indent-basic))))
     (:before
      (cond
       ((equal token "[")
-       (when (smie-rule-hanging-p)
-         (smie-rule-parent)))
-      ((equal token ",")
-       (when (smie-rule-bolp) (smie-rule-parent)))))
-    (:list-intro 0))
-  )
+       (if (and (smie-rule-hanging-p))
+           (smie-rule-parent)
+         xxx-indent-basic))))
+    (:after
+     (cond
+      ((equal token "[")
+       (if (and (smie-rule-hanging-p) (not (smie-rule-sibling-p)))
+           (smie-rule-parent)
+         xxx-indent-basic))))
+    (:close-all nil)
+    (:list-intro nil))
+    )
 
-(defvar xxx-keywords-regexp
-  (regexp-opt '("+" "*" "," ";" ">" ">=" "<" "<=>" "<=" "=")))
+
+(defvar xxx-keywords-regexp (regexp-opt '("[" "]" ";" "," "->" "*" ".")))
 
 (defun xxx-smie-forward-token ()
   (forward-comment (point-max))
@@ -73,59 +89,21 @@
        (progn (skip-syntax-backward "w_")
               (point))))))
 
-(defun try-reformat ()
-  (interactive)
-  ;; (highlight-changes-mode 0)
-  (revert-buffer nil t)
-  ;; (highlight-changes-mode t)
-  (evil-indent (point-min) (point-max)))
-
-(global-set-key (kbd "s-r") 'revert-buffer)
-(global-set-key (kbd "s-i") 'try-reformat)
-
-;; :after [
-;; :before [
-;; :before (
-;; :elem basic
-
-  ;; (case kind
-  ;;   (:elem
-  ;;    (case token
-  ;;      (basic xxx-indent-basic)))
-  ;;   (:after
-  ;;    (cond
-  ;;     ((equal token ",") (smie-rule-separator kind))
-  ;;     ((equal token "[") xxx-indent-basic)
-  ;;     ((equal token "=") xxx-indent-basic)))
-  ;;   (:before
-  ;;    (cond
-  ;;     ((equal token ",") (smie-rule-separator kind))
-  ;;     ((member token '("begin" "(" "{" "["))
-  ;;      (if (smie-rule-hanging-p) 0))
-  ;;     ((equal token "if")
-  ;;      (and (not (smie-rule-bolp)) (smie-rule-prev-p "else")
-  ;;           (smie-rule-parent)))))
-  ;;   )
 
 (define-derived-mode xxx-mode prog-mode "XXX"
+  (erlang-syntax-table-init)
   (make-local-variable 'xxx-debug-indent)
   (make-local-variable 'comment-start)
   (setq comment-start "% ")
-  (make-local-variable 'comment-start-skip)
-  (setq comment-start-skip "%+\\s *")
-  ;; (make-local-variable 'comment-column)
-  ;; (setq comment-column 48)
   (smie-setup xxx-smie-grammar
               #'xxx-smie-rules
-              ;; :forward-token #'xxx-smie-forward-token
-              ;; :backward-token #'xxx-smie-backward-token
+              :forward-token #'xxx-smie-forward-token
+              :backward-token #'xxx-smie-backward-token
               )
   (make-local-variable 'indent-line-function)
   (setq indent-line-function 'smie-indent-line)
   ;; (setq indent-tabs-mode t)
-  ;; (setq tab-width 4)
   )
-
 
 (add-to-list 'auto-mode-alist '("\\.xxx" . xxx-mode))
 
