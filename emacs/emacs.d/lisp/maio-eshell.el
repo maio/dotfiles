@@ -20,6 +20,7 @@
   ;; TODO: submit these via M-x report-emacs-bug
   (add-to-list 'eshell-visual-commands "ssh")
   (add-to-list 'eshell-visual-commands "tail")
+  (add-to-list 'eshell-visual-commands "htop")
   (add-to-list 'eshell-command-completions-alist
                '("gunzip" "gz\\'"))
   (add-to-list 'eshell-command-completions-alist
