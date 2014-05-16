@@ -73,6 +73,8 @@
  '(idle-highlight ((t (:background "#FFF100"))))
  '(magit-header ((t (:weight bold))))
  '(magit-item-highlight ((t (:weight bold))))
+ ;; compile
+ '(compilation-error ((t (:inherit error))))
  ;; flycheck
  '(flycheck-error ((t (:inherit error))))
  '(flycheck-warning ((t (:inherit warning))))
