@@ -1,0 +1,11 @@
+{
+    "~d" = "deleteWordForward:";
+    "^w" = "deleteWordBackward:";
+    "~f" = "moveWordForward:";
+    "~b" = "moveWordBackward:";
+    "^/" = "undo:";
+    "^g" = {
+         "^g" = ("insertText:", "marian.schubert@gmail.com");
+         "^d" = ("insertText:", "marian.schubert@gooddata.com");
+    };
+}
