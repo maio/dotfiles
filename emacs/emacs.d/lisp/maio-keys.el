@@ -27,6 +27,9 @@
 (global-set-key (kbd "s-[") 'profiler-start)
 (global-set-key (kbd "s-]") 'profiler-report)
 
+(global-set-key (kbd "s-=") 'maio/inc-font-size)
+(global-set-key (kbd "s--") 'maio/dec-font-size)
+
 (define-key comint-mode-map (kbd "C-x k") 'kill-comint-buffer)
 (define-key comint-mode-map (kbd "s-l") 'clear-comint-buffer)
 (define-key ido-common-completion-map "\C-p" 'ido-prev-match)

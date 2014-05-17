@@ -3,9 +3,19 @@
 (global-font-lock-mode 1)
 (winner-mode 1)
 
+(defvar maio/font-size nil)
+
 (defun maio/set-font (font size)
+  (setq maio/font-size size)
   (set-frame-font font)
   (set-font-size size))
+
+(defun maio/alter-font-size (delta)
+  (setq maio/font-size (+ maio/font-size delta))
+  (set-font-size maio/font-size))
+
+(defun maio/inc-font-size () (interactive) (maio/alter-font-size +10))
+(defun maio/dec-font-size () (interactive) (maio/alter-font-size -10))
 
 ;; custom display modes
 (defun regular-mode ()
