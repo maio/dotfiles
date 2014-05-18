@@ -39,6 +39,7 @@ Keymap to display on buffer.")
  mode-line-format
  `(" "
    (eyebrowse-mode (:eval (eyebrowse-update-mode-line)))
+   global-mode-string
    " %* "
    (:propertize "%b " face mode-line-buffer
                 help-echo (buffer-file-name)

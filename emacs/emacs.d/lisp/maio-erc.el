@@ -1,3 +1,5 @@
+(setq erc-track-position-in-mode-line t)
+
 (defun maio/erc-notify (match-type nickuserhost msg)
   (with-current-buffer (get-buffer-create "IRC")
     (save-excursion
