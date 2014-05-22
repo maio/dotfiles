@@ -40,29 +40,37 @@
 
 (with-eval-after-load 'magit
   (defadvice magit-status (before eyebrowse-window-0 () activate)
-    (eyebrowse-switch-to-window-config 0)
-    (delete-other-windows))
+    (when eyebrowse-mode
+      (eyebrowse-switch-to-window-config 0)
+      (delete-other-windows)))
 
   (defadvice magit-file-log (before eyebrowse-window-0 () activate)
-    (eyebrowse-switch-to-window-config 0)
-    (delete-other-windows)))
+    (when eyebrowse-mode
+      (eyebrowse-switch-to-window-config 0)
+      (delete-other-windows))))
 
 (with-eval-after-load 'term
   (defadvice ansi-term (around eyebrowse-window-4 (program &optional new-buffer-name) activate)
-    (let ((dir default-directory))
-      (eyebrowse-switch-to-window-config 4)
-      (if (in-mode? 'term-mode)
-          (split-window-below)
-        (delete-other-windows))
-      (let ((default-directory dir))
-        ad-do-it))))
+    (if eyebrowse-mode
+        (progn
+          (let ((dir default-directory))
+            (eyebrowse-switch-to-window-config 4)
+            (if (in-mode? 'term-mode)
+                (split-window-below)
+              (delete-other-windows))
+            (let ((default-directory dir))
+              ad-do-it)))
+      ad-do-it)))
 
 (defadvice find-file (around eyebrowse-window-1 (filename &optional wildcards) activate)
-  (let ((dir default-directory))
-    (when (member eyebrowse-current-slot '(0 4))
-      (eyebrowse-switch-to-window-config 1))
-    (let ((default-directory dir))
-      ad-do-it)))
+  (if eyebrowse-mode
+      (progn
+        (let ((dir default-directory))
+          (when (member eyebrowse-current-slot '(0 4))
+            (eyebrowse-switch-to-window-config 1))
+          (let ((default-directory dir))
+            ad-do-it)))
+    ad-do-it))
 
 (eyebrowse-mode t)
 
