@@ -35,12 +35,11 @@
       (with-current-buffer buffer
         (setq default-directory directory)))))
 
-(defun maio/helm ()
+(defun maio/helm-org ()
   (interactive)
-  (helm-set-default-directory "*helm maio*" default-directory)
-  (helm :sources '(helm-c-source-ls-git
-                   helm-c-source-buffer-not-found)
-        :buffer "*helm maio*"))
+  ;; (helm-set-default-directory "*helm maio*" default-directory)
+  (let ((default-directory "~/org/"))
+    (call-interactively 'helm-do-grep)))
 
 (defun maio/helm-occur ()
   "Same as helm-occur expect it uses regexp-search-ring
