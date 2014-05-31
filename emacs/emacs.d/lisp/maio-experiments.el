@@ -77,6 +77,7 @@
 (add-hook 'json-mode-hook 'paren-face-add-keyword)
 (add-hook 'js2-mode-hook 'paren-face-add-keyword)
 (add-hook 'emacs-lisp-mode-hook 'paren-face-add-keyword)
+(add-hook 'python-mode-hook 'paren-face-add-keyword)
 
 ;; golden-ration
 (ensure-package 'golden-ratio)
