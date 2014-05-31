@@ -26,6 +26,7 @@
 (add-hook 'compilation-start-hook
           (lambda (process) (setq compilation-scroll-output t)))
 (help-at-pt-set-timer)
+(delete-selection-mode 1)
 
 (defun maio/indent ()
   (setq indent-line-function 'indent-relative-maybe))
