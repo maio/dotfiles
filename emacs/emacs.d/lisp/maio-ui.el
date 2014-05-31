@@ -38,8 +38,7 @@
 (defun dojo-mode ()
   (interactive)
   (maio/set-font "Source Code Pro Medium" 230)
-  (setq linum-format "%-2d ")
-  (add-hook 'prog-mode-hook 'linum-mode))
+  (setq evil-normal-state-cursor '("red" box)))
 
 (when (system-type-is-darwin)
   (xterm-mouse-mode t)
