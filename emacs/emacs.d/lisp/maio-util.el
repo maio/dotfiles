@@ -162,4 +162,21 @@
 
 (fset 'raise-exp "\C-vy\C-vvpgv\C-g")
 
+(defun maio/reset ()
+  (interactive)
+  (kill-all-buffers)
+  (delete-other-windows)
+  (progn
+    (eyebrowse-close-window-config)
+    (eyebrowse-close-window-config)
+    (eyebrowse-close-window-config)
+    (eyebrowse-close-window-config)
+    (eyebrowse-close-window-config)
+    (eyebrowse-close-window-config)
+    (eyebrowse-close-window-config)
+    (eyebrowse-close-window-config)
+    (eyebrowse-switch-to-window-config 0)
+    (eyebrowse-switch-to-window-config 4)
+    (eyebrowse-switch-to-window-config 1)))
+
 (provide 'maio-util)
