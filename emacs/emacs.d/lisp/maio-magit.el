@@ -51,7 +51,9 @@
 
   (defadvice magit-blame-mode (after evil-state () activate)
     (if magit-blame-mode
-        (evil-emacs-state)
+        (progn
+          (evil-emacs-state)
+          (recenter))
       (evil-normal-state))))
 
 (provide 'maio-magit)
