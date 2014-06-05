@@ -43,6 +43,7 @@
   (add-hook 'erlang-mode-hook 'maio/run-prog-mode-hook)
   (add-hook 'erlang-shell-mode-hook 'turn-on-smartparens-mode)
   (define-key erlang-mode-map (kbd "C-c C-c") 'erlang-eunit-compile-and-run-module-tests)
+  (define-key erlang-mode-map (kbd "s-s") 'erlang-eunit-compile-and-run-module-tests)
   (define-key erlang-mode-map (kbd "C-j") 'newline-and-indent)
   (define-key erlang-mode-map (kbd "M-r") 'raise-exp)
   (define-key erlang-mode-map (kbd "C-x m t") 'erlang-eunit-compile-and-run-module-tests)
