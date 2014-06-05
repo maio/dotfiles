@@ -1,4 +1,5 @@
-(setq org-indent-indentation-per-level 1)
+(setq org-indent-indentation-per-level 1
+      org-indent-mode-turns-on-hiding-stars nil)
 
 (with-eval-after-load 'org
   (require 'org-indent)
@@ -18,6 +19,7 @@
   (add-hook 'org-mode-hook 'maio/unbind-org-mode-comma)
   (add-hook 'org-mode-hook 'org-indent-mode)
   (add-hook 'org-mode-hook 'turn-on-smartparens-mode)
+  (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-insert-heading-hook 'evil-insert-state))
 
 ;; http://orgmode.org/manual/Handling-links.html
