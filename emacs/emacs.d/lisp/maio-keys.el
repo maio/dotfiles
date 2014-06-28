@@ -26,6 +26,8 @@
 (global-set-key (kbd "s-r") 'revert-buffer)
 (global-set-key (kbd "s-[") 'profiler-start)
 (global-set-key (kbd "s-]") 'profiler-report)
+(define-key evil-emacs-state-map (kbd "s-d") "\C-a\C-k\C-k\C-y\C-y\C-p")
+(define-key evil-normal-state-map (kbd "s-d") "YPj")
 
 (global-set-key (kbd "s-=") 'maio/inc-font-size)
 (global-set-key (kbd "s--") 'maio/dec-font-size)
