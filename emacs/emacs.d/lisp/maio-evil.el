@@ -96,7 +96,7 @@
 (define-key evil-normal-state-map "s" "gv")
 (define-key evil-normal-state-map (kbd "M-h") 'paredit-backward)
 (define-key evil-normal-state-map (kbd "M-l") 'paredit-forward)
-(evil-define-key 'visual surround-mode-map "S" "sba")
+(evil-define-key 'visual evil-surround-mode-map "S" "sba")
 (define-key evil-normal-state-map "+" 'evil-numbers/inc-at-pt)
 (define-key evil-normal-state-map "-" 'evil-numbers/dec-at-pt)
 
@@ -172,8 +172,8 @@
     (kbd "<tab>") 'org-cycle))
 
 ;; Evil plugins
-(require 'surround)
-(global-surround-mode 1)
+(require 'evil-surround)
+(global-evil-surround-mode 1)
 
 (defun maio-after-save-state ()
   (interactive)

@@ -53,7 +53,7 @@
                        eyebrowse
                        evil
                        evil-numbers
-                       surround
+                       evil-surround
                        xclip
                        expand-region
                        gist)))
