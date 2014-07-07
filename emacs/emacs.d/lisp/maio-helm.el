@@ -35,6 +35,11 @@
       (with-current-buffer buffer
         (setq default-directory directory)))))
 
+(defun maio/helm-project ()
+  (interactive)
+  (let ((default-directory "~/Projects/"))
+    (call-interactively 'helm-find-files)))
+
 (defun maio/helm-org ()
   (interactive)
   ;; (helm-set-default-directory "*helm maio*" default-directory)
