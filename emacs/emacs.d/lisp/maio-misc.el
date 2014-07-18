@@ -3,6 +3,7 @@
 (setq auto-save-default nil)
 (setq backup-inhibited t)
 (global-auto-revert-mode 1)
+(setq undo-limit 800000)
 (setq fill-column 80)
 (setq-default tab-width 4)
 (setq c-basic-offset 4)
