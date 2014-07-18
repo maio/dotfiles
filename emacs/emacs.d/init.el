@@ -11,6 +11,7 @@
   (let ((my-packages '(auto-compile
                        starter-kit
                        starter-kit-lisp
+                       f
                        s
                        dash
                        undo-tree
