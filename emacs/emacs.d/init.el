@@ -23,7 +23,6 @@
                        erlang
                        recompile-on-save
                        clojure-mode
-                       clojure-test-mode
                        clojure-cheatsheet
                        cider
                        midje-mode
