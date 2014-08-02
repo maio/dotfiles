@@ -15,6 +15,8 @@
 (with-eval-after-load 'cider
   (add-hook 'cider-repl-mode-hook 'turn-on-smartparens-strict-mode)
   (define-key cider-repl-mode-map (kbd "C-x k") 'cider-quit)
+  (defadvice cider-eval-defun-at-point (after evil-normal-state () activate)
+    (evil-normal-state))
   (evil-define-key 'normal cider-doc-mode-map "q" cider-popup-buffer-quit-function)
   (evil-define-key 'normal cider-stacktrace-mode-map "q" cider-popup-buffer-quit-function))
 
