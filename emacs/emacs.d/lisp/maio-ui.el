@@ -37,7 +37,7 @@
 
 (defun dojo-mode ()
   (interactive)
-  (maio/set-font "Source Code Pro Medium" 230)
+  (setq company-idle-delay 0.1)
   (setq evil-normal-state-cursor '("red" box)))
 
 (when (system-type-is-darwin)
