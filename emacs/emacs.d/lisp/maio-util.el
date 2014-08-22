@@ -128,13 +128,13 @@
   (switch-to-buffer "*scratch*"))
 
 (defun maio/looking-at-bol? ()
-  (save-excursion (backward-word) (eq (point) (line-beginning-position))))
+  (save-excursion (eq (point) (line-beginning-position))))
 
 (defun maio/looking-at-empty-line? ()
   (save-excursion (move-end-of-line 1) (eq (point) (yas--real-line-beginning))))
 
 (defun maio/looking-at-first-word-on-the-line? ()
-  (save-excursion (backward-word) (eq (point) (yas--real-line-beginning))))
+  (eq (point) (yas--real-line-beginning)))
 
 (defun buffer-contains? (string)
   (save-excursion
