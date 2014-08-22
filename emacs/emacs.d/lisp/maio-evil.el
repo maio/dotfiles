@@ -84,8 +84,8 @@
 (define-key evil-visual-state-map "3" 'toggle-comment-on-line-or-region)
 ;; make it easy to switch to visual-char mode from visual-block mode
 (define-key evil-visual-state-map "v" 'evil-visual-block)
-(require 'expand-region)
-(define-key evil-normal-state-map (kbd "C-v") 'er/expand-region)
+(define-key evil-normal-state-map (kbd "C-v") 'scroll-up-command)
+(define-key evil-motion-state-map (kbd "C-v") 'scroll-up-command)
 (define-key evil-insert-state-map (kbd "<C-return>") 'evil-open-above)
 (define-key evil-insert-state-map (kbd "M-RET") 'evil-open-below)
 (define-key evil-visual-state-map "u" nil)

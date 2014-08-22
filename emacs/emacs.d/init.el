@@ -55,7 +55,6 @@
                        evil-numbers
                        evil-surround
                        xclip
-                       expand-region
                        magit
                        gist)))
     (dolist (package my-packages)
