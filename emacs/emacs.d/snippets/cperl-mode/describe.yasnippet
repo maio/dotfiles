@@ -3,6 +3,6 @@
 # key: d
 # condition: (and (maio/looking-at-first-word-on-the-line?) (buffer-contains? "Test::Spec"))
 # --
-describe "${1:what}" => sub {
+describe "${1:`(maio/guess-perl-package-name)`}" => sub {
     $0
 };
