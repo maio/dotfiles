@@ -53,6 +53,7 @@
             (add-hook 'evil-operator-state-entry-hook 'wdired-change-to-wdired-mode nil 'make-it-local)))
 
 (setcdr evil-insert-state-map nil) ;; make insert state like emacs state
+(define-key evil-insert-state-map "\C-r" 'evil-paste-from-register)
 (define-key evil-normal-state-map "U" 'undo-tree-visualize)
 (define-key evil-normal-state-map [remap yank-pop] nil)
 (define-key evil-normal-state-map (kbd "C-y") 'yank)
