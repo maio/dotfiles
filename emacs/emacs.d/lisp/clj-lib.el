@@ -1,5 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
+(require 'cl-lib)
 (require 'dash)
 
 (defmacro clj-comment (&rest body)
@@ -12,8 +13,8 @@
 (defmacro clj-for (bindings body)
   "List comprehension."
   (let ((bindings (clj-partition 2 (mapcar #'identity bindings))))
-    (--reduce-from  `(loop for ,(car it) in ,(car (cdr it))
-                           append ,acc) `(list ,body) (reverse bindings))))
+    (--reduce-from  `(cl-loop for ,(car it) in ,(car (cdr it))
+                              append ,acc) `(list ,body) (reverse bindings))))
 
 (put 'clj-for 'lisp-indent-function 2)
 
