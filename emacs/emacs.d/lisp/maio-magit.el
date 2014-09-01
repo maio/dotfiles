@@ -34,7 +34,6 @@
 (defadvice magit-toggle-section (after scroll-line-to-top () activate)
   (call-interactively 'evil-scroll-line-to-top))
 
-(define-key magit-status-mode-map "G" 'magit-shell-command)
 (add-hook 'git-commit-mode-hook 'flyspell-mode)
 (add-hook 'git-commit-mode-hook 'turn-on-smartparens-mode)
 
