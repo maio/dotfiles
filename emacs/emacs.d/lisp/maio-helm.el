@@ -47,17 +47,22 @@
     (call-interactively 'helm-do-grep)))
 
 (defun maio/helm-occur ()
-  "Same as helm-occur expect it uses regexp-search-ring
-
-This way it's possible to use evil-search-next."
+  "Preconfigured helm for Occur."
   (interactive)
-  (setq helm-multi-occur-buffer-list (list (buffer-name (current-buffer))))
-  (setq isearch-forward t)
   (helm-occur-init-source)
-  (helm-attrset 'name "Occur" helm-source-occur)
+  (let ((bufs (list (buffer-name (current-buffer)))))
+    (helm-attrset 'moccur-buffers bufs helm-source-occur)
+    (helm-set-local-variable 'helm-multi-occur-buffer-list bufs)
+    (helm-set-local-variable
+     'helm-multi-occur-buffer-tick
+     (cl-loop for b in bufs
+              collect (buffer-chars-modified-tick (get-buffer b)))))
   (helm :sources 'helm-source-occur
         :buffer "*helm occur*"
-        :history 'regexp-search-ring))
+        :history 'regexp-search-ring
+        :preselect (and (memq 'helm-source-occur helm-sources-using-default-as-input)
+                        (format "%s:%d:" (buffer-name) (line-number-at-pos (point))))
+        :truncate-lines t))
 
 (require 'helm-compile)
 (global-set-key (kbd "C-x c c") 'helm-compile)
