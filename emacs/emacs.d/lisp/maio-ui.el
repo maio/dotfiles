@@ -35,11 +35,6 @@
       (maio/set-font "Source Code Pro" 140)
     (maio/set-font "Source Code Pro Medium" 180)))
 
-(defun dojo-mode ()
-  (interactive)
-  (setq company-idle-delay 0.1)
-  (setq evil-normal-state-cursor '("red" box)))
-
 (when (system-type-is-darwin)
   (xterm-mouse-mode t)
   (defun up-slightly () (interactive) (scroll-up 1))

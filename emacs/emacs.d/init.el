@@ -92,6 +92,7 @@
 (require 'maio-clipboard)
 (require 'maio-modes)
 (require 'maio-experiments)
+(require 'maio-dojo)
 (require 'maio-local nil t)
 
 (regular-mode)
