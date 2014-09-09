@@ -28,12 +28,13 @@
   (add-hook 'eyebrowse-new-window-hook 'display-scratch-only)
 
   (defadvice eyebrowse-switch-to-window-config (around handle-new-window-config (slot) activate)
-    (let ((match (assq slot eyebrowse-window-configs)))
+    (let ((match (assq slot (eyebrowse-get 'window-configs))))
       ad-do-it
       (when (not match) (run-hooks 'eyebrowse-new-window-hook)))))
 
 ;;; eyebrowse build default windows
 (progn
+  (eyebrowse-mode t)
   (eyebrowse-switch-to-window-config 0)
   (eyebrowse-switch-to-window-config 4)
   (eyebrowse-switch-to-window-config 1))
@@ -66,12 +67,10 @@
   (if eyebrowse-mode
       (progn
         (let ((dir default-directory))
-          (when (member eyebrowse-current-slot '(0 4))
+          (when (member (eyebrowse-get 'current-slot) '(0 4))
             (eyebrowse-switch-to-window-config 1))
           (let ((default-directory dir))
             ad-do-it)))
     ad-do-it))
-
-(eyebrowse-mode t)
 
 (provide 'maio-eyebrowse)
