@@ -16,6 +16,7 @@
 
   (defun maio/unbind-org-mode-comma ()
     (org-defkey org-mode-map [(control ?,)] nil))
+  (define-key org-mode-map (kbd "C-x c i") 'helm-org-headlines)
   (add-hook 'org-mode-hook 'maio/unbind-org-mode-comma)
   (add-hook 'org-mode-hook 'org-indent-mode)
   (add-hook 'org-mode-hook 'turn-on-smartparens-mode)
