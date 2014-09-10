@@ -45,8 +45,23 @@
     (kill-new commit)
     (message commit)))
 
+(defun magit-blame-mark-commit (pos)
+  ;; mark commit - requires modification of magit-refresh-marked-commits-in-buffer
+  ;;
+  ;; equal doesn't work because commit is fully qualified here and
+  ;; log uses abbreviations so it's required to use s-starts-with?
+  (interactive "d")
+  (let* ((chunk (get-text-property pos :blame))
+         (commit-info (nth 3 chunk))
+         (commit (plist-get commit-info :sha1)))
+    (progn
+      (setq magit-marked-commit commit)
+      (magit-refresh-marked-commits))
+    (message (concat "Marked " commit))))
+
 (with-eval-after-load 'magit-blame
   (define-key magit-blame-map (kbd "C-w") 'magit-blame-kill-commit-id)
+  (define-key magit-blame-map (kbd ".") 'magit-blame-mark-commit)
 
   (defadvice magit-blame-mode (after evil-state () activate)
     (if magit-blame-mode
