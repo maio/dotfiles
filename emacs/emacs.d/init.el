@@ -37,6 +37,8 @@
                        rpm-spec-mode
                        ag
                        puppet-mode
+                       nimrod-mode
+                       groovy-mode
                        dired-details
                        flycheck
                        diminish

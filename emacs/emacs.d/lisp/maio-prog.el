@@ -30,6 +30,7 @@
 (add-hook 'prog-mode-hook 'show-trailing-whitespace)
 (add-hook 'prog-mode-hook 'turn-on-smartparens-mode)
 (add-hook 'html-mode-hook 'turn-on-smartparens-mode)
+(add-hook 'groovy-mode-hook 'turn-on-smartparens-mode)
 
 (defun maio-narrow-to-defun-clone ()
   (interactive)
