@@ -3,6 +3,7 @@
 (setq eyebrowse-mode-line-separator " ")
 (require 'eyebrowse)
 (require 'dash)
+(require 's)
 
 (progn
   (let ((map eyebrowse-mode-map))

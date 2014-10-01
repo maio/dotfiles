@@ -26,7 +26,6 @@
                        clojure-mode
                        clojure-cheatsheet
                        cider
-                       midje-mode
                        feature-mode
                        mustache-mode
                        yaml-mode

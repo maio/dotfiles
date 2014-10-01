@@ -1,6 +1,7 @@
 (with-eval-after-load 'clojure-mode
   ;; For some reason this will define M-. in lisp-mode-shared-map (report bug?)
   ;; (evil-define-key 'normal clojure-mode-map (kbd "M-.") 'cider-jump)
+  (require 'cider)
   (define-key clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)
   (define-key clojure-mode-map (kbd "M-.") 'cider-jump)
   (define-key clojure-mode-map (kbd "M-,") 'cider-jump-back)
