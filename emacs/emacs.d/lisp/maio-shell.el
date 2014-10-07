@@ -50,6 +50,12 @@
   ;; move cursor to real position as seen by terminal char mode
   (term-send-raw-string ""))
 
+(defun term-clear-buffer ()
+  (interactive)
+  (clear-comint-buffer)
+  ;; without C-l it breaks sometimes (only one line is visible)
+  (term-send-raw-string (kbd "C-l")))
+
 (with-eval-after-load 'term
   (defadvice term-line-mode (after evil-normal-state () activate) (evil-normal-state))
   (defadvice term-char-mode (after evil-emacs-state () activate) (evil-emacs-state))
@@ -58,6 +64,6 @@
   (evil-define-key 'emacs term-raw-map [escape] 'term-line-mode)
   (define-key term-raw-escape-map (kbd "C-y") 'term-paste)
   (define-key term-raw-map (kbd "s-v") 'term-paste)
-  (define-key term-raw-map (kbd "s-l") 'clear-comint-buffer))
+  (define-key term-raw-map (kbd "s-l") 'term-clear-buffer))
 
 (provide 'maio-shell)
