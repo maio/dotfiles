@@ -13,6 +13,7 @@
       cperl-tab-always-indent t
       cperl-electric-backspace-untabify nil)
 
+(add-to-list 'auto-mode-alist '("\\.pwt$" . perl-mode))
 (add-to-list 'auto-mode-alist '("\\.t$" . perl-mode))
 (add-to-list 'auto-mode-alist '("\\.it$" . perl-mode))
 (add-to-list 'auto-mode-alist '("\\.psgi$" . perl-mode))
