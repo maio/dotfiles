@@ -3,5 +3,5 @@
 # key: pp
 # condition: (maio/looking-at-first-word-on-the-line?)
 # --
-use DDP;
-print STDERR p($1);
+use Data::Dump;
+print STDERR Data::Dump::pp($1);
