@@ -12,6 +12,7 @@
 (setq yaml-indent-offset 4)
 (setq-default indent-tabs-mode nil)
 (setq-default cursor-in-non-selected-windows nil)
+(setq-default line-spacing 1)
 (column-number-mode 1)
 (idle-highlight-mode 1)
 (setq tramp-default-method "sshx")
