@@ -29,6 +29,7 @@
           (lambda (process) (setq compilation-scroll-output t)))
 (help-at-pt-set-timer)
 (delete-selection-mode 1)
+(setq shift-select-mode t)
 
 (defun maio/indent ()
   (setq indent-line-function 'indent-relative-maybe))
