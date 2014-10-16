@@ -41,6 +41,7 @@
                                  (tar-mode                      . emacs)
                                  (archive-mode                  . emacs)
                                  (ert-results-mode              . emacs)
+                                 (image-mode                    . emacs)
                                  (makey-key-mode                . emacs))
          do (evil-set-initial-state mode state))
 
