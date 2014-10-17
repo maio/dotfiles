@@ -1,5 +1,6 @@
 (setq org-indent-indentation-per-level 1
-      org-indent-mode-turns-on-hiding-stars nil)
+      org-indent-mode-turns-on-hiding-stars t
+      org-hide-leading-stars t)
 
 (with-eval-after-load 'org
   (require 'org-indent)
@@ -25,5 +26,8 @@
 
 ;; http://orgmode.org/manual/Handling-links.html
 (global-set-key (kbd "C-c l") 'org-store-link)
+
+(evil-define-key 'normal org-mode-map "[[" 'outline-previous-visible-heading)
+(evil-define-key 'normal org-mode-map "]]" 'outline-next-visible-heading)
 
 (provide 'maio-org)
