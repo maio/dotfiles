@@ -23,7 +23,7 @@
  '(font-lock-reference-face ((t (:foreground "#262626"))))
  '(font-lock-string-face ((t (:foreground "#262626"))))
  '(font-lock-type-face ((t (:foreground "#262626"))))
- '(font-lock-variable-name-face ((t (:foreground "#262626"))))
+ '(font-lock-variable-name-face ((t (:foreground "#262626" :underline nil))))
  '(font-lock-warning-face ((t (:foreground "#262626" :weight bold))))
  '(link ((t (:foreground "#262626"))))
  '(org-hide ((t (:foreground "white smoke"))))

@@ -1,17 +1,7 @@
 (require 's)
 (require 'dash)
 
-(add-to-list 'load-path "~/.emacs.d/lisp/cperl-mode")
-(defalias 'perl-mode 'cperl-mode)
-
-(setq cperl-indent-level 4
-      cperl-close-paren-offset -4
-      cperl-continued-statement-offset 4
-      cperl-indent-parens-as-block t
-      cperl-electric-parens nil
-      cperl-invalid-face nil
-      cperl-tab-always-indent t
-      cperl-electric-backspace-untabify nil)
+(setq perl-indent-parens-as-block t)
 
 (add-to-list 'auto-mode-alist '("\\.pwt$" . perl-mode))
 (add-to-list 'auto-mode-alist '("\\.t$" . perl-mode))
@@ -22,23 +12,25 @@
 (add-to-list 'auto-mode-alist '("\\.tmpl$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.tt$" . html-mode))
 
-(with-eval-after-load 'cperl-mode
-  (require 'yasnippet)
-  (yas-minor-mode-on)
+(defun setup-perl-mode ()
+  (setq indent-tabs-mode t))
+
+(with-eval-after-load 'perl-mode
+  (add-hook 'perl-mode-hook 'esk-prog-mode-hook)
+  (add-hook 'perl-mode-hook 'smartparens-mode)
+  (add-hook 'perl-mode-hook 'flycheck-mode)
+  (add-hook 'perl-mode-hook 'yas-minor-mode-on)
+  (add-hook 'perl-mode-hook 'setup-perl-mode)
+
+  ;; (require 'yasnippet)
+  ;; (yas-minor-mode-on)
   (require 'perltidy)
-  (require 'which-func)
-  (add-to-list 'which-func-modes 'cperl-mode)
-  (add-hook 'cperl-mode-hook 'esk-prog-mode-hook)
-  (add-hook 'cperl-mode-hook 'smartparens-mode)
-  (add-hook 'cperl-mode-hook 'flycheck-mode)
-  (add-hook 'cperl-mode-hook 'maio/setup-tab-indent)
-  (add-hook 'cperl-mode-hook 'yas-minor-mode-on)
-  (evil-define-key 'normal cperl-mode-map "-" 'maio/find-alternative-file)
-  (evil-define-key 'normal cperl-mode-map "=" 'perltidy-dwim)
-  (evil-define-key 'visual cperl-mode-map "=" 'perltidy-dwim)
-  (define-key cperl-mode-map (kbd "SPC") 'maio/electric-space)
-  (define-key cperl-mode-map (kbd "RET") 'maio/electric-return)
-  (define-key cperl-mode-map (kbd "C-x m t") 'prove))
+  (evil-define-key 'normal perl-mode-map "-" 'maio/find-alternative-file)
+  (evil-define-key 'normal perl-mode-map "=" 'perltidy-dwim)
+  (evil-define-key 'visual perl-mode-map "=" 'perltidy-dwim)
+  ;; (define-key perl-mode-map (kbd "SPC") 'maio/electric-space)
+  ;; (define-key perl-mode-map (kbd "RET") 'maio/electric-return)
+  (define-key perl-mode-map (kbd "C-x m t") 'prove))
 
 (with-eval-after-load 'feature-mode
   (evil-define-key 'normal feature-mode-map "-" 'maio/find-alternative-file))

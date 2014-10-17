@@ -72,7 +72,7 @@
 ;; parenface
 (ensure-package 'parenface)
 (require 'parenface)
-(add-hook 'cperl-mode-hook 'paren-face-add-keyword)
+(add-hook 'perl-mode-hook 'paren-face-add-keyword)
 (add-hook 'erlang-mode-hook 'paren-face-add-keyword)
 (add-hook 'json-mode-hook 'paren-face-add-keyword)
 (add-hook 'js2-mode-hook 'paren-face-add-keyword)

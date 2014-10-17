@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: wtiming
+# key: wtiming
+# --
+use GDC::AQE::Util qw( :TIME );
+
+sub with_timing {
+	my ($self, $part, $sub) = @_;
+
+	my $time = aqe_get_time();
+	$sub->();
+	log->info( { action => 'XYZ', part => "$part", part_time => aqe_sprintf_time($time) } );
+}
