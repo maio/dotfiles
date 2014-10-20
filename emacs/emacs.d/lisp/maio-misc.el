@@ -30,6 +30,7 @@
 (help-at-pt-set-timer)
 (delete-selection-mode 1)
 (setq shift-select-mode t)
+(setq initial-scratch-message nil)
 
 (defun maio/indent ()
   (setq indent-line-function 'indent-relative-maybe))
