@@ -53,11 +53,11 @@
 (define-key ctl-x-4-map "t" 'toggle-window-split)
 
 ;; read env from shell
-(setenv "PATH" (s-trim (shell-command-to-string "bash -l -c 'echo $PATH'")))
-(setq exec-path (s-split ":" (getenv "PATH")))
-(setenv "ERL_LIBS" (s-trim (shell-command-to-string "bash -l -c 'echo $ERL_LIBS'")))
-(setenv "PERL5LIB" (s-trim (shell-command-to-string "bash -l -c 'echo $PERL5LIB'")))
-(setenv "MANPATH" (s-trim (shell-command-to-string "bash -l -c 'echo $MANPATH'")))
+(ensure-package 'exec-path-from-shell)
+(require 'exec-path-from-shell)
+(add-to-list 'exec-path-from-shell-variables "ERL_LIBS")
+(add-to-list 'exec-path-from-shell-variables "PERL5LIB")
+(exec-path-from-shell-initialize)
 
 ;; org-capture
 (with-eval-after-load 'org
