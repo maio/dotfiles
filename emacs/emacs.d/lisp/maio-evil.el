@@ -42,6 +42,7 @@
                                  (archive-mode                  . emacs)
                                  (ert-results-mode              . emacs)
                                  (image-mode                    . emacs)
+                                 (ag-mode                       . emacs)
                                  (makey-key-mode                . emacs))
          do (evil-set-initial-state mode state))
 
@@ -132,6 +133,7 @@
   (kbd "C-k") 'magit-goto-previous-section)
 (evil-add-hjkl-bindings grep-mode-map 'emacs)
 (evil-add-hjkl-bindings helm-grep-mode-map 'emacs)
+(evil-add-hjkl-bindings ag-mode-map 'emacs)
 (evil-add-hjkl-bindings diff-mode-map 'emacs
   "q" 'quit-window)
 
