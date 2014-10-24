@@ -179,4 +179,9 @@
     (eyebrowse-switch-to-window-config 4)
     (eyebrowse-switch-to-window-config 1)))
 
+(defun get-ip-address (&optional dev)
+  "get the IP-address for device DEV (default: en0)"
+  (let ((dev (if dev dev "en0")))
+    (format-network-address (car (network-interface-info dev)) t)))
+
 (provide 'maio-util)
