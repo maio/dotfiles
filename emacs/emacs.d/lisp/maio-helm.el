@@ -11,6 +11,14 @@
       helm-mp-highlight-delay nil
       helm-full-frame nil)
 
+(setq helm-locate-command
+      (case system-type
+        ('gnu/linux "locate -i -r %s")
+        ('berkeley-unix "locate -i %s")
+        ('windows-nt "es %s")
+        ('darwin "mdfind -name %s %s")
+        (t "locate %s")))
+
 (require 'helm-config)
 (require 'helm-match-plugin)
 (helm-mode 1)
