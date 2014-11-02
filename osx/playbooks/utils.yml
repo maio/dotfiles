@@ -1,8 +1,14 @@
 ---
 
+- name: rsync
+  homebrew: name=rsync state=present
+
 - name: tree
   homebrew: name=tree state=present
 
 - name: ag grep
   homebrew: name=the_silver_searcher state=present
+
+- name: fasd
+  homebrew: name=fasd state=present
 
