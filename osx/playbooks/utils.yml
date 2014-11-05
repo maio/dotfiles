@@ -12,3 +12,16 @@
 - name: fasd
   homebrew: name=fasd state=present
 
+- name: imagemagick
+  homebrew: name=imagemagick state=present
+
+# aqe stuff
+- name: jq
+  homebrew: name=jq state=present
+
+- name: s3cmd
+  homebrew: name=s3cmd state=present
+
+- name: md5sha1sum
+  homebrew: name=md5sha1sum state=present
+
