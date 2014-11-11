@@ -12,6 +12,7 @@
 (global-set-key (kbd "C-x K") 'kill-this-buffer-and-window)
 (global-set-key (kbd "C-x g g") 'magit-status)
 (global-set-key (kbd "C-x g b") 'magit-blame-mode)
+(global-set-key (kbd "C-x g l") 'magit-log)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x c v") 'maio/find-config-file)
 (global-set-key (kbd "C-x g s") 'maio/goto-scratch-buffer)
