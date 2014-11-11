@@ -5,4 +5,10 @@
     <identifier>private.right_command_to_escape</identifier>
     <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_R, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::COMMAND_R, KeyCode::ESCAPE</autogen>
   </item>
+  <item>
+    <name>Semicolon to Control_L</name>
+    <appendix>(+ When you type Semicolon only, send Semicolon)</appendix>
+    <identifier>remap.semicolon2controlL_semicolon</identifier>
+    <autogen>__KeyOverlaidModifier__ KeyCode::SEMICOLON, KeyCode::CONTROL_L, KeyCode::SEMICOLON</autogen>
+  </item>
 </root>
