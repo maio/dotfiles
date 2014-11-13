@@ -74,9 +74,9 @@
  '(cperl-hash-face ((t (:foreground "#262626"))))
  '(cperl-array-face ((t (:foreground "#262626"))))
  '(cperl-nonoverridable-face ((t (:foreground "#262626"))))
- '(idle-highlight ((t (:background "#FFF100"))))
+ '(idle-highlight ((t (:background "#FFF1AA"))))
  '(magit-header ((t (:weight bold))))
- '(magit-item-mark ((t (:background "#FFF100"))))
+ '(magit-item-mark ((t (:background "#FFF1AA"))))
  '(magit-item-highlight ((t (:weight bold))))
  ;; compile
  '(compilation-error ((t (:inherit error))))
