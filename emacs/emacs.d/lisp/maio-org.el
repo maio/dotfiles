@@ -2,6 +2,9 @@
       org-indent-mode-turns-on-hiding-stars t
       org-hide-leading-stars t)
 
+(defun org-linespacing ()
+  (setq line-spacing 6))
+
 (with-eval-after-load 'org
   (require 'org-indent)
 
@@ -22,6 +25,7 @@
   (add-hook 'org-mode-hook 'org-indent-mode)
   (add-hook 'org-mode-hook 'turn-on-smartparens-mode)
   (add-hook 'org-mode-hook 'flyspell-mode)
+  (add-hook 'org-mode-hook 'org-linespacing)
   (add-hook 'org-insert-heading-hook 'evil-insert-state))
 
 ;; http://orgmode.org/manual/Handling-links.html
