@@ -2,14 +2,17 @@
       magit-status-buffer-switch-function 'switch-to-buffer
       magit-diff-refine-hunk t
       magit-stage-all-confirm nil
-      magit-default-tracking-name-function 'magit-default-tracking-name-branch-only)
+      magit-default-tracking-name-function 'magit-default-tracking-name-branch-only
+      magit-process-connection-type 0
+      magit-diff-options '("--patience"))
 
 (require 'maio-magit-notes)
 (require 'magit)
 (require 'git-rebase-mode)
 (require 'git-commit-mode)
 
-;; TODO: remove magit-insert-status-tags-line from magit-status-sections-hook
+;; no need for tags line
+(remove-hook 'magit-status-sections-hook 'magit-insert-status-tags-line)
 
 (defun maio-git-backup ()
   (interactive)
