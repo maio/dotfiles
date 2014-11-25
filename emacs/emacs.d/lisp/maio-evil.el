@@ -93,8 +93,6 @@
 (define-key evil-insert-state-map (kbd "<C-return>") 'evil-open-above)
 (define-key evil-insert-state-map (kbd "M-RET") 'evil-open-below)
 (define-key evil-visual-state-map "u" nil)
-(define-key evil-visual-state-map "R" 'maio/mark-all-like-this)
-(define-key evil-visual-state-map "r" 'maio/mark-all-like-this-in-defun)
 (define-key evil-visual-state-map "Q" "gq")
 (define-key evil-normal-state-map "Q" "gqap")
 (define-key evil-normal-state-map "S" "vabsba")
