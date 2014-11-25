@@ -43,6 +43,8 @@
                                  (ert-results-mode              . emacs)
                                  (image-mode                    . emacs)
                                  (ag-mode                       . emacs)
+                                 (cider-test-report-mode        . emacs)
+                                 (cider-docview-mode            . emacs)
                                  (makey-key-mode                . emacs))
          do (evil-set-initial-state mode state))
 
