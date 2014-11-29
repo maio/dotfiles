@@ -15,6 +15,9 @@
 - name: imagemagick
   homebrew: name=imagemagick state=present
 
+- name: aspell
+  homebrew: name=aspell install_options="lang=en" state=present
+
 # aqe stuff
 - name: jq
   homebrew: name=jq state=present
