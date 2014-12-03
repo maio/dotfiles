@@ -7,10 +7,8 @@
   (setq evil-emacs-state-cursor '("black" (bar . 2)))
   (blink-cursor-mode t)
   (setq truncate-partial-width-windows 40)
-  (with-eval-after-load 'parenface
+  (with-eval-after-load 'paren-face
     (let ((color "gray60"))
-      (set-face-foreground 'parenface-paren-face color)
-      (set-face-foreground 'parenface-bracket-face color)
-      (set-face-foreground 'parenface-curly-face color))))
+      (set-face-foreground 'parenthesis color))))
 
 (provide 'maio-dojo)
