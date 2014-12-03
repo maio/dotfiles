@@ -18,6 +18,9 @@
 - name: aspell
   homebrew: name=aspell install_options="lang=en" state=present
 
+- name: ctags-exuberant
+  homebrew: name=ctags-exuberant state=present
+
 # aqe stuff
 - name: jq
   homebrew: name=jq state=present
