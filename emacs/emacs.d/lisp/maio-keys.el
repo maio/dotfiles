@@ -1,5 +1,6 @@
 (require 'maio-helm)
 
+(global-set-key (kbd "s-x") 'helm-M-x)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-h m") 'helm-descbinds)
 (global-set-key (kbd "M-j") 'enlarge-window)
