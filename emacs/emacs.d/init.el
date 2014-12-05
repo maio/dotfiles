@@ -52,7 +52,6 @@
                        helm-descbinds
                        helm-git-grep
                        wgrep
-                       eyebrowse
                        evil
                        evil-numbers
                        evil-surround
@@ -68,7 +67,6 @@
 
 (require 'maio-modeline)
 (require 'maio-ui)
-(require 'maio-eyebrowse)
 (require 'maio-misc)
 (require 'maio-evil)
 (require 'maio-shell)

@@ -165,19 +165,7 @@
 (defun maio/reset ()
   (interactive)
   (kill-all-buffers)
-  (delete-other-windows)
-  (progn
-    (eyebrowse-close-window-config)
-    (eyebrowse-close-window-config)
-    (eyebrowse-close-window-config)
-    (eyebrowse-close-window-config)
-    (eyebrowse-close-window-config)
-    (eyebrowse-close-window-config)
-    (eyebrowse-close-window-config)
-    (eyebrowse-close-window-config)
-    (eyebrowse-switch-to-window-config 0)
-    (eyebrowse-switch-to-window-config 4)
-    (eyebrowse-switch-to-window-config 1)))
+  (delete-other-windows))
 
 (defun get-ip-address (&optional dev)
   "get the IP-address for device DEV (default: en0)"

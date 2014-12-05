@@ -5,7 +5,6 @@
 (with-eval-after-load 'hi-lock (diminish 'hi-lock-mode))
 (with-eval-after-load 'subword (diminish 'subword-mode))
 (with-eval-after-load 'simple (diminish 'auto-fill-function))
-(with-eval-after-load 'eyebrowse (diminish 'eyebrowse-mode))
 
 (with-eval-after-load 'yasnippet (diminish 'yas-minor-mode "YS"))
 (with-eval-after-load 'company (diminish 'company-mode "AC"))
@@ -34,11 +33,9 @@ Keymap to display on buffer.")
   ""
   :group 'mode-line-faces)
 
-(require 'eyebrowse)
 (setq-default
  mode-line-format
  `(" "
-   (eyebrowse-mode (:eval (eyebrowse-update-mode-line)))
    global-mode-string
    " %* "
    (:propertize "%b " face mode-line-buffer

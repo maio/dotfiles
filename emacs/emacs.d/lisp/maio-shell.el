@@ -33,15 +33,13 @@
   (interactive)
   (ansi-term "/usr/local/bin/bash"))
 
-(require 'eyebrowse)
 (defadvice term-sentinel (around auto-close-term-buffer-window (proc msg) activate)
   (if (memq (process-status proc) '(signal exit))
       (let ((buffer (process-buffer proc)))
         ad-do-it
         (kill-buffer buffer)
         (if (window-parent)
-            (delete-window)
-          (when eyebrowse-mode (eyebrowse-close-window-config))))
+            (delete-window)))
     ad-do-it))
 
 (defun term-char-mode-refocus ()
