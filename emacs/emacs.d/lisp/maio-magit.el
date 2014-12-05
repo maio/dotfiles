@@ -13,6 +13,7 @@
 
 ;; no need for tags line
 (remove-hook 'magit-status-sections-hook 'magit-insert-status-tags-line)
+(add-hook 'magit-status-mode-hook 'delete-other-windows)
 
 (defun maio-git-backup ()
   (interactive)
