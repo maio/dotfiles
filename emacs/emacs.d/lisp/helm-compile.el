@@ -80,7 +80,7 @@
 
 (add-to-list 'savehist-additional-variables 'compile-history)
 
-(add-hook 'helm-compile-pre-compilation-hook (lambda () (eyebrowse-switch-to-window-config 0)))
+(add-hook 'helm-compile-pre-compilation-hook (lambda () (if eyebrowse-mode (eyebrowse-switch-to-window-config 0))))
 (add-hook 'helm-compile-compilation-hook 'delete-other-windows)
 
 (provide 'helm-compile)
