@@ -72,6 +72,9 @@
                         (format "%s:%d:" (buffer-name) (line-number-at-pos (point))))
         :truncate-lines t))
 
+(require 'helm-terminal)
+(global-set-key (kbd "<s-return>") 'helm-terminal)
+
 (require 'helm-compile)
 (global-set-key (kbd "C-x c c") 'helm-compile)
 

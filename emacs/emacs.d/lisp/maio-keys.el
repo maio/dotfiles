@@ -25,7 +25,6 @@
 (global-set-key (kbd "C-x n f") 'maio-narrow-to-defun-clone)
 (global-set-key (kbd "C-x c k") 'maio/bury)
 (global-set-key (kbd "C-x c i") 'imenu)
-(global-set-key (kbd "<s-return>") 'maio/ansi-term)
 (global-set-key (kbd "s-o") 'winner-undo)
 (global-set-key (kbd "s-j") 'other-window)
 (global-set-key (kbd "s-k") 'previous-other-window)
