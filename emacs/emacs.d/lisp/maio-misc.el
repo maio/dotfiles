@@ -42,7 +42,13 @@
 ;; (setq debug-on-error t)
 
 (put 'narrow-to-region 'disabled nil)
+(setq mouse-wheel-follow-mouse 't)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+(setq redisplay-dont-pause t
+      scroll-margin 1
+      scroll-step 1
+      scroll-conservatively 10000
+      scroll-preserve-screen-position 1)
 
 ;; Use UTF-8 dammit
 (prefer-coding-system       'utf-8)
