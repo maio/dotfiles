@@ -13,6 +13,8 @@
 (add-to-list 'auto-mode-alist '("\\.tt$" . html-mode))
 
 (defun setup-perl-mode ()
+  (make-local-variable 'evil-lookup-func)
+  (setq evil-lookup-func 'cperl-perldoc-at-point)
   (setq indent-tabs-mode t))
 
 (with-eval-after-load 'perl-mode
