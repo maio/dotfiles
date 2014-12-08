@@ -23,7 +23,6 @@
 (setq recentf-max-saved-items 100)
 (setq gc-cons-threshold 20000000)
 (setq help-at-pt-display-when-idle t)
-(setq scroll-conservatively 1000)
 (setq-default compilation-scroll-output t)
 (add-hook 'compilation-start-hook
           (lambda (process) (setq compilation-scroll-output t)))
@@ -47,7 +46,6 @@
 (setq redisplay-dont-pause t
       scroll-margin 1
       scroll-step 1
-      scroll-conservatively 10000
       scroll-preserve-screen-position 1)
 
 ;; Use UTF-8 dammit
