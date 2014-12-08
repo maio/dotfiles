@@ -81,16 +81,6 @@
 (with-eval-after-load 'golden-ratio (diminish 'golden-ratio-mode))
 (global-set-key (kbd "s-g") 'golden-ratio)
 
-;; git gutter
-;; (ensure-package 'git-gutter+)
-;; (require 'git-gutter+)
-;; (define-key git-gutter+-mode-map (kbd "C-x g =") 'git-gutter+-show-hunk)
-;; (define-key git-gutter+-mode-map (kbd "C-x g s") 'git-gutter+-stage-hunks)
-;; (define-key git-gutter+-mode-map (kbd "C-x g r") 'git-gutter+-revert-hunks)
-;; (define-key evil-normal-state-map (kbd "]d") 'git-gutter+-next-hunk)
-;; (define-key evil-normal-state-map (kbd "[d") 'git-gutter+-previous-hunk)
-;; (global-git-gutter+-mode)
-
 ;; rx
 ;; http://www.lunaryorn.com/2014/03/26/search-based-fontification-with-keywords.html
 (with-eval-after-load 're-builder
