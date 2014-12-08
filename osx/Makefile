@@ -3,6 +3,8 @@ install:
 	@cp fonts/* /Library/Fonts/
 	@mkdir -p ~/Library/KeyBindings
 	@ln -sf `pwd`/DefaultKeyBinding.dict "/Users/maio/Library/KeyBindings/DefaultKeyBinding.dict"
+	@mkdir -p ~/Desktop/Screenshots
+	@defaults write com.apple.screencapture location ~/Desktop/Screenshots
 
 /usr/local/bin/brew:
 	@yes | ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
