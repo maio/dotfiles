@@ -137,12 +137,7 @@
 (evil-add-hjkl-bindings diff-mode-map 'emacs
   "q" 'quit-window)
 
-(evil-define-key 'normal dired-mode-map "f" 'evil-ace-jump-char-mode)
-(define-key evil-normal-state-map (kbd "SPC") 'evil-ace-jump-word-mode)
-(define-key evil-motion-state-map "/" 'evil-ace-jump-char-mode)
-(define-key evil-normal-state-map (kbd "C-u /") 'evil-search-forward)
 (define-key evil-normal-state-map "/" 'maio/helm-occur)
-(define-key evil-motion-state-map (kbd "SPC") 'evil-ace-jump-line-mode)
 
 (defun maio/count-region-chars (beg end)
   (interactive "r")
