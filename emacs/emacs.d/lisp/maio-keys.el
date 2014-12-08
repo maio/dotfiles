@@ -19,6 +19,7 @@
 (global-set-key (kbd "C-x g s") 'maio/goto-scratch-buffer)
 (global-set-key (kbd "C-x g n") 'remember-notes)
 (global-set-key (kbd "C-x g .") (lambda () (interactive) (find-file "~/org/focus.org")))
+(global-set-key (kbd "s-t") 'helm-cmd-t)
 (global-set-key (kbd "C-x g /") 'helm-git-grep)
 (global-set-key (kbd "C-x g ?") 'maio/helm-org)
 (global-set-key (kbd "C-x g p") 'maio/helm-project)

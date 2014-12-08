@@ -51,6 +51,7 @@
                        helm
                        helm-descbinds
                        helm-git-grep
+                       helm-cmd-t
                        wgrep
                        evil
                        evil-numbers
