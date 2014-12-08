@@ -45,6 +45,7 @@
                        bookmark+
                        smartparens
                        iedit
+                       rainbow-mode
                        sackspace
                        yasnippet
                        htmlize
