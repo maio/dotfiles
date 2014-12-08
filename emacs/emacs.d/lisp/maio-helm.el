@@ -45,8 +45,7 @@
 
 (defun maio/helm-project ()
   (interactive)
-  (let ((default-directory "~/Projects/"))
-    (call-interactively 'helm-find-files)))
+  (helm-find-files-1 (expand-file-name "~/Projects/")))
 
 (defun maio/helm-org ()
   (interactive)
