@@ -10,5 +10,6 @@
   (ert t))
 
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'maio/run-ert-tests)
+(evil-define-key 'normal emacs-lisp-mode-map "K" 'elisp-slime-nav-describe-elisp-thing-at-point)
 
 (provide 'maio-lisp)
