@@ -106,15 +106,6 @@
                                 ("qt.opt" . "qtshow")
                                 ("svg" . "open"))))
 
-;; popwin
-(ensure-package 'popwin)
-(require 'popwin)
-(setq display-buffer-function 'popwin:display-buffer)
-(push '("^\*helm .+\*$" :regexp t) popwin:special-display-config)
-(push '("^\*helm-.+\*$" :regexp t) popwin:special-display-config)
-
-;; helm-cmd-t
-
 ;; move to new window
 (defadvice split-window-right (after switch-to-it () activate) (other-window 1))
 (defadvice split-window-below (after switch-to-it () activate) (other-window 1))
