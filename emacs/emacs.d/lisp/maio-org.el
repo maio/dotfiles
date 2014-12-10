@@ -2,6 +2,9 @@
       org-indent-mode-turns-on-hiding-stars t
       org-hide-leading-stars t)
 
+(setq org-todo-keywords
+      (quote ((sequence "TODO" "NEXT" "DONE"))))
+
 (defun org-linespacing ()
   (setq line-spacing 6))
 
