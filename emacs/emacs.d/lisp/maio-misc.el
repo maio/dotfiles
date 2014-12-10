@@ -30,6 +30,7 @@
 (delete-selection-mode 1)
 (setq shift-select-mode t)
 (setq initial-scratch-message nil)
+(setq blink-matching-paren nil)
 (setq remember-notes-initial-major-mode 'org-mode)
 
 (defun maio/indent ()
