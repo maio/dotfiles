@@ -83,18 +83,6 @@
 (with-eval-after-load 'golden-ratio (diminish 'golden-ratio-mode))
 (global-set-key (kbd "s-g") 'golden-ratio)
 
-;; rx
-;; http://www.lunaryorn.com/2014/03/26/search-based-fontification-with-keywords.html
-(with-eval-after-load 're-builder
-  (setq reb-re-syntax 'rx)
-
-  ;; use flycheck-rx-to-string instead of rx-to-string
-  (defun reb-cook-regexp (re)
-  "Return RE after processing it according to `reb-re-syntax'."
-  (cond ((memq reb-re-syntax '(sregex rx))
-	 (flycheck-rx-to-string (eval (car (read-from-string re)))))
-	(t re))))
-
 ;; org-reveal
 (with-eval-after-load 'org
   (ensure-package 'ox-reveal)
