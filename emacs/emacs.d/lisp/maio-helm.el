@@ -51,12 +51,6 @@
   (interactive)
   (helm-find-files-1 (expand-file-name "~/org/")))
 
-(defun maio/helm-org ()
-  (interactive)
-  ;; (helm-set-default-directory "*helm maio*" default-directory)
-  (let ((default-directory "~/org/"))
-    (call-interactively 'helm-do-grep)))
-
 (defun maio/helm-occur ()
   "Preconfigured helm for Occur."
   (interactive)
