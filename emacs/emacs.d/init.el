@@ -67,6 +67,7 @@
 (auto-compile-on-load-mode 1)
 (auto-compile-on-save-mode 1)
 
+(require 'maio-local nil t)
 (require 'maio-modeline)
 (require 'maio-ui)
 (require 'maio-misc)
@@ -95,7 +96,6 @@
 (require 'maio-modes)
 (require 'maio-experiments)
 (require 'maio-dojo)
-(require 'maio-local nil t)
 
 (regular-mode)
 (savehist-mode 1)
