@@ -21,7 +21,7 @@
 (defvar helm-c-source-terminal-buffers
   '((name . "Terminal Buffer")
     (candidates . (lambda () (-filter 'terminal-buffer-p (helm-buffer-list))))
-    (action . (("Show" . (lambda (candidate) (switch-to-buffer candidate)))))))
+    (action . (("Show" . (lambda (candidate) (progn (switch-to-buffer candidate) (delete-other-windows))))))))
 
 (defun helm-terminal ()
   "Preconfigured `helm' for terminal."
@@ -29,5 +29,7 @@
   (helm-other-buffer
    '(helm-c-source-terminal-buffers helm-c-source-new-terminal)
    "*helm terminal*"))
+
+(add-to-list 'winner-boring-buffers "*helm terminal*")
 
 (provide 'helm-terminal)
