@@ -67,7 +67,7 @@
     (action
      . (("Compile" . (lambda (candidate)
                        (run-hooks 'helm-compile-pre-compilation-hook)
-                       (switch-to-buffer candidate)))))))
+                       (pop-to-buffer candidate)))))))
 
 (defun helm-compile ()
   "Preconfigured `helm' for compile."
