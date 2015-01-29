@@ -46,6 +46,7 @@
                        smartparens
                        iedit
                        rainbow-mode
+                       fullframe
                        sackspace
                        yasnippet
                        htmlize

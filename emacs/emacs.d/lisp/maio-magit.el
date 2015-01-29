@@ -13,7 +13,8 @@
 
 ;; no need for tags line
 (remove-hook 'magit-status-sections-hook 'magit-insert-status-tags-line)
-(add-hook 'magit-status-mode-hook 'delete-other-windows)
+(fullframe magit-status magit-mode-quit-window)
+(fullframe magit-log magit-mode-quit-window)
 
 (defun maio-git-backup ()
   (interactive)
