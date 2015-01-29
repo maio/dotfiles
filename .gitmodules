@@ -1,9 +1,6 @@
 [submodule "vim/vim/vim-addons/vim-addon-manager"]
 	path = vim/vim/vim-addons/vim-addon-manager
 	url = https://github.com/MarcWeber/vim-addon-manager.git
-[submodule "emacs/emacs.d/lisp/helm-ls-git"]
-	path = emacs/emacs.d/lisp/helm-ls-git
-	url = https://github.com/emacs-helm/helm-ls-git.git
 [submodule "emacs/emacs.d/lisp/nclip"]
 	path = emacs/emacs.d/lisp/nclip
 	url = https://github.com/maio/nclip.el.git
