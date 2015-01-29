@@ -47,6 +47,10 @@
   (interactive)
   (helm-find-files-1 (expand-file-name "~/Projects/")))
 
+(defun maio/helm-personal-project ()
+  (interactive)
+  (helm-find-files-1 (expand-file-name "~/Projects/personal/")))
+
 (defun maio/helm-org ()
   (interactive)
   (helm-find-files-1 (expand-file-name "~/org/")))
