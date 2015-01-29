@@ -11,3 +11,7 @@
 
 - name: prompt
   lineinfile: dest=~/.bash_profile create=yes regexp='PS1' line='export PS1="\[\033[01;32m\]\h:\[\033[01;34m\]\w\[\033[31m\] \[\033[01;34m\]$\[\033[00m\] "'
+
+# http://superuser.com/questions/61185/why-do-i-get-files-like-foo-in-my-tarball-on-os-x
+- name: tar
+  lineinfile: dest=~/.bash_profile create=yes regexp='alias tar' line="alias tar='COPYFILE_DISABLE=1 tar'"
