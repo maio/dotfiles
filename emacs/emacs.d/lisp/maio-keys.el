@@ -32,6 +32,7 @@
 (global-set-key (kbd "s-r") 'revert-buffer)
 (global-set-key (kbd "s-[") 'profiler-start)
 (global-set-key (kbd "s-]") 'profiler-report)
+(global-set-key (kbd "s-l") 'maio-clear-visible-comint-buffers)
 (define-key evil-emacs-state-map (kbd "s-d") "\C-a\C-k\C-k\C-y\C-y\C-p")
 (define-key evil-normal-state-map (kbd "s-d") "YPj")
 
@@ -40,6 +41,7 @@
 
 (define-key comint-mode-map (kbd "C-x k") 'kill-comint-buffer)
 (define-key comint-mode-map (kbd "s-l") 'clear-comint-buffer)
+(define-key compilation-mode-map (kbd "s-l") 'clear-comint-buffer)
 (define-key ido-common-completion-map "\C-p" 'ido-prev-match)
 (define-key ido-common-completion-map "\C-n" 'ido-next-match)
 (define-key ido-buffer-completion-map "\C-p" 'ido-prev-match)

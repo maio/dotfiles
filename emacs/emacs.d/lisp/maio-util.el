@@ -51,6 +51,16 @@
   (let ((comint-buffer-maximum-size 0))
     (comint-truncate-buffer)))
 
+(defun maio-maybe-clear-window-buffer (win)
+  (save-window-excursion
+    (select-window win)
+    (when (in-mode? 'cider-repl-mode) (cider-repl-clear-buffer))
+    (when (compilation-buffer-p (current-buffer)) (clear-comint-buffer))))
+
+(defun maio-clear-visible-comint-buffers ()
+  (interactive)
+  (walk-windows 'maio-maybe-clear-window-buffer))
+
 (defun force-save-buffer ()
   (interactive)
   (cond
