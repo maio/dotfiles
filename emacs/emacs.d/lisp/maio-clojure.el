@@ -3,9 +3,9 @@
   ;; (evil-define-key 'normal clojure-mode-map (kbd "M-.") 'cider-jump)
   (require 'cider)
   (define-key clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)
-  (define-key clojure-mode-map (kbd "M-.") 'cider-jump)
-  (define-key clojure-mode-map (kbd "M-,") 'cider-jump-back)
-  (define-key clojure-mode-map (kbd "s-l") 'cider-find-and-clear-repl-buffer)
+  (evil-define-key 'normal clojure-mode-map "D" 'paredit-kill)
+  (evil-define-key 'normal clojure-mode-map (kbd "M-.") 'cider-jump-to-var)
+  (evil-define-key 'normal clojure-mode-map (kbd "M-,") 'cider-jump-back)
   (add-hook 'clojure-mode-hook 'eldoc-mode)
   (define-clojure-indent ;; for cucumber tests
     (go 'defun)
