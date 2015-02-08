@@ -30,6 +30,7 @@
 (global-set-key (kbd "C-x c i") 'imenu)
 (global-set-key (kbd "s-o") 'winner-undo)
 (global-set-key (kbd "s-j") 'ace-jump-word-mode)
+(global-set-key (kbd "s-J") 'ace-jump-line-mode)
 (global-set-key (kbd "s-r") 'revert-buffer)
 (global-set-key (kbd "s-[") 'profiler-start)
 (global-set-key (kbd "s-]") 'profiler-report)
