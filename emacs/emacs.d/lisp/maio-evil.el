@@ -177,6 +177,7 @@
 ;; Evil plugins
 (require 'evil-surround)
 (global-evil-surround-mode 1)
+(define-key evil-visual-state-map "s" 'evil-surround-edit)
 
 (defun maio-after-save-state ()
   (interactive)
