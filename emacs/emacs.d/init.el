@@ -10,8 +10,8 @@
   (when (not package-archive-contents)
     (package-refresh-contents))
   (let ((my-packages '(auto-compile
-                       starter-kit
-                       starter-kit-lisp
+                       better-defaults
+                       elisp-slime-nav
                        f
                        s
                        dash
@@ -36,6 +36,8 @@
                        web-mode
                        rpm-spec-mode
                        ag
+                       idle-highlight-mode
+                       paredit
                        puppet-mode
                        groovy-mode
                        dired-details

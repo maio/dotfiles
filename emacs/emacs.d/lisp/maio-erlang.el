@@ -9,9 +9,6 @@
     (insert "  ")
     (left-char 1)))
 
-(with-eval-after-load 'compile
-  (pushnew '(erlang "(\\([^ \n]+\\), line \\([0-9]+\\))" 1 2) compilation-error-regexp-alist-alist))
-
 (defun setup-erlang-tab-indent ()
   (setq tab-width 4
         erlang-indent-level 4

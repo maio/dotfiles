@@ -18,7 +18,6 @@
   (setq indent-tabs-mode t))
 
 (with-eval-after-load 'perl-mode
-  (add-hook 'perl-mode-hook 'esk-prog-mode-hook)
   (add-hook 'perl-mode-hook 'smartparens-mode)
   (add-hook 'perl-mode-hook 'flycheck-mode)
   (add-hook 'perl-mode-hook 'yas-minor-mode-on)

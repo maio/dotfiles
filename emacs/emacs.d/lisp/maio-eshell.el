@@ -31,19 +31,4 @@
   "Change directory to the project's root."
   (eshell/cd (locate-dominating-file default-directory ".git")))
 
-(defface esk-eshell-error-prompt-face
-  '((((class color) (background dark)) (:foreground "red" :bold t))
-    (((class color) (background light)) (:foreground "red" :bold t)))
-  "Face for nonzero prompt results"
-  :group 'eshell-prompt)
-
-(add-hook 'eshell-after-prompt-hook
-          (defun esk-eshell-exit-code-prompt-face ()
-            (when (and eshell-last-command-status
-                       (not (zerop eshell-last-command-status)))
-              (let ((inhibit-read-only t))
-                (add-text-properties
-                 (save-excursion (beginning-of-line) (point)) (point-max)
-                 '(face esk-eshell-error-prompt-face))))))
-
 (provide 'maio-eshell)
