@@ -8,8 +8,8 @@
 
 (with-eval-after-load 'yasnippet (diminish 'yas-minor-mode "YS"))
 (with-eval-after-load 'company (diminish 'company-mode "AC"))
-(with-eval-after-load 'smartparens (diminish 'smartparens-mode "()"))
-(with-eval-after-load 'paredit (diminish 'paredit-mode "(e)"))
+(with-eval-after-load 'smartparens (diminish 'smartparens-mode "(s)"))
+(with-eval-after-load 'paredit (diminish 'paredit-mode "(p)"))
 (with-eval-after-load 'flymake (diminish 'flymake-mode "Fly"))
 
 (defvar mode-line-buffer-keymap
