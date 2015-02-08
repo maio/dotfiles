@@ -70,7 +70,7 @@
    `(ido-subdir ((t (:foreground ,fg))))
    `(eshell-prompt ((t (:foreground ,fg :weight bold))))
    `(custom-variable-tag ((t (:foreground ,fg :weight bold))))
-   `(modeline ((t (:background "white smoke" :foreground ,fg :weight bold))))
+   `(modeline ((t (:background "grey90" :foreground ,fg :height 0.8))))
    `(mode-line ((t (:background "grey90" :foreground ,fg :height 0.8))))
    `(mode-line-inactive ((t (:background "grey90" :foreground "grey90" :height 0.8))))
    `(mode-line-buffer ((t (:foreground ,fg :weight bold))))
