@@ -6,7 +6,8 @@
   (setq evil-insert-state-cursor '("black" (bar . 2)))
   (setq evil-emacs-state-cursor '("black" (bar . 2)))
   (blink-cursor-mode t)
-  (setq truncate-partial-width-windows 40)
+  (setq truncate-partial-width-windows 40
+        helm-full-frame t)
   (with-eval-after-load 'paren-face
     (let ((color "gray60"))
       (set-face-foreground 'parenthesis color))))
