@@ -34,8 +34,9 @@
 (global-set-key (kbd "s-[") 'profiler-start)
 (global-set-key (kbd "s-]") 'profiler-report)
 (global-set-key (kbd "s-l") 'maio-clear-visible-comint-buffers)
-(define-key evil-emacs-state-map (kbd "s-d") "\C-a\C-k\C-k\C-y\C-y\C-p")
-(define-key evil-normal-state-map (kbd "s-d") "YPj")
+(when evil-mode
+  (define-key evil-emacs-state-map (kbd "s-d") "\C-a\C-k\C-k\C-y\C-y\C-p")
+  (define-key evil-normal-state-map (kbd "s-d") "YPj"))
 
 (global-set-key (kbd "s-=") 'maio/inc-font-size)
 (global-set-key (kbd "s--") 'maio/dec-font-size)
@@ -50,29 +51,34 @@
 
 ;; unimpaired.vim
 (with-eval-after-load 'flycheck
-  (define-key evil-normal-state-map (kbd "]q") 'flycheck-next-error)
-  (define-key evil-normal-state-map (kbd "[q") 'flycheck-previous-error))
-(define-key evil-normal-state-map (kbd "]e") 'next-error)
-(define-key evil-normal-state-map (kbd "[e") 'previous-error)
+  (when evil-mode
+    (define-key evil-normal-state-map (kbd "]q") 'flycheck-next-error)
+    (define-key evil-normal-state-map (kbd "[q") 'flycheck-previous-error)))
+(when evil-mode
+  (define-key evil-normal-state-map (kbd "]e") 'next-error)
+  (define-key evil-normal-state-map (kbd "[e") 'previous-error))
 (with-eval-after-load 'flyspell
-  (define-key evil-normal-state-map (kbd "]z") 'flyspell-goto-next-error))
+  (when evil-mode
+    (define-key evil-normal-state-map (kbd "]z") 'flyspell-goto-next-error)))
 
-(evil-define-key 'normal lisp-mode-shared-map (kbd "M-.") 'elisp-slime-nav-find-elisp-thing-at-point)
-(evil-define-key 'normal lisp-mode-shared-map "Q" 'paredit-reindent-defun)
-(evil-define-key 'normal lisp-mode-shared-map "D" 'paredit-kill)
-(evil-define-key 'normal lisp-mode-shared-map "B" 'backward-up-list)
-(evil-define-key 'insert lisp-mode-shared-map (kbd "C-j") 'paredit-close-round-and-newline)
+(when evil-mode
+  (evil-define-key 'normal lisp-mode-shared-map (kbd "M-.") 'elisp-slime-nav-find-elisp-thing-at-point)
+  (evil-define-key 'normal lisp-mode-shared-map "Q" 'paredit-reindent-defun)
+  (evil-define-key 'normal lisp-mode-shared-map "D" 'paredit-kill)
+  (evil-define-key 'normal lisp-mode-shared-map "B" 'backward-up-list)
+  (evil-define-key 'insert lisp-mode-shared-map (kbd "C-j") 'paredit-close-round-and-newline)
 
-(define-key evil-insert-state-map (kbd "M-<backspace>") 'backward-kill-word)
-(define-key evil-motion-state-map "gl" 'magit-file-log)
-(define-key evil-motion-state-map "g/" 'maio/goto-grep-buffer)
-(define-key evil-normal-state-map (kbd "RET") 'maio/newline-above)
+  (define-key evil-insert-state-map (kbd "M-<backspace>") 'backward-kill-word)
+  (define-key evil-motion-state-map "gl" 'magit-file-log)
+  (define-key evil-motion-state-map "g/" 'maio/goto-grep-buffer)
+  (define-key evil-normal-state-map (kbd "RET") 'maio/newline-above)
+  (evil-define-key 'normal cperl-mode-map "K" 'cperl-perldoc-at-point))
 (define-key isearch-mode-map (kbd "C-g") 'isearch-abort)
-(evil-define-key 'normal cperl-mode-map "K" 'cperl-perldoc-at-point)
 
 ;; guard
-(evil-define-key 'normal compilation-minor-mode-map (kbd "RET") 'compile-goto-error)
-(evil-define-key 'normal compilation-minor-mode-map "q" 'quit-window)
+(when evil-mode
+  (evil-define-key 'normal compilation-minor-mode-map (kbd "RET") 'compile-goto-error)
+  (evil-define-key 'normal compilation-minor-mode-map "q" 'quit-window))
 
 (defun maio/electric-space ()
   (interactive)

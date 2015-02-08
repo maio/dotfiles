@@ -49,9 +49,11 @@
   (add-hook 'js2-mode-hook 'yas-minor-mode-on)
   (add-hook 'js2-mode-hook 'smartparens-mode)
   (define-key js2-mode-map (kbd "SPC") 'maio/electric-space)
-  (evil-define-key 'visual js2-mode-map "=" 'jsfmt-region))
+  (when evil-mode
+    (evil-define-key 'visual js2-mode-map "=" 'jsfmt-region)))
 
 (with-eval-after-load 'json-mode
-  (evil-define-key 'visual json-mode-map "=" 'json-xs-region))
+  (when evil-mode
+    (evil-define-key 'visual json-mode-map "=" 'json-xs-region)))
 
 (provide 'maio-javascript)

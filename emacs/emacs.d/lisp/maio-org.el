@@ -30,12 +30,14 @@
   (add-hook 'org-mode-hook 'turn-on-smartparens-mode)
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-mode-hook 'org-linespacing)
-  (add-hook 'org-insert-heading-hook 'evil-insert-state))
+  (when evil-mode
+    (add-hook 'org-insert-heading-hook 'evil-insert-state)))
 
 ;; http://orgmode.org/manual/Handling-links.html
 (global-set-key (kbd "C-c l") 'org-store-link)
 
-(evil-define-key 'normal org-mode-map "]]" 'org-present-next)
-(evil-define-key 'normal org-mode-map "[[" 'org-present-prev)
+(when evil-mode
+  (evil-define-key 'normal org-mode-map "]]" 'org-present-next)
+  (evil-define-key 'normal org-mode-map "[[" 'org-present-prev))
 
 (provide 'maio-org)

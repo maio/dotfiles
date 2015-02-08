@@ -68,8 +68,9 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 
 ;; recenter screen after search
-(defadvice evil-search-previous (after recenter () activate) (recenter))
-(defadvice evil-search-next (after recenter () activate) (recenter))
+(when evil-mode
+  (defadvice evil-search-previous (after recenter () activate) (recenter))
+  (defadvice evil-search-next (after recenter () activate) (recenter)))
 
 ;; paren-face
 (ensure-package 'paren-face)

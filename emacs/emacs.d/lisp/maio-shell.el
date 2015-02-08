@@ -23,9 +23,10 @@
 (defun maio/setup-eshell ()
   (define-key eshell-mode-map (kbd "M-.") 'maio/insert-last-argument)
   (set-face-attribute 'eshell-prompt nil :foreground "black" :weight 'bold)
-  (evil-define-key 'normal eshell-mode-map (kbd "RET") 'eshell-send-input)
-  (evil-define-key 'normal eshell-mode-map "H" 'eshell-bol)
-  (evil-define-key 'normal eshell-mode-map "L" 'move-end-of-line))
+  (when evil-mode
+    (evil-define-key 'normal eshell-mode-map (kbd "RET") 'eshell-send-input)
+    (evil-define-key 'normal eshell-mode-map "H" 'eshell-bol)
+    (evil-define-key 'normal eshell-mode-map "L" 'move-end-of-line)))
 
 (add-hook 'eshell-mode-hook 'maio/setup-eshell)
 
@@ -55,11 +56,12 @@
   (term-send-raw-string (kbd "C-l")))
 
 (with-eval-after-load 'term
-  (defadvice term-line-mode (after evil-normal-state () activate) (evil-normal-state))
-  (defadvice term-char-mode (after evil-emacs-state () activate) (evil-emacs-state))
-  (evil-define-key 'normal term-mode-map "i" 'term-char-mode-refocus)
-  (evil-define-key 'normal term-mode-map [escape] 'term-char-mode-refocus)
-  (evil-define-key 'emacs term-raw-map [escape] 'term-line-mode)
+  (when evil-mode
+    (defadvice term-line-mode (after evil-normal-state () activate) (evil-normal-state))
+    (defadvice term-char-mode (after evil-emacs-state () activate) (evil-emacs-state))
+    (evil-define-key 'normal term-mode-map "i" 'term-char-mode-refocus)
+    (evil-define-key 'normal term-mode-map [escape] 'term-char-mode-refocus)
+    (evil-define-key 'emacs term-raw-map [escape] 'term-line-mode))
   (define-key term-raw-escape-map (kbd "C-y") 'term-paste)
   (define-key term-raw-map (kbd "s-v") 'term-paste)
   (define-key term-raw-map (kbd "s-l") 'term-clear-buffer))

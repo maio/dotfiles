@@ -2,6 +2,7 @@
 
 (require 'iedit)
 
-(define-key evil-normal-state-map iedit-toggle-key-default 'iedit-mode)
+(when evil-mode
+  (define-key evil-normal-state-map iedit-toggle-key-default 'iedit-mode))
 
 (provide 'maio-iedit)

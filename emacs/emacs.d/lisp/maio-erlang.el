@@ -47,17 +47,18 @@
   (define-key erlang-mode-map (kbd "C-j") 'newline-and-indent)
   (define-key erlang-mode-map (kbd "M-r") 'raise-exp)
   (define-key erlang-mode-map (kbd "C-x m t") 'erlang-eunit-compile-and-run-module-tests)
-  (evil-define-key 'normal erlang-mode-map "gs" 'erlang-shell-display)
-  (evil-define-key 'normal erlang-mode-map "K" 'erlang-man-function)
+  (when evil-mode
+    (evil-define-key 'normal erlang-mode-map "gs" 'erlang-shell-display)
+    (evil-define-key 'normal erlang-mode-map "K" 'erlang-man-function))
   (define-key erlang-mode-map (kbd "SPC") 'maio/electric-space)
   (add-hook 'erlang-shell-mode-hook
             (lambda ()
               (define-key erlang-shell-mode-map (kbd "TAB") 'dabbrev-expand)
               (yas-minor-mode-on)
-              (evil-define-key 'normal erlang-shell-mode-map [escape] 'evil-emacs-state)
-              (evil-define-key 'emacs erlang-shell-mode-map [escape] 'evil-normal-state)
-              (define-key erlang-shell-mode-map (kbd "SPC") 'maio/electric-space)
-              ))
+              (when evil-mode
+                (evil-define-key 'normal erlang-shell-mode-map [escape] 'evil-emacs-state)
+                (evil-define-key 'emacs erlang-shell-mode-map [escape] 'evil-normal-state))
+              (define-key erlang-shell-mode-map (kbd "SPC") 'maio/electric-space)))
   (sp-with-modes '(erlang-mode) (sp-local-pair "<<\"" "\">>")))
 
 (provide 'maio-erlang)
