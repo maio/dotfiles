@@ -37,13 +37,13 @@
                        rpm-spec-mode
                        ag
                        puppet-mode
-                       nimrod-mode
                        groovy-mode
                        dired-details
                        flycheck
                        diminish
                        bookmark+
                        smartparens
+                       org-present
                        iedit
                        rainbow-mode
                        fullframe

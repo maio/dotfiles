@@ -10,6 +10,7 @@
 
 (with-eval-after-load 'org
   (require 'org-indent)
+  (require 'org-present)
 
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -34,7 +35,7 @@
 ;; http://orgmode.org/manual/Handling-links.html
 (global-set-key (kbd "C-c l") 'org-store-link)
 
-(evil-define-key 'normal org-mode-map "[[" 'outline-previous-visible-heading)
-(evil-define-key 'normal org-mode-map "]]" 'outline-next-visible-heading)
+(evil-define-key 'normal org-mode-map "]]" 'org-present-next)
+(evil-define-key 'normal org-mode-map "[[" 'org-present-prev)
 
 (provide 'maio-org)
