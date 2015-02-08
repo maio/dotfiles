@@ -31,5 +31,7 @@
    "*helm terminal*"))
 
 (add-to-list 'winner-boring-buffers "*helm terminal*")
+(add-to-list 'winner-boring-buffers "*helm compile*")
+(add-to-list 'winner-boring-buffers "*Helm Find Files*")
 
 (provide 'helm-terminal)
