@@ -59,4 +59,8 @@
 
 (hl-line-mode nil)
 
+;; enable recentf mode (+ make it work with ido)
+(recentf-mode 1)
+(setq ido-use-virtual-buffers t)
+
 (provide 'maio-misc)
