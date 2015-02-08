@@ -7,7 +7,6 @@
 (setq company-dabbrev-downcase nil)
 (push 'company-readline company-backends)
 
-(global-set-key (kbd "C-n") 'company--auto-completion)
 (define-key company-active-map [tab] 'company-complete-selection)
 (define-key company-active-map [return] nil)
 (define-key company-active-map (kbd "RET") nil)
