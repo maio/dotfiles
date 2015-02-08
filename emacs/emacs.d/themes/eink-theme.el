@@ -92,9 +92,12 @@
    ;; dired
    `(dired-directory ((t (:weight bold))))
    ;; helm
+   `(helm-source-header ((t (:foreground ,fg :background "grey90" :weight bold))))
+   `(helm-header ((t (:foreground ,fg))))
    `(helm-selection-line ((t (:inherit region :weight bold))))
-   `(helm-selection ((t (:inherit region))))
+   `(helm-selection ((t (:background ,bg-highlight))))
    `(helm-ff-directory ((t (:foreground ,fg :weight bold))))
+   `(helm-ff-dotted-directory ((t (:foreground ,fg :weight bold))))
    `(helm-ff-symlink ((t (:foreground ,fg :slant italic))))
    `(helm-ff-executable ((t (:foreground ,fg))))
    ;; parenface
