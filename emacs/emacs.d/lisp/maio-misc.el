@@ -1,3 +1,5 @@
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 (setenv "RLWRAP" "")
 (setq make-backup-files nil)
 (setq auto-save-default nil)
