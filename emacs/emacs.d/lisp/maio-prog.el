@@ -29,6 +29,7 @@
 (defun show-trailing-whitespace () (setq show-trailing-whitespace t))
 (add-hook 'prog-mode-hook 'show-trailing-whitespace)
 (add-hook 'prog-mode-hook 'turn-on-smartparens-mode)
+(add-hook 'prog-mode-hook 'idle-highlight-mode)
 (add-hook 'html-mode-hook 'turn-on-smartparens-mode)
 (add-hook 'groovy-mode-hook 'turn-on-smartparens-mode)
 
