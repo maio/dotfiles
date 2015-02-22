@@ -21,6 +21,7 @@
   (when evil-mode
     (defadvice cider-eval-defun-at-point (after evil-normal-state () activate)
       (evil-normal-state))
+    (evil-define-key 'normal cider-repl-mode-map [escape] "gi")
     (evil-define-key 'normal cider-doc-mode-map "q" cider-popup-buffer-quit-function)
     (evil-define-key 'normal cider-stacktrace-mode-map "q" cider-popup-buffer-quit-function)))
 
