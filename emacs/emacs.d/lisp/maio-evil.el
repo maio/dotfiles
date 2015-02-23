@@ -9,11 +9,11 @@
 (setq ace-jump-mode-case-sensitive-search nil
       ace-jump-mode-gray-background nil)
 
-(setq-default cursor-type '(bar . 1))
-(setq evil-default-cursor '("gray30" box))
-(setq evil-normal-state-cursor '("gray30" box))
-(setq evil-insert-state-cursor '("gray30" (bar . 1)))
-(setq evil-emacs-state-cursor '("gray30" (bar . 2)))
+(setq-default cursor-type '("DeepSkyBlue2" box))
+(setq evil-default-cursor '("DeepSkyBlue2" box))
+(setq evil-normal-state-cursor '("black" box))
+(setq evil-insert-state-cursor '("DeepSkyBlue2" box))
+(setq evil-emacs-state-cursor '("DeepSkyBlue2" box))
 
 (require 'evil)
 (evil-mode 1)

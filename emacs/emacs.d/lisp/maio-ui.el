@@ -2,6 +2,7 @@
 
 (global-font-lock-mode 1)
 (winner-mode 1)
+(blink-cursor-mode 0)
 
 (defvar maio/font-size nil)
 
