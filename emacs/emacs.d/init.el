@@ -94,7 +94,7 @@
 (require 'maio-dired)
 (require 'maio-erc)
 (require 'maio-keys)
-(require 'maio-iedit)
+(require 'maio-multiple-cursors)
 (require 'maio-clipboard)
 (require 'maio-modes)
 (require 'maio-experiments)
