@@ -12,6 +12,10 @@
   (require 'org-indent)
   (require 'org-present)
 
+  ;; improve UX of src template - do not add extra newline between begin and end
+  (add-to-list 'org-structure-template-alist
+               '("s" "#+BEGIN_SRC ?\n#+END_SRC" "<src lang=\"?\">\n</src>"))
+
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((emacs-lisp . t)
