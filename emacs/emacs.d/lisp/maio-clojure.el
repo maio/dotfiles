@@ -1,3 +1,13 @@
+(defun clojure-autotest-cb ()
+  (cider-test-run-tests nil)
+  (remove-hook 'cider-file-loaded-hook 'clojure-autotest-cb))
+
+(defun clojure-autotest ()
+  (interactive)
+  (force-save-buffer)
+  (add-hook 'cider-file-loaded-hook 'clojure-autotest-cb)
+  (cider-load-buffer))
+
 (with-eval-after-load 'clojure-mode
   (require 'cider)
   (define-key clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)
@@ -5,9 +15,11 @@
   (define-key clojure-mode-map (kbd "M-q") 'sp-indent-defun)
   (define-key clojure-mode-map (kbd "M-r") 'sp-raise-sexp)
   (define-key clojure-mode-map (kbd "M-k") 'sp-kill-sexp)
+  (define-key clojure-mode-map (kbd "M-s") 'sp-split-sexp)
   (define-key clojure-mode-map (kbd "C-)") 'sp-forward-slurp-sexp)
   (define-key clojure-mode-map (kbd "C-(") 'sp-forward-barf-sexp)
   (define-key clojure-mode-map (kbd "C-k") 'sp-kill-hybrid-sexp)
+  (define-key clojure-mode-map (kbd "s-s") 'clojure-autotest)
   (when evil-mode
     (evil-define-key 'normal clojure-mode-map "D" 'sp-kill-hybrid-sexp)
     (evil-define-key 'normal clojure-mode-map (kbd "M-.") 'cider-jump-to-var)
