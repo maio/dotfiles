@@ -73,6 +73,7 @@
 (require 'maio-local nil t)
 (require 'maio-modeline)
 (require 'maio-ui)
+(require 'maio-faces)
 (require 'maio-misc)
 (require 'maio-evil)
 (require 'maio-shell)
