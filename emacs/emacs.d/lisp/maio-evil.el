@@ -45,6 +45,7 @@
                                  (ag-mode                       . emacs)
                                  (cider-test-report-mode        . emacs)
                                  (cider-docview-mode            . emacs)
+                                 (cider-repl-mode               . insert)
                                  (makey-key-mode                . emacs))
          do (evil-set-initial-state mode state))
 
