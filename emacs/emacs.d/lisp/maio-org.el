@@ -1,6 +1,7 @@
 (setq org-indent-indentation-per-level 1
       org-indent-mode-turns-on-hiding-stars t
-      org-hide-leading-stars t)
+      org-hide-leading-stars t
+      org-tags-column -100)
 
 (setq org-todo-keywords
       (quote ((sequence "TODO" "NEXT" "DONE"))))
