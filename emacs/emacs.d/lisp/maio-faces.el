@@ -18,4 +18,9 @@
   "Face for hi-lock mode."
   :group 'hi-lock-faces)
 
+(defface hi-fg-green
+  '((t (:weight bold :foreground "green")))
+  "Face for hi-lock mode."
+  :group 'hi-lock-faces)
+
 (provide 'maio-faces)
