@@ -1,4 +1,10 @@
+(defun clojure-reload ()
+  ;; TODO: throw error when this fails
+  (nrepl-sync-request:eval "(require 'clojure.tools.namespace.repl)
+                            (clojure.tools.namespace.repl/refresh)"))
+
 (defun clojure-autotest-cb ()
+  (clojure-reload)
   (cider-test-run-tests nil)
   (remove-hook 'cider-file-loaded-hook 'clojure-autotest-cb))
 
