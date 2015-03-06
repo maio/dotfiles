@@ -8,6 +8,10 @@
   (add-hook 'cider-file-loaded-hook 'clojure-autotest-cb)
   (cider-load-buffer))
 
+(defun clojure-hippie-expand ()
+  (make-local-variable 'hippie-expand-try-functions-list)
+  (setq hippie-expand-try-functions-list '(try-expand-dabbrev)))
+
 (with-eval-after-load 'clojure-mode
   (require 'cider)
   (define-key clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)
