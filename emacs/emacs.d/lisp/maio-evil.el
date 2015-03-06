@@ -7,7 +7,8 @@
 (setq evil-cross-lines t)
 (setq-default evil-symbol-word-search t)
 (setq ace-jump-mode-case-sensitive-search nil
-      ace-jump-mode-gray-background nil)
+      ace-jump-mode-gray-background nil
+      ace-jump-mode-scope 'window)
 
 (setq-default cursor-type '("DeepSkyBlue2" box))
 (setq evil-default-cursor '("DeepSkyBlue2" box))
