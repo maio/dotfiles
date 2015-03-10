@@ -2,6 +2,12 @@
   (define-key scheme-mode-map (kbd "C-M-x") 'lisp-eval-defun)
   (define-key scheme-mode-map (kbd "C-x C-e") 'lisp-eval-last-sexp))
 
+(defun lisp-hippie-expand-setup ()
+  (make-local-variable 'hippie-expand-try-functions-list)
+  (setq hippie-expand-try-functions-list '(try-expand-dabbrev)))
+
+(add-hook 'emacs-lisp-mode-hook 'lisp-hippie-expand-setup)
+
 (defun maio/run-ert-tests (reset?)
   (interactive "P")
   (when reset? (ert-delete-all-tests))
