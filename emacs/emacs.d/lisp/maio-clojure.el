@@ -14,9 +14,15 @@
   (add-hook 'cider-file-loaded-hook 'clojure-autotest-cb)
   (cider-load-buffer))
 
-(defun clojure-hippie-expand ()
+(defun clojure-hippie-expand-setup ()
   (make-local-variable 'hippie-expand-try-functions-list)
   (setq hippie-expand-try-functions-list '(try-expand-dabbrev)))
+
+(defun clojure-refactor-setup ()
+  (clj-refactor-mode 1)
+  (cljr-add-keybindings-with-prefix "C-c j")
+  (add-hook 'cider-connected-hook #'cljr-update-artifact-cache)
+  (add-hook 'cider-connected-hook #'cljr-warm-ast-cache))
 
 (with-eval-after-load 'clojure-mode
   (require 'cider)
@@ -35,6 +41,8 @@
     (evil-define-key 'normal clojure-mode-map (kbd "M-.") 'cider-jump-to-var)
     (evil-define-key 'normal clojure-mode-map (kbd "M-,") 'cider-jump-back))
   (add-hook 'clojure-mode-hook 'eldoc-mode)
+  (add-hook 'clojure-mode-hook 'clojure-hippie-expand-setup)
+  (add-hook 'clojure-mode-hook 'clojure-refactor-setup)
   (define-clojure-indent ;; for cucumber tests
     (go 'defun)
     (Before 'defun)
