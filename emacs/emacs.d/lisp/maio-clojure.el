@@ -21,6 +21,7 @@
 (defun clojure-refactor-setup ()
   (clj-refactor-mode 1)
   (cljr-add-keybindings-with-prefix "C-c j")
+  (require 'maio-clojure-refactor)
   (add-hook 'cider-connected-hook #'cljr-update-artifact-cache)
   (add-hook 'cider-connected-hook #'cljr-warm-ast-cache))
 
