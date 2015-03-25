@@ -4,7 +4,9 @@
 
 (defun lisp-hippie-expand-setup ()
   (make-local-variable 'hippie-expand-try-functions-list)
-  (setq hippie-expand-try-functions-list '(try-expand-dabbrev)))
+  (setq hippie-expand-try-functions-list '(try-complete-lisp-symbol-partially
+                                           try-complete-lisp-symbol
+                                           try-expand-dabbrev)))
 
 (add-hook 'emacs-lisp-mode-hook 'lisp-hippie-expand-setup)
 
