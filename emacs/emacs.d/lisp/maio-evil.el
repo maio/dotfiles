@@ -44,6 +44,7 @@
                                  (ert-results-mode              . emacs)
                                  (image-mode                    . emacs)
                                  (ag-mode                       . emacs)
+                                 (profiler-report-mode          . emacs)
                                  (cider-test-report-mode        . emacs)
                                  (cider-docview-mode            . emacs)
                                  (cider-repl-mode               . insert)
@@ -134,6 +135,8 @@
 (evil-add-hjkl-bindings grep-mode-map 'emacs)
 (evil-add-hjkl-bindings helm-grep-mode-map 'emacs)
 (evil-add-hjkl-bindings ag-mode-map 'emacs)
+(evil-add-hjkl-bindings profiler-report-mode-map 'emacs
+  "\r" 'profiler-report-find-entry)
 (evil-add-hjkl-bindings diff-mode-map 'emacs
   "q" 'quit-window)
 
