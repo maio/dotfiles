@@ -7,9 +7,14 @@
   (package-initialize)
   (when (not package-archive-contents)
     (package-refresh-contents))
-  (let ((my-packages '(evil)))
+  (let ((my-packages '(auto-compile
+                       better-defaults
+                       evil)))
     (dolist (package my-packages)
       (ensure-package package))))
 
+(require 'auto-compile)
+(auto-compile-on-load-mode 1)
+(auto-compile-on-save-mode 1)
+
 (evil-mode 1)
-(require 'maio-erlang)
