@@ -35,6 +35,7 @@
   (define-key clojure-mode-map (kbd "M-s") 'sp-split-sexp)
   (define-key clojure-mode-map (kbd "C-)") 'sp-forward-slurp-sexp)
   (define-key clojure-mode-map (kbd "C-(") 'sp-forward-barf-sexp)
+  (define-key clojure-mode-map (kbd "M-C-f") 'sp-end-of-next-sexp)
   (define-key clojure-mode-map (kbd "C-k") 'sp-kill-hybrid-sexp)
   (define-key clojure-mode-map (kbd "s-s") 'clojure-autotest)
   (when evil-mode
@@ -56,9 +57,9 @@
 
 (with-eval-after-load 'cider
   (add-hook 'cider-repl-mode-hook 'turn-on-smartparens-strict-mode)
-  (define-key cider-repl-mode-map (kbd "s-l") 'cider-repl-clear-buffer)
+  (define-key cider-repl-mode-map (kbd "s-L") 'cider-repl-clear-buffer)
   (define-key cider-repl-mode-map (kbd "C-x k") 'cider-quit)
-  (define-key cider-repl-mode-map (kbd "s-k") 'cider-quit)
+  (define-key cider-repl-mode-map (kbd "s-K") 'cider-quit)
   (when evil-mode
     (defadvice cider-eval-defun-at-point (after evil-normal-state () activate)
       (evil-normal-state))

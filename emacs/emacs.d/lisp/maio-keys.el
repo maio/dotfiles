@@ -28,13 +28,17 @@
 (global-set-key (kbd "C-x n f") 'maio-narrow-to-defun-clone)
 (global-set-key (kbd "C-x c k") 'maio/bury)
 (global-set-key (kbd "C-x c i") 'imenu)
+(global-set-key (kbd "s-K") 'kill-this-buffer)
+(global-set-key (kbd "s-j") 'windmove-down)
+(global-set-key (kbd "s-k") 'windmove-up)
+(global-set-key (kbd "s-h") 'windmove-left)
+(global-set-key (kbd "s-l") 'windmove-right)
 (global-set-key (kbd "s-o") 'winner-undo)
 (global-set-key (kbd "s-j") 'ace-jump-word-mode)
-(global-set-key (kbd "s-J") 'ace-jump-line-mode)
 (global-set-key (kbd "s-r") 'revert-buffer)
 (global-set-key (kbd "s-[") 'profiler-start)
 (global-set-key (kbd "s-]") 'profiler-report)
-(global-set-key (kbd "s-l") 'maio-clear-visible-comint-buffers)
+(global-set-key (kbd "s-L") 'maio-clear-visible-comint-buffers)
 (when evil-mode
   (define-key evil-emacs-state-map (kbd "s-d") "\C-a\C-k\C-k\C-y\C-y\C-p")
   (define-key evil-normal-state-map (kbd "s-d") "YPj"))
@@ -43,8 +47,9 @@
 (global-set-key (kbd "s--") 'maio/dec-font-size)
 
 (define-key comint-mode-map (kbd "C-x k") 'kill-comint-buffer)
-(define-key comint-mode-map (kbd "s-l") 'clear-comint-buffer)
-(define-key compilation-mode-map (kbd "s-l") 'clear-comint-buffer)
+(define-key comint-mode-map (kbd "s-K") 'kill-comint-buffer)
+(define-key comint-mode-map (kbd "s-L") 'clear-comint-buffer)
+(define-key compilation-mode-map (kbd "s-L") 'clear-comint-buffer)
 
 ;; unimpaired.vim
 (with-eval-after-load 'flycheck
