@@ -84,4 +84,11 @@
           (lambda ()
             (define-key eshell-mode-map (kbd "M-r") 'helm-eshell-history)))
 
+(require 'rx)
+(add-to-list 'display-buffer-alist
+                    `(,(rx bos "*helm" (* not-newline) "*" eos)
+                         (display-buffer-in-side-window)
+                         (inhibit-same-window . t)
+                         (window-height . 0.4)))
+
 (provide 'maio-helm)
