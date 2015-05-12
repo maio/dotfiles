@@ -101,4 +101,9 @@
 (defadvice split-window-right (after switch-to-it () activate) (other-window 1))
 (defadvice split-window-below (after switch-to-it () activate) (other-window 1))
 
+;; coffee
+(ensure-package 'coffee-mode)
+(setq coffee-tab-width 2)
+
+
 (provide 'maio-experiments)
