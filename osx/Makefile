@@ -1,5 +1,5 @@
 install:
-	@ln -sf `pwd`/private.xml "/Users/maio/Library/Application Support/KeyRemap4MacBook/private.xml"
+	@ln -sf `pwd`/private.xml "/Users/maio/Library/Application Support/Karabiner/private.xml"
 	@cp fonts/* /Library/Fonts/
 	@mkdir -p ~/Library/KeyBindings
 	@ln -sf `pwd`/DefaultKeyBinding.dict "/Users/maio/Library/KeyBindings/DefaultKeyBinding.dict"
