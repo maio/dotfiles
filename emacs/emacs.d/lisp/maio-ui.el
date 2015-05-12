@@ -25,7 +25,7 @@
   (if (system-type-is-gnu)
       (maio/set-font "Source Code Pro" 120)
     (progn
-      (maio/set-font "Droid Sans Mono" 120)
+      (maio/set-font "Source Code Pro:weight=Regular" 130)
       (when (ui-type-is-gui)
         (toggle-frame-fullscreen)))))
 
