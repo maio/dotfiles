@@ -46,6 +46,8 @@
   (add-hook 'clojure-mode-hook 'clojure-refactor-setup)
   (define-clojure-indent ;; for cucumber tests
     (go 'defun)
+    (go-with-channel 'defun)
+    (testscript 'defun)
     (Before 'defun)
     (After 'defun)
     (Given 'defun)
