@@ -1,8 +1,5 @@
 ---
 
-- name: rsync
-  homebrew: name=rsync state=present
-
 - name: tree
   homebrew: name=tree state=present
 
