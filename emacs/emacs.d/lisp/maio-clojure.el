@@ -4,7 +4,7 @@
                             (clojure.tools.namespace.repl/refresh)"))
 
 (defun clojure-autotest-cb ()
-  (clojure-reload)
+  ;; (clojure-reload)
   (cider-test-run-tests nil)
   (remove-hook 'cider-file-loaded-hook 'clojure-autotest-cb))
 
