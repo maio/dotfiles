@@ -9,7 +9,8 @@
       helm-truncate-lines t
       helm-buffer-details-flag nil
       helm-mp-highlight-delay nil
-      helm-full-frame nil)
+      helm-full-frame nil
+      helm-cmd-t-cache-threshhold 1000000000000)
 
 (setq helm-locate-command
       (case system-type
