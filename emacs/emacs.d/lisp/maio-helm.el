@@ -10,7 +10,8 @@
       helm-buffer-details-flag nil
       helm-mp-highlight-delay nil
       helm-full-frame nil
-      helm-cmd-t-cache-threshhold 1000000000000)
+      helm-cmd-t-cache-threshhold 1000000000000
+      helm-etags-match-part-only nil)
 
 (setq helm-locate-command
       (case system-type
