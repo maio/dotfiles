@@ -135,6 +135,7 @@
 (evil-add-hjkl-bindings grep-mode-map 'emacs)
 (evil-add-hjkl-bindings helm-grep-mode-map 'emacs)
 (evil-add-hjkl-bindings ag-mode-map 'emacs)
+(evil-add-hjkl-bindings ibuffer-mode-map 'emacs)
 (evil-add-hjkl-bindings profiler-report-mode-map 'emacs
   "\r" 'profiler-report-find-entry)
 (evil-add-hjkl-bindings diff-mode-map 'emacs
