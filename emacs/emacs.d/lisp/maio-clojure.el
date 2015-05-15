@@ -1,17 +1,26 @@
 (defun clojure-reload ()
-  ;; TODO: throw error when this fails
-  (nrepl-sync-request:eval "(require 'clojure.tools.namespace.repl)
-                            (clojure.tools.namespace.repl/refresh)"))
+  ;; requires org.clojure/tools.namespace
+  ;; {:user {:dependencies [[org.clojure/tools.namespace "0.2.10"]]}}
+  (interactive)
+  (let ((nrepl-sync-request-timeout 60))
+    (nrepl-sync-request:eval "(require 'clojure.tools.namespace.repl)
+                              (clojure.tools.namespace.repl/refresh)")))
+
+(defun clojure-autotest-reload-cb ()
+  (clojure-reload)
+  (cider-test-run-tests nil)
+  (remove-hook 'cider-file-loaded-hook 'clojure-autotest-reload-cb))
 
 (defun clojure-autotest-cb ()
-  ;; (clojure-reload)
   (cider-test-run-tests nil)
   (remove-hook 'cider-file-loaded-hook 'clojure-autotest-cb))
 
-(defun clojure-autotest ()
-  (interactive)
+(defun clojure-autotest (&optional reload)
+  (interactive "P")
   (force-save-buffer)
-  (add-hook 'cider-file-loaded-hook 'clojure-autotest-cb)
+  (if reload
+      (add-hook 'cider-file-loaded-hook 'clojure-autotest-reload-cb)
+    (add-hook 'cider-file-loaded-hook 'clojure-autotest-cb))
   (cider-load-buffer))
 
 (defun clojure-hippie-expand-setup ()
@@ -19,9 +28,9 @@
   (setq hippie-expand-try-functions-list '(try-expand-dabbrev)))
 
 (defun clojure-refactor-setup ()
-  (clj-refactor-mode 1)
-  (cljr-add-keybindings-with-prefix "C-c j")
-  (require 'maio-clojure-refactor)
+  ;; (clj-refactor-mode 1)
+  ;; (cljr-add-keybindings-with-prefix "C-c j")
+  ;; (require 'maio-clojure-refactor)
   (add-hook 'cider-connected-hook #'cljr-update-artifact-cache)
   (add-hook 'cider-connected-hook #'cljr-warm-ast-cache))
 
