@@ -58,6 +58,9 @@
 
 (with-eval-after-load 'cider
   (add-hook 'cider-repl-mode-hook 'turn-on-smartparens-strict-mode)
+  (define-key cider-test-report-mode-map "j" 'cider-test-next-result)
+  (define-key cider-test-report-mode-map "k" 'cider-test-previous-result)
+  (define-key cider-test-report-mode-map (kbd "<return>") 'cider-test-jump)
   (define-key cider-repl-mode-map (kbd "s-L") 'cider-repl-clear-buffer)
   (define-key cider-repl-mode-map (kbd "C-x k") 'cider-quit)
   (define-key cider-repl-mode-map (kbd "s-K") 'cider-quit)
