@@ -48,6 +48,7 @@
   (define-clojure-indent ;; for cucumber tests
     (go 'defun)
     (go-with-channel 'defun)
+    (go-try 'defun)
     (testscript 'defun)
     (Before 'defun)
     (After 'defun)
