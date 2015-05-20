@@ -37,7 +37,6 @@
 (global-set-key (kbd "s-h") 'windmove-left)
 (global-set-key (kbd "s-l") 'windmove-right)
 (global-set-key (kbd "s-o") 'winner-undo)
-(global-set-key (kbd "s-j") 'ace-jump-word-mode)
 (global-set-key (kbd "s-r") 'revert-buffer)
 (global-set-key (kbd "s-[") 'profiler-start)
 (global-set-key (kbd "s-]") 'profiler-report)
