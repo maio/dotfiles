@@ -63,6 +63,7 @@
                        evil-surround
                        xclip
                        magit
+                       prodigy
                        gist)))
     (dolist (package my-packages)
       (ensure-package package))))

@@ -48,6 +48,8 @@
                                  (cider-test-report-mode        . emacs)
                                  (cider-docview-mode            . emacs)
                                  (cider-repl-mode               . insert)
+                                 (prodigy-mode                  . emacs)
+                                 (prodigy-view-mode             . emacs)
                                  (makey-key-mode                . emacs))
          do (evil-set-initial-state mode state))
 
@@ -126,6 +128,10 @@
   "K" 'gist-kill-current)
 (evil-add-hjkl-bindings magit-process-mode 'emacs)
 (evil-add-hjkl-bindings ert-results-mode-map 'emacs)
+(evil-add-hjkl-bindings prodigy-mode-map 'emacs
+  (kbd "<return>") 'prodigy-display-process)
+(evil-add-hjkl-bindings prodigy-view-mode-map 'emacs
+  "K" 'prodigy-view-clear-buffer)
 (evil-add-hjkl-bindings magit-status-mode-map 'emacs
   "K" 'magit-discard-item
   "l" 'magit-key-mode-popup-logging
