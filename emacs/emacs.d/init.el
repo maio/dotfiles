@@ -27,6 +27,7 @@
                        clojure-cheatsheet
                        cider
                        clj-refactor
+                       discover-clj-refactor
                        feature-mode
                        mustache-mode
                        yaml-mode
