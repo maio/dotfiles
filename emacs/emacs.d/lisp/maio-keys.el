@@ -28,7 +28,6 @@
 (global-set-key (kbd "C-x g $") 'prodigy)
 (global-set-key (kbd "C-x n f") 'maio-narrow-to-defun-clone)
 (global-set-key (kbd "C-x c k") 'maio/bury)
-(global-set-key (kbd "C-x c i") 'imenu)
 (global-set-key (kbd "s-i") 'imenu)
 (global-set-key (kbd "s-e") 'helm-etags-select)
 (global-set-key (kbd "s-K") 'kill-this-buffer)
