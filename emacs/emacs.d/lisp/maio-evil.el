@@ -130,8 +130,17 @@
 (evil-add-hjkl-bindings ert-results-mode-map 'emacs)
 (evil-add-hjkl-bindings prodigy-mode-map 'emacs
   (kbd "<return>") 'prodigy-display-process)
+
+(defun prodigy-view-put-marker ()
+  "..."
+  (interactive)
+  (let ((inhibit-read-only t))
+    (goto-char (point-max))
+    (insert "------------------------------------------------------------\n")))
 (evil-add-hjkl-bindings prodigy-view-mode-map 'emacs
-  "K" 'prodigy-view-clear-buffer)
+  "K" 'prodigy-view-clear-buffer
+  (kbd "<return>") 'prodigy-view-put-marker)
+
 (evil-add-hjkl-bindings magit-status-mode-map 'emacs
   "K" 'magit-discard-item
   "l" 'magit-key-mode-popup-logging
