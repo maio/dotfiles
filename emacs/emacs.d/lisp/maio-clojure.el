@@ -1,6 +1,8 @@
 (require 'clj-refactor)
 (require 'discover-clj-refactor)
 
+(setq cider-prompt-for-symbol nil)
+
 (defun clojure-reload ()
   ;; requires org.clojure/tools.namespace
   ;; {:user {:dependencies [[org.clojure/tools.namespace "0.2.10"]]}}
