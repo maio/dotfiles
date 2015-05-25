@@ -4,7 +4,7 @@
       org-tags-column -100)
 
 (setq org-todo-keywords
-      (quote ((sequence "TODO" "NEXT" "DONE"))))
+      (quote ((sequence "TODO" "NEXT" "IMPEDIMENT" "DONE"))))
 
 (defun org-linespacing ()
   (setq line-spacing 6))
