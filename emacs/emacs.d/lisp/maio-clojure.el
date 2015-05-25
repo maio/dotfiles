@@ -7,6 +7,7 @@
   ;; requires org.clojure/tools.namespace
   ;; {:user {:dependencies [[org.clojure/tools.namespace "0.2.10"]]}}
   (interactive)
+  (message "Reloading changed namespaces...")
   (let ((nrepl-sync-request-timeout 60))
     (nrepl-sync-request:eval "(require 'clojure.tools.namespace.repl)
                               (clojure.tools.namespace.repl/refresh)")))
