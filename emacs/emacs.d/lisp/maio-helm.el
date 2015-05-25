@@ -39,6 +39,9 @@
 (add-to-list 'helm-boring-buffer-regexp-list "\\*nrepl-events")
 (add-to-list 'helm-boring-buffer-regexp-list "\\*nrepl-connection")
 
+(require 'helm-backup)
+(add-hook 'after-save-hook 'helm-backup-versioning)
+
 (defun helm-set-default-directory (buffer-name directory)
   (let ((buffer (get-buffer buffer-name)))
     (when buffer
