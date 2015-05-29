@@ -9,6 +9,7 @@
                                            try-expand-dabbrev)))
 
 (add-hook 'emacs-lisp-mode-hook 'lisp-hippie-expand-setup)
+(add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
 
 (defun maio/run-ert-tests (reset?)
   (interactive "P")
