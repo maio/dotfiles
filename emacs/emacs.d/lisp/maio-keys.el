@@ -23,6 +23,8 @@
 (global-set-key (kbd "C-x g /") 'helm-git-grep)
 (global-set-key (kbd "C-x g ?") 'maio/helm-org)
 (global-set-key (kbd "C-x g p") 'maio/helm-project)
+(global-set-key (kbd "s-.") 'ido-switch-buffer)
+(global-set-key (kbd "s-p") 'maio/helm-project)
 (global-set-key (kbd "C-x g P") 'maio/helm-personal-project)
 (global-set-key (kbd "C-x g o") 'maio/helm-org)
 (global-set-key (kbd "C-x g v") 'helm-backup)
