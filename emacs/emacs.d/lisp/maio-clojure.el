@@ -58,9 +58,11 @@
   (add-hook 'clojure-mode-hook 'eldoc-mode)
   (add-hook 'clojure-mode-hook 'clojure-hippie-expand-setup)
   (add-hook 'clojure-mode-hook 'clojure-refactor-setup)
+  (add-hook 'clojure-mode-hook 'yas-minor-mode)
   (define-clojure-indent ;; for cucumber tests
     (go 'defun)
     (go-with-channel 'defun)
+    (go-with-return-to 'defun)
     (go-try 'defun)
     (testscript 'defun)
     (Before 'defun)
