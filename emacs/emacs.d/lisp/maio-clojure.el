@@ -21,13 +21,15 @@
   (cider-test-run-tests nil)
   (remove-hook 'cider-file-loaded-hook 'clojure-autotest-cb))
 
+
 (defun clojure-autotest (&optional reload)
   (interactive "P")
   (force-save-buffer)
-  (if reload
-      (add-hook 'cider-file-loaded-hook 'clojure-autotest-reload-cb)
-    (add-hook 'cider-file-loaded-hook 'clojure-autotest-cb))
-  (cider-load-buffer))
+  (when (not (s-ends-with? ".cljs" (buffer-file-name)))
+    (if reload
+        (add-hook 'cider-file-loaded-hook 'clojure-autotest-reload-cb)
+      (add-hook 'cider-file-loaded-hook 'clojure-autotest-cb))
+    (cider-load-buffer)))
 
 (defun clojure-hippie-expand-setup ()
   (make-local-variable 'hippie-expand-try-functions-list)
