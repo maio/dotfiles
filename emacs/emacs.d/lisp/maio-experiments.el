@@ -105,5 +105,10 @@
 (ensure-package 'coffee-mode)
 (setq coffee-tab-width 2)
 
+;; smart-tab
+(ensure-package 'smart-tab)
+(global-smart-tab-mode 1)
+(setq smart-tab-using-hippie-expand t)
+
 
 (provide 'maio-experiments)
