@@ -182,4 +182,8 @@
   (let ((dev (if dev dev "en0")))
     (format-network-address (car (network-interface-info dev)) t)))
 
+(defun make-current-window-dedicated ()
+  (interactive)
+  (set-window-dedicated-p (get-buffer-window) t))
+
 (provide 'maio-util)
