@@ -63,6 +63,11 @@
   (add-hook 'clojure-mode-hook 'yas-minor-mode)
   (define-clojure-indent ;; for cucumber tests
     (go 'defun)
+    (render 'defun)
+    (init-state 'defun)
+    (component 'defun)
+    (will-mount 'defun)
+    (render-state 'defun)
     (go-with-channel 'defun)
     (go-with-return-to 'defun)
     (go-try 'defun)
