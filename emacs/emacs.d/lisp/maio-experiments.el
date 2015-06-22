@@ -110,5 +110,9 @@
 (global-smart-tab-mode 1)
 (setq smart-tab-using-hippie-expand t)
 
+;; expand-region
+(ensure-package 'expand-region)
+(when evil-mode
+  (define-key evil-visual-state-map "." 'er/expand-region))
 
 (provide 'maio-experiments)
