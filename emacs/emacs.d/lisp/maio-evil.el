@@ -1,5 +1,6 @@
 ;; VIM emulation
 (require 'cl-lib)
+(require 'dash)
 (setq evil-move-cursor-back nil)
 (setq evil-want-C-i-jump t)
 (setq evil-repeat-move-cursor nil)
@@ -16,6 +17,7 @@
 (setq evil-insert-state-cursor '("DeepSkyBlue2" box))
 (setq evil-emacs-state-cursor '("DeepSkyBlue2" box))
 
+(require 'magit)
 (require 'evil)
 (evil-mode 1)
 (cl-loop for (mode . state) in '((inferior-emacs-lisp-mode      . emacs)
@@ -32,6 +34,12 @@
                                  (rmail-mode                    . normal)
                                  (rmail-summary-mode            . emacs)
                                  (bc-menu-mode                  . emacs)
+                                 (magit-refs-mode               . emacs)
+                                 (magit-popup-mode              . emacs)
+                                 (magit-popup-sequence-mode     . emacs)
+                                 (with-editor-mode              . emacs)
+                                 (magit-revision-mode           . emacs)
+                                 (magit-log-select-mode         . emacs)
                                  (magit-branch-manager-mode     . emacs)
                                  (magit-process-mode            . emacs)
                                  (rdictcc-buffer-mode           . emacs)
@@ -109,25 +117,19 @@
 (define-key evil-normal-state-map "+" 'evil-numbers/inc-at-pt)
 (define-key evil-normal-state-map "-" 'evil-numbers/dec-at-pt)
 
-(evil-add-hjkl-bindings magit-blame-map 'emacs)
 (evil-add-hjkl-bindings archive-mode-map 'emacs)
 (evil-add-hjkl-bindings tar-mode-map 'emacs)
 (evil-add-hjkl-bindings bookmark-bmenu-mode-map 'emacs
   "K" 'bookmark-bmenu-delete)
 (evil-add-hjkl-bindings package-menu-mode-map 'emacs
   "/" 'maio/helm-occur)
-(evil-add-hjkl-bindings magit-mode-map 'emacs)
-(evil-add-hjkl-bindings magit-diff-mode-map 'emacs)
 (evil-add-hjkl-bindings compilation-mode-map 'emacs
   "/" 'maio/helm-occur)
 (evil-add-hjkl-bindings git-rebase-mode-map 'emacs
   "K" 'git-rebase-kill-line
   "h" 'describe-mode)
-(evil-add-hjkl-bindings magit-log-mode-map 'emacs
-  "l" 'magit-key-mode-popup-logging)
 (evil-add-hjkl-bindings gist-list-menu-mode-map 'emacs
   "K" 'gist-kill-current)
-(evil-add-hjkl-bindings magit-process-mode 'emacs)
 (evil-add-hjkl-bindings ert-results-mode-map 'emacs)
 (evil-add-hjkl-bindings prodigy-mode-map 'emacs
   (kbd "<return>") 'prodigy-display-process)
@@ -142,12 +144,46 @@
   "K" 'prodigy-view-clear-buffer
   (kbd "<return>") 'prodigy-view-put-marker)
 
-(evil-add-hjkl-bindings magit-status-mode-map 'emacs
-  "K" 'magit-discard-item
-  "l" 'magit-key-mode-popup-logging
-  "h" 'magit-toggle-diff-refine-hunk
-  (kbd "C-j") 'magit-goto-next-section
-  (kbd "C-k") 'magit-goto-previous-section)
+(setq magit-keymaps '(magit-mode-map
+                      magit-log-mode-map
+                      magit-refs-mode-map
+                      magit-diff-mode-map
+                      magit-stash-mode-map
+                      magit-blame-mode-map
+                      magit-reflog-mode-map
+                      magit-status-mode-map
+                      magit-tag-section-map
+                      magit-cherry-mode-map
+                      magit-hunk-section-map
+                      magit-file-section-map
+                      magit-process-mode-map
+                      magit-stashes-mode-map
+                      magit-revision-mode-map
+                      magit-log-read-revs-map
+                      magit-stash-section-map
+                      magit-staged-section-map
+                      magit-remote-section-map
+                      magit-commit-section-map
+                      magit-branch-section-map
+                      magit-stashes-section-map
+                      magit-log-select-mode-map
+                      magit-unpulled-section-map
+                      magit-unstaged-section-map
+                      magit-unpushed-section-map
+                      magit-untracked-section-map
+                      magit-module-commit-section-map))
+
+(dolist (map-name magit-keymaps)
+  (let* ((map (symbol-value map-name)))
+    (-when-let (def (lookup-key map "v"))
+      (define-key map "V" def)
+      (define-key map "v" nil))
+    (-when-let (def (lookup-key map "k"))
+      (define-key map "K" def)
+      (define-key map "k" nil))
+    (evil-add-hjkl-bindings map 'emacs
+      "V" 'evil-visual-state)))
+
 (evil-add-hjkl-bindings grep-mode-map 'emacs)
 (evil-add-hjkl-bindings helm-grep-mode-map 'emacs)
 (evil-add-hjkl-bindings ag-mode-map 'emacs)

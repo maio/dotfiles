@@ -1,4 +1,5 @@
 (add-to-list 'load-path "~/.emacs.d/lisp")
+(add-to-list 'load-path "~/.emacs.d/lisp/magit")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (require 'maio-util)
 
@@ -16,7 +17,6 @@
                        s
                        dash
                        undo-tree
-                       git-rebase-mode
                        ace-jump-mode
                        company
                        readline-complete
@@ -64,7 +64,6 @@
                        evil-numbers
                        evil-surround
                        xclip
-                       magit
                        prodigy
                        gist)))
     (dolist (package my-packages)
