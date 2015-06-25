@@ -115,4 +115,30 @@
 (when evil-mode
   (define-key evil-visual-state-map "." 'er/expand-region))
 
+;; word/excel emulation modes
+(progn
+  (defun get-fake-world-lock-file (fname)
+    (f-join
+     (f-dirname fname)
+     (format "~$%s" (f-filename fname))))
+
+  (defun create-fake-word-lock ()
+    (let ((lock (get-fake-world-lock-file (buffer-file-name))))
+      ;; sleep would be more realistic?
+      (write-region "" nil lock)
+      (message "CREATED %s" (f-filename lock))))
+
+  (defun remove-fake-word-lock ()
+    (let ((lock (get-fake-world-lock-file (buffer-file-name))))
+      (delete-file lock)
+      (message "REMOVED %s" (f-filename lock))))
+
+  (define-derived-mode fake-word-mode text-mode "FakeWord"
+    (make-local-variable 'kill-buffer-hook)
+    (add-hook 'kill-buffer-hook 'remove-fake-word-lock)
+    (create-fake-word-lock)))
+
+(add-to-list 'auto-mode-alist '("\\.docx$" . fake-word-mode))
+
+
 (provide 'maio-experiments)
