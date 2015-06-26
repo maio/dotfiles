@@ -118,9 +118,17 @@
 ;; word/excel emulation modes
 (progn
   (defun get-fake-world-lock-file (fname)
-    (f-join
-     (f-dirname fname)
-     (format "~$%s" (f-filename fname))))
+    (let* ((ext (format ".%s" (f-ext fname)))
+           (fname-sans-ext (s-chop-suffix ext fname))
+           (len (length fname-sans-ext))
+           (drop-chars (cond
+                        ((> len 7) 2)
+                        ((= len 7) 1)
+                        (t 0))))
+      (message "%d" len)
+      (f-join
+       (f-dirname fname)
+       (format "~$%s" (substring (f-filename fname) drop-chars)))))
 
   (defun create-fake-word-lock ()
     (let ((lock (get-fake-world-lock-file (buffer-file-name))))
