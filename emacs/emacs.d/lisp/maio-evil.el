@@ -184,7 +184,7 @@
     (evil-add-hjkl-bindings map 'emacs
       "V" 'evil-visual-state)))
 
-(define-key magit-status-mode-map "X" 'magit-clean)
+(define-key magit-status-mode-map "X" 'magit-reset-hard)
 
 (evil-add-hjkl-bindings grep-mode-map 'emacs)
 (evil-add-hjkl-bindings helm-grep-mode-map 'emacs)
