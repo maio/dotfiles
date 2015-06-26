@@ -1,5 +1,5 @@
 (add-to-list 'load-path "~/.emacs.d/lisp")
-(add-to-list 'load-path "~/.emacs.d/lisp/magit")
+(add-to-list 'load-path "~/.emacs.d/lisp/magit/lisp")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (require 'maio-util)
 
