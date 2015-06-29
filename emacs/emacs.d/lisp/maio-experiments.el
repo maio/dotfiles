@@ -148,5 +148,26 @@
 
 (add-to-list 'auto-mode-alist '("\\.docx$" . fake-word-mode))
 
+;; hydra
+(ensure-package 'hydra)
+
+(defun maio/highlight-symbol-at-point ()
+  (interactive)
+  (let* ((regexp (hi-lock-regexp-okay
+                  (find-tag-default-as-symbol-regexp)))
+         (face 'hi-yellow))
+    (unless hi-lock-mode (hi-lock-mode 1))
+    (hi-lock-set-pattern regexp face)))
+
+(defhydra hydra-highlight ()
+  "Highlight"
+  ("." maio/highlight-symbol-at-point "highlight-symbol-at-point" :color blue)
+  ("r" unhighlight-regexp "unhighlight-regexp"))
+
+(defhydra hydra-utils ()
+  "Utils"
+  ("w" hydra-highlight/body "highlight (C-x w)" :color blue))
+
+(global-set-key (kbd "s-u") 'hydra-utils/body)
 
 (provide 'maio-experiments)
