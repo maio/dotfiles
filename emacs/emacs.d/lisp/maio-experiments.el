@@ -170,4 +170,41 @@
 
 (global-set-key (kbd "s-u") 'hydra-utils/body)
 
+(defhydra hydra-windows (:hint nil)
+  "
+split _v_ert  _s_:horz | _c_lose  _o_nly | buffer _p_revious  _n_ext  _b_:select | _u_ndo  _r_edo | resize _H__J__K__L_ | _w_:save _r_:jump"
+  ("u" winner-undo)
+  ("r" winner-redo)
+
+  ("s-h" windmove-left)
+  ("s-j" windmove-down)
+  ("s-k" windmove-up)
+  ("s-l" windmove-right)
+
+  ("p" previous-buffer)
+  ("n" next-buffer)
+  ("b" ido-switch-buffer)
+
+  ("s" split-window-below)
+  ("v" split-window-right)
+
+  ("c" delete-window)
+  ("o" delete-other-windows)
+
+  ("H" hydra-move-splitter-left)
+  ("J" hydra-move-splitter-down)
+  ("K" hydra-move-splitter-up)
+  ("L" hydra-move-splitter-right)
+
+  ("w" window-configuration-to-register :color blue)
+  ("r" jump-to-register :color blue)
+
+  ("RET" nil)
+  ("q" nil))
+
+(global-set-key (kbd "s-h") 'hydra-windows/windmove-left)
+(global-set-key (kbd "s-j") 'hydra-windows/windmove-down)
+(global-set-key (kbd "s-k") 'hydra-windows/windmove-up)
+(global-set-key (kbd "s-l") 'hydra-windows/windmove-right)
+
 (provide 'maio-experiments)
