@@ -21,6 +21,7 @@
                        company
                        readline-complete
                        goto-chg
+                       scratch
                        erlang
                        recompile-on-save
                        clojure-mode

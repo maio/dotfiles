@@ -16,7 +16,7 @@
 (global-set-key (kbd "C-x g l") 'magit-log)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x c v") 'maio/find-config-file)
-(global-set-key (kbd "C-x g s") 'maio/goto-scratch-buffer)
+(global-set-key (kbd "C-x g s") 'scratch)
 (global-set-key (kbd "C-x g n") 'remember-notes)
 (global-set-key (kbd "C-x g .") (lambda () (interactive) (find-file "~/org/focus.org")))
 (global-set-key (kbd "s-t") 'helm-cmd-t)
