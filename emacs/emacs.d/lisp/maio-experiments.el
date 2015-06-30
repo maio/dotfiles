@@ -207,4 +207,15 @@ split _v_ert  _s_:horz | _c_lose  _o_nly | buffer _p_revious  _n_ext  _b_:select
 (global-set-key (kbd "s-k") 'hydra-windows/windmove-up)
 (global-set-key (kbd "s-l") 'hydra-windows/windmove-right)
 
+(defhydra hydra-yank-pop ()
+  "yank"
+  ("C-y" yank nil)
+  ("M-y" yank-pop nil)
+  ("n" (yank-pop 1) "next")
+  ("p" (yank-pop -1) "prev")
+  ("s" helm-show-kill-ring "list" :color blue))
+
+(global-set-key (kbd "M-y") #'hydra-yank-pop/yank-pop)
+(global-set-key (kbd "C-y") #'hydra-yank-pop/yank)
+
 (provide 'maio-experiments)
