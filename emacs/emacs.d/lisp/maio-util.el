@@ -186,4 +186,7 @@
   (interactive)
   (set-window-dedicated-p (get-buffer-window) t))
 
+(defun single-window-p ()
+  (= (length (window-list)) 1))
+
 (provide 'maio-util)

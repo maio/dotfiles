@@ -170,42 +170,57 @@
 
 (global-set-key (kbd "s-u") 'hydra-utils/body)
 
+(defun windmove-right-or-create ()
+  (interactive)
+  (if (single-window-p)
+      (call-interactively 'split-window-right)
+    (call-interactively 'windmove-right)))
+
+(defun windmove-down-or-create ()
+  (interactive)
+  (if (single-window-p)
+      (call-interactively 'split-window-below)
+    (call-interactively 'windmove-down)))
+
+(require 'hydra-examples)
 (defhydra hydra-windows (:hint nil)
   "
-split _v_ert  _s_:horz | _c_lose  _o_nly | buffer _p_revious  _n_ext  _b_:select | _u_ndo  _r_edo | resize _H__J__K__L_ | _w_:save _r_:jump"
+split _V_ert  _S_:horz | _0_:close  _1_:only | buffer _p_revious  _n_ext  _b_:select | _u_ndo  _r_edo | resize _H__J__K__L_ _=_:balance | _w_:save _r_:jump"
   ("u" winner-undo)
   ("r" winner-redo)
 
   ("s-h" windmove-left)
-  ("s-j" windmove-down)
+  ("s-j" windmove-down-or-create)
   ("s-k" windmove-up)
-  ("s-l" windmove-right)
+  ("s-l" windmove-right-or-create)
 
   ("p" previous-buffer)
   ("n" next-buffer)
   ("b" ido-switch-buffer)
 
-  ("s" split-window-below)
-  ("v" split-window-right)
+  ("S" split-window-below)
+  ("V" split-window-right)
 
-  ("c" delete-window)
-  ("o" delete-other-windows)
+  ("0" delete-window)
+  ("1" delete-other-windows)
 
   ("H" hydra-move-splitter-left)
   ("J" hydra-move-splitter-down)
   ("K" hydra-move-splitter-up)
   ("L" hydra-move-splitter-right)
 
+  ("=" balance-windows)
+
   ("w" window-configuration-to-register :color blue)
   ("r" jump-to-register :color blue)
 
-  ("RET" nil)
-  ("q" nil))
+  ("RET" nil))
 
 (global-set-key (kbd "s-h") 'hydra-windows/windmove-left)
-(global-set-key (kbd "s-j") 'hydra-windows/windmove-down)
+(global-set-key (kbd "s-j") 'hydra-windows/windmove-down-or-create)
 (global-set-key (kbd "s-k") 'hydra-windows/windmove-up)
-(global-set-key (kbd "s-l") 'hydra-windows/windmove-right)
+(global-set-key (kbd "s-l") 'hydra-windows/windmove-right-or-create)
+(global-set-key (kbd "s-b") 'hydra-windows/ido-switch-buffer)
 
 (defhydra hydra-yank-pop ()
   "yank"
