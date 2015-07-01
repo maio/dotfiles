@@ -25,7 +25,9 @@
 (defun clojure-autotest (&optional reload)
   (interactive "P")
   (force-save-buffer)
-  (when (not (s-ends-with? ".cljs" (buffer-file-name)))
+  (when (and (not (s-ends-with? ".cljs" (buffer-file-name)))
+             (not (s-ends-with? "project.clj" (buffer-file-name)))
+             (not (s-ends-with? "profiles.clj" (buffer-file-name))))
     (if reload
         (add-hook 'cider-file-loaded-hook 'clojure-autotest-reload-cb)
       (add-hook 'cider-file-loaded-hook 'clojure-autotest-cb))
