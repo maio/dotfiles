@@ -65,22 +65,30 @@
   (add-hook 'clojure-mode-hook 'clojure-hippie-expand-setup)
   (add-hook 'clojure-mode-hook 'clojure-refactor-setup)
   (add-hook 'clojure-mode-hook 'yas-minor-mode)
-  (define-clojure-indent ;; for cucumber tests
+  (define-clojure-indent
     (go 'defun)
-    (render 'defun)
-    (init-state 'defun)
-    (component 'defun)
-    (will-mount 'defun)
-    (render-state 'defun)
+    (go-try 'defun)
     (go-with-channel 'defun)
     (go-with-return-to 'defun)
-    (go-try 'defun)
+    ;; om
+    (init-state 'defun)
+    (render 'defun)
+    (render-state 'defun)
+    (did-mount 'defun)
+    (will-mount 'defun)
+    (will-unmount 'defun)
+    (dom/div 'defun)
+
+    ;; misc
+    (component 'defun)
     (testscript 'defun)
+    ;; cucumber
     (Before 'defun)
     (After 'defun)
     (Given 'defun)
     (When 'defun)
-    (Then 'defun)))
+    (Then 'defun))
+  )
 
 (with-eval-after-load 'cider
   (add-hook 'cider-repl-mode-hook 'turn-on-smartparens-strict-mode)
