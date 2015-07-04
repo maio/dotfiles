@@ -6,6 +6,6 @@
     "^/" = "undo:";
     "^g" = {
          "^g" = ("insertText:", "marian.schubert@gmail.com");
-         "^d" = ("insertText:", "marian.schubert@gooddata.com");
+         "^t" = ("insertText:", "maio.localtunnel.me");
     };
 }
