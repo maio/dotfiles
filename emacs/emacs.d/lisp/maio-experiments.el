@@ -173,15 +173,17 @@
 
 (defun windmove-right-or-create ()
   (interactive)
-  (if (single-window-p)
-      (call-interactively 'split-window-right)
-    (call-interactively 'windmove-right)))
+  (condition-case err
+      (call-interactively 'windmove-right)
+    (error
+     (call-interactively 'split-window-right))))
 
 (defun windmove-down-or-create ()
   (interactive)
-  (if (single-window-p)
-      (call-interactively 'split-window-below)
-    (call-interactively 'windmove-down)))
+  (condition-case err
+      (call-interactively 'windmove-down)
+    (error
+     (call-interactively 'split-window-below))))
 
 (require 'hydra-examples)
 (defhydra hydra-windows (:hint nil)
