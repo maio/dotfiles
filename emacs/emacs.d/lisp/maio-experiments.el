@@ -138,8 +138,9 @@
 
   (defun remove-fake-word-lock ()
     (let ((lock (get-fake-world-lock-file (buffer-file-name))))
-      (delete-file lock)
-      (message "REMOVED %s" (f-filename lock))))
+      (when (f-exists? lock)
+        (delete-file lock)
+        (message "REMOVED %s" (f-filename lock)))))
 
   (define-derived-mode fake-word-mode text-mode "FakeWord"
     (make-local-variable 'kill-buffer-hook)
