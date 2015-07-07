@@ -4,14 +4,9 @@
 
 (with-eval-after-load 'magit
   (delete 'magit-insert-tags-header magit-status-headers-hook)
+  (add-to-list 'magit-diff-arguments "--patience")
   (add-to-list 'magit-no-confirm 'stage-all-changes))
 
-;; (setq magit-rewrite-inclusive nil
-;;       magit-status-buffer-switch-function 'switch-to-buffer
-;;       magit-diff-refine-hunk t
-;;       magit-diff-options '("--patience"))
-
-;; (require 'maio-magit-notes)
 (require 'magit)
 
 (fullframe magit-status magit-mode-quit-window)
