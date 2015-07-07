@@ -84,8 +84,11 @@
    `(magit-header ((t (:weight bold))))
    `(magit-item-mark ((t (:background ,bg-highlight))))
    `(magit-item-highlight ((t (:weight bold))))
+   `(magit-section-heading ((t (:weight bold :height 1.2))))
    `(magit-section-highlight ((t (:inherit default))))
    `(magit-diff-context-highlight ((t (:weight bold))))
+   `(magit-branch-local ((t (:weight bold))))
+   `(magit-branch-remote ((t (:weight bold))))
    ;; compile
    `(compilation-error ((t (:inherit error))))
    ;; flycheck
