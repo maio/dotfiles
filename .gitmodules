@@ -4,6 +4,3 @@
 [submodule "emacs/emacs.d/lisp/nclip"]
 	path = emacs/emacs.d/lisp/nclip
 	url = https://github.com/maio/nclip.el.git
-[submodule "emacs/emacs.d/lisp/magit"]
-	path = emacs/emacs.d/lisp/magit
-	url = git://github.com/magit/magit.git
