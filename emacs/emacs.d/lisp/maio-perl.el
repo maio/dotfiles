@@ -20,11 +20,8 @@
 (with-eval-after-load 'perl-mode
   (add-hook 'perl-mode-hook 'smartparens-mode)
   (add-hook 'perl-mode-hook 'flycheck-mode)
-  (add-hook 'perl-mode-hook 'yas-minor-mode-on)
   (add-hook 'perl-mode-hook 'setup-perl-mode)
 
-  ;; (require 'yasnippet)
-  ;; (yas-minor-mode-on)
   (require 'perltidy)
   (evil-define-key 'normal perl-mode-map "-" 'maio/find-alternative-file)
   (evil-define-key 'normal perl-mode-map "=" 'perltidy-dwim)

@@ -36,7 +36,6 @@
   (add-hook 'erlang-mode-hook 'turn-on-sackspace)
   (add-hook 'erlang-mode-hook 'setup-erlang-tab-indent)
   (add-hook 'erlang-mode-hook 'flycheck-mode)
-  (add-hook 'erlang-mode-hook 'yas-minor-mode-on)
   (add-hook 'erlang-mode-hook 'maio/run-prog-mode-hook)
   (add-hook 'erlang-shell-mode-hook 'turn-on-smartparens-mode)
   (define-key erlang-mode-map (kbd "C-c C-c") 'erlang-eunit-compile-and-run-module-tests)
@@ -51,7 +50,6 @@
   (add-hook 'erlang-shell-mode-hook
             (lambda ()
               (define-key erlang-shell-mode-map (kbd "TAB") 'dabbrev-expand)
-              (yas-minor-mode-on)
               (when evil-mode
                 (evil-define-key 'normal erlang-shell-mode-map [escape] 'evil-emacs-state)
                 (evil-define-key 'emacs erlang-shell-mode-map [escape] 'evil-normal-state))

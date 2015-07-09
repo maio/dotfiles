@@ -46,7 +46,6 @@
   (add-to-list 'js2-global-externs "spyOn")
   (add-to-list 'js2-global-externs "jasmine")
   ;; minor modes
-  (add-hook 'js2-mode-hook 'yas-minor-mode-on)
   (add-hook 'js2-mode-hook 'smartparens-mode)
   (define-key js2-mode-map (kbd "SPC") 'maio/electric-space)
   (when evil-mode
