@@ -11,6 +11,8 @@
 (with-eval-after-load 'smartparens (diminish 'smartparens-mode "(s)"))
 (with-eval-after-load 'paredit (diminish 'paredit-mode "(p)"))
 (with-eval-after-load 'flymake (diminish 'flymake-mode "Fly"))
+(with-eval-after-load 'cider (diminish 'cider-mode))
+(with-eval-after-load 'helm-mode (diminish 'helm-mode))
 
 (defvar mode-line-buffer-keymap
   (let ((map (make-sparse-keymap)))
