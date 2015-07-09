@@ -23,15 +23,11 @@
   (add-hook 'perl-mode-hook 'setup-perl-mode)
 
   (require 'perltidy)
-  (evil-define-key 'normal perl-mode-map "-" 'maio/find-alternative-file)
   (evil-define-key 'normal perl-mode-map "=" 'perltidy-dwim)
   (evil-define-key 'visual perl-mode-map "=" 'perltidy-dwim)
   ;; (define-key perl-mode-map (kbd "SPC") 'maio/electric-space)
   ;; (define-key perl-mode-map (kbd "RET") 'maio/electric-return)
   (define-key perl-mode-map (kbd "C-x m t") 'prove))
-
-(with-eval-after-load 'feature-mode
-  (evil-define-key 'normal feature-mode-map "-" 'maio/find-alternative-file))
 
 (defun maio/buffer-path-in-project ()
   (s-chop-prefix
