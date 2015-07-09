@@ -6,8 +6,11 @@
 (require-and-exec 'package
   (add-to-list 'package-archives
                '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  (add-to-list 'package-archives
+               '("melpa-stable" . "http://stable.melpa.org/packages/") t)
   (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
   (package-initialize)
+  (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
   (when (not package-archive-contents)
     (package-refresh-contents))
   (let ((my-packages '(auto-compile
