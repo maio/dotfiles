@@ -188,9 +188,9 @@
 (require 'hydra-examples)
 (defhydra hydra-windows (:hint nil)
   "
-split _V_ert  _S_:horz | _0_:close  _1_:only | buffer _p_revious  _n_ext  _b_:select | _u_ndo  _r_edo | resize _H__J__K__L_ _=_:balance | _w_:save _r_:jump"
-  ("u" winner-undo)
-  ("r" winner-redo)
+split _V_ert  _S_:horz | _0_:close  _1_:only | buffer _p_revious  _n_ext  _b_:select | _<_:undo  _>_:redo | resize _H__J__K__L_ _=_:balance | _w_:save _r_:jump"
+  ("<" winner-undo)
+  (">" winner-redo)
 
   ("s-h" windmove-left)
   ("s-j" windmove-down-or-create)
