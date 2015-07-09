@@ -1,6 +1,3 @@
-(require 'clj-refactor)
-(require 'discover-clj-refactor)
-
 (setq cider-prompt-for-symbol nil
       cider-interactive-eval-output-destination 'output-buffer)
 
@@ -38,11 +35,6 @@
   (make-local-variable 'hippie-expand-try-functions-list)
   (setq hippie-expand-try-functions-list '(try-expand-dabbrev)))
 
-(defun clojure-refactor-setup ()
-  ;; (require 'maio-clojure-refactor)
-  (add-hook 'cider-connected-hook #'cljr-update-artifact-cache)
-  (add-hook 'cider-connected-hook #'cljr-warm-ast-cache))
-
 (with-eval-after-load 'clojure-mode
   (require 'cider)
   (define-key clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)
@@ -64,8 +56,6 @@
     (evil-define-key 'normal clojure-mode-map (kbd "M-,") 'cider-jump-back))
   (add-hook 'clojure-mode-hook 'eldoc-mode)
   (add-hook 'clojure-mode-hook 'clojure-hippie-expand-setup)
-  (add-hook 'clojure-mode-hook 'clojure-refactor-setup)
-  (add-hook 'clojure-mode-hook 'yas-minor-mode)
   (define-clojure-indent
     (go 'defun)
     (go-try 'defun)
