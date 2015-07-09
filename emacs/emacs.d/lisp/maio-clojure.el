@@ -1,7 +1,8 @@
 (require 'clj-refactor)
 (require 'discover-clj-refactor)
 
-(setq cider-prompt-for-symbol nil)
+(setq cider-prompt-for-symbol nil
+      cider-interactive-eval-output-destination 'output-buffer)
 
 (defun clojure-reload ()
   ;; requires org.clojure/tools.namespace
@@ -103,6 +104,7 @@
       (evil-normal-state))
     ;; this is also visible in regular clojure mode
     ;; (evil-define-key 'normal cider-repl-mode-map [escape] "gi")
+    (evil-define-key 'normal cider-popup-buffer-mode-map "q" cider-popup-buffer-quit-function)
     (evil-define-key 'normal cider-doc-mode-map "q" cider-popup-buffer-quit-function)
     (evil-define-key 'normal cider-stacktrace-mode-map "q" cider-popup-buffer-quit-function)))
 
