@@ -1,3 +1,4 @@
+(require 'cl-lib)
 (setq helm-su-or-sudo "sudo"
       helm-allow-skipping-current-buffer nil
       helm-yank-symbol-first t
@@ -14,7 +15,7 @@
       helm-etags-match-part-only nil)
 
 (setq helm-locate-command
-      (case system-type
+      (cl-case system-type
         ('gnu/linux "locate -i -r %s")
         ('berkeley-unix "locate -i %s")
         ('windows-nt "es %s")
