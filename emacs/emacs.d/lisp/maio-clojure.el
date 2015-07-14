@@ -61,7 +61,8 @@
     (go-try 'defun)
     (go-with-channel 'defun)
     (go-with-return-to 'defun)
-    ;; om
+    ;; om/cljs
+    (this-as 'defun)
     (init-state 'defun)
     (render 'defun)
     (render-state 'defun)
@@ -69,6 +70,8 @@
     (will-mount 'defun)
     (will-unmount 'defun)
     (dom/div 'defun)
+    (dom/ul 'defun)
+    (dom/li 'defun)
 
     ;; misc
     (component 'defun)
