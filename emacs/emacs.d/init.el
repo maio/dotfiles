@@ -33,6 +33,7 @@
                        clj-refactor
                        discover-clj-refactor
                        feature-mode
+                       markdown-mode
                        mustache-mode
                        yaml-mode
                        php-mode
