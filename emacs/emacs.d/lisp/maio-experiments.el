@@ -234,4 +234,11 @@ _0_:close  _1_:only | buffer _p_revious  _n_ext  _b_:select | _<_:undo  _>_:redo
 (global-set-key (kbd "M-y") #'hydra-yank-pop/yank-pop)
 (global-set-key (kbd "C-y") #'hydra-yank-pop/yank)
 
+(ensure-package 'avy)
+(setq avy-all-windows nil
+      avy-keys '(?q ?w ?e ?r ?t ?y ?u ?i ?o ?p
+                    ?a ?s ?d ?f ?g ?h ?j ?k ?l
+                    ?z ?x ?c ?v ?b ?n ?m))
+(define-key evil-normal-state-map (kbd "SPC") 'avy-goto-word-or-subword-1)
+
 (provide 'maio-experiments)
