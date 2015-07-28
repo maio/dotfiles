@@ -71,6 +71,7 @@
                        xclip
                        prodigy
                        magit
+                       orgit
                        gist)))
     (dolist (package my-packages)
       (ensure-package package))))
