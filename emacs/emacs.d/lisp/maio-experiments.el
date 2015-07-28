@@ -189,7 +189,7 @@
 (require 'hydra-examples)
 (defhydra hydra-windows (:hint nil)
   "
-split _V_ert  _S_:horz | _0_:close  _1_:only | buffer _p_revious  _n_ext  _b_:select | _<_:undo  _>_:redo | resize _H__J__K__L_ _=_:balance | _w_:save _r_:jump"
+_0_:close  _1_:only | buffer _p_revious  _n_ext  _b_:select | _<_:undo  _>_:redo | resize _H__J__K__L_ _=_:balance | _m_:save _'_:jump"
   ("<" winner-undo)
   (">" winner-redo)
 
@@ -202,9 +202,6 @@ split _V_ert  _S_:horz | _0_:close  _1_:only | buffer _p_revious  _n_ext  _b_:se
   ("n" next-buffer)
   ("b" ido-switch-buffer)
 
-  ("S" split-window-below)
-  ("V" split-window-right)
-
   ("0" delete-window)
   ("1" delete-other-windows)
 
@@ -215,8 +212,8 @@ split _V_ert  _S_:horz | _0_:close  _1_:only | buffer _p_revious  _n_ext  _b_:se
 
   ("=" balance-windows)
 
-  ("w" window-configuration-to-register :color blue)
-  ("r" jump-to-register :color blue)
+  ("m" window-configuration-to-register :color blue)
+  ("'" jump-to-register :color blue)
 
   ("RET" nil))
 
