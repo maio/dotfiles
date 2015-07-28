@@ -184,6 +184,7 @@
     (evil-add-hjkl-bindings map 'emacs
       "V" 'evil-visual-state)))
 
+(evil-define-key 'normal magit-blame-mode-map "q" 'magit-blame-quit)
 (define-key magit-status-mode-map "X" 'magit-reset-hard)
 (define-key magit-status-mode-map "L" 'magit-log-current)
 
