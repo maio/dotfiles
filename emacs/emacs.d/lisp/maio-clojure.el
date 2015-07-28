@@ -72,6 +72,8 @@
     (dom/div 'defun)
     (dom/ul 'defun)
     (dom/li 'defun)
+    (dom/a 'defun)
+    (dom/button 'defun)
 
     ;; misc
     (component 'defun)
