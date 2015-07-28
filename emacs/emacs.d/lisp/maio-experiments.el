@@ -185,6 +185,7 @@
     (error
      (call-interactively 'split-window-below))))
 
+(setq hydra-lv nil)
 (require 'hydra-examples)
 (defhydra hydra-windows (:hint nil)
   "
