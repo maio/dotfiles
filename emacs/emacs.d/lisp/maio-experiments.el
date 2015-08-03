@@ -88,7 +88,8 @@
 (with-eval-after-load 'org
   (ensure-package 'ox-reveal)
   (require 'ox-reveal)
-  (setq org-reveal-theme "solarized"))
+  (setq org-reveal-theme "sky"
+        org-reveal-title-slide-template "<h1>%t</h1><h2>%a</h2><h3>%e</h3>"))
 
 (ensure-package 'dired-open)
 (with-eval-after-load 'dired
