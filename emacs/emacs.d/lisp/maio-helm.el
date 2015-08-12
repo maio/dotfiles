@@ -57,9 +57,10 @@
   (interactive)
   (helm-find-files-1 (expand-file-name "~/Projects/personal/")))
 
-(defun maio/helm-org ()
+(defun maio/helm-do-ag-project-dir ()
   (interactive)
-  (helm-find-files-1 (expand-file-name "~/org/")))
+  (let ((default-directory (helm-ag--project-root)))
+    (call-interactively 'helm-do-ag)))
 
 (defun maio/helm-occur ()
   "Preconfigured helm for Occur."
