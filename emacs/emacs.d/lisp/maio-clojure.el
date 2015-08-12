@@ -67,6 +67,7 @@
     (render 'defun)
     (render-state 'defun)
     (did-mount 'defun)
+    (did-update 'defun)
     (will-mount 'defun)
     (will-unmount 'defun)
     (dom/div 'defun)
