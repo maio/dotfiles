@@ -1,22 +1,25 @@
 ;; -*- mode: emacs-lisp; mode: rainbow -*-
 
+;; http://www.daveliepmann.stfi.re/tufte-css/?sf=wklwy
+
 (deftheme eink
   "Port of eink.vim theme to emacs")
 
-(let ((fg "#262626")
-      (bg "white smoke")
-      (fg-light "gray85")
+(let ((fg "#111111")
+      (bg "#fffff8")
+      (bg-light "#ddddd8")
+      (fg-light "#ddddd8")
       (bg-highlight "#FFF1AA"))
 
   (custom-theme-set-faces
    'eink
    `(font-lock-builtin-face ((t (:background ,bg :foreground ,fg))))
-   `(region ((t (:background "gray85" :foreground ,fg))))
-   `(yas-field-highlight-face ((t (:background "gray85" :foreground ,fg))))
+   `(region ((t (:background "#eeeee8" :foreground ,fg))))
+   `(yas-field-highlight-face ((t (:background "#eeeee8" :foreground ,fg))))
    `(button ((t (:foreground ,fg :underline t))))
    `(highlight ((t nil)))
    `(cursor ((t (:background ,fg :foreground "white smoke"))))
-   `(isearch ((t (:background "#e2e2e5" :foreground ,fg))))
+   `(isearch ((t (:background "#eeeee8" :foreground ,fg))))
    `(minibuffer-prompt ((t (:foreground ,fg :weight bold))))
    `(default-italic ((t (:italic t))))
    `(font-lock-comment-face ((t (:foreground ,fg :weight bold))))
@@ -33,12 +36,12 @@
    `(font-lock-warning-face ((t (:foreground ,fg :weight bold))))
    `(link ((t (:foreground ,fg))))
    `(org-hide ((t (:foreground ,bg))))
-   `(org-level-1 ((t (:foreground "black" :weight semi-bold :height 1.3))))
-   `(org-level-2 ((t (:foreground "black" :weight semi-bold :height 1.1))))
-   `(org-level-3 ((t (:foreground "black" :weight semi-bold :height 1.1))))
-   `(org-level-4 ((t (:foreground "black" :weight semi-bold :height 1.1))))
-   `(org-level-5 ((t (:foreground "black" :weight semi-bold :height 1.1))))
-   `(org-level-6 ((t (:foreground "black" :weight semi-bold :height 1.1))))
+   `(org-level-1 ((t (:foreground ,fg :weight semi-bold :height 1.3))))
+   `(org-level-2 ((t (:foreground ,fg :weight semi-bold :height 1.1))))
+   `(org-level-3 ((t (:foreground ,fg :weight semi-bold :height 1.1))))
+   `(org-level-4 ((t (:foreground ,fg :weight semi-bold :height 1.1))))
+   `(org-level-5 ((t (:foreground ,fg :weight semi-bold :height 1.1))))
+   `(org-level-6 ((t (:foreground ,fg :weight semi-bold :height 1.1))))
    `(org-special-keyword ((t (:foreground ,fg))))
    `(org-block ((t (:foreground ,fg))))
    `(org-quote ((t (:foreground ,fg :slant italic :inherit org-block))))
@@ -70,9 +73,9 @@
    `(ido-subdir ((t (:foreground ,fg))))
    `(eshell-prompt ((t (:foreground ,fg :weight bold))))
    `(custom-variable-tag ((t (:foreground ,fg :weight bold))))
-   `(modeline ((t (:background "grey90" :foreground ,fg :height 0.8))))
-   `(mode-line ((t (:background "grey90" :foreground ,fg :height 0.8))))
-   `(mode-line-inactive ((t (:background "grey90" :foreground "grey90" :height 0.8))))
+   `(modeline ((t (:background ,bg :foreground ,fg :height 0.8))))
+   `(mode-line ((t (:background ,bg-light :foreground ,fg :height 0.8))))
+   `(mode-line-inactive ((t (:background ,bg-light :foreground ,bg-light :height 0.8))))
    `(mode-line-buffer ((t (:foreground ,fg :weight bold))))
    `(mode-line-minor-mode ((t (:weight ultra-light))))
    `(default ((t (:background ,bg :foreground ,fg))))
