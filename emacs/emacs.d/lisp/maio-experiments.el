@@ -234,6 +234,7 @@ _0_:close  _1_:only | buffer _p_revious  _n_ext  _b_:select | _<_:undo  _>_:redo
 
 (global-set-key (kbd "M-y") #'hydra-yank-pop/yank-pop)
 (global-set-key (kbd "C-y") #'hydra-yank-pop/yank)
+(global-set-key (kbd "s-v") #'hydra-yank-pop/yank)
 
 (ensure-package 'avy)
 (setq avy-all-windows nil
