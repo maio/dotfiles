@@ -71,6 +71,7 @@
    `(gnus-header-subject ((t (:foreground ,fg))))
    `(slime-repl-inputed-output-face ((t (:foreground ,fg))))
    `(ido-subdir ((t (:foreground ,fg))))
+   `(cider-result-overlay-face ((t (:weight bold))))
    `(eshell-prompt ((t (:foreground ,fg :weight bold))))
    `(custom-variable-tag ((t (:foreground ,fg :weight bold))))
    `(modeline ((t (:background ,bg :foreground ,fg :height 0.8))))
