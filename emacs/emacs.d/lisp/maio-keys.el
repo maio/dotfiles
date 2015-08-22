@@ -23,7 +23,6 @@
 (global-set-key (kbd "s-m") 'helm-mark-ring)
 (global-set-key (kbd "C-x g /") 'helm-do-ag-project-root)
 (global-set-key (kbd "C-x g ?") 'maio/helm-do-ag-project-dir)
-(global-set-key (kbd "s-.") 'ido-switch-buffer)
 (global-set-key (kbd "s-p") 'maio/helm-project)
 (global-set-key (kbd "C-x g p") 'maio/helm-project)
 (global-set-key (kbd "s-P") 'maio/helm-personal-project)
