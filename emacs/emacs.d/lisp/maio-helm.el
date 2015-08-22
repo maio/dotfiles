@@ -24,7 +24,6 @@
         (t "locate %s")))
 
 (require 'helm-config)
-(require 'helm-match-plugin)
 (helm-mode 1)
 (require 'maio-helm-git)
 (require 'helm-descbinds)
