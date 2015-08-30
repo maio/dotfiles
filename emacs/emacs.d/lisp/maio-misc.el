@@ -34,6 +34,7 @@
 (setq initial-scratch-message nil)
 (setq blink-matching-paren nil)
 (setq remember-notes-initial-major-mode 'org-mode)
+(setq recenter-positions '(top middle bottom))
 
 (defun maio/indent ()
   (setq indent-line-function 'indent-relative-maybe))
