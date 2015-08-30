@@ -189,4 +189,8 @@
 (defun single-window-p ()
   (= (length (window-list)) 1))
 
+(defun maio/jump-brace (char)
+  (interactive (list (read-char "char: " t)))
+  (avy-goto-char-2 ?\( char))
+
 (provide 'maio-util)

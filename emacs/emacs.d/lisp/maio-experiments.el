@@ -236,6 +236,29 @@ _0_:close  _1_:only | buffer _p_revious  _n_ext  _b_:select | _<_:undo  _>_:redo
 (global-set-key (kbd "C-y") #'hydra-yank-pop/yank)
 (global-set-key (kbd "s-v") #'hydra-yank-pop/yank)
 
+(defhydra hydra-smartparens ()
+  "smartparens"
+  ("(" sp-forward-barf-sexp "barf last")
+  (")" sp-forward-slurp-sexp "slurp")
+  ("s" sp-split-sexp "split")
+  ("t" sp-transpose-sexp "transponse")
+  ("M-J" sp-join-sexp "join")
+  ("J" evil-join)
+  ("c" sp-convolute-sexp "convolute")
+  ("u" undo-tree-undo "undo")
+  ("M-k" sp-kill-sexp "kill")
+  ("M-SPC" just-one-space)
+  ("h" sp-backward-up-sexp)
+  ("j" sp-next-sexp)
+  ("k" sp-backward-sexp)
+  ("l" sp-down-sexp))
+
+    ;; (evil-define-key 'normal clojure-mode-map "l" 'sp-down-sexp)
+    ;; (evil-define-key 'normal clojure-mode-map "h" 'sp-backward-up-sexp)
+    ;; (evil-define-key 'normal clojure-mode-map "j" 'sp-next-sexp)
+    ;; (evil-define-key 'normal clojure-mode-map "k" 'sp-backward-sexp)
+(global-set-key (kbd "s-9") #'hydra-smartparens/body)
+
 (ensure-package 'avy)
 (setq avy-all-windows nil
       avy-keys '(?q ?w ?e ?r ?t ?y ?u ?i ?o ?p

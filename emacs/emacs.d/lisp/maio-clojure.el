@@ -47,10 +47,9 @@
   (define-key clojure-mode-map (kbd "C-(") 'sp-forward-barf-sexp)
   (define-key clojure-mode-map (kbd "M-C-f") 'sp-end-of-next-sexp)
   (define-key clojure-mode-map (kbd "C-k") 'sp-kill-hybrid-sexp)
+  (define-key clojure-mode-map (kbd "M-J") 'sp-join-sexp)
   (define-key clojure-mode-map (kbd "s-s") 'clojure-autotest)
   (when evil-mode
-    (evil-define-key 'normal clojure-mode-map "(" 'sp-backward-up-sexp)
-    (evil-define-key 'normal clojure-mode-map ")" 'sp-forward-sexp)
     (evil-define-key 'normal clojure-mode-map "D" 'sp-kill-hybrid-sexp)
     (evil-define-key 'normal clojure-mode-map (kbd "M-.") 'cider-jump-to-var)
     (evil-define-key 'normal clojure-mode-map (kbd "M-,") 'cider-jump-back))
@@ -96,6 +95,14 @@
   (define-key cider-repl-mode-map (kbd "C-x k") 'cider-quit)
   (define-key cider-repl-mode-map (kbd "s-K") 'cider-quit)
   (when evil-mode
+    (evil-define-key 'normal clojure-mode-map "l" 'sp-down-sexp)
+    (evil-define-key 'normal clojure-mode-map "h" 'sp-backward-up-sexp)
+    (evil-define-key 'normal clojure-mode-map "j" 'sp-next-sexp)
+    (evil-define-key 'normal clojure-mode-map "k" 'sp-backward-sexp)
+    (evil-define-key 'normal clojure-mode-map "(" 'maio/jump-brace)
+    (evil-define-key 'normal clojure-mode-map ")" 'sp-end-of-sexp)
+    (evil-define-key 'normal clojure-mode-map (kbd "s-d") 'sp-clone-sexp)
+
     (defadvice cider-eval-defun-at-point (after evil-normal-state () activate)
       (evil-normal-state))
     ;; this is also visible in regular clojure mode

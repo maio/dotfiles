@@ -18,6 +18,18 @@
   (eval-buffer)
   (ert t))
 
+(defadvice sp-down-sexp (before mark () activate)
+  (when (interactive-p) (push-mark)))
+
+(defadvice sp-backward-up-sexp (before mark () activate)
+  (when (interactive-p) (push-mark)))
+
+(defadvice sp-next-sexp (before mark () activate)
+  (when (interactive-p) (push-mark)))
+
+(defadvice sp-backward-sexp (before mark () activate)
+  (when (interactive-p) (push-mark)))
+
 (define-key emacs-lisp-mode-map (kbd "M-q") 'sp-indent-defun)
 (define-key emacs-lisp-mode-map (kbd "M-r") 'sp-raise-sexp)
 (define-key emacs-lisp-mode-map (kbd "M-k") 'sp-kill-sexp)
@@ -25,11 +37,18 @@
 (define-key emacs-lisp-mode-map (kbd "C-)") 'sp-forward-slurp-sexp)
 (define-key emacs-lisp-mode-map (kbd "C-(") 'sp-forward-barf-sexp)
 (define-key emacs-lisp-mode-map (kbd "C-k") 'sp-kill-hybrid-sexp)
+(define-key emacs-lisp-mode-map (kbd "M-J") 'sp-join-sexp)
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'maio/run-ert-tests)
 (define-key emacs-lisp-mode-map (kbd "<C-return>") 'eval-defun)
 (when evil-mode
-  (evil-define-key 'normal emacs-lisp-mode-map "(" 'sp-backward-up-sexp)
-  (evil-define-key 'normal emacs-lisp-mode-map ")" 'sp-forward-sexp)
+  (evil-define-key 'normal emacs-lisp-mode-map "l" 'sp-down-sexp)
+  (evil-define-key 'normal emacs-lisp-mode-map "h" 'sp-backward-up-sexp)
+  (evil-define-key 'normal emacs-lisp-mode-map "j" 'sp-next-sexp)
+  (evil-define-key 'normal emacs-lisp-mode-map "k" 'sp-backward-sexp)
+  (evil-define-key 'normal emacs-lisp-mode-map "(" 'maio/jump-brace)
+  (evil-define-key 'normal emacs-lisp-mode-map ")" 'sp-end-of-sexp)
+  (evil-define-key 'normal emacs-lisp-mode-map (kbd "s-d") 'sp-clone-sexp)
+
   (evil-define-key 'normal emacs-lisp-mode-map "D" 'sp-kill-hybrid-sexp)
   (evil-define-key 'normal emacs-lisp-mode-map "K" 'elisp-slime-nav-describe-elisp-thing-at-point))
 
