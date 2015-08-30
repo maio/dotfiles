@@ -12,6 +12,7 @@
  '(flycheck-check-syntax-automatically (quote (save mode-enabled)))
  '(js3-consistent-level-indent-inner-bracket t)
  '(js3-indent-level 4)
+ '(magit-fetch-arguments (quote ("--prune")))
  '(pcomplete-ignore-case t)
  '(perl-indent-continued-arguments 0)
  '(safe-local-variable-values (quote ((nrepl-port . "3001") (eval setenv "DATABASE_URL" "postgresql://localhost:5432/wools") (whitespace-line-column . 80) (lexical-binding . t)))))
