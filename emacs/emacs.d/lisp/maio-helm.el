@@ -12,7 +12,7 @@
       helm-mp-highlight-delay nil
       helm-full-frame nil
       helm-cmd-t-cache-threshhold 1000000000000
-      helm-etags-match-part-only nil
+      helm-etags-match-part-only 'all
       helm-ag-use-agignore t)
 
 (setq helm-locate-command
