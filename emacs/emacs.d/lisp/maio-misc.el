@@ -11,7 +11,7 @@
 (setq c-basic-offset 4)
 (setq standard-indent 4)
 (setq tab-width 4)
-(setq yaml-indent-offset 4)
+(setq yaml-indent-offset 2)
 (setq-default indent-tabs-mode nil)
 (setq-default cursor-in-non-selected-windows nil)
 (setq-default line-spacing 4)
