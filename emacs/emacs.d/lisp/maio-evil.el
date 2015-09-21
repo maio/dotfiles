@@ -84,6 +84,8 @@
 (define-key evil-visual-state-map (kbd "C-a") 'smart-beginning-of-line)
 (define-key evil-normal-state-map (kbd "C-e") 'end-of-line)
 (define-key evil-visual-state-map (kbd "C-e") 'end-of-line)
+(define-key evil-normal-state-map (kbd "C-p") 'previous-line)
+(define-key evil-normal-state-map (kbd "C-n") 'next-line)
 (define-key evil-insert-state-map [escape] 'evil-normal-state)
 (define-key evil-insert-state-map "\C-x\C-n" 'evil-complete-next-line)
 (define-key evil-insert-state-map "\C-x\C-p" 'evil-complete-previous-line)
