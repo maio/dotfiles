@@ -56,6 +56,7 @@
   (add-hook 'clojure-mode-hook 'eldoc-mode)
   (add-hook 'clojure-mode-hook 'clojure-hippie-expand-setup)
   (define-clojure-indent
+    (async 'defun)
     (go 'defun)
     (go-try 'defun)
     (go-with-channel 'defun)
@@ -69,6 +70,9 @@
     (did-update 'defun)
     (will-mount 'defun)
     (will-unmount 'defun)
+    (should-update 'defun)
+    (will-update 'defun)
+    (did-update 'defun)
     (dom/div 'defun)
     (dom/ul 'defun)
     (dom/li 'defun)
