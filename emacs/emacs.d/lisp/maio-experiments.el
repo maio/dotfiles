@@ -266,4 +266,9 @@ _0_:close  _1_:only | buffer _p_revious  _n_ext  _b_:select | _<_:undo  _>_:redo
                     ?z ?x ?c ?v ?b ?n ?m))
 (define-key evil-normal-state-map (kbd "SPC") 'avy-goto-word-or-subword-1)
 
+(require 'whitespace)
+(setq whitespace-line-column 80)
+(setq whitespace-style '(face lines-tail))
+(add-hook 'prog-mode-hook 'whitespace-mode)
+
 (provide 'maio-experiments)
