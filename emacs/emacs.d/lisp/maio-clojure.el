@@ -50,6 +50,7 @@
   (define-key clojure-mode-map (kbd "M-J") 'sp-join-sexp)
   (define-key clojure-mode-map (kbd "s-s") 'clojure-autotest)
   (when evil-mode
+    (evil-define-key 'insert clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)
     (evil-define-key 'normal clojure-mode-map "D" 'sp-kill-hybrid-sexp)
     (evil-define-key 'normal clojure-mode-map (kbd "M-.") 'cider-jump-to-var)
     (evil-define-key 'normal clojure-mode-map (kbd "M-,") 'cider-jump-back))
