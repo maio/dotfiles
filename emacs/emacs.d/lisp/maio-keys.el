@@ -76,9 +76,8 @@
   (evil-define-key 'insert lisp-mode-shared-map (kbd "C-j") 'paredit-close-round-and-newline)
 
   (define-key evil-insert-state-map (kbd "M-<backspace>") 'backward-kill-word)
-  (define-key evil-motion-state-map "gl" 'magit-log-buffer-file)
-  (define-key evil-motion-state-map "g/" 'maio/goto-grep-buffer)
   (define-key evil-normal-state-map (kbd "RET") 'maio/newline-above)
+  (evil-define-key 'normal clojure-mode-map "K" 'cider-doc)
   (evil-define-key 'normal cperl-mode-map "K" 'cperl-perldoc-at-point))
 (define-key isearch-mode-map (kbd "C-g") 'isearch-abort)
 
