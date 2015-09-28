@@ -9,7 +9,8 @@
       (bg "#fffff8")
       (bg-light "#ddddd8")
       (fg-light "#ddddd8")
-      (bg-highlight "#FFF1AA"))
+      (bg-highlight "#FFF1AA")
+      (bg-highlight-2 "LightCyan"))
 
   (custom-theme-set-faces
    'eink
@@ -80,7 +81,7 @@
    `(mode-line-buffer ((t (:foreground ,fg :weight bold))))
    `(mode-line-minor-mode ((t (:weight ultra-light))))
    `(default ((t (:background ,bg :foreground ,fg))))
-   `(whitespace-line ((t (:background ,fg :foreground ,bg))))
+   `(whitespace-line ((t (:background ,bg-highlight-2 :foreground ,fg))))
    `(cperl-hash-face ((t (:foreground ,fg))))
    `(cperl-array-face ((t (:foreground ,fg))))
    `(cperl-nonoverridable-face ((t (:foreground ,fg))))
