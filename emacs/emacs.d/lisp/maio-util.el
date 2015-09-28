@@ -96,13 +96,6 @@
 (defun maio/current-project-dir ()
   (locate-dominating-file default-directory ".git"))
 
-(defun maio/goto-grep-buffer ()
-  (interactive)
-  (switch-to-buffer-other-window
-   (first (let ((regexp "\*grep"))
-            (remove-if-not (lambda (buf) (string-match regexp (buffer-name buf)))
-                           (buffer-list))))))
-
 (defun maio/copy-file-name-to-clipboard ()
   "Copy the current buffer file name to the clipboard."
   (interactive)
