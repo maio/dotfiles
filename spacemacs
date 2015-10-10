@@ -28,8 +28,9 @@ values."
      emacs-lisp
      git
      clojure
-     ;; markdown
-     ;; org
+     markdown
+     org
+     prodigy
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -41,9 +42,11 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(fullframe hydra)
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '(rainbow-delimiters)
+   dotspacemacs-excluded-packages '(rainbow-delimiters
+                                    highlight-parentheses
+                                    golden-ratio)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'. (default t)
@@ -62,7 +65,7 @@ values."
    ;; variable is `emacs' then the `holy-mode' is enabled at startup. `hybrid'
    ;; uses emacs key bindings for vim's insert mode, but otherwise leaves evil
    ;; unchanged. (default 'vim)
-   dotspacemacs-editing-style 'vim
+   dotspacemacs-editing-style 'hybrid
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
    ;; Specify the startup banner. Default value is `official', it displays
@@ -79,8 +82,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
-                         spacemacs-light
+   dotspacemacs-themes '(spacemacs-light
+                         spacemacs-dark
                          solarized-light
                          solarized-dark
                          leuven
@@ -91,8 +94,9 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
-                               :weight normal
+                               :size 12
+                               ;; :weight normal
+                               :weight medium
                                :width normal
                                :powerline-scale 1.1)
    ;; The leader key
@@ -144,7 +148,7 @@ values."
    ;; If non nil a progress bar is displayed when spacemacs is loading. This
    ;; may increase the boot time on some systems and emacs builds, set it to
    ;; nil to boost the loading time. (default t)
-   dotspacemacs-loading-progress-bar t
+   dotspacemacs-loading-progress-bar nil
    ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
    dotspacemacs-fullscreen-at-startup nil
@@ -196,11 +200,142 @@ user code."
   )
 
 (defun dotspacemacs/user-config ()
-  "Configuration function for user code.
- This function is called at the very end of Spacemacs initialization after
-layers configuration. You are free to put any user code."
+  (setq evil-move-cursor-back nil
+        evil-want-C-i-jump t
+        evil-repeat-move-cursor nil
+        evil-regexp-search t
+        evil-cross-lines t)
+
+  (setq projectile-enable-caching t
+        vc-follow-symlinks t
+        spacemacs-theme-org-highlight nil
+        magit-diff-refine-hunk t
+        powerline-default-separator nil)
+
   (global-hl-line-mode -1)
-)
+  (spacemacs/toggle-automatic-symbol-highlight-on)
+
+  ;; evil
+  (define-key evil-normal-state-map "Y" 'evil-yank-line)
+  (define-key evil-normal-state-map "S" "vabsba")
+  (define-key evil-normal-state-map "/" 'helm-swoop)
+  ;; evil like emacs
+  (define-key evil-normal-state-map [tab] 'evil-jump-item)
+  (define-key evil-emacs-state-map (kbd "C-a") 'evil-first-non-blank)
+  (define-key evil-hybrid-state-map (kbd "C-a") 'evil-first-non-blank)
+  (define-key evil-normal-state-map (kbd "C-a") 'evil-first-non-blank)
+  (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
+  ;; evil + org
+  (evil-define-key 'normal org-mode-map [tab] 'org-cycle)
+
+  ;; emacs lisp
+  (define-key emacs-lisp-mode-map (kbd "M-q") 'sp-indent-defun)
+  (define-key emacs-lisp-mode-map (kbd "M-k") 'sp-kill-sexp)
+  (define-key emacs-lisp-mode-map (kbd "C-)") 'sp-forward-slurp-sexp)
+
+  ;; clojure
+  (with-eval-after-load 'clojure-mode
+    (define-key clojure-mode-map (kbd "M-q") 'sp-indent-defun)
+    (define-key clojure-mode-map (kbd "M-k") 'sp-kill-sexp)
+    (define-key clojure-mode-map (kbd "C-)") 'sp-forward-slurp-sexp))
+
+  ;; fullframe
+  (require 'fullframe)
+  (fullframe magit-status magit-mode-quit-window)
+  (fullframe magit-log magit-mode-quit-window)
+
+  ;; window movement
+  (defun windmove-right-or-create ()
+    (interactive)
+    (condition-case err
+        (call-interactively 'windmove-right)
+      (error
+       (call-interactively 'split-window-right)
+       (other-window 1))))
+
+  (defun windmove-down-or-create ()
+    (interactive)
+    (condition-case err
+        (call-interactively 'windmove-down)
+      (error
+       (call-interactively 'split-window-below)
+       (other-window 1))))
+
+  (setq hydra-lv nil)
+  (require 'hydra-examples)
+  (defhydra hydra-windows (:hint nil)
+    "
+_0_:close  _1_:only | buffer _p_revious  _n_ext  _b_:select | _<_:undo  _>_:redo | resize _H__J__K__L_ _=_:balance | _m_:save _'_:jump"
+    ("<" winner-undo)
+    (">" winner-redo)
+
+    ("s-h" windmove-left)
+    ("s-j" windmove-down-or-create)
+    ("s-k" windmove-up)
+    ("s-l" windmove-right-or-create)
+
+    ("p" previous-buffer)
+    ("n" next-buffer)
+    ("b" ido-switch-buffer)
+
+    ("0" delete-window)
+    ("1" delete-other-windows)
+
+    ("H" hydra-move-splitter-left)
+    ("J" hydra-move-splitter-down)
+    ("K" hydra-move-splitter-up)
+    ("L" hydra-move-splitter-right)
+
+    ("=" balance-windows)
+
+    ("m" window-configuration-to-register :color blue)
+    ("'" jump-to-register :color blue)
+
+    ("RET" nil))
+
+  (global-set-key (kbd "s-h") 'hydra-windows/windmove-left)
+  (global-set-key (kbd "s-j") 'hydra-windows/windmove-down-or-create)
+  (global-set-key (kbd "s-k") 'hydra-windows/windmove-up)
+  (global-set-key (kbd "s-l") 'hydra-windows/windmove-right-or-create)
+  (global-set-key (kbd "s-b") 'hydra-windows/ido-switch-buffer)
+  ;; local stuff
+  (let ((local (expand-file-name "~/.local.el")))
+    (when (f-exists? local)
+      (load-file local)))
+
+  ;; light theme modifications
+  (let ((fg "#111111")
+        (bg "#fffff8")
+        (bg-light "#ddddd8")
+        (fg-light "#ddddd8")
+        (bg-highlight "#FFF1AA")
+        (bg-highlight-2 "LightCyan"))
+    (custom-theme-set-faces
+     'spacemacs-light
+     `(ahs-face ((t (:background ,bg-highlight))))
+     `(ahs-definition-face ((t (:background ,bg-highlight-2))))
+     `(ahs-plugin-bod-face ((t (:background ,bg-highlight-2))))
+     `(ahs-plugin-whole-buffer-face ((t (:background ,bg-highlight))))
+     `(font-lock-type-face ((t ())))
+     `(font-lock-function-name-face ((t ())))
+     `(font-lock-keyword-face ((t ())))
+     `(org-block-begin-line ((t (:foreground ,fg-light))))
+     `(org-block-end-line ((t (:foreground ,fg-light))))
+     `(region ((t (:background "#eeeee8" :foreground ,fg))))
+     ))
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(paradox-github-token t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
