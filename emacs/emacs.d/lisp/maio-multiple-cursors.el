@@ -9,7 +9,8 @@
   (defun mc/insert-state ()
     (message "IN")
     ;; (deactivate-mark)
-    (when (evil-normal-state-p)
+    (when (or (evil-normal-state-p)
+              (evil-visual-state-p))
       (add-hook 'multiple-cursors-mode-disabled-hook 'mc/restore-normal-state)
       (evil-insert-state)))
 
