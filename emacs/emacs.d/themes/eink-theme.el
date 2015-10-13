@@ -115,7 +115,7 @@
    '(parenface-curly-face ((t (:foreground "#D0D0D0"))))
    '(parenface-bracket-face ((t (:foreground "#D0D0D0"))))
    ;; paren-face
-   '(parenthesis ((t (:foreground "#D0D0D0"))))
+   '(parenthesis ((t (:foreground "gray70"))))
    ;; js2
    `(js2-function-param ((t (:foreground ,fg))))
    `(js2-external-variable ((t (:foreground ,fg))))
