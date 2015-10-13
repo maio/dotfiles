@@ -54,7 +54,7 @@
                                  (image-mode                    . emacs)
                                  (ag-mode                       . emacs)
                                  (profiler-report-mode          . emacs)
-                                 (cider-test-report-mode        . emacs)
+                                 (cider-test-report-mode        . normal)
                                  (cider-docview-mode            . emacs)
                                  (cider-repl-mode               . insert)
                                  (prodigy-mode                  . emacs)
@@ -65,11 +65,16 @@
 (evil-define-key 'normal dired-mode-map "v" 'evil-visual-block)
 (evil-define-key 'normal dired-mode-map "i" 'evil-insert-state)
 
+(evil-define-key 'normal cider-test-report-mode-map "q" 'cider-popup-buffer-quit-function)
+
 (add-hook 'dired-mode-hook
           (lambda ()
-            (add-hook 'evil-insert-state-entry-hook 'wdired-change-to-wdired-mode nil 'make-it-local)
-            (add-hook 'evil-visual-state-entry-hook 'wdired-change-to-wdired-mode nil 'make-it-local)
-            (add-hook 'evil-operator-state-entry-hook 'wdired-change-to-wdired-mode nil 'make-it-local)))
+            (add-hook 'evil-insert-state-entry-hook
+                      'wdired-change-to-wdired-mode nil 'make-it-local)
+            (add-hook 'evil-visual-state-entry-hook
+                      'wdired-change-to-wdired-mode nil 'make-it-local)
+            (add-hook 'evil-operator-state-entry-hook
+                      'wdired-change-to-wdired-mode nil 'make-it-local)))
 
 (setcdr evil-insert-state-map nil) ;; make insert state like emacs state
 (define-key evil-insert-state-map "\C-r" 'evil-paste-from-register)
@@ -78,6 +83,7 @@
 (define-key evil-normal-state-map [remap yank-pop] nil)
 (define-key evil-normal-state-map (kbd "C-y") 'yank)
 (define-key evil-normal-state-map (kbd "M-y") 'yank-pop)
+(define-key evil-normal-state-map (kbd "C-i") 'evil-jump-forward)
 (global-set-key (kbd "C-a") 'evil-first-non-blank)
 (define-key minibuffer-local-map (kbd "C-a") 'smart-beginning-of-line)
 (define-key evil-normal-state-map (kbd "C-a") 'smart-beginning-of-line)
@@ -88,6 +94,7 @@
 (define-key evil-normal-state-map (kbd "C-n") 'next-line)
 (define-key evil-normal-state-map (kbd "C-f") 'forward-char)
 (define-key evil-normal-state-map (kbd "C-b") 'backward-char)
+(define-key evil-normal-state-map (kbd "C-d") 'delete-char)
 (define-key evil-insert-state-map [escape] 'evil-normal-state)
 (define-key evil-insert-state-map "\C-x\C-n" 'evil-complete-next-line)
 (define-key evil-insert-state-map "\C-x\C-p" 'evil-complete-previous-line)
