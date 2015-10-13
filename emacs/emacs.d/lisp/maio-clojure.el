@@ -37,7 +37,7 @@
 
 (with-eval-after-load 'clojure-mode
   (require 'cider)
-  (define-key clojure-mode-map (kbd "<C-return>") 'cider-eval-last-sexp)
+  (define-key clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)
   (define-key clojure-mode-map (kbd "<M-return>") 'cider-inspect)
   ;; add to sp-...-map instead of clojure-mode-map
   (define-key clojure-mode-map (kbd "M-q") 'sp-indent-defun)
@@ -52,12 +52,11 @@
   (define-key clojure-mode-map (kbd "s-s") 'clojure-autotest)
   (when evil-mode
     (evil-define-key
-      'insert clojure-mode-map (kbd "<C-return>") 'cider-eval-last-sexp)
+      'insert clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)
     (evil-define-key
       'insert clojure-mode-map (kbd "<backspace>") 'sp-backward-delete-char)
     (evil-define-key
       'visual clojure-mode-map (kbd "<return>") 'cider-eval-region)
-    (evil-define-key 'normal clojure-mode-map "<return>" 'cider-eval-last-sexp)
     (evil-define-key 'normal clojure-mode-map "D" 'sp-kill-hybrid-sexp)
     (evil-define-key 'normal clojure-mode-map (kbd "M-.") 'cider-jump-to-var)
     (evil-define-key 'normal clojure-mode-map (kbd "M-,") 'cider-jump-back))
@@ -107,10 +106,6 @@
   (define-key cider-repl-mode-map (kbd "C-x k") 'cider-quit)
   (define-key cider-repl-mode-map (kbd "s-K") 'cider-quit)
   (when evil-mode
-    (evil-define-key 'normal clojure-mode-map "l" 'sp-down-sexp)
-    (evil-define-key 'normal clojure-mode-map "h" 'sp-backward-up-sexp)
-    (evil-define-key 'normal clojure-mode-map "j" 'sp-next-sexp)
-    (evil-define-key 'normal clojure-mode-map "k" 'sp-backward-sexp)
     (evil-define-key 'normal clojure-mode-map "(" 'maio/jump-brace)
     (evil-define-key 'normal clojure-mode-map ")" 'sp-end-of-sexp)
     (evil-define-key 'normal clojure-mode-map (kbd "s-d") 'sp-clone-sexp)
