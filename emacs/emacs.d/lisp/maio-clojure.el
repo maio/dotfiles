@@ -106,6 +106,10 @@
   (define-key cider-repl-mode-map (kbd "C-x k") 'cider-quit)
   (define-key cider-repl-mode-map (kbd "s-K") 'cider-quit)
   (when evil-mode
+    (evil-define-key 'normal clojure-mode-map (kbd "s-L") 'sp-down-sexp)
+    (evil-define-key 'normal clojure-mode-map (kbd "s-H") 'sp-backward-up-sexp)
+    (evil-define-key 'normal clojure-mode-map (kbd "s-J") 'sp-next-sexp)
+    (evil-define-key 'normal clojure-mode-map (kbd "s-K") 'sp-backward-sexp)
     (evil-define-key 'normal clojure-mode-map "(" 'maio/jump-brace)
     (evil-define-key 'normal clojure-mode-map ")" 'sp-end-of-sexp)
     (evil-define-key 'normal clojure-mode-map (kbd "s-d") 'sp-clone-sexp)
