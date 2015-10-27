@@ -154,6 +154,7 @@
 
 ;; hydra
 (ensure-package 'hydra)
+(setq hydra-is-helpful nil)
 
 (defun maio/highlight-symbol-at-point ()
   (interactive)
