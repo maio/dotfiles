@@ -8,7 +8,9 @@
   (message "Reloading changed namespaces...")
   (let ((nrepl-sync-request-timeout 60))
     (nrepl-sync-request:eval "(require 'clojure.tools.namespace.repl)
-                              (clojure.tools.namespace.repl/refresh)")))
+                              (clojure.tools.namespace.repl/refresh)"
+                             (cider-default-connection)
+                             (cider-current-session))))
 
 (defun clojure-autotest-reload-cb ()
   (clojure-reload)
@@ -29,7 +31,10 @@
     (if reload
         (add-hook 'cider-file-loaded-hook 'clojure-autotest-reload-cb)
       (add-hook 'cider-file-loaded-hook 'clojure-autotest-cb))
-    (cider-load-buffer)))
+    ;; cider should do this?
+    (save-restriction
+      (widen)
+      (cider-load-buffer))))
 
 (defun clojure-hippie-expand-setup ()
   (make-local-variable 'hippie-expand-try-functions-list)
