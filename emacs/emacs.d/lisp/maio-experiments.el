@@ -60,6 +60,7 @@
   (add-to-list 'exec-path-from-shell-variables "PERL5LIB")
   (add-to-list 'exec-path-from-shell-variables "LANG")
   (add-to-list 'exec-path-from-shell-variables "LEIN_FAST_TRAMPOLINE")
+  (add-to-list 'exec-path-from-shell-variables "LEIN_JVM_OPTS")
   (exec-path-from-shell-initialize))
 
 ;; org-capture
