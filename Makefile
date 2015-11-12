@@ -15,7 +15,6 @@ install:
 
 update: clean
 	@rm -rf emacs/emacs.d/elpa
-	@git checkout emacs/emacs.d/elpa
 	@emacs --batch -l emacs/emacs.d/init.el
 
 clean:
