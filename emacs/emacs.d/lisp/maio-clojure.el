@@ -90,6 +90,8 @@
     (dom/li 'defun)
     (dom/a 'defun)
     (dom/button 'defun)
+    (dom/tr 'defun)
+    (dom/td 'defun)
 
     ;; misc
     (component 'defun)
@@ -110,6 +112,7 @@
   (define-key cider-repl-mode-map (kbd "s-L") 'cider-repl-clear-buffer)
   (define-key cider-repl-mode-map (kbd "C-x k") 'cider-quit)
   (define-key cider-repl-mode-map (kbd "s-K") 'cider-quit)
+  (define-key cider-inspector-mode-map (kbd "M-,") 'cider-inspector-pop)
   (when evil-mode
     (evil-define-key 'normal clojure-mode-map (kbd "s-L") 'sp-down-sexp)
     (evil-define-key 'normal clojure-mode-map (kbd "s-H") 'sp-backward-up-sexp)
