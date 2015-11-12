@@ -47,6 +47,7 @@
 (global-set-key (kbd "s-[") 'profiler-start)
 (global-set-key (kbd "s-]") 'profiler-report)
 (global-set-key (kbd "s-L") 'maio-clear-visible-comint-buffers)
+(global-set-key (kbd "M-k") 'sp-kill-sexp)
 
 (global-set-key (kbd "s-=") 'maio/inc-font-size)
 (global-set-key (kbd "s--") 'maio/dec-font-size)
