@@ -41,6 +41,7 @@
                        js2-refactor
                        json-mode
                        web-mode
+                       less-css-mode
                        rpm-spec-mode
                        ag
                        idle-highlight-mode
@@ -66,6 +67,7 @@
                        helm-ag
                        helm-backup
                        wgrep
+                       wgrep-ag
                        evil
                        evil-numbers
                        evil-surround
