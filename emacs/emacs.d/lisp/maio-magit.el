@@ -1,6 +1,6 @@
 (setq magit-status-buffer-switch-function 'switch-to-buffer
       magit-diff-refine-hunk t
-      magit-revert-buffers 'silent)
+      magit-revert-buffers nil)
 
 (with-eval-after-load 'magit
   (delete 'magit-insert-tags-header magit-status-headers-hook)
