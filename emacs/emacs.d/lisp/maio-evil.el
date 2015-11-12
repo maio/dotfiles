@@ -197,7 +197,9 @@
 
 (evil-define-key 'normal magit-blame-mode-map "q" 'magit-blame-quit)
 (define-key magit-status-mode-map "X" 'magit-reset-hard)
+(define-key magit-log-mode-map "X" 'magit-reset-hard)
 (define-key magit-status-mode-map "L" 'magit-log-current)
+(define-key magit-file-section-map "K" 'magit-delete-thing)
 
 (evil-add-hjkl-bindings grep-mode-map 'emacs)
 (evil-add-hjkl-bindings helm-grep-mode-map 'emacs)
