@@ -91,6 +91,7 @@
     (dom/a 'defun)
     (dom/button 'defun)
     (dom/tr 'defun)
+    (dom/table 'defun)
     (dom/td 'defun)
 
     ;; misc
