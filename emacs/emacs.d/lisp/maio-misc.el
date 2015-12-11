@@ -40,6 +40,7 @@
   (setq indent-line-function 'indent-relative-maybe))
 (add-hook 'text-mode-hook 'maio/indent)
 (add-hook 'sql-mode-hook 'maio/indent)
+(add-hook 'ag-mode-hook 'wgrep-ag-setup)
 
 ;; (setq debug-on-quit t)
 ;; (setq debug-on-error t)
