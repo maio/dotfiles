@@ -64,6 +64,6 @@
     (evil-define-key 'emacs term-raw-map [escape] 'term-line-mode))
   (define-key term-raw-escape-map (kbd "C-y") 'term-paste)
   (define-key term-raw-map (kbd "s-v") 'term-paste)
-  (define-key term-raw-map (kbd "s-l") 'term-clear-buffer))
+  (define-key term-raw-map (kbd "C-l") 'term-clear-buffer))
 
 (provide 'maio-shell)
