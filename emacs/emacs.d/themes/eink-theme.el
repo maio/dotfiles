@@ -82,6 +82,7 @@
    `(mode-line-minor-mode ((t (:weight ultra-light))))
    `(default ((t (:background ,bg :foreground ,fg))))
    `(whitespace-line ((t (:background ,bg-highlight-2 :foreground ,fg))))
+   `(fringe ((t (:background ,bg :foreground ,bg))))
    `(cperl-hash-face ((t (:foreground ,fg))))
    `(cperl-array-face ((t (:foreground ,fg))))
    `(cperl-nonoverridable-face ((t (:foreground ,fg))))
