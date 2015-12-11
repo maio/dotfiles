@@ -193,7 +193,7 @@
 (require 'hydra-examples)
 (defhydra hydra-windows (:hint nil)
   "
-_0_:close  _1_:only | buffer _p_revious  _n_ext  _b_:select | _<_:undo  _>_:redo | resize _H__J__K__L_ _=_:balance | _m_:save _'_:jump"
+_0_:close  _1_:only | _b_:select buffer | _<_:undo  _>_:redo | resize _H__J__K__L_ _=_:balance | _m_:save _'_:jump"
   ("<" winner-undo)
   (">" winner-redo)
 
@@ -202,8 +202,6 @@ _0_:close  _1_:only | buffer _p_revious  _n_ext  _b_:select | _<_:undo  _>_:redo
   ("s-k" windmove-up)
   ("s-l" windmove-right-or-create)
 
-  ("p" previous-buffer)
-  ("n" next-buffer)
   ("b" ido-switch-buffer)
 
   ("0" delete-window)
