@@ -13,7 +13,8 @@
       helm-full-frame nil
       helm-cmd-t-cache-threshhold 1000000000000
       helm-etags-match-part-only 'all
-      helm-ag-use-agignore t)
+      helm-ag-use-agignore t
+      helm-ag-insert-at-point 'symbol)
 
 (setq helm-locate-command
       (cl-case system-type
