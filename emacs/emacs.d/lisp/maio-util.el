@@ -8,8 +8,8 @@
   "Require the feature and execute body if it was successfull loaded."
   (declare (indent 1))
   `(if (require ,feature nil 'noerror)
-        (progn ,@body)
-    (message (format "%s not loaded" ,feature))))
+       (progn ,@body)
+     (message (format "%s not loaded" ,feature))))
 
 (defun in-mode? (mode)
   (eq major-mode mode))
@@ -29,7 +29,7 @@
 
 (defun kill-all-buffers ()
   (interactive)
-    (mapc 'kill-buffer (buffer-list)))
+  (mapc 'kill-buffer (buffer-list)))
 
 (defun kill-buffer-if-not-current (buffer)
   (when (not (eq (current-buffer) buffer))
@@ -205,5 +205,11 @@ If point was already at that position, move point to beginning of line."
     (back-to-indentation)
     (and (= oldpos (point))
          (beginning-of-line))))
+
+(defun format-file ()
+  "Format the whole buffer."
+  (indent-region (point-min) (point-max) nil)
+  (untabify (point-min) (point-max))
+  (save-buffer))
 
 (provide 'maio-util)
