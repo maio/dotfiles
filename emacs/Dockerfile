@@ -1,9 +1,8 @@
-FROM ubuntu:14.04
+FROM ubuntu:15.10
 MAINTAINER Marian Schubert <marian.schubert@gmail.com>
 
-RUN echo "deb http://ppa.launchpad.net/ubuntu-elisp/ppa/ubuntu trusty main" > /etc/apt/sources.list.d/emacs.list
-RUN apt-get update
-RUN apt-get install --yes --force-yes emacs-snapshot-nox wget unzip make git
+RUN apt-get install --yes emacs24-nox wget unzip make git
+# RUN apt-get install emacs24-nox unzip make git
 RUN wget https://github.com/maio/dotfiles/archive/master.zip
 RUN unzip master.zip
 RUN make -C dotfiles-master install update
