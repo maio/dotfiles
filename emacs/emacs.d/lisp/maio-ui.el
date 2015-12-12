@@ -18,10 +18,15 @@
 (defun maio/inc-font-size () (interactive) (maio/alter-font-size +10))
 (defun maio/dec-font-size () (interactive) (maio/alter-font-size -10))
 
+(defun no-background-color ()
+  (set-face-background 'default "unspecified-bg" (selected-frame)))
+
 ;; custom display modes
 (defun regular-mode ()
   (interactive)
   (load-theme 'eink t)
+  (when (ui-type-is-terminal)
+    (add-hook 'window-setup-hook 'no-background-color))
   (if (system-type-is-gnu)
       (maio/set-font "Source Code Pro" 120)
     (progn
