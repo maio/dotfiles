@@ -6,7 +6,8 @@
 (defsubst terminal-buffer-p (buffer)
   "Test if BUFFER is a terminal buffer."
   (with-current-buffer buffer
-    (in-mode? 'term-mode)))
+    (or (in-mode? 'term-mode)
+        (in-mode? 'eshell-mode))))
 
 (defun helm-terminal--new (name)
   (ansi-term (getenv "SHELL"))
@@ -21,7 +22,10 @@
 (defvar helm-c-source-terminal-buffers
   '((name . "Terminal Buffer")
     (candidates . (lambda () (-filter 'terminal-buffer-p (helm-buffer-list))))
-    (action . (("Show" . (lambda (candidate) (progn (switch-to-buffer candidate) (delete-other-windows))))))))
+    (action . (("Show" . (lambda (candidate)
+                           (progn
+                             (switch-to-buffer candidate)
+                             (delete-other-windows))))))))
 
 (defun helm-terminal ()
   "Preconfigured `helm' for terminal."
