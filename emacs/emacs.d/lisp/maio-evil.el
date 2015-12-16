@@ -62,8 +62,8 @@
                                  (makey-key-mode                . emacs))
          do (evil-set-initial-state mode state))
 
-(evil-define-key 'normal dired-mode-map "v" 'evil-visual-block)
-(evil-define-key 'normal dired-mode-map "i" 'evil-insert-state)
+;; https://bitbucket.org/lyro/evil/issues/530/mac-gui-visual-mode-ignores-system
+(fset 'evil-visual-update-x-selection 'ignore)
 
 (evil-define-key 'normal cider-test-report-mode-map "q" 'cider-popup-buffer-quit-function)
 
