@@ -6,5 +6,7 @@ RUN apt-get install --yes emacs24-nox wget unzip make git
 RUN wget https://github.com/maio/dotfiles/archive/master.zip
 RUN unzip master.zip
 RUN make -C dotfiles-master install update
+RUN mkdir /files
+WORKDIR /files
 
 CMD ["bash"]
