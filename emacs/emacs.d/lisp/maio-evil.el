@@ -107,8 +107,8 @@
 (define-key evil-motion-state-map "gp" "`[V`]")
 (define-key evil-normal-state-map "gf" 'helm-find-files)
 (define-key evil-normal-state-map (kbd "C-w") 'delete-trailing-whitespace)
-(define-key evil-normal-state-map "3" 'toggle-comment-on-line-or-region)
-(define-key evil-visual-state-map "3" 'toggle-comment-on-line-or-region)
+(define-key evil-normal-state-map "3" 'evilnc-comment-or-uncomment-lines)
+(define-key evil-visual-state-map "3" 'evilnc-comment-or-uncomment-lines)
 ;; make it easy to switch to visual-char mode from visual-block mode
 (define-key evil-visual-state-map "v" 'evil-visual-block)
 (define-key evil-normal-state-map (kbd "C-v") 'scroll-up-command)

@@ -71,6 +71,7 @@
                        evil
                        evil-numbers
                        evil-surround
+                       evil-nerd-commenter
                        xclip
                        prodigy
                        magit
