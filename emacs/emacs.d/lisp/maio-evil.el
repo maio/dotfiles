@@ -30,7 +30,8 @@
                                  (term-mode                     . emacs)
                                  (help-mode                     . emacs)
                                  (helm-grep-mode                . emacs)
-                                 (helm-ag-mode                  . emacs)
+                                 (helm-ag-mode                  . normal)
+                                 (ag-mode                       . normal)
                                  (grep-mode                     . emacs)
                                  (rmail-mode                    . normal)
                                  (rmail-summary-mode            . emacs)
@@ -52,7 +53,6 @@
                                  (archive-mode                  . emacs)
                                  (ert-results-mode              . emacs)
                                  (image-mode                    . emacs)
-                                 (ag-mode                       . emacs)
                                  (profiler-report-mode          . emacs)
                                  (cider-test-report-mode        . normal)
                                  (cider-docview-mode            . emacs)
@@ -127,7 +127,6 @@
 (define-key evil-normal-state-map "+" 'evil-numbers/inc-at-pt)
 (define-key evil-normal-state-map "-" 'evil-numbers/dec-at-pt)
 
-(evil-add-hjkl-bindings helm-ag-mode-map 'emacs)
 (evil-add-hjkl-bindings archive-mode-map 'emacs)
 (evil-add-hjkl-bindings tar-mode-map 'emacs)
 (evil-add-hjkl-bindings bookmark-bmenu-mode-map 'emacs
