@@ -10,7 +10,8 @@
       (bg-light "#ddddd8")
       (fg-light "#ddddd8")
       (bg-highlight "#FFF1AA")
-      (bg-highlight-2 "LightCyan"))
+      (bg-highlight-2 "LightCyan")
+      (bg-highlight-3 "LightGreen"))
 
   (custom-theme-set-faces
    'eink
@@ -115,6 +116,8 @@
    '(parenface-paren-face ((t (:foreground "#D0D0D0"))))
    '(parenface-curly-face ((t (:foreground "#D0D0D0"))))
    '(parenface-bracket-face ((t (:foreground "#D0D0D0"))))
+   ;; iedit
+   `(iedit-occurrence ((t (:background ,bg-highlight-3 :foreground ,fg))))
    ;; paren-face
    '(parenthesis ((t (:foreground "gray70"))))
    ;; js2
