@@ -2,6 +2,9 @@
       js-indent-level 2
       json-reformat:indent-width 2)
 
+;; make node usable in comint mode
+(setenv "NODE_NO_READLINE" "1")
+
 (add-to-list 'auto-mode-alist '("\\.js" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json" . json-mode))
 
