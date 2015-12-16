@@ -246,6 +246,13 @@
     (kbd "TAB") 'org-cycle
     (kbd "<tab>") 'org-cycle))
 
+;; iedit
+;; (require 'iedit)
+(global-set-key (kbd "C-;") 'iedit-mode)
+(with-eval-after-load 'iedit
+  (require 'evil-iedit-state)
+  (add-hook 'iedit-mode-hook 'evil-iedit-state))
+
 ;; Evil plugins
 (require 'evil-surround)
 (global-evil-surround-mode 1)
