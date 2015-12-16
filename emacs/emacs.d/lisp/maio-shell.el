@@ -14,6 +14,11 @@
   (let ((inhibit-read-only t))
     (erase-buffer)))
 
+(defun eshell/t ()
+  "Run real terminal"
+  (interactive)
+  (ansi-term (getenv "SHELL")))
+
 (defun eshell/serve ()
   (interactive)
   (start-process "serve" (format "*serve %s*" default-directory) "python" "-m" "SimpleHTTPServer")
