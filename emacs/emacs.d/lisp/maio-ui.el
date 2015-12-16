@@ -50,6 +50,6 @@
 
 (when (ui-type-is-gui)
   (menu-bar-mode t)
-  (set-fringe-mode 0))
+  (set-fringe-mode 1))
 
 (provide 'maio-ui)
