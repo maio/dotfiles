@@ -5,15 +5,19 @@
       eshell-buffer-shorthand t
       eshell-cmpl-dir-ignore "\\`\\(\\.\\.?\\|CVS\\|\\.svn\\|\\.git\\)/\\'")
 
+(defun maio/eshell-setup ()
+  (setq eshell-path-env (getenv "PATH"))
+  (when evil-mode
+    (evil-define-key 'normal eshell-mode-map [escape] "gi"))
+  (define-key eshell-mode-map "\C-a" 'eshell-bol))
+
 ;;;###autoload
 (with-eval-after-load 'esh-opt
   (require 'em-prompt)
   (require 'em-term)
   (require 'em-cmpl)
-  (add-hook 'eshell-mode-hook ;; for some reason this needs to be a hook
-            '(lambda ()
-               (setq eshell-path-env (getenv "PATH"))
-               (define-key eshell-mode-map "\C-a" 'eshell-bol)))
+   ;; for some reason this needs to be a hook
+  (add-hook 'eshell-mode-hook 'maio/eshell-setup)
   (setq eshell-cmpl-cycle-completions nil)
 
   ;; TODO: submit these via M-x report-emacs-bug
