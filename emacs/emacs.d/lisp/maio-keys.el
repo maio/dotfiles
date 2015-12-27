@@ -49,6 +49,8 @@
 (global-set-key (kbd "s-]") 'profiler-report)
 (global-set-key (kbd "s-L") 'maio-clear-visible-comint-buffers)
 (global-set-key (kbd "M-k") 'sp-kill-sexp)
+(global-set-key (kbd "M-h") 'subword-backward)
+(global-set-key (kbd "M-l") 'subword-forward)
 
 (global-set-key (kbd "s-=") 'maio/inc-font-size)
 (global-set-key (kbd "s--") 'maio/dec-font-size)
@@ -72,9 +74,7 @@
 
 (when evil-mode
   (evil-define-key 'normal lisp-mode-shared-map (kbd "M-.") 'elisp-slime-nav-find-elisp-thing-at-point)
-  (evil-define-key 'normal lisp-mode-shared-map "Q" 'paredit-reindent-defun)
   (evil-define-key 'normal lisp-mode-shared-map "D" 'paredit-kill)
-  (evil-define-key 'normal lisp-mode-shared-map "B" 'backward-up-list)
   (evil-define-key 'insert lisp-mode-shared-map (kbd "C-j") 'paredit-close-round-and-newline)
 
   (define-key evil-insert-state-map (kbd "M-<backspace>") 'backward-kill-word)

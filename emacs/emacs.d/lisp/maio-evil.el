@@ -120,8 +120,6 @@
 (define-key evil-normal-state-map "Q" "gqap")
 (define-key evil-normal-state-map "S" "vabsba")
 (define-key evil-normal-state-map "s" "gv")
-(define-key evil-normal-state-map (kbd "M-h") 'paredit-backward)
-(define-key evil-normal-state-map (kbd "M-l") 'paredit-forward)
 (define-key evil-normal-state-map (kbd "M-k") 'sp-kill-sexp)
 (evil-define-key 'visual evil-surround-mode-map "S" "sba")
 (define-key evil-normal-state-map "+" 'evil-numbers/inc-at-pt)
