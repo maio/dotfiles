@@ -222,8 +222,8 @@
     (evil-define-key 'normal clojure-mode-map (kbd "s-H") 'sp-backward-up-sexp)
     (evil-define-key 'normal clojure-mode-map (kbd "s-J") 'sp-next-sexp)
     (evil-define-key 'normal clojure-mode-map (kbd "s-K") 'sp-backward-sexp)
-    (evil-define-key 'normal clojure-mode-map "(" 'maio/jump-brace)
-    (evil-define-key 'normal clojure-mode-map ")" 'sp-end-of-next-sexp)
+    (evil-define-key 'normal clojure-mode-map "(" 'sp-backward-up-sexp)
+    (evil-define-key 'normal clojure-mode-map ")" 'sp-end-of-next-or-previous-sexp)
     (evil-define-key 'normal clojure-mode-map (kbd "s-d") 'sp-clone-sexp)
 
     (defadvice cider-eval-defun-at-point (after evil-normal-state () activate)

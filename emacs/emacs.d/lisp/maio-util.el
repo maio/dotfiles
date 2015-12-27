@@ -212,4 +212,14 @@ If point was already at that position, move point to beginning of line."
   (untabify (point-min) (point-max))
   (save-buffer))
 
+(defun sp-end-of-next-or-previous-sexp ()
+  (interactive)
+  (let ((here (point)))
+    (call-interactively 'sp-end-of-sexp)
+    (when (eq here (point))
+      (let ((here (point)))
+        (call-interactively 'sp-end-of-next-sexp)
+        (when (eq here (point))
+          (call-interactively 'sp-end-of-previous-sexp))))))
+
 (provide 'maio-util)
