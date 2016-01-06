@@ -61,6 +61,7 @@
                        sackspace
                        yasnippet
                        htmlize
+                       draft-mode
                        helm
                        helm-descbinds
                        helm-git-grep
