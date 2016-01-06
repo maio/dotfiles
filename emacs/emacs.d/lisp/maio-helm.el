@@ -4,7 +4,7 @@
       helm-yank-symbol-first t
       helm-ff-auto-update-initial-value nil
       helm-idle-delay 0.1
-      helm-input-idle-delay 0.1
+      helm-input-idle-delay 0.05
       helm-ff-maximum-candidate-to-decorate 0
       helm-buffer-max-length 60
       helm-truncate-lines t
