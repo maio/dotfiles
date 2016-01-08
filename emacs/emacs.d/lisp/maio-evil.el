@@ -244,6 +244,11 @@
     (kbd "TAB") 'org-cycle
     (kbd "<tab>") 'org-cycle))
 
+(evil-define-key 'normal git-timemachine-mode-map "<" 'git-timemachine-show-previous-revision)
+(evil-define-key 'normal git-timemachine-mode-map ">" 'git-timemachine-show-next-revision)
+
+(define-key evil-normal-state-map "gt" 'git-timemachine)
+
 ;; iedit
 ;; (require 'iedit)
 (global-set-key (kbd "C-;") 'iedit-mode)

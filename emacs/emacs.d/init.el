@@ -78,6 +78,7 @@
                        prodigy
                        magit
                        orgit
+                       git-timemachine
                        gist)))
     (dolist (package my-packages)
       (ensure-package package))))
