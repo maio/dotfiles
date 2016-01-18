@@ -30,9 +30,7 @@
   (if (system-type-is-gnu)
       (maio/set-font "Source Code Pro" 120)
     (progn
-      (maio/set-font "Source Code Pro:weight=Regular" 120)
-      (when (ui-type-is-gui)
-        (toggle-frame-fullscreen)))))
+      (maio/set-font "Source Code Pro:weight=Regular" 120))))
 
 (defun presentation-mode ()
   (interactive)
