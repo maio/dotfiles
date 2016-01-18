@@ -39,6 +39,7 @@
                        php-mode
                        js2-mode
                        js2-refactor
+                       nodejs-repl
                        json-mode
                        web-mode
                        less-css-mode
