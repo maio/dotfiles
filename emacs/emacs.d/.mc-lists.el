@@ -30,6 +30,7 @@
       '(
         clojure-autotest
         evil-backward-char
+        evil-delete-char
         evil-next-line
         evil-previous-line
         evil-search-word-forward
