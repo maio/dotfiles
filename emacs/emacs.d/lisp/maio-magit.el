@@ -26,4 +26,7 @@
 (defadvice magit-section-toggle (after scroll-line-to-top () activate)
   (recenter 0))
 
+(when evil-mode
+  (define-key evil-normal-state-map (kbd "gl") 'magit-log-buffer-file))
+
 (provide 'maio-magit)
