@@ -46,6 +46,7 @@
 (add-hook 'ag-mode-hook 'wgrep-change-to-wgrep-mode)
 (add-hook 'helm-ag-mode-hook 'wgrep-ag-setup)
 (add-hook 'helm-ag-mode-hook 'wgrep-change-to-wgrep-mode)
+(add-hook 'yaml-mode-hook (lambda () (setq indent-line-function 'yaml-indent-line)))
 
 ;; (setq debug-on-quit t)
 ;; (setq debug-on-error t)
