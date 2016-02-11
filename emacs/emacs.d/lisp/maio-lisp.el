@@ -41,6 +41,7 @@
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'maio/run-ert-tests)
 (define-key emacs-lisp-mode-map (kbd "<C-return>") 'eval-defun)
 (when evil-mode
+  (add-hook 'emacs-lisp-mode-hook 'evil-cleverparens-mode)
   (evil-define-key 'normal emacs-lisp-mode-map (kbd "s-L") 'sp-down-sexp)
   (evil-define-key 'normal emacs-lisp-mode-map (kbd "s-H") 'sp-backward-up-sexp)
   (evil-define-key 'normal emacs-lisp-mode-map (kbd "s-J") 'sp-next-sexp)

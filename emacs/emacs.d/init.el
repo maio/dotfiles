@@ -57,6 +57,7 @@
                        org-present
                        iedit
                        evil-iedit-state
+                       evil-cleverparens
                        rainbow-mode
                        fullframe
                        sackspace
