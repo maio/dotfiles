@@ -14,11 +14,11 @@
 
 (defun clojure-autotest-reload-cb ()
   (clojure-reload)
-  (cider-test-run-tests nil)
+  (cider-test-run-ns-tests nil)
   (remove-hook 'cider-file-loaded-hook 'clojure-autotest-reload-cb))
 
 (defun clojure-autotest-cb ()
-  (cider-test-run-tests nil)
+  (cider-test-run-ns-tests nil)
   (remove-hook 'cider-file-loaded-hook 'clojure-autotest-cb))
 
 
@@ -40,8 +40,13 @@
   (make-local-variable 'hippie-expand-try-functions-list)
   (setq hippie-expand-try-functions-list '(try-expand-dabbrev)))
 
+(defun setup-clj-refactor ()
+  (clj-refactor-mode 1)
+  (cljr-add-keybindings-with-prefix "C-c C-m"))
+
 (with-eval-after-load 'clojure-mode
   (require 'cider)
+  (require 'clj-refactor)
   (define-key clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)
   (define-key clojure-mode-map (kbd "<M-return>") 'cider-inspect)
   ;; add to sp-...-map instead of clojure-mode-map
@@ -64,10 +69,11 @@
     (evil-define-key
       'visual clojure-mode-map (kbd "<return>") 'cider-eval-region)
     (evil-define-key 'normal clojure-mode-map "D" 'sp-kill-hybrid-sexp)
-    (evil-define-key 'normal clojure-mode-map (kbd "M-.") 'cider-jump-to-var)
+    (evil-define-key 'normal clojure-mode-map (kbd "M-.") 'cider-find-var)
     (evil-define-key 'normal clojure-mode-map (kbd "M-,") 'cider-jump-back))
   (add-hook 'clojure-mode-hook 'eldoc-mode)
   (add-hook 'clojure-mode-hook 'clojure-hippie-expand-setup)
+  (add-hook 'clojure-mode-hook 'setup-clj-refactor)
   (define-clojure-indent
     (async 'defun)
     (go 'defun)
