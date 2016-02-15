@@ -266,4 +266,8 @@
   (when (evil-insert-state-p) (evil-normal-state)))
 (add-hook 'after-save-hook 'maio-after-save-state)
 
+;; cleverparens
+(setq evil-cleverparens-use-additional-bindings nil
+      evil-cleverparens-use-additional-movement-keys nil)
+
 (provide 'maio-evil)
