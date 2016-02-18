@@ -19,3 +19,6 @@ update: clean
 
 clean:
 	@find . -name \*.elc | xargs rm -f .noop
+
+time-emacs:
+	time emacs --batch -l emacs/emacs.d/init.el

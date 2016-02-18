@@ -1,5 +1,4 @@
 ;; Shell
-(require 'eshell)
 (setq ansi-color-for-comint-mode t)
 (setq comint-prompt-read-only t)
 (setq eshell-cmpl-ignore-case t)
@@ -33,20 +32,12 @@
     (evil-define-key 'normal eshell-mode-map "H" 'eshell-bol)
     (evil-define-key 'normal eshell-mode-map "L" 'move-end-of-line)))
 
-(add-hook 'eshell-mode-hook 'maio/setup-eshell)
+(with-eval-after-load 'eshell
+  (add-hook 'eshell-mode-hook 'maio/setup-eshell))
 
 (defun maio/ansi-term ()
   (interactive)
   (ansi-term "/usr/local/bin/bash"))
-
-(defadvice term-sentinel (around auto-close-term-buffer-window (proc msg) activate)
-  (if (memq (process-status proc) '(signal exit))
-      (let ((buffer (process-buffer proc)))
-        ad-do-it
-        (kill-buffer buffer)
-        (if (window-parent)
-            (delete-window)))
-    ad-do-it))
 
 (defun term-char-mode-refocus ()
   (interactive)
@@ -61,6 +52,15 @@
   (term-send-raw-string (kbd "C-l")))
 
 (with-eval-after-load 'term
+  (defadvice term-sentinel (around auto-close-term-buffer-window (proc msg) activate)
+    (if (memq (process-status proc) '(signal exit))
+        (let ((buffer (process-buffer proc)))
+          ad-do-it
+          (kill-buffer buffer)
+          (if (window-parent)
+              (delete-window)))
+      ad-do-it))
+
   (when evil-mode
     (defadvice term-line-mode (after evil-normal-state () activate) (evil-normal-state))
     (defadvice term-char-mode (after evil-emacs-state () activate) (evil-emacs-state))

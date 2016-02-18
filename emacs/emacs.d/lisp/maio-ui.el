@@ -28,9 +28,9 @@
   (when (ui-type-is-terminal)
     (add-hook 'window-setup-hook 'no-background-color))
   (if (system-type-is-gnu)
-      (maio/set-font "Source Code Pro" 120)
+      (maio/set-font "Source Code Pro" 140)
     (progn
-      (maio/set-font "Source Code Pro:weight=Regular" 120))))
+      (maio/set-font "Source Code Pro:weight=Regular" 140))))
 
 (defun presentation-mode ()
   (interactive)

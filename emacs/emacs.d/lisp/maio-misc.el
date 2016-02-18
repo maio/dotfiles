@@ -16,7 +16,6 @@
 (setq-default cursor-in-non-selected-windows nil)
 (setq-default line-spacing 4)
 (column-number-mode 1)
-(idle-highlight-mode 1)
 (setq tramp-default-method "sshx")
 (setq ring-bell-function 'ignore)
 (setq ido-use-filename-at-point nil)
@@ -40,13 +39,17 @@
   (setq indent-line-function 'indent-relative-maybe))
 (add-hook 'text-mode-hook 'maio/indent)
 (add-hook 'sql-mode-hook 'maio/indent)
-(setq wgrep-auto-save-buffer t)
-(require 'wgrep)
-(add-hook 'ag-mode-hook 'wgrep-ag-setup)
-(add-hook 'ag-mode-hook 'wgrep-change-to-wgrep-mode)
-(add-hook 'helm-ag-mode-hook 'wgrep-ag-setup)
-(add-hook 'helm-ag-mode-hook 'wgrep-change-to-wgrep-mode)
 (add-hook 'yaml-mode-hook (lambda () (setq indent-line-function 'yaml-indent-line)))
+
+(use-package wgrep
+  :init
+  (setq wgrep-auto-save-buffer t)
+  :defer 5
+  :config
+  (add-hook 'ag-mode-hook 'wgrep-ag-setup)
+  (add-hook 'ag-mode-hook 'wgrep-change-to-wgrep-mode)
+  (add-hook 'helm-ag-mode-hook 'wgrep-ag-setup)
+  (add-hook 'helm-ag-mode-hook 'wgrep-change-to-wgrep-mode))
 
 ;; (setq debug-on-quit t)
 ;; (setq debug-on-error t)
@@ -67,10 +70,19 @@
 
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
-(hl-line-mode nil)
+;; (hl-line-mode nil)
 
 ;; enable recentf mode (+ make it work with ido)
-(recentf-mode 1)
-(setq ido-use-virtual-buffers t)
+(use-package recentf
+  :defer 1
+  :config
+  (setq ido-use-virtual-buffers t)
+  (recentf-mode 1))
+
+(use-package ido
+  :commands (ido-switch-buffer)
+  :defer 1
+  :config
+  (recentf-mode 1))
 
 (provide 'maio-misc)

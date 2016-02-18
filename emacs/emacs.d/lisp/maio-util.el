@@ -222,4 +222,18 @@ If point was already at that position, move point to beginning of line."
         (when (eq here (point))
           (call-interactively 'sp-end-of-previous-sexp))))))
 
+(defun maio-narrow-to-defun-clone ()
+  (interactive)
+  (require 'which-func)
+  (message (which-function))
+  (clone-indirect-buffer (which-function) t)
+  (narrow-to-defun))
+
+(defun show-trailing-whitespace ()
+  (setq show-trailing-whitespace t))
+
+(defun magit-cryptelo ()
+  (let ((default-directory "/Users/maio/Projects/cryptelo/"))
+    (call-interactively 'magit-status)))
+
 (provide 'maio-util)

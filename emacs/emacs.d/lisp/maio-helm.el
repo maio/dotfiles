@@ -1,10 +1,12 @@
 (require 'cl-lib)
+
 (setq helm-su-or-sudo "sudo"
       helm-allow-skipping-current-buffer nil
       helm-yank-symbol-first t
       helm-ff-auto-update-initial-value nil
       helm-idle-delay 0.1
       helm-input-idle-delay 0.05
+      helm-display-header-line nil
       helm-ff-maximum-candidate-to-decorate 0
       helm-buffer-max-length 60
       helm-truncate-lines t
@@ -14,35 +16,58 @@
       helm-cmd-t-cache-threshhold 1000000000000
       helm-etags-match-part-only 'all
       helm-ag-use-agignore t
-      helm-ag-insert-at-point 'symbol)
+      helm-split-window-default-side 'below
+      helm-ag-insert-at-point nil
+      helm-ff-guess-ffap-urls nil)
 
-(setq helm-locate-command
-      (cl-case system-type
-        ('gnu/linux "locate -i -r %s")
-        ('berkeley-unix "locate -i %s")
-        ('windows-nt "es %s")
-        ('darwin "mdfind -name %s %s")
-        (t "locate %s")))
+(use-package helm
+  :defer 1
+  :init
+  (setq helm-locate-command
+        (cl-case system-type
+          ('gnu/linux "locate -i -r %s")
+          ('berkeley-unix "locate -i %s")
+          ('windows-nt "es %s")
+          ('darwin "mdfind -name %s %s")
+          (t "locate %s")))
+  :config
+  (helm-mode 1)
+  (require 'helm-config)
+  (require 'maio-helm-git)
+  (require 'helm-descbinds)
+  (global-set-key (kbd "C-x c v") 'maio/find-config-file)
+  (global-set-key (kbd "C-x c c") 'helm-compile)
+  (global-set-key [remap bookmark-jump] 'helm-bookmarks))
 
-(require 'helm-config)
-(helm-mode 1)
-(require 'maio-helm-git)
-(require 'helm-descbinds)
+(use-package helm-compile
+  :ensure nil
+  :commands (helm-compile)
+  :bind ("C-x c c" . helm-compile))
 
-(require 'savehist)
-(add-to-list 'savehist-additional-variables 'extended-command-history)
+(use-package helm-terminal
+  :ensure nil
+  :commands (helm-terminal)
+  :bind ("<s-return>" . helm-terminal))
 
-(define-key helm-find-files-map (kbd "C-c SPC") 'helm-ff-run-toggle-auto-update)
-(define-key helm-find-files-map " " 'helm-execute-persistent-action)
-(define-key helm-read-file-map (kbd "C-c SPC") 'helm-ff-run-toggle-auto-update)
-(define-key helm-read-file-map " " 'helm-execute-persistent-action)
+(use-package helm-files
+  :ensure nil
+  :commands (helm-find-files-1)
+  :bind (("C-x c v" . maio/find-config-file)
+         ("C-x g p" . maio/helm-project)
+         ("s-p" . maio/helm-project))
+  :config
+  (define-key helm-find-files-map " " 'helm-execute-persistent-action)
+  (define-key helm-read-file-map " " 'helm-execute-persistent-action))
 
-(require 'helm-buffers)
-(add-to-list 'helm-boring-buffer-regexp-list "\\*nrepl-events")
-(add-to-list 'helm-boring-buffer-regexp-list "\\*nrepl-connection")
+(use-package helm-backup
+  :defer 1
+  :config
+  (add-hook 'after-save-hook 'helm-backup-versioning))
 
-(require 'helm-backup)
-(add-hook 'after-save-hook 'helm-backup-versioning)
+(use-package savehist
+  :defer 1
+  :config
+  (add-to-list 'savehist-additional-variables 'extended-command-history))
 
 (defun helm-set-default-directory (buffer-name directory)
   (let ((buffer (get-buffer buffer-name)))
@@ -52,11 +77,8 @@
 
 (defun maio/helm-project ()
   (interactive)
+  (require 'helm)
   (helm-find-files-1 (expand-file-name "~/Projects/")))
-
-(defun maio/helm-personal-project ()
-  (interactive)
-  (helm-find-files-1 (expand-file-name "~/Projects/personal/")))
 
 (defun maio/helm-do-ag-project-dir ()
   (interactive)
@@ -81,15 +103,14 @@
                         (format "%s:%d:" (buffer-name) (line-number-at-pos (point))))
         :truncate-lines t))
 
-(require 'helm-terminal)
-(global-set-key (kbd "<s-return>") 'helm-terminal)
+(use-package eshell
+  :defer t
+  :config
+  (add-hook 'eshell-mode-hook
+            (lambda ()
+              (define-key eshell-mode-map (kbd "M-r") 'helm-eshell-history))))
 
-(require 'helm-compile)
-(global-set-key (kbd "C-x c c") 'helm-compile)
-
-(require 'eshell)
-(add-hook 'eshell-mode-hook
-          (lambda ()
-            (define-key eshell-mode-map (kbd "M-r") 'helm-eshell-history)))
+(use-package helm-dash
+  :defer t)
 
 (provide 'maio-helm)

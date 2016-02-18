@@ -44,8 +44,9 @@
   (clj-refactor-mode 1)
   (cljr-add-keybindings-with-prefix "C-c C-m"))
 
-(with-eval-after-load 'clojure-mode
-  (require 'cider)
+(use-package clojure-mode
+  :defer t
+  :config
   (require 'clj-refactor)
   (define-key clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)
   (define-key clojure-mode-map (kbd "<M-return>") 'cider-inspect)
@@ -53,7 +54,6 @@
   (define-key clojure-mode-map (kbd "M-q") 'sp-indent-defun)
   (define-key clojure-mode-map (kbd "M-r") 'sp-raise-sexp)
   (define-key clojure-mode-map (kbd "M-k") 'sp-kill-sexp)
-  (define-key clojure-mode-map (kbd "M-s") 'sp-split-sexp)
   (define-key clojure-mode-map (kbd "C-)") 'sp-forward-slurp-sexp)
   (define-key clojure-mode-map (kbd "C-(") 'sp-forward-barf-sexp)
   (define-key clojure-mode-map (kbd "M-C-f") 'sp-end-of-next-sexp)
@@ -215,7 +215,12 @@
     (Then 'defun))
   )
 
-(with-eval-after-load 'cider
+(use-package clj-refactor
+  :defer t)
+
+(use-package cider
+  :defer t
+  :config
   (add-hook 'cider-repl-mode-hook 'turn-on-smartparens-strict-mode)
   (define-key cider-test-report-mode-map "j" 'cider-test-next-result)
   (define-key cider-test-report-mode-map "k" 'cider-test-previous-result)

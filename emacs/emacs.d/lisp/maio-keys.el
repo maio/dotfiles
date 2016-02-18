@@ -1,5 +1,3 @@
-(require 'maio-helm)
-
 (global-set-key (kbd "s-x") 'helm-M-x)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-h m") 'helm-descbinds)
@@ -16,7 +14,6 @@
 (global-set-key (kbd "C-x g l") 'magit-log)
 (global-set-key (kbd "C-x g =") 'vc-diff)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-x c v") 'maio/find-config-file)
 (global-set-key (kbd "C-x g s") 'scratch)
 (global-set-key (kbd "C-x g n") 'remember-notes)
 (global-set-key (kbd "C-x g .") (lambda () (interactive) (find-file "~/org/focus.org")))
@@ -25,10 +22,6 @@
 (global-set-key (kbd "C-x g /") 'helm-do-ag-project-root)
 (global-set-key (kbd "s-/") 'helm-do-ag-project-root)
 (global-set-key (kbd "C-x g ?") 'maio/helm-do-ag-project-dir)
-(global-set-key (kbd "s-p") 'maio/helm-project)
-(global-set-key (kbd "C-x g p") 'maio/helm-project)
-(global-set-key (kbd "s-P") 'maio/helm-personal-project)
-(global-set-key (kbd "C-x g P") 'maio/helm-personal-project)
 (global-set-key (kbd "C-x g o") 'maio/helm-org)
 (global-set-key (kbd "C-x g v") 'helm-backup)
 (global-set-key (kbd "C-x g $") 'prodigy)
@@ -55,10 +48,13 @@
 (global-set-key (kbd "s-=") 'maio/inc-font-size)
 (global-set-key (kbd "s--") 'maio/dec-font-size)
 
-(define-key comint-mode-map (kbd "C-x k") 'kill-comint-buffer)
-(define-key comint-mode-map (kbd "s-K") 'kill-comint-buffer)
-(define-key comint-mode-map (kbd "s-L") 'clear-comint-buffer)
-(define-key compilation-mode-map (kbd "s-L") 'clear-comint-buffer)
+(with-eval-after-load 'comint
+  (define-key comint-mode-map (kbd "C-x k") 'kill-comint-buffer)
+  (define-key comint-mode-map (kbd "s-K") 'kill-comint-buffer)
+  (define-key comint-mode-map (kbd "s-L") 'clear-comint-buffer))
+
+(with-eval-after-load 'compile
+  (define-key compilation-mode-map (kbd "s-L") 'clear-comint-buffer))
 
 ;; unimpaired.vim
 (with-eval-after-load 'flycheck

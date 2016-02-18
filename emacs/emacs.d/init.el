@@ -2,6 +2,8 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/magit/lisp")
 (require 'maio-util)
 
+(setq use-package-always-ensure t)
+
 (require-and-exec 'package
   (add-to-list 'package-archives
                '("melpa" . "http://melpa.milkbox.net/packages/") t)
@@ -12,6 +14,10 @@
   ;; (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
   (when (not package-archive-contents)
     (package-refresh-contents))
+
+  (unless (package-installed-p 'use-package)
+    (package-install 'use-package))
+
   (let ((my-packages '(auto-compile
                        better-defaults
                        elisp-slime-nav
@@ -20,16 +26,11 @@
                        dash
                        undo-tree
                        ace-jump-mode
-                       company
                        readline-complete
                        goto-chg
                        scratch
-                       erlang
                        recompile-on-save
-                       clojure-mode
                        clojure-cheatsheet
-                       cider
-                       clj-refactor
                        discover-clj-refactor
                        eink-theme
                        feature-mode
@@ -51,7 +52,6 @@
                        groovy-mode
                        dired-details
                        flycheck
-                       diminish
                        bookmark+
                        smartparens
                        org-present
@@ -60,7 +60,6 @@
                        evil-cleverparens
                        rainbow-mode
                        fullframe
-                       sackspace
                        yasnippet
                        htmlize
                        draft-mode
@@ -116,7 +115,6 @@
 (require 'maio-keys)
 (require 'maio-multiple-cursors)
 (require 'maio-clipboard)
-(require 'maio-modes)
 (require 'maio-experiments)
 (require 'maio-dojo)
 

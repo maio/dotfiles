@@ -6,7 +6,9 @@
       (insert (format-time-string "%D %H:%M "))
       (insert msg))))
 
-(with-eval-after-load 'erc
+(use-package erc
+  :defer t
+  :config
   (require 'erc-join)
   (add-hook 'erc-text-matched-hook 'maio/erc-notify)
 

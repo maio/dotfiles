@@ -2,6 +2,7 @@
 (require 's)
 (require 'dash)
 (require 'helm)
+(require 'compile)
 
 (defvar helm-compile-pre-compilation-hook nil)
 (defvar helm-compile-compilation-hook nil)

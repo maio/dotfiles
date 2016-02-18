@@ -80,12 +80,6 @@
 (setq paren-face-regexp "[(){}]")
 (add-hook 'prog-mode-hook 'paren-face-mode)
 
-;; golden-ration
-(ensure-package 'golden-ratio)
-(setq golden-ratio-exclude-modes '("magit-key-mode"))
-(with-eval-after-load 'golden-ratio (diminish 'golden-ratio-mode))
-(global-set-key (kbd "s-g") 'golden-ratio)
-
 ;; org-reveal
 (with-eval-after-load 'org
   (ensure-package 'ox-reveal)
@@ -93,64 +87,24 @@
   (setq org-reveal-theme "sky"
         org-reveal-title-slide-template "<h1>%t</h1><h2>%a</h2><h3>%e</h3>"))
 
-(ensure-package 'dired-open)
-(with-eval-after-load 'dired
-  (require 'dired-open)
-  (setq dired-open-extensions '(("qt" . "qtshow")
-                                ("qt.opt" . "qtshow")
-                                ("svg" . "open"))))
-
 ;; move to new window
 (defadvice split-window-right (after switch-to-it () activate) (other-window 1))
 (defadvice split-window-below (after switch-to-it () activate) (other-window 1))
 
 ;; coffee
-(ensure-package 'coffee-mode)
-(setq coffee-tab-width 2)
+(use-package coffee-mode
+  :config
+  (setq coffee-tab-width 2))
 
-;; smart-tab
-(ensure-package 'smart-tab)
-(global-smart-tab-mode 1)
-(setq smart-tab-using-hippie-expand t)
+;; ;; smart-tab
+;; (ensure-package 'smart-tab)
+;; (global-smart-tab-mode 1)
+;; (setq smart-tab-using-hippie-expand t)
 
 ;; expand-region
 (ensure-package 'expand-region)
 (when evil-mode
   (define-key evil-visual-state-map "." 'er/expand-region))
-
-;; word/excel emulation modes
-(progn
-  (defun get-fake-world-lock-file (fname)
-    (let* ((ext (format ".%s" (f-ext fname)))
-           (fname-sans-ext (s-chop-suffix ext fname))
-           (len (length fname-sans-ext))
-           (drop-chars (cond
-                        ((> len 7) 2)
-                        ((= len 7) 1)
-                        (t 0))))
-      (message "%d" len)
-      (f-join
-       (f-dirname fname)
-       (format "~$%s" (substring (f-filename fname) drop-chars)))))
-
-  (defun create-fake-word-lock ()
-    (let ((lock (get-fake-world-lock-file (buffer-file-name))))
-      ;; sleep would be more realistic?
-      (write-region "" nil lock)
-      (message "CREATED %s" (f-filename lock))))
-
-  (defun remove-fake-word-lock ()
-    (let ((lock (get-fake-world-lock-file (buffer-file-name))))
-      (when (f-exists? lock)
-        (delete-file lock)
-        (message "REMOVED %s" (f-filename lock)))))
-
-  (define-derived-mode fake-word-mode text-mode "FakeWord"
-    (make-local-variable 'kill-buffer-hook)
-    (add-hook 'kill-buffer-hook 'remove-fake-word-lock)
-    (create-fake-word-lock)))
-
-(add-to-list 'auto-mode-alist '("\\.docx$" . fake-word-mode))
 
 ;; hydra
 (ensure-package 'hydra)

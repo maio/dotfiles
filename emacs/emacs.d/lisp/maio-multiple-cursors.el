@@ -1,4 +1,7 @@
-(require 'multiple-cursors)
+(use-package multiple-cursors
+  :defer t
+  :config
+  (define-key mc/keymap [escape] 'mc/keyboard-quit))
 
 (when evil-mode
   (defun mc/restore-normal-state ()
@@ -17,7 +20,6 @@
   (add-hook 'multiple-cursors-mode-enabled-hook 'mc/insert-state)
   (add-hook 'multiple-cursors-mode-disabled-hook 'deactivate-mark)
 
-  (define-key mc/keymap [escape] 'mc/keyboard-quit)
   (define-key evil-normal-state-map (kbd "M-;") 'mc/mark-all-like-this-dwim)
   (define-key evil-insert-state-map (kbd "M-;") 'mc/mark-all-like-this-dwim))
 

@@ -30,6 +30,7 @@
 
 (defun jsfmt-region (beg end)
   (interactive "r")
+  ;; npm install -g jsfmt
   (perltidy-save-point
     (call-process-region beg end "jsfmt" t t t "--format=true")))
 

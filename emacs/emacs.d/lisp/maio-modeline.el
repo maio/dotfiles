@@ -1,18 +1,19 @@
-(require 'diminish)
+(use-package diminish
+  :ensure t
+  :config
+  (with-eval-after-load 'eldoc (diminish 'eldoc-mode))
+  (with-eval-after-load 'undo-tree (diminish 'undo-tree-mode))
+  (with-eval-after-load 'hi-lock (diminish 'hi-lock-mode))
+  (with-eval-after-load 'subword (diminish 'subword-mode))
+  (with-eval-after-load 'simple (diminish 'auto-fill-function))
 
-(with-eval-after-load 'eldoc (diminish 'eldoc-mode))
-(with-eval-after-load 'undo-tree (diminish 'undo-tree-mode))
-(with-eval-after-load 'hi-lock (diminish 'hi-lock-mode))
-(with-eval-after-load 'subword (diminish 'subword-mode))
-(with-eval-after-load 'simple (diminish 'auto-fill-function))
-
-(with-eval-after-load 'yasnippet (diminish 'yas-minor-mode "YS"))
-(with-eval-after-load 'company (diminish 'company-mode "AC"))
-(with-eval-after-load 'smartparens (diminish 'smartparens-mode "(s)"))
-(with-eval-after-load 'paredit (diminish 'paredit-mode "(p)"))
-(with-eval-after-load 'flymake (diminish 'flymake-mode "Fly"))
-(with-eval-after-load 'cider (diminish 'cider-mode))
-(with-eval-after-load 'helm-mode (diminish 'helm-mode))
+  (with-eval-after-load 'yasnippet (diminish 'yas-minor-mode "YS"))
+  (with-eval-after-load 'company (diminish 'company-mode "AC"))
+  (with-eval-after-load 'smartparens (diminish 'smartparens-mode "(s)"))
+  (with-eval-after-load 'paredit (diminish 'paredit-mode "(p)"))
+  (with-eval-after-load 'flymake (diminish 'flymake-mode "Fly"))
+  (with-eval-after-load 'cider (diminish 'cider-mode))
+  (with-eval-after-load 'helm-mode (diminish 'helm-mode)))
 
 (defvar mode-line-buffer-keymap
   (let ((map (make-sparse-keymap)))

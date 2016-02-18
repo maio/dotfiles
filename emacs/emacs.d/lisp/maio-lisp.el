@@ -33,7 +33,6 @@
 (define-key emacs-lisp-mode-map (kbd "M-q") 'sp-indent-defun)
 (define-key emacs-lisp-mode-map (kbd "M-r") 'sp-raise-sexp)
 (define-key emacs-lisp-mode-map (kbd "M-k") 'sp-kill-sexp)
-(define-key emacs-lisp-mode-map (kbd "M-s") 'sp-split-sexp)
 (define-key emacs-lisp-mode-map (kbd "C-)") 'sp-forward-slurp-sexp)
 (define-key emacs-lisp-mode-map (kbd "C-(") 'sp-forward-barf-sexp)
 (define-key emacs-lisp-mode-map (kbd "C-k") 'sp-kill-hybrid-sexp)
