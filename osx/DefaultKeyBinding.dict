@@ -4,8 +4,4 @@
     "~f" = "moveWordForward:";
     "~b" = "moveWordBackward:";
     "^/" = "undo:";
-    "^g" = {
-         "^g" = ("insertText:", "marian.schubert@gmail.com");
-         "^t" = ("insertText:", "maio.localtunnel.me");
-    };
 }
