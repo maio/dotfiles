@@ -1,6 +1,5 @@
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (add-to-list 'load-path "~/.emacs.d/lisp/magit/lisp")
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (require 'maio-util)
 
 (require-and-exec 'package
@@ -32,6 +31,7 @@
                        cider
                        clj-refactor
                        discover-clj-refactor
+                       eink-theme
                        feature-mode
                        markdown-mode
                        mustache-mode
