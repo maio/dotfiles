@@ -23,6 +23,7 @@
         sp-backward-delete-char
         sp-forward-slurp-sexp
         sp-kill-sexp
+        sp-raise-sexp
         transpose-words
         ))
 
