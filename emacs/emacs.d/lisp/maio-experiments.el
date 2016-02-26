@@ -231,12 +231,4 @@ _0_:close  _1_:only | _b_:select buffer | _<_:undo  _>_:redo | resize _H__J__K__
 (ensure-package 'highlight-tail)
 (add-hook 'after-init-hook 'highlight-tail-mode)
 
-;; key-chord
-(use-package key-chord
-  :demand t
-  :init
-  (key-chord-mode 1)
-  :config
-  (key-chord-define-global "jk" 'avy-goto-word-or-subword-1))
-
 (provide 'maio-experiments)

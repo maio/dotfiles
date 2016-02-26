@@ -211,7 +211,6 @@
 (evil-add-hjkl-bindings diff-mode-map 'emacs
   "q" 'quit-window)
 
-(define-key evil-normal-state-map (kbd "SPC") 'evil-ace-jump-word-mode)
 (define-key evil-normal-state-map "/" 'maio/helm-occur)
 
 (defun maio/count-region-chars (beg end)

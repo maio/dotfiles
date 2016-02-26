@@ -2,7 +2,8 @@
       org-indent-mode-turns-on-hiding-stars t
       org-hide-leading-stars t
       org-src-fontify-natively t
-      org-tags-column -100)
+      org-tags-column -100
+      org-imenu-depth 10)
 
 (setq org-todo-keywords
       (quote ((sequence "TODO" "NEXT" "IMPEDIMENT" "DONE"))))
