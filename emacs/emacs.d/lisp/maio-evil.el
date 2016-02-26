@@ -255,8 +255,19 @@
 
 ;; iedit
 (global-set-key (kbd "C-;") 'iedit-mode)
+
+(defun evil-multiedit--substitute ()
+  "Wipe all the occurrences and switch in `iedit-insert state'"
+  (interactive)
+  (if (not (iedit-find-current-occurrence-overlay))
+      (call-interactively 'evil-change-line)
+    (iedit-delete-occurrences)
+    (evil-multiedit-insert-state)))
+
 (with-eval-after-load 'iedit
   (require 'evil-iedit-state)
+  (define-key evil-iedit-state-map "S" nil)
+  (define-key evil-iedit-state-map "C" 'evil-iedit-state/substitute)
   (add-hook 'iedit-mode-hook 'evil-iedit-state))
 
 ;; Evil plugins
