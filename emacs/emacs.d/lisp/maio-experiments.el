@@ -216,10 +216,11 @@ _0_:close  _1_:only | _b_:select buffer | _<_:undo  _>_:redo | resize _H__J__K__
 
 (ensure-package 'avy)
 (setq avy-all-windows t
+      avy-word-punc-regexp "[!-/-@[-`{-~]"
       avy-keys '(?q ?w ?e ?r ?t ?y ?u ?i ?o ?p
                     ?a ?s ?d ?f ?g ?h ?j ?k ?l
                     ?z ?x ?c ?v ?b ?n ?m))
-(define-key evil-normal-state-map (kbd "SPC") 'avy-goto-word-or-subword-1)
+(define-key evil-normal-state-map (kbd "SPC") 'avy-goto-word-1)
 
 (require 'whitespace)
 (setq whitespace-line-column 80)
