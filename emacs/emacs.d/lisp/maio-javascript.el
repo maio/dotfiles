@@ -8,6 +8,18 @@
 (add-to-list 'auto-mode-alist '("\\.js" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json" . json-mode))
 
+(use-package js2-mode
+  :defer t)
+
+(use-package js2-refactor
+  :defer t)
+
+(use-package json-mode
+  :defer t)
+
+(use-package nodejs-repl
+  :defer t)
+
 (defmacro json-xs-save-point (&rest body)
   (declare (indent 0) (debug t))
   `(let ((old-point (point)))

@@ -34,7 +34,6 @@
   (helm-mode 1)
   (require 'helm-config)
   (require 'maio-helm-git)
-  (require 'helm-descbinds)
   (global-set-key (kbd "C-x c v") 'maio/find-config-file)
   (global-set-key (kbd "C-x c c") 'helm-compile)
   (global-set-key [remap bookmark-jump] 'helm-bookmarks))
@@ -48,6 +47,9 @@
   :ensure nil
   :commands (helm-terminal)
   :bind ("<s-return>" . helm-terminal))
+
+(use-package helm-descbinds
+  :after helm)
 
 (use-package helm-files
   :ensure nil
@@ -111,6 +113,12 @@
               (define-key eshell-mode-map (kbd "M-r") 'helm-eshell-history))))
 
 (use-package helm-dash
+  :defer t)
+
+(use-package helm-cmd-t
+  :defer t)
+
+(use-package helm-ag
   :defer t)
 
 (provide 'maio-helm)

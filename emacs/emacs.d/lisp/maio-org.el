@@ -11,7 +11,9 @@
 (defun org-linespacing ()
   (setq line-spacing 6))
 
-(with-eval-after-load 'org
+(use-package org
+  :defer t
+  :config
   (require 'org-indent)
   (require 'org-present)
 

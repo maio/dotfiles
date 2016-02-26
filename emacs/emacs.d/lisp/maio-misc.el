@@ -51,6 +51,15 @@
   (add-hook 'helm-ag-mode-hook 'wgrep-ag-setup)
   (add-hook 'helm-ag-mode-hook 'wgrep-change-to-wgrep-mode))
 
+(use-package wgrep-ag
+  :after wgrep)
+
+(use-package fullframe
+  :defer t)
+
+(use-package htmlize
+  :defer t)
+
 ;; (setq debug-on-quit t)
 ;; (setq debug-on-error t)
 

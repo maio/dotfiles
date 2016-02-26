@@ -68,4 +68,7 @@
 
 (add-hook 'prog-mode-hook 'show-trailing-whitespace)
 
+(eval-after-load 'flycheck
+  '(flycheck-package-setup))
+
 (provide 'maio-prog)
