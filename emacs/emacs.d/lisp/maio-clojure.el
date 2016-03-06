@@ -71,6 +71,7 @@
     (evil-define-key 'normal clojure-mode-map "D" 'sp-kill-hybrid-sexp)
     (evil-define-key 'normal clojure-mode-map (kbd "M-.") 'cider-find-var)
     (evil-define-key 'normal clojure-mode-map (kbd "M-,") 'cider-jump-back))
+  (add-hook 'cider-repl-mode-hook 'eldoc-mode)
   (add-hook 'clojure-mode-hook 'eldoc-mode)
   (add-hook 'clojure-mode-hook 'clojure-hippie-expand-setup)
   (add-hook 'clojure-mode-hook 'setup-clj-refactor)
@@ -165,6 +166,7 @@
     (dom/object 'defun)
     (dom/ol 'defun)
     (dom/optgroup 'defun)
+    (dom/option 'defun)
     (dom/output 'defun)
     (dom/p 'defun)
     (dom/param 'defun)
@@ -179,6 +181,7 @@
     (dom/samp 'defun)
     (dom/script 'defun)
     (dom/section 'defun)
+    (dom/select 'defun)
     (dom/small 'defun)
     (dom/source 'defun)
     (dom/span 'defun)
@@ -221,6 +224,7 @@
 (use-package cider
   :defer t
   :config
+  (add-hook 'cider-repl-mode-hook 'company-mode)
   (add-hook 'cider-repl-mode-hook 'turn-on-smartparens-strict-mode)
   (define-key cider-test-report-mode-map "j" 'cider-test-next-result)
   (define-key cider-test-report-mode-map "k" 'cider-test-previous-result)
@@ -238,6 +242,8 @@
     (evil-define-key 'normal clojure-mode-map ")" 'sp-end-of-next-or-previous-sexp)
     (evil-define-key 'normal clojure-mode-map (kbd "s-d") 'sp-clone-sexp)
 
+    (defadvice cider-test-run-test (before eval-defun-before-test () activate)
+      (cider-eval-defun-at-point))
     (defadvice cider-eval-defun-at-point (after evil-normal-state () activate)
       (evil-normal-state))
     ;; this is also visible in regular clojure mode
