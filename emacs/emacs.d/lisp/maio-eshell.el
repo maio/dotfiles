@@ -5,11 +5,18 @@
       eshell-buffer-shorthand t
       eshell-cmpl-dir-ignore "\\`\\(\\.\\.?\\|CVS\\|\\.svn\\|\\.git\\)/\\'")
 
+(defun s-L-clear ()
+  (interactive)
+  (call-interactively 'eshell/clear)
+  (eshell-emit-prompt))
+
 (defun maio/eshell-setup ()
+  (setenv "PAGER" "cat")
   (setq eshell-path-env (getenv "PATH"))
   (when evil-mode
     (evil-define-key 'normal eshell-mode-map [escape] "gi"))
-  (define-key eshell-mode-map "\C-a" 'eshell-bol))
+  (define-key eshell-mode-map "\C-a" 'eshell-bol)
+  (define-key eshell-mode-map (kbd "s-L") 's-L-clear))
 
 ;;;###autoload
 (with-eval-after-load 'esh-opt

@@ -53,7 +53,6 @@
                        paredit
                        smartparens
                        yasnippet
-                       flycheck
                        elisp-slime-nav
 
                        ;; web
