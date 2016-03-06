@@ -73,10 +73,12 @@
 
 (add-hook 'prog-mode-hook 'show-trailing-whitespace)
 
+(use-package flycheck
+  :defer t
+  :config
+  (flycheck-package-setup))
+
 (use-package flycheck-package
   :defer t)
-
-(eval-after-load 'flycheck
-  '(flycheck-package-setup))
 
 (provide 'maio-prog)
