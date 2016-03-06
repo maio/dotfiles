@@ -18,6 +18,7 @@
       helm-ag-use-agignore t
       helm-split-window-default-side 'below
       helm-ag-insert-at-point nil
+      helm-prevent-escaping-from-minibuffer nil
       helm-ff-guess-ffap-urls nil)
 
 (use-package helm
