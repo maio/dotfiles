@@ -3,7 +3,8 @@
       org-hide-leading-stars t
       org-src-fontify-natively t
       org-tags-column -100
-      org-imenu-depth 10)
+      org-imenu-depth 10
+      org-cycle-separator-lines 1)
 
 (setq org-todo-keywords
       (quote ((sequence "TODO" "NEXT" "IMPEDIMENT" "DONE"))))
