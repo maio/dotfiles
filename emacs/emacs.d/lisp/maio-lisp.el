@@ -30,6 +30,8 @@
 (defadvice sp-backward-sexp (before mark () activate)
   (when (interactive-p) (push-mark)))
 
+(define-key emacs-lisp-mode-map (kbd "C-S-j") 'sp-split-sexp)
+(define-key emacs-lisp-mode-map (kbd "M-DEL") 'sp-backward-kill-word)
 (define-key emacs-lisp-mode-map (kbd "M-q") 'sp-indent-defun)
 (define-key emacs-lisp-mode-map (kbd "M-r") 'sp-raise-sexp)
 (define-key emacs-lisp-mode-map (kbd "M-k") 'sp-kill-sexp)

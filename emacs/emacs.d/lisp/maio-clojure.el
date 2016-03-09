@@ -51,6 +51,8 @@
   (define-key clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)
   (define-key clojure-mode-map (kbd "<M-return>") 'cider-inspect)
   ;; add to sp-...-map instead of clojure-mode-map
+  (define-key clojure-mode-map (kbd "M-DEL") 'sp-backward-kill-word)
+  (define-key clojure-mode-map (kbd "C-S-j") 'sp-split-sexp)
   (define-key clojure-mode-map (kbd "M-q") 'sp-indent-defun)
   (define-key clojure-mode-map (kbd "M-r") 'sp-raise-sexp)
   (define-key clojure-mode-map (kbd "M-k") 'sp-kill-sexp)
