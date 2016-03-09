@@ -75,6 +75,7 @@
   (add-hook 'clojure-mode-hook 'eldoc-mode)
   (add-hook 'clojure-mode-hook 'clojure-hippie-expand-setup)
   (add-hook 'clojure-mode-hook 'setup-clj-refactor)
+  (add-hook 'clojure-mode-hook 'flyspell-prog-mode)
   (define-clojure-indent
     (async 'defun)
     (go 'defun)
