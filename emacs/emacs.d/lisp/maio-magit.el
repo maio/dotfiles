@@ -1,9 +1,12 @@
 (setq magit-status-buffer-switch-function 'switch-to-buffer
       magit-diff-refine-hunk t
-      magit-revert-buffers nil)
+      magit-revert-buffers nil
+      magit-repository-directories-depth 2)
 
 (with-eval-after-load 'magit
+  (magit-auto-revert-mode 0)
   (delete 'magit-insert-tags-header magit-status-headers-hook)
+  (add-to-list 'magit-repository-directories "/Users/maio/Projects/")
   (add-to-list 'magit-diff-arguments "--patience")
   (add-to-list 'magit-no-confirm 'stage-all-changes))
 
