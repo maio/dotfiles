@@ -252,4 +252,15 @@ _0_:close  _1_:only | _b_:select buffer | _<_:undo  _>_:redo | resize _H__J__K__
 (ensure-package 'highlight-tail)
 (add-hook 'after-init-hook 'highlight-tail-mode)
 
+;; racket
+(use-package racket-mode
+  :defer t)
+
+;; keyfreq - track command frequencies
+(use-package keyfreq
+  :defer 10
+  :config
+  (keyfreq-mode 1)
+  (keyfreq-autosave-mode 1))
+
 (provide 'maio-experiments)
