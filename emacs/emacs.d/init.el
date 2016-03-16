@@ -114,6 +114,7 @@
 (require 'maio-clipboard)
 (require 'maio-experiments)
 (require 'maio-dojo)
+(require 'read-some-code)
 
 (regular-mode)
 (savehist-mode 1)

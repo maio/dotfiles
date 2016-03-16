@@ -1,8 +1,11 @@
-(setq ebook-convert-bin "/Applications/calibre.app/Contents/MacOS/ebook-convert")
-(setq ebook-convert-options "--no-default-epub-cover --filter-css=background-color")
-
 (require 'htmlize)
 (require 's)
+(require 'f)
+
+(setq ebook-convert-bin "/Applications/calibre.app/Contents/MacOS/ebook-convert")
+(setq ebook-convert-options "--filter-css=background-color")
+(when load-file-name
+  (setq ebook-cover (f-join (file-name-directory load-file-name) "read-some-code-cover.png")))
 
 ;; TODO
 ;; - turn off minor modes (flyspell, git gutter, ...)
@@ -13,10 +16,11 @@
     (while (re-search-forward search nil t) (replace-match replace))))
 
 (defun buffer-to-epub (epub-file)
-  (interactive "F")
-  (when (not (s-ends-with? ".epub" epub-file))
-    (error "Output file should have .epub extension."))
-  (let ((html-buffer (htmlize-buffer (current-buffer)))
+  (interactive "FOutput file (.epub): ")
+  (let ((epub-file (if (f-ext? epub-file "epub")
+                       epub-file
+                     (concat epub-file ".epub")))
+        (html-buffer (htmlize-buffer (current-buffer)))
         (author (s-replace "-mode" "" (format "%s" major-mode)))
         (html-file (make-temp-file "buffer-to-epub" nil ".html")))
     (with-current-buffer html-buffer
@@ -27,4 +31,13 @@
       (search-replace-in-buffer "<span" "<pre style=\"display: inline\"")
       (search-replace-in-buffer "</span" "</pre")
       (write-file html-file))
-    (shell-command (format "%s %s %s %s --authors=%s" ebook-convert-bin html-file epub-file ebook-convert-options author))))
+    (shell-command
+     (s-join " " (list ebook-convert-bin
+                       (format "\"%s\"" html-file)
+                       (format "\"%s\"" epub-file)
+                       ebook-convert-options
+                       (concat "--authors=" author)
+                       (when ebook-cover
+                         (concat "--cover=" ebook-cover)))))))
+
+(provide 'read-some-code)
