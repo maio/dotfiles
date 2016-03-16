@@ -9,6 +9,7 @@
 (global-set-key (kbd "C-x C-f") 'ido-find-file)
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
 (global-set-key (kbd "C-x K") 'kill-this-buffer-and-window)
+(global-set-key (kbd "s-g") 'magit-status)
 (global-set-key (kbd "C-x g g") 'magit-status)
 (global-set-key (kbd "C-x g b") 'magit-blame)
 (global-set-key (kbd "C-x g l") 'magit-log)
