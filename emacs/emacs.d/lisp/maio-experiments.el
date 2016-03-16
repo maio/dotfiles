@@ -215,12 +215,33 @@ _0_:close  _1_:only | _b_:select buffer | _<_:undo  _>_:redo | resize _H__J__K__
 (global-set-key (kbd "s-9") #'hydra-smartparens/body)
 
 (ensure-package 'avy)
+(defun avy-action-copy-thing (pt)
+  (save-excursion
+    (goto-char pt)
+    (let* ((thing (if (looking-at "(") 'sexp 'symbol))
+           (str (thing-at-point thing t)))
+      (kill-new str)
+      (message "Copied: %s" str)))
+  (let ((dat (ring-ref avy-ring 0)))
+    (select-frame-set-input-focus
+     (window-frame (cdr dat)))
+    (select-window (cdr dat))
+    (goto-char (car dat))))
+
+(defun avy-action-copy-and-paste-thing (pt)
+  (avy-action-copy-thing pt)
+  (yank))
+
 (setq avy-all-windows t
       avy-word-punc-regexp "[!-/-@[-`{-~]"
-      avy-keys '(?q ?w ?e ?r ?t ?y ?u ?i ?o ?p
+      avy-dispatch-alist '((?y . avy-action-copy-thing)
+                           (?x . avy-action-kill)
+                           (?p . avy-action-copy-and-paste-thing))
+      avy-keys '(?q ?w ?e ?r ?t    ?u ?i ?o
                     ?a ?s ?d ?f ?g ?h ?j ?k ?l
-                    ?z ?x ?c ?v ?b ?n ?m))
+                    ?z    ?c ?v ?b ?n ?m))
 (define-key evil-normal-state-map (kbd "SPC") 'avy-goto-word-1)
+(define-key evil-motion-state-map (kbd "SPC") 'avy-goto-char)
 
 (require 'whitespace)
 (setq whitespace-line-column 80)
