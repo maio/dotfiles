@@ -253,7 +253,7 @@
 (define-key evil-normal-state-map "gt" 'git-timemachine)
 
 ;; iedit
-(global-set-key (kbd "C-;") 'iedit-mode)
+(global-set-key (kbd "s-;") 'iedit-mode)
 
 (defun evil-multiedit--substitute ()
   "Wipe all the occurrences and switch in `iedit-insert state'"
