@@ -52,6 +52,13 @@
 (use-package helm-descbinds
   :after helm)
 
+(defun helm-delete-other-windows ()
+  (interactive)
+  (with-helm-alive-p
+    (with-helm-window
+      (delete-other-windows))))
+(put 'helm-delete-other-windows 'helm-only t)
+
 (use-package helm-files
   :ensure nil
   :commands (helm-find-files-1)
@@ -60,6 +67,12 @@
          ("s-p" . maio/helm-project))
   :config
   (define-key helm-find-files-map " " 'helm-execute-persistent-action)
+  (define-key helm-map (kbd "s-1") 'helm-delete-other-windows)
+
+  (define-key helm-find-files-map (kbd "C-x C-j")
+    '(lambda ()
+       (interactive)
+       (helm-exit-and-execute-action 'helm-point-file-in-dired)))
   (define-key helm-read-file-map " " 'helm-execute-persistent-action))
 
 (use-package helm-backup
