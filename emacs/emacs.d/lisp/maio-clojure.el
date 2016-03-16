@@ -227,6 +227,8 @@
 (use-package cider
   :defer t
   :config
+  (setq cider-cljs-lein-repl
+        "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
   (add-hook 'cider-repl-mode-hook 'company-mode)
   (add-hook 'cider-repl-mode-hook 'turn-on-smartparens-strict-mode)
   (define-key cider-test-report-mode-map "j" 'cider-test-next-result)
