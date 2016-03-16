@@ -2,9 +2,12 @@
       org-indent-mode-turns-on-hiding-stars t
       org-hide-leading-stars t
       org-src-fontify-natively t
-      org-tags-column -100
+      org-fontify-whole-heading-line t
+      org-fontify-whole-heading-lines t
+      org-tags-column -79
       org-imenu-depth 10
-      org-cycle-separator-lines 1)
+      org-cycle-separator-lines 1
+      org-export-babel-evaluate nil)
 
 (setq org-todo-keywords
       (quote ((sequence "TODO" "NEXT" "IMPEDIMENT" "DONE"))))
