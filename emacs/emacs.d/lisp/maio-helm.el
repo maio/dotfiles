@@ -8,6 +8,7 @@
       helm-input-idle-delay 0.05
       helm-display-header-line nil
       helm-ff-maximum-candidate-to-decorate 0
+      helm-display-buffer-default-size 10
       helm-buffer-max-length 60
       helm-truncate-lines t
       helm-buffer-details-flag nil
@@ -18,8 +19,7 @@
       helm-ag-use-agignore t
       helm-split-window-default-side 'below
       helm-ag-insert-at-point nil
-      helm-prevent-escaping-from-minibuffer nil
-      helm-ff-guess-ffap-urls nil)
+      helm-prevent-escaping-from-minibuffer nil)
 
 (use-package helm
   :defer 1
