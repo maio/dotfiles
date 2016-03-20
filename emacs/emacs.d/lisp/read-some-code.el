@@ -15,6 +15,16 @@
     (beginning-of-buffer)
     (while (re-search-forward search nil t) (replace-match replace))))
 
+(defun defun-page-breaks ()
+  (interactive)
+  (save-excursion
+    (beginning-of-buffer)
+    (while (not (= (point) (point-max)))
+      (end-of-defun)
+      (insert "\n")
+      (when (not (looking-at "\n"))
+        (insert "\n")))))
+
 (defun buffer-to-epub (epub-file)
   (interactive "FOutput file (.epub): ")
   (let ((epub-file (if (f-ext? epub-file "epub")
