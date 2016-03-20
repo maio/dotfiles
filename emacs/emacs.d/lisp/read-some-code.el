@@ -30,6 +30,7 @@
       ;; pre tags in order to get consistent look.
       (search-replace-in-buffer "<span" "<pre style=\"display: inline\"")
       (search-replace-in-buffer "</span" "</pre")
+      (search-replace-in-buffer "<hr />" "<div style=\"page-break-before:always;\"></div>")
       (write-file html-file))
     (shell-command
      (s-join " " (list ebook-convert-bin
