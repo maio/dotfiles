@@ -9,6 +9,9 @@
 (add-to-list 'auto-mode-alist '("\\.mustache$" . mustache-mode))
 (add-to-list 'auto-mode-alist '("\\.sls$" . yaml-mode))
 
+(add-hook 'eval-expression-minibuffer-setup-hook #'eldoc-mode)
+(add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode)
+
 (use-package subword
   :defer 1
   :config
