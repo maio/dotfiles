@@ -42,7 +42,7 @@
 
 (defun setup-clj-refactor ()
   (clj-refactor-mode 1)
-  (cljr-add-keybindings-with-prefix "C-c C-m"))
+  (cljr-add-keybindings-with-prefix "C-c r"))
 
 (use-package clojure-mode
   :defer t
