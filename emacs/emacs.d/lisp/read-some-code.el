@@ -58,10 +58,10 @@
                            (format "\"%s\"" html-file)
                            (format "\"%s\"" epub-file)
                            ebook-convert-options
-                           (concat "--authors=" author)
-                           (concat "--title=" source-name)
+                           (format "--authors=\"%s\"" author)
+                           (format "--title=\"%s\"" source-name)
                            "--level1-toc='//*[@class=\"function-name\"]'"
                            (when ebook-cover
-                             (concat "--cover=" ebook-cover)))))))))
+                             (format "--cover=\"%s\"" ebook-cover)))))))))
 
 (provide 'read-some-code)
