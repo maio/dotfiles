@@ -61,6 +61,9 @@
                            (format "--authors=\"%s\"" author)
                            (format "--title=\"%s\"" source-name)
                            "--level1-toc='//*[@class=\"function-name\"]'"
+                           "--margin-top=0"
+                           "--margin-right=0"
+                           "--margin-bottom=0"
                            (when ebook-cover
                              (format "--cover=\"%s\"" ebook-cover)))))))))
 
