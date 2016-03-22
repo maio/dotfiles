@@ -56,21 +56,20 @@
           (search-replace-in-buffer
            "^&#12;" "<div style=\"page-break-before:always;\"></div>")
           (write-file html-file))
-        (call-process ebook-convert-bin
-                      nil
-                      output-buffer
-                      t
-                      html-file
-                      epub-file
-                      "--filter-css=background-color"
-                      (format "--authors=%s" author)
-                      (format "--title=%s" source-name)
-                      "--level1-toc=//*[@class='function-name']"
-                      "--margin-top=0"
-                      "--margin-right=0"
-                      "--margin-bottom=0"
-                      (if ebook-cover
-                          (format "--cover=%s" ebook-cover)
-                        "--no-default-epub-cover"))))))
+        (start-process "buffer-to-epub"
+                       output-buffer
+                       ebook-convert-bin
+                       html-file
+                       epub-file
+                       "--filter-css=background-color"
+                       (format "--authors=%s" author)
+                       (format "--title=%s" source-name)
+                       "--level1-toc=//*[@class='function-name']"
+                       "--margin-top=0"
+                       "--margin-right=0"
+                       "--margin-bottom=0"
+                       (if ebook-cover
+                           (format "--cover=%s" ebook-cover)
+                         "--no-default-epub-cover"))))))
 
 (provide 'read-some-code)
