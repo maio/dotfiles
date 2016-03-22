@@ -2,7 +2,7 @@
   :defer 10
   :config
   (global-company-mode 1)
-  (setq company-idle-delay 0.1
+  (setq company-idle-delay 0.2
         company-frontends '(company-preview-frontend
                             company-echo-strip-common-frontend)
         company-backends '(company-dabbrev-code
