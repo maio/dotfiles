@@ -4,6 +4,7 @@
     (helm-quit-and-execute-action 'magit-status)))
 
 (define-key helm-find-files-map (kbd "C-x g") 'helm-ff-run-magit-status)
+(define-key helm-find-files-map (kbd "s-g") 'helm-ff-run-magit-status)
 
 (defun helm-ff-cmd-t (_candidate)
   (with-helm-default-directory helm-ff-default-directory
