@@ -27,9 +27,12 @@
 
 (defun buffer-to-epub (epub-file)
   (interactive "FOutput file (.epub): ")
-  (let ((source (current-buffer))
-        (source-mode major-mode)
-        (source-name (buffer-name)))
+  (let* ((source (current-buffer))
+         (source-mode major-mode)
+         (source-name (buffer-name))
+         (output-buffer (generate-new-buffer (format "*epub: %s*" source-name))))
+    (switch-to-buffer-other-window output-buffer)
+    (insert "Going to convert buffer to HTML first...\n")
     (with-temp-buffer
       (insert-buffer-substring source)
       (funcall source-mode)
@@ -53,18 +56,21 @@
           (search-replace-in-buffer
            "^&#12;" "<div style=\"page-break-before:always;\"></div>")
           (write-file html-file))
-        (shell-command
-         (s-join " " (list ebook-convert-bin
-                           (format "\"%s\"" html-file)
-                           (format "\"%s\"" epub-file)
-                           ebook-convert-options
-                           (format "--authors=\"%s\"" author)
-                           (format "--title=\"%s\"" source-name)
-                           "--level1-toc='//*[@class=\"function-name\"]'"
-                           "--margin-top=0"
-                           "--margin-right=0"
-                           "--margin-bottom=0"
-                           (when ebook-cover
-                             (format "--cover=\"%s\"" ebook-cover)))))))))
+        (call-process ebook-convert-bin
+                      nil
+                      output-buffer
+                      t
+                      html-file
+                      epub-file
+                      "--filter-css=background-color"
+                      (format "--authors=%s" author)
+                      (format "--title=%s" source-name)
+                      "--level1-toc=//*[@class='function-name']"
+                      "--margin-top=0"
+                      "--margin-right=0"
+                      "--margin-bottom=0"
+                      (if ebook-cover
+                          (format "--cover=%s" ebook-cover)
+                        "--no-default-epub-cover"))))))
 
 (provide 'read-some-code)
