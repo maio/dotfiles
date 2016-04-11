@@ -247,10 +247,6 @@ _0_:close  _1_:only | _b_:select buffer | _<_:undo  _>_:redo | resize _H__J__K__
 (setq whitespace-style '(face lines-tail))
 (add-hook 'prog-mode-hook 'whitespace-mode)
 
-;; highlight-tail
-(ensure-package 'highlight-tail)
-(add-hook 'after-init-hook 'highlight-tail-mode)
-
 ;; racket
 (use-package racket-mode
   :defer t)
