@@ -73,7 +73,7 @@
       'visual clojure-mode-map (kbd "<return>") 'cider-eval-region)
     (evil-define-key 'normal clojure-mode-map "D" 'sp-kill-hybrid-sexp)
     (evil-define-key 'normal clojure-mode-map (kbd "M-.") 'cider-find-var)
-    (evil-define-key 'normal clojure-mode-map (kbd "M-,") 'cider-jump-back))
+    (evil-define-key 'normal clojure-mode-map (kbd "M-,") 'cider-pop-back))
   (add-hook 'cider-repl-mode-hook 'eldoc-mode)
   (add-hook 'clojure-mode-hook 'eldoc-mode)
   (add-hook 'clojure-mode-hook 'clojure-hippie-expand-setup)
