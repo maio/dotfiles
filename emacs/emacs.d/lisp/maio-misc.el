@@ -1,6 +1,7 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (setenv "RLWRAP" "")
+(setq inhibit-startup-message t)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (setq backup-inhibited t)
