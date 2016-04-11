@@ -177,7 +177,6 @@ _0_:close  _1_:only | _b_:select buffer | _<_:undo  _>_:redo | resize _H__J__K__
 (global-set-key (kbd "s-j") 'hydra-windows/windmove-down-or-create)
 (global-set-key (kbd "s-k") 'hydra-windows/windmove-up)
 (global-set-key (kbd "s-l") 'hydra-windows/windmove-right-or-create)
-(global-set-key (kbd "s-b") 'hydra-windows/ido-switch-buffer)
 
 (defhydra hydra-yank-pop ()
   "yank"
