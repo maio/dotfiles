@@ -258,4 +258,15 @@ _0_:close  _1_:only | _b_:select buffer | _<_:undo  _>_:redo | resize _H__J__K__
   (keyfreq-mode 1)
   (keyfreq-autosave-mode 1))
 
+;; gcloud
+(with-eval-after-load 'tramp
+  (push
+   (cons
+    "gcloud"
+    '((tramp-login-program "gcloud")
+      (tramp-login-args (("compute" "ssh") ("%h") ("--zone=europe-west1-d" "--ssh-flag=\"-A\"")))
+      (tramp-remote-shell "/bin/sh")
+      (tramp-remote-shell-args ("-i") ("-c"))))
+   tramp-methods))
+
 (provide 'maio-experiments)
