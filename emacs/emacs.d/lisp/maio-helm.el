@@ -67,6 +67,7 @@
          ("s-p" . maio/helm-project))
   :config
   (define-key helm-find-files-map " " 'helm-execute-persistent-action)
+  (define-key helm-find-files-map (kbd "<s-backspace>") 'helm-ff-run-delete-file)
   (define-key helm-map (kbd "s-1") 'helm-delete-other-windows)
 
   (define-key helm-find-files-map (kbd "C-x C-j")
