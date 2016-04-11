@@ -7,6 +7,7 @@
       org-tags-column -79
       org-imenu-depth 10
       org-cycle-separator-lines 1
+      org-confirm-babel-evaluate nil
       org-export-babel-evaluate nil)
 
 (setq org-todo-keywords
