@@ -11,11 +11,7 @@
       ace-jump-mode-gray-background nil
       ace-jump-mode-scope 'window)
 
-(setq-default cursor-type '("DeepSkyBlue2" box))
-(setq evil-default-cursor '("DeepSkyBlue2" box))
-(setq evil-normal-state-cursor '("black" box))
-(setq evil-insert-state-cursor '("DeepSkyBlue2" box))
-(setq evil-emacs-state-cursor '("DeepSkyBlue2" box))
+(set-cursor-color "black")
 
 (require 'evil)
 (evil-mode 1)

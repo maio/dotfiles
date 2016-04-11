@@ -2,12 +2,13 @@
   :defer 10
   :config
   (global-company-mode 1)
+  (require 'maio-company)
   (setq company-idle-delay 0.2
         company-frontends '(company-preview-frontend
                             company-echo-strip-common-frontend)
-        company-backends '(company-dabbrev-code
+        company-backends '(company-maio
                            company-files
-                           company-elisp
+                           ;; company-elisp
                            company-css
                            company-capf))
   ;; Stop completion when going back to normal state. See docs for
