@@ -197,6 +197,7 @@
   (define-key magit-log-mode-map "X" 'magit-reset-hard)
   (define-key magit-status-mode-map "L" 'magit-log-current)
   (define-key magit-file-section-map "K" 'magit-delete-thing)
+  (define-key magit-diff-mode-map "K" 'magit-reverse)
   (define-key magit-revision-mode-map "K" 'magit-reverse)
   (define-key magit-status-mode-map "n" 'magit-section-forward-sibling)
   (define-key magit-status-mode-map "p" 'magit-section-backward-sibling))
