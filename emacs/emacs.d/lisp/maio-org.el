@@ -8,7 +8,13 @@
       org-imenu-depth 10
       org-cycle-separator-lines 1
       org-confirm-babel-evaluate nil
-      org-export-babel-evaluate nil)
+      org-export-babel-evaluate nil
+      org-hide-emphasis-markers t
+      org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/org/focus.org" "Inbox")
+         "* TODO %?\n%a" :empty-lines-after 1)
+        ("e" "Emacs Improvement" entry (file+olp "~/org/focus.org" "Emacs" "Improve")
+         "* TODO %?\n%a" :prepend t)))
 
 (setq org-todo-keywords
       (quote ((sequence "TODO" "NEXT" "IMPEDIMENT" "DONE"))))
@@ -50,8 +56,21 @@
 ;; http://orgmode.org/manual/Handling-links.html
 (global-set-key (kbd "C-c l") 'org-store-link)
 
+(defun recenter-top ()
+  (interactive)
+  (recenter 0))
+
 (when evil-mode
-  (evil-define-key 'normal org-mode-map "]]" 'org-present-next)
-  (evil-define-key 'normal org-mode-map "[[" 'org-present-prev))
+  (evil-define-key 'normal org-mode-map "]]" 'org-next-visible-heading)
+  (evil-define-key 'normal org-mode-map "[[" 'org-previous-visible-heading))
+
+(defadvice org-next-visible-heading (after recenter activate)
+  (recenter-top))
+
+(defadvice org-previous-visible-heading (after recenter activate)
+  (recenter-top))
+
+(defadvice org-capture-place-entry (after insert-state activate)
+  (evil-insert-state))
 
 (provide 'maio-org)
