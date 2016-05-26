@@ -173,10 +173,10 @@ _0_:close  _1_:only | _b_:select buffer | _<_:undo  _>_:redo | resize _H__J__K__
 
   ("RET" nil))
 
-(global-set-key (kbd "s-h") 'hydra-windows/windmove-left)
-(global-set-key (kbd "s-j") 'hydra-windows/windmove-down-or-create)
-(global-set-key (kbd "s-k") 'hydra-windows/windmove-up)
-(global-set-key (kbd "s-l") 'hydra-windows/windmove-right-or-create)
+(global-set-key (kbd "s-h") 'windmove-left)
+(global-set-key (kbd "s-j") 'windmove-down-or-create)
+(global-set-key (kbd "s-k") 'windmove-up)
+(global-set-key (kbd "s-l") 'windmove-right-or-create)
 
 (defhydra hydra-yank-pop ()
   "yank"

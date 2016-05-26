@@ -191,10 +191,13 @@
         "V" 'evil-visual-state)))
 
   (evil-define-key 'normal magit-blame-mode-map "q" 'magit-blame-quit)
+  (evil-define-key 'operator magit-blame-mode-map "q" 'magit-blame-quit)
   (evil-define-key 'normal magit-status-mode-map (kbd "TAB") 'magit-section-toggle)
   (evil-define-key 'normal magit-status-mode-map (kbd "<tab>") 'magit-section-toggle)
   (define-key magit-status-mode-map "X" 'magit-reset-hard)
   (define-key magit-log-mode-map "X" 'magit-reset-hard)
+  (define-key magit-log-mode-map "K" 'magit-revert)
+  (evil-define-key 'normal magit-log-mode-map "K" 'magit-revert)
   (define-key magit-status-mode-map "L" 'magit-log-current)
   (define-key magit-file-section-map "K" 'magit-delete-thing)
   (define-key magit-diff-mode-map "K" 'magit-reverse)
