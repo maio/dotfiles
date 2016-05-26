@@ -1,3 +1,5 @@
+(setenv "JAVA_TOOL_OPTIONS" "-Dapple.awt.UIElement=true")
+
 (setq cider-prompt-for-symbol nil
       cider-repl-history-file (expand-file-name "~/.cider_history")
       cider-interactive-eval-output-destination 'output-buffer)
