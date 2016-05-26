@@ -4,6 +4,7 @@
 
 (with-eval-after-load 'magit
   (magit-auto-revert-mode 0)
+  (define-key magit-status-mode-map (kbd "C-c M-j") 'cider-jack-in)
   (delete 'magit-insert-tags-header magit-status-headers-hook)
   (add-hook 'with-editor-mode-hook 'flyspell-mode)
   (add-hook 'with-editor-mode-hook 'evil-insert-state)
