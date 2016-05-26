@@ -8,7 +8,7 @@
                             company-echo-strip-common-frontend)
         company-backends '(company-maio
                            company-files
-                           ;; company-elisp
+                           company-elisp
                            company-css
                            company-capf))
   ;; Stop completion when going back to normal state. See docs for
