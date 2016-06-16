@@ -1,8 +1,8 @@
 install:
-	@ln -sf `pwd`/private.xml "/Users/maio/Library/Application Support/Karabiner/private.xml"
+	@ln -sf `pwd`/private.xml "/Users/$(USER)/Library/Application Support/Karabiner/private.xml"
 	@cp fonts/* /Library/Fonts/
 	@mkdir -p ~/Library/KeyBindings
-	@ln -sf `pwd`/DefaultKeyBinding.dict "/Users/maio/Library/KeyBindings/DefaultKeyBinding.dict"
+	@ln -sf `pwd`/DefaultKeyBinding.dict "/Users/$(USER)/Library/KeyBindings/DefaultKeyBinding.dict"
 	@mkdir -p ~/Desktop/Screenshots
 	@defaults write com.apple.screencapture location ~/Desktop/Screenshots
 
