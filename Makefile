@@ -8,7 +8,7 @@ init:
 install:
 	@ln -sf `pwd`/shell/inputrc ~/.inputrc
 	@# Emacs
-	@rm -f ~/.emacs.d
+	@rm -rf ~/.emacs.d
 	@ln -sf `pwd`/emacs/emacs-mini ~/.emacs-mini
 	@ln -sf `pwd`/emacs/emacs ~/.emacs
 	@ln -sf `pwd`/emacs/emacs.d ~/.emacs.d
