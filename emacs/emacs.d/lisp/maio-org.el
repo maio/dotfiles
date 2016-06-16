@@ -14,7 +14,11 @@
       '(("t" "Todo" entry (file+headline "~/org/focus.org" "Inbox")
          "* TODO %?\n%a" :empty-lines-after 1)
         ("e" "Emacs Improvement" entry (file+olp "~/org/focus.org" "Emacs" "Improve")
-         "* TODO %?\n%a" :prepend t)))
+         "* TODO %?\n%a" :prepend t)
+        ("d" "Avast Defects [New]" entry (file+olp "~/org/focus.org" "Avast" "Defects")
+         "* %t %? :new:" :prepend t)
+        ("D" "Avast Defects [Fix]" entry (file+olp "~/org/focus.org" "Avast" "Defects")
+         "* %t %? :fix:" :prepend t)))
 
 (setq org-todo-keywords
       (quote ((sequence "TODO" "NEXT" "IMPEDIMENT" "DONE"))))
