@@ -12,6 +12,7 @@
 
 (with-eval-after-load 'web-mode
   (add-hook 'web-mode-hook (lambda () (auto-fill-mode -1)))
+  (add-hook 'web-mode-hook 'yas-minor-mode)
   (when evil-mode
     (evil-define-key 'normal web-mode-map "3" 'web-mode-comment-or-uncomment)
     (evil-define-key 'visual web-mode-map "3" 'web-mode-comment-or-uncomment)))
