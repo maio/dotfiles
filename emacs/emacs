@@ -17,7 +17,13 @@
  '(magit-fetch-arguments (quote ("--prune")))
  '(pcomplete-ignore-case t)
  '(perl-indent-continued-arguments 0)
- '(safe-local-variable-values (quote ((nrepl-port . "3001") (eval setenv "DATABASE_URL" "postgresql://localhost:5432/wools") (whitespace-line-column . 80) (lexical-binding . t)))))
+ '(safe-local-variable-values
+   (quote
+    ((buffer-file-coding-system . utf-8-dos)
+     (nrepl-port . "3001")
+     (eval setenv "DATABASE_URL" "postgresql://localhost:5432/wools")
+     (whitespace-line-column . 80)
+     (lexical-binding . t)))))
 
 (load-file "~/.emacs.d/init.el")
 (put 'dired-find-alternate-file 'disabled nil)
