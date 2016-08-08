@@ -65,9 +65,9 @@
   (add-to-list 'js2-global-externs "jasmine")
   ;; minor modes
   (add-hook 'js2-mode-hook 'smartparens-mode)
-  (define-key js2-mode-map (kbd "SPC") 'maio/electric-space)
+  (define-key js2-mode-map (kbd "M-.") 'js2-jump-to-definition)
   (when evil-mode
-    (evil-define-key 'visual js2-mode-map "=" 'jsfmt-region)))
+    (evil-define-key 'visual js2-mode-map "=" 'indent-region)))
 
 (with-eval-after-load 'json-mode
   (when evil-mode
