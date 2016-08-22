@@ -42,13 +42,15 @@
       (run-hooks 'helm-compile-compilation-hook))))
 
 (defvar helm-c-source-compile
-  '((name . "Compile")
-    (dummy)
-    (action
-     . (("Compile" . (lambda (candidate)
-                       (helm-compile--compile candidate)))
-        ("Compile (Comint)" . (lambda (candidate)
-                                (helm-compile--compile candidate t)))))))
+  (helm-build-dummy-source
+   "Compile"
+   :action (helm-make-actions
+            "Compile"
+            (lambda (candidate)
+              (helm-compile--compile candidate))
+            "Compile (Comint)"
+            (lambda (candidate)
+              (helm-compile--compile candidate t)))))
 
 (defvar helm-c-source-compile-history
   '((name . "Compile History")

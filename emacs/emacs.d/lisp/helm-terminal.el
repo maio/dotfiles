@@ -14,10 +14,11 @@
   (rename-buffer (format "*%s*" name)))
 
 (defvar helm-c-source-new-terminal
-  '((name . "New Terminal")
-    (dummy)
-    (action
-     . (("Open Here" . (lambda (candidate) (helm-terminal--new candidate)))))))
+  (helm-build-dummy-source
+   "New Terminal"
+   :action (helm-make-actions
+            "Open Here"
+            (lambda (candidate) (helm-terminal--new candidate)))))
 
 (defvar helm-c-source-terminal-buffers
   '((name . "Terminal Buffer")
