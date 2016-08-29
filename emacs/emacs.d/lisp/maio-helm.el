@@ -37,6 +37,8 @@
   (require 'maio-helm-git)
   (global-set-key (kbd "C-x c v") 'maio/find-config-file)
   (global-set-key (kbd "C-x c c") 'helm-compile)
+  (global-set-key (kbd "C-x b") 'helm-mini)
+  (global-set-key (kbd "s-b") 'helm-mini)
   (global-set-key [remap bookmark-jump] 'helm-bookmarks))
 
 (use-package helm-compile
