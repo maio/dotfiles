@@ -54,6 +54,7 @@
                        smartparens
                        yasnippet
                        elisp-slime-nav
+                       swift-mode
 
                        ;; web
                        web-mode
