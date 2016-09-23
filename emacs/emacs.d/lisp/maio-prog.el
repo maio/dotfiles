@@ -23,6 +23,9 @@
   (setq show-paren-delay 0)
   (show-paren-mode 1))
 
+(use-package nlinum-relative
+  :defer 1)
+
 (use-package whitespace
   :defer 1
   :config

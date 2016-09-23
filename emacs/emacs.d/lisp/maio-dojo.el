@@ -1,7 +1,9 @@
 (defun dojo-mode ()
   (interactive)
-  (setq company-idle-delay 0.1)
-  (setq shift-select-mode t)
+  (setq company-idle-delay 0.1
+        shift-select-mode t)
+  (add-hook 'emacs-lisp-mode-hook 'nlinum-relative-on)
+  (add-hook 'js2-mode-hook 'nlinum-relative-on)
   (global-set-key (kbd "<s-right>") 'move-end-of-line)
   (global-set-key (kbd "<s-left>") 'evil-first-non-blank)
   (when evil-mode
