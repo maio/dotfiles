@@ -52,7 +52,6 @@
                        groovy-mode
                        paredit
                        smartparens
-                       yasnippet
                        elisp-slime-nav
                        swift-mode
 

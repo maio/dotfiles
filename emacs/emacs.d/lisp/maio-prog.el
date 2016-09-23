@@ -84,4 +84,9 @@
 (use-package flycheck-package
   :defer t)
 
+(use-package yasnippet
+  :defer 1
+  :config
+  (yas-global-mode 1))
+
 (provide 'maio-prog)
