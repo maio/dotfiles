@@ -50,6 +50,7 @@
   (require 'perltidy)
   (require 'smartparens)
   (add-hook 'js2-mode-hook 'maio/js2-defaults)
+  (add-hook 'js2-mode-hook 'yas-minor-mode)
   (js2r-add-keybindings-with-prefix "s-r")
   ;; jasmine stuff
   (add-to-list 'compilation-error-regexp-alist-alist (cons 'jasmine jasmine-compilation-regexp))
