@@ -19,7 +19,8 @@
  '(perl-indent-continued-arguments 0)
  '(safe-local-variable-values
    (quote
-    ((web-mode-script-padding . 4)
+    ((js2-strict-missing-semi-warning)
+     (web-mode-script-padding . 4)
      (buffer-file-coding-system . utf-8-dos)
      (nrepl-port . "3001")
      (eval setenv "DATABASE_URL" "postgresql://localhost:5432/wools")
