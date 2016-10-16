@@ -139,14 +139,19 @@
   (interactive)
   (switch-to-buffer "*scratch*"))
 
+(defun maio/real-line-beginning-position ()
+  (save-excursion
+    (back-to-indentation)
+    (point)))
+
 (defun maio/looking-at-bol? ()
   (save-excursion (backward-word) (eq (point) (line-beginning-position))))
 
 (defun maio/looking-at-empty-line? ()
-  (save-excursion (move-end-of-line 1) (eq (point) (yas--real-line-beginning))))
+  (save-excursion (move-end-of-line 1) (eq (point) (maio/real-line-beginning-position))))
 
 (defun maio/looking-at-first-word-on-the-line? ()
-  (save-excursion (backward-word) (eq (point) (yas--real-line-beginning))))
+  (save-excursion (backward-word) (eq (point) (maio/real-line-beginning-position))))
 
 (defun buffer-contains? (string)
   (save-excursion
