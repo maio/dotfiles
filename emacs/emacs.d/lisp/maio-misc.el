@@ -67,7 +67,7 @@
 (setq mouse-wheel-follow-mouse 't)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 (setq redisplay-dont-pause t
-      scroll-margin 1
+      scroll-margin 0
       scroll-step 1
       scroll-preserve-screen-position 1)
 
