@@ -3,6 +3,6 @@
 # key: before
 # condition: (and (maio/looking-at-first-word-on-the-line?) (buffer-contains? "describe"))
 # --
-beforeEach(function() {
+before${1:Each}(function() {
   $0
-});
+})`(when js2-strict-missing-semi-warning ";")`
