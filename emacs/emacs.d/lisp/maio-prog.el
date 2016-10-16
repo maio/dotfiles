@@ -33,9 +33,22 @@
   (setq whitespace-style '(face trailing lines-tail) whitespace-line-column 80)
   (whitespace-mode))
 
+(defun maio/on-compilation-finish (buffer msg)
+  (let ((orig (selected-window))
+        (scroll-margin 0))
+    (when-let ((win (get-buffer-window buffer)))
+      (select-window win t)
+      (goto-char (point-max))
+      (previous-line)
+      (previous-line)
+      (previous-line)
+      (recenter -1)
+      (select-window orig))))
+
 (use-package compile
   :defer t
   :config
+  (add-hook 'compilation-finish-functions 'maio/on-compilation-finish)
   (ignore-errors
     (require 'ansi-color)
     (defun my-colorize-compilation-buffer ()
