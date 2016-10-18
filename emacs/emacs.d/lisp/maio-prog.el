@@ -36,7 +36,7 @@
 (defun maio/on-compilation-finish (buffer msg)
   (let ((orig (selected-window))
         (scroll-margin 0))
-    (when-let ((win (get-buffer-window buffer)))
+    (-when-let ((win (get-buffer-window buffer)))
       (select-window win t)
       (goto-char (point-max))
       (previous-line)
