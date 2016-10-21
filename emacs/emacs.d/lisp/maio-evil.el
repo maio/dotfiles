@@ -64,6 +64,10 @@
 (evil-define-key 'normal cider-test-report-mode-map "n" 'cider-test-next-result)
 (evil-define-key 'normal cider-test-report-mode-map "p" 'cider-test-previous-result)
 
+(evil-define-key 'normal dired-mode-map "c" 'evil-cp-change)
+(evil-define-key 'normal dired-mode-map "i" 'evil-insert-state)
+(define-key wdired-mode-map (kbd "s-s") 'wdired-finish-edit)
+
 (add-hook 'dired-mode-hook
           (lambda ()
             (add-hook 'evil-insert-state-entry-hook
