@@ -66,7 +66,9 @@
 
 (evil-define-key 'normal dired-mode-map "c" 'evil-cp-change)
 (evil-define-key 'normal dired-mode-map "i" 'evil-insert-state)
-(define-key wdired-mode-map (kbd "s-s") 'wdired-finish-edit)
+
+(with-eval-after-load 'wdired-mode
+  (define-key wdired-mode-map (kbd "s-s") 'wdired-finish-edit))
 
 (add-hook 'dired-mode-hook
           (lambda ()
