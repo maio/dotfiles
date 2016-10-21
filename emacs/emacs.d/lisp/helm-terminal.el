@@ -7,7 +7,8 @@
   "Test if BUFFER is a terminal buffer."
   (with-current-buffer buffer
     (or (in-mode? 'term-mode)
-        (in-mode? 'eshell-mode))))
+        (in-mode? 'eshell-mode)
+        (in-mode? 'nodejs-repl-mode))))
 
 (defun helm-terminal--new (name)
   (ansi-term (getenv "SHELL"))
