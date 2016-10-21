@@ -269,4 +269,21 @@ _0_:close  _1_:only | _b_:select buffer | _<_:undo  _>_:redo | resize _H__J__K__
       (tramp-remote-shell-args ("-i") ("-c"))))
    tramp-methods))
 
+;; helm compile + terminal
+(with-eval-after-load 'helm
+  (require 'helm-terminal)
+  (require 'helm-compile)
+  (defun helm-compile-terminal ()
+    "Preconfigured `helm' for terminal."
+    (interactive)
+    (helm-other-buffer
+     '(helm-c-source-compilation-buffers
+       helm-c-source-terminal-buffers
+       helm-c-source-compile-history
+       helm-c-source-compile
+       helm-c-source-new-terminal)
+     "*helm comterm*"))
+
+  (global-set-key (kbd "<s-return>") 'helm-compile-terminal))
+
 (provide 'maio-experiments)
