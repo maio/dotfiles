@@ -18,7 +18,11 @@
   :defer t)
 
 (use-package nodejs-repl
-  :defer t)
+  :defer t
+  :config
+  (define-key js2-mode-map (kbd "C-x C-e") 'nodejs-repl-send-last-sexp)
+  (when evil-mode
+    (evil-define-key 'visual js2-mode-map (kbd "C-x C-e") 'nodejs-repl-send-region)))
 
 (defmacro json-xs-save-point (&rest body)
   (declare (indent 0) (debug t))
