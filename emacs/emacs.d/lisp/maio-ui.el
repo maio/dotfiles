@@ -9,6 +9,7 @@
 (defun maio/set-font (font size)
   (setq maio/font-size size)
   (set-frame-font font)
+  (set-default-font font t t)
   (set-font-size size))
 
 (defun maio/alter-font-size (delta)
