@@ -1,3 +1,5 @@
+(add-to-list 'interpreter-mode-alist '("node" . js2-mode))
+
 (setq js2-basic-offset 2
       js-indent-level 2
       json-reformat:indent-width 2)
