@@ -11,10 +11,17 @@
 (add-to-list 'auto-mode-alist '("\\.json" . json-mode))
 
 (use-package js2-mode
-  :defer t)
+  :defer t
+  :config
+  (setq js2-skip-preprocessor-directives t)
+  (add-hook 'js2-mode-hook 'js2-refactor-mode))
 
 (use-package js2-refactor
-  :defer t)
+  :defer t
+  :bind (:map js2-refactor-mode-map
+              ("M-S" . js2r-split-string))
+  :config
+  (js2r-add-keybindings-with-prefix "C-c r"))
 
 (use-package json-mode
   :defer t)
