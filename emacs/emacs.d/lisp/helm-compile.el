@@ -68,9 +68,14 @@
   '((name . "Compilation Buffer")
     (candidates . (lambda () (-filter 'compilation-buffer-p (helm-buffer-list))))
     (action
-     . (("Compile" . (lambda (candidate)
-                       (run-hooks 'helm-compile-pre-compilation-hook)
-                       (pop-to-buffer candidate)))))))
+     . (("Compile"
+         . (lambda (candidate)
+             (run-hooks 'helm-compile-pre-compilation-hook)
+             (pop-to-buffer candidate)))
+        ("Kill buffer"
+         . (lambda (candidate)
+             (mapc (lambda (candidate) (kill-buffer candidate))
+                   (helm-marked-candidates))))))))
 
 (defun helm-compile ()
   "Preconfigured `helm' for compile."
