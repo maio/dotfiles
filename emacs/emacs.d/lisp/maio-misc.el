@@ -34,6 +34,9 @@
 (setq blink-matching-paren nil)
 (setq remember-notes-initial-major-mode 'org-mode)
 (setq recenter-positions '(top middle bottom))
+(setq mac-command-modifier 'super)
+(setq mac-option-modifier 'meta)
+(setq mac-pass-command-to-system nil)
 
 (defun maio/indent ()
   (setq indent-line-function 'indent-relative-maybe))
@@ -65,11 +68,6 @@
 
 (put 'narrow-to-region 'disabled nil)
 (setq mouse-wheel-follow-mouse 't)
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
-(setq redisplay-dont-pause t
-      scroll-margin 0
-      scroll-step 1
-      scroll-preserve-screen-position 1)
 
 ;; Use UTF-8 dammit
 (prefer-coding-system       'utf-8)
