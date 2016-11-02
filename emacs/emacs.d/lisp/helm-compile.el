@@ -86,8 +86,6 @@
    '(helm-c-source-compilation-buffers helm-c-source-compile-history helm-c-source-compile)
    "*helm compile*"))
 
-(add-to-list 'savehist-additional-variables 'compile-history)
-
 (add-hook 'helm-compile-compilation-hook 'delete-other-windows)
 
 (provide 'helm-compile)

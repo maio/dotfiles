@@ -93,7 +93,8 @@
 (use-package savehist
   :defer 1
   :config
-  (add-to-list 'savehist-additional-variables 'extended-command-history))
+  (add-to-list 'savehist-additional-variables 'extended-command-history)
+  (add-to-list 'savehist-additional-variables 'compile-history))
 
 (defun helm-set-default-directory (buffer-name directory)
   (let ((buffer (get-buffer buffer-name)))
