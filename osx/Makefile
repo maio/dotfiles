@@ -5,6 +5,8 @@ install:
 	@ln -sf `pwd`/DefaultKeyBinding.dict "/Users/$(USER)/Library/KeyBindings/DefaultKeyBinding.dict"
 	@mkdir -p ~/Desktop/Screenshots
 	@defaults write com.apple.screencapture location ~/Desktop/Screenshots
+	@defaults write com.apple.dock expose-animation-duration -float 0
+	@defaults -currentHost write -globalDomain AppleFontSmoothing -int 0
 
 /usr/local/bin/brew:
 	@yes | ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
