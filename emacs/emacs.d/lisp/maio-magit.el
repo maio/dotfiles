@@ -27,6 +27,10 @@
 (defadvice magit-section-backward-sibling (after scroll-line-to-top () activate)
   (recenter 0))
 
+(defun maio/magit-update-master ()
+  (interactive)
+  (magit-run-git "fetch" "origin" "master:master"))
+
 (when evil-mode
   (define-key evil-normal-state-map (kbd "gl") 'magit-log-buffer-file))
 
