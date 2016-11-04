@@ -29,7 +29,7 @@
 (global-set-key (kbd "C-x g ?") 'maio/helm-do-ag-project-dir)
 (global-set-key (kbd "C-x g o") 'maio/helm-org)
 (global-set-key (kbd "C-x g v") 'helm-backup)
-(global-set-key (kbd "C-x g $") 'prodigy)
+(global-set-key (kbd "C-x r s") 'prodigy)
 (global-set-key (kbd "C-x n f") 'maio-narrow-to-defun-clone)
 (global-set-key (kbd "C-x c k") 'maio/bury)
 (global-set-key (kbd "s-1") 'delete-other-windows)
