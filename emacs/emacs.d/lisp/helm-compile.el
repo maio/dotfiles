@@ -11,6 +11,25 @@
   "Locate dominating file before running compilation so that it's executed in
    correct directory (e.g. project root)")
 
+(setq helm-compile--recent-buffers nil)
+
+(defun sort-by-recent (buffer-names)
+  (-each (reverse (-map 'buffer-name helm-compile--recent-buffers))
+    (lambda (recent)
+      (if (-contains? buffer-names recent)
+          (let ((n (remove recent buffer-names)))
+            (add-to-list 'n recent)
+            (setq buffer-names n))
+        buffer-names)))
+  buffer-names)
+
+(defun helm-compile-add-recent (proc)
+  (let ((buffer (current-buffer)))
+    (setq helm-compile--recent-buffers (remove buffer helm-compile--recent-buffers))
+    (add-to-list 'helm-compile--recent-buffers buffer)))
+
+(add-hook 'compilation-start-hook 'helm-compile-add-recent)
+
 (defun helm-compile--get-default-directory ()
   (locate-dominating-file (helm-default-directory) helm-compile-locate-dominating-file))
 
@@ -66,7 +85,8 @@
 
 (defvar helm-c-source-compilation-buffers
   '((name . "Compilation Buffer")
-    (candidates . (lambda () (-filter 'compilation-buffer-p (helm-buffer-list))))
+    (candidates . (lambda () (sort-by-recent
+                              (-filter 'compilation-buffer-p (helm-buffer-list)))))
     (action
      . (("Compile"
          . (lambda (candidate)
