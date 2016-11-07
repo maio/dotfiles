@@ -88,10 +88,16 @@
     (candidates . (lambda () (sort-by-recent
                               (-filter 'compilation-buffer-p (helm-buffer-list)))))
     (action
-     . (("Compile"
+     . (("Visit"
          . (lambda (candidate)
              (run-hooks 'helm-compile-pre-compilation-hook)
              (pop-to-buffer candidate)))
+        ("Recompile"
+         . (lambda (candidate)
+             (run-hooks 'helm-compile-pre-compilation-hook)
+             (progn
+               (pop-to-buffer candidate)
+               (recompile))))
         ("Kill buffer"
          . (lambda (candidate)
              (mapc (lambda (candidate) (kill-buffer candidate))
