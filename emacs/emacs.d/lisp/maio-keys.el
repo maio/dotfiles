@@ -46,6 +46,7 @@
 (global-set-key (kbd "s-[") 'profiler-start)
 (global-set-key (kbd "s-]") 'profiler-report)
 (global-set-key (kbd "s-L") 'maio-clear-visible-comint-buffers)
+(global-set-key (kbd "s-m") 'maio/highlight-symbol-at-point)
 (global-set-key (kbd "M-k") 'sp-kill-sexp)
 (global-set-key (kbd "M-h") 'subword-backward)
 (global-set-key (kbd "M-l") 'subword-forward)
