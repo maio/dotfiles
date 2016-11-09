@@ -28,22 +28,18 @@
                        recompile-on-save
                        eink-theme
                        rpm-spec-mode
-                       scratch
                        ag
                        idle-highlight-mode
                        puppet-mode
                        dired-details
                        bookmark+
-                       org-present
                        iedit
                        rainbow-mode
-                       draft-mode
                        xclip
                        prodigy
 
                        ;; clojure
                        clojure-cheatsheet
-                       discover-clj-refactor
 
                        ;; prog
                        feature-mode

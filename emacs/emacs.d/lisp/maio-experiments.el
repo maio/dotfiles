@@ -96,11 +96,6 @@
   :config
   (setq coffee-tab-width 2))
 
-;; ;; smart-tab
-;; (ensure-package 'smart-tab)
-;; (global-smart-tab-mode 1)
-;; (setq smart-tab-using-hippie-expand t)
-
 ;; expand-region
 (ensure-package 'expand-region)
 (when evil-mode
@@ -118,17 +113,6 @@
     (unless hi-lock-mode (hi-lock-mode 1))
     (hi-lock-set-pattern regexp face)))
 
-(defhydra hydra-highlight ()
-  "Highlight"
-  ("." maio/highlight-symbol-at-point "highlight-symbol-at-point" :color blue)
-  ("r" unhighlight-regexp "unhighlight-regexp"))
-
-(defhydra hydra-utils ()
-  "Utils"
-  ("w" hydra-highlight/body "highlight (C-x w)" :color blue))
-
-(global-set-key (kbd "s-u") 'hydra-utils/body)
-
 (defun windmove-right-or-create ()
   (interactive)
   (condition-case err
@@ -144,35 +128,6 @@
      (call-interactively 'split-window-below))))
 
 (setq hydra-lv nil)
-(require 'hydra-examples)
-(defhydra hydra-windows (:hint nil)
-  "
-_0_:close  _1_:only | _b_:select buffer | _<_:undo  _>_:redo | resize _H__J__K__L_ _=_:balance | _m_:save _'_:jump"
-  ("<" winner-undo)
-  (">" winner-redo)
-
-  ("s-h" windmove-left)
-  ("s-j" windmove-down-or-create)
-  ("s-k" windmove-up)
-  ("s-l" windmove-right-or-create)
-
-  ("b" ido-switch-buffer)
-
-  ("0" delete-window)
-  ("1" delete-other-windows)
-
-  ("H" hydra-move-splitter-left)
-  ("J" hydra-move-splitter-down)
-  ("K" hydra-move-splitter-up)
-  ("L" hydra-move-splitter-right)
-
-  ("=" balance-windows)
-
-  ("m" window-configuration-to-register :color blue)
-  ("'" jump-to-register :color blue)
-
-  ("RET" nil))
-
 (global-set-key (kbd "s-h") 'windmove-left)
 (global-set-key (kbd "s-j") 'windmove-down-or-create)
 (global-set-key (kbd "s-k") 'windmove-up)
@@ -183,35 +138,11 @@ _0_:close  _1_:only | _b_:select buffer | _<_:undo  _>_:redo | resize _H__J__K__
   ("C-y" yank nil)
   ("M-y" yank-pop nil)
   ("n" (yank-pop 1) "next")
-  ("p" (yank-pop -1) "prev")
-  ("s" helm-show-kill-ring "list" :color blue))
+  ("p" (yank-pop -1) "prev"))
 
 (global-set-key (kbd "M-y") #'hydra-yank-pop/yank-pop)
 (global-set-key (kbd "C-y") #'hydra-yank-pop/yank)
 (global-set-key (kbd "s-v") #'hydra-yank-pop/yank)
-
-(defhydra hydra-smartparens ()
-  "smartparens"
-  ("(" sp-forward-barf-sexp "barf last")
-  (")" sp-forward-slurp-sexp "slurp")
-  ("s" sp-split-sexp "split")
-  ("t" sp-transpose-sexp "transponse")
-  ("M-J" sp-join-sexp "join")
-  ("J" evil-join)
-  ("c" sp-convolute-sexp "convolute")
-  ("u" undo-tree-undo "undo")
-  ("M-k" sp-kill-sexp "kill")
-  ("M-SPC" just-one-space)
-  ("h" sp-backward-up-sexp)
-  ("j" sp-next-sexp)
-  ("k" sp-backward-sexp)
-  ("l" sp-down-sexp))
-
-    ;; (evil-define-key 'normal clojure-mode-map "l" 'sp-down-sexp)
-    ;; (evil-define-key 'normal clojure-mode-map "h" 'sp-backward-up-sexp)
-    ;; (evil-define-key 'normal clojure-mode-map "j" 'sp-next-sexp)
-    ;; (evil-define-key 'normal clojure-mode-map "k" 'sp-backward-sexp)
-(global-set-key (kbd "s-9") #'hydra-smartparens/body)
 
 (ensure-package 'avy)
 (defun avy-action-copy-thing (pt)
@@ -234,9 +165,8 @@ _0_:close  _1_:only | _b_:select buffer | _<_:undo  _>_:redo | resize _H__J__K__
 (setq avy-all-windows t
       avy-word-punc-regexp "[!-/-@[-`{-~]"
       avy-dispatch-alist '((?y . avy-action-copy-thing)
-                           (?x . avy-action-kill)
-                           (?p . avy-action-copy-and-paste-thing))
-      avy-keys '(?q ?w ?e ?r ?t    ?u ?i ?o
+                           (?x . avy-action-kill-stay))
+      avy-keys '(?q ?w ?e ?r ?t    ?u ?i ?o ?p
                     ?a ?s ?d ?f ?g ?h ?j ?k ?l
                     ?z    ?c ?v ?b ?n ?m))
 (define-key evil-normal-state-map (kbd "SPC") 'avy-goto-word-1)
@@ -250,13 +180,6 @@ _0_:close  _1_:only | _b_:select buffer | _<_:undo  _>_:redo | resize _H__J__K__
 ;; racket
 (use-package racket-mode
   :defer t)
-
-;; keyfreq - track command frequencies
-(use-package keyfreq
-  :defer 10
-  :config
-  (keyfreq-mode 1)
-  (keyfreq-autosave-mode 1))
 
 ;; gcloud
 (with-eval-after-load 'tramp
@@ -273,7 +196,7 @@ _0_:close  _1_:only | _b_:select buffer | _<_:undo  _>_:redo | resize _H__J__K__
 (with-eval-after-load 'helm
   (require 'helm-terminal)
   (require 'helm-compile)
-  (defun helm-compile-terminal ()
+  (defun helm-compile-and-terminal ()
     "Preconfigured `helm' for terminal."
     (interactive)
     (helm-other-buffer
@@ -284,6 +207,6 @@ _0_:close  _1_:only | _b_:select buffer | _<_:undo  _>_:redo | resize _H__J__K__
        helm-c-source-new-terminal)
      "*helm comterm*"))
 
-  (global-set-key (kbd "<s-return>") 'helm-compile-terminal))
+  (global-set-key (kbd "<s-return>") 'helm-compile-and-terminal))
 
 (provide 'maio-experiments)
