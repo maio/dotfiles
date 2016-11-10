@@ -96,6 +96,7 @@
 (require 'maio-erlang)
 (require 'maio-clojure)
 (require 'maio-javascript)
+(require 'maio-cpp)
 (require 'maio-prog)
 (require 'maio-completion)
 (require 'maio-sql)
