@@ -1,6 +1,7 @@
 (setq web-mode-markup-indent-offset 2
       web-mode-script-padding 2
       web-mode-code-indent-offset 2
+      web-mode-enable-current-element-highlight t
       css-indent-offset 2)
 
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
