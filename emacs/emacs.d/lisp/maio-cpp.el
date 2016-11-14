@@ -1,13 +1,3 @@
-(c-add-style "microsoft"
-			 '("stroustrup"
-			   (c-offsets-alist
-				(innamespace . -)
-				(inline-open . 0)
-				(inher-cont . c-lineup-multi-inher)
-				(arglist-cont-nonempty . +)
-				(template-args-cont . +))))
-(setq c-default-style "microsoft")
-
 (defun vr-c++-looking-at-lambda_as_param ()
   "Return t if text after point matches '[...](' or '[...]{'"
   (looking-at ".*[,(][ \t]*\\[[^]]*\\][ \t]*[({][^}]*?[ \t]*[({][^}]*?$"))
