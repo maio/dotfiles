@@ -4,8 +4,9 @@
 
 (use-package dired-subtree
   :defer t
-  :config
-  (setq dired-subtree-use-backgrounds nil)
+  :init
+  (setq dired-subtree-use-backgrounds nil))
+(with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "<tab>") 'dired-subtree-toggle))
 
 (add-hook 'dired-mode-hook 'dired-hide-details-mode)
