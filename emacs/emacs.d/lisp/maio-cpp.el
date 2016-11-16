@@ -49,6 +49,8 @@
 (defun maio-cpp-settings ()
   (vr-c++-indentation-setup)
   (setq indent-tabs-mode t
+        whitespace-action nil
+        c-basic-offset 4
 		whitespace-style '(face
 						   lines-tail
 						   trailing
