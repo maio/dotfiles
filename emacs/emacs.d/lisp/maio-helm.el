@@ -32,7 +32,7 @@
           ('gnu/linux "locate -i -r %s")
           ('berkeley-unix "locate -i %s")
           ('windows-nt "es %s")
-          ('darwin "mdfind -name %s %s")
+          ('darwin "mdfind %s %s")
           (t "locate %s")))
   :config
   (helm-mode 1)
