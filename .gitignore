@@ -22,3 +22,5 @@ vim/vim/addons
 /emacs/emacs.d/recentf
 /emacs/emacs.d/ido.last
 /emacs/emacs.d/.cask/
+/emacs/emacs.d/projectile.cache
+/emacs/emacs.d/projectile-bookmarks.eld

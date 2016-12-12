@@ -103,6 +103,7 @@
 (require 'maio-org)
 (require 'maio-git)
 (require 'maio-helm)
+(require 'maio-projectile)
 (require 'maio-bookmark)
 (require 'maio-dired)
 (require 'maio-erc)

@@ -21,8 +21,6 @@
 (global-set-key (kbd "C-x g s") 'prodigy)
 (global-set-key (kbd "C-x g n") 'remember-notes)
 (global-set-key (kbd "C-x g .") (lambda () (interactive) (find-file "~/org/focus.org")))
-(global-set-key (kbd "s-t") 'helm-cmd-t)
-(global-set-key (kbd "s-t") 'helm-ls-git-ls)
 (global-set-key (kbd "s-m") 'helm-mark-ring)
 (global-set-key (kbd "C-x g /") 'helm-do-ag-project-root)
 (global-set-key (kbd "s-/") 'helm-do-ag-project-root)
