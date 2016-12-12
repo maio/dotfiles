@@ -30,7 +30,6 @@
   :defer t
   :config
   (require 'org-indent)
-  (require 'org-present)
 
   ;; improve UX of src template - do not add extra newline between begin and end
   (add-to-list 'org-structure-template-alist
