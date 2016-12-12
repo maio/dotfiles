@@ -209,4 +209,18 @@
 
   (global-set-key (kbd "<s-return>") 'helm-compile-and-terminal))
 
+(use-package xterm-color
+  :config
+  (setenv "TERM" "xterm-256color")
+  (setq compilation-environment '("TERM=xterm-256color"))
+
+  (add-hook 'comint-preoutput-filter-functions 'xterm-color-filter)
+  (setq comint-output-filter-functions (remove 'ansi-color-process-output comint-output-filter-functions))
+  (with-eval-after-load 'eshell
+    (add-hook 'eshell-mode-hook
+              (lambda ()
+                (setq xterm-color-preserve-properties t)
+                (add-to-list 'eshell-preoutput-filter-functions 'xterm-color-filter)
+                (setq eshell-output-filter-functions (remove 'eshell-handle-ansi-color eshell-output-filter-functions))))))
+
 (provide 'maio-experiments)
