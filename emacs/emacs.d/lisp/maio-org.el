@@ -54,8 +54,15 @@
   (add-hook 'org-mode-hook 'turn-on-smartparens-mode)
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-mode-hook 'org-linespacing)
+  (add-hook 'org-mode-hook 'org-bullets-mode)
   (when evil-mode
     (add-hook 'org-insert-heading-hook 'evil-insert-state)))
+
+;; https://zhangda.wordpress.com/2016/02/15/configurations-for-beautifying-emacs-org-mode/
+(use-package org-bullets
+  :defer t
+  :init
+  (setq org-bullets-bullet-list '("●" "◎" "○" "⊙" "￮" "∘" "∙")))
 
 ;; http://orgmode.org/manual/Handling-links.html
 (global-set-key (kbd "C-c l") 'org-store-link)
