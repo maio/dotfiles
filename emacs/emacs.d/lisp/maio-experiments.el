@@ -223,4 +223,8 @@
                 (add-to-list 'eshell-preoutput-filter-functions 'xterm-color-filter)
                 (setq eshell-output-filter-functions (remove 'eshell-handle-ansi-color eshell-output-filter-functions))))))
 
+;; workshop
+(with-eval-after-load 'org
+  (defadvice org-cycle (after recenter () activate) (when (eq (org-current-level) 1) (recenter 0))))
+
 (provide 'maio-experiments)
