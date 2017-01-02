@@ -33,6 +33,8 @@
   (setq whitespace-style '(face trailing lines-tail) whitespace-line-column 80)
   (whitespace-mode))
 
+(use-package dumb-jump :defer 1)
+
 (defun maio/on-compilation-finish (buffer msg)
   (let ((orig (selected-window))
         (scroll-margin 0))

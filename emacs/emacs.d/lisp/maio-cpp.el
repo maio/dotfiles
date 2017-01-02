@@ -48,6 +48,7 @@
 
 (defun maio-cpp-settings ()
   (vr-c++-indentation-setup)
+  (define-key c++-mode-map (kbd "s-e") 'dumb-jump-go)
   (setq indent-tabs-mode t
         whitespace-action nil
         c-basic-offset 4
