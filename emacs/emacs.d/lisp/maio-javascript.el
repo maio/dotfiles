@@ -14,7 +14,13 @@
   :defer t
   :config
   (setq js2-skip-preprocessor-directives t)
-  (add-hook 'js2-mode-hook 'js2-refactor-mode))
+  (add-hook 'js2-mode-hook 'js2-refactor-mode)
+  (add-hook 'js2-mode-hook 'flycheck-mode))
+
+(use-package add-node-modules-path
+  :init
+  (eval-after-load 'js2-mode
+    '(add-hook 'js2-mode-hook #'add-node-modules-path)))
 
 (use-package js2-refactor
   :defer t
