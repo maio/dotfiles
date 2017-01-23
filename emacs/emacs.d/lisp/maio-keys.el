@@ -6,6 +6,7 @@
 (global-set-key (kbd "C-0") 'next-buffer)
 
 (define-key (current-global-map) [remap save-buffer] 'force-save-buffer)
+(global-set-key (kbd "s-`") 'next-multiframe-window)
 (global-set-key (kbd "C-x C-f") 'ido-find-file)
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
 (global-set-key (kbd "C-x K") 'kill-this-buffer-and-window)
