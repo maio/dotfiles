@@ -196,7 +196,7 @@
       (evil-add-hjkl-bindings map 'emacs
         "V" 'evil-visual-state)))
 
-  (define-key compilation-mode-map (kbd "ESC") 'evil-normal-state)
+  (define-key compilation-mode-map [escape] 'evil-normal-state)
   (evil-define-key 'normal magit-blame-mode-map "q" 'magit-blame-quit)
   (evil-define-key 'operator magit-blame-mode-map "q" 'magit-blame-quit)
   (evil-define-key 'normal magit-status-mode-map (kbd "TAB") 'magit-section-toggle)
