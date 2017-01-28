@@ -80,13 +80,6 @@
 (setq paren-face-regexp "[(){}]")
 (add-hook 'prog-mode-hook 'paren-face-mode)
 
-;; org-reveal
-(with-eval-after-load 'org
-  (ensure-package 'ox-reveal)
-  (require 'ox-reveal)
-  (setq org-reveal-theme "sky"
-        org-reveal-title-slide-template "<h1>%t</h1><h2>%a</h2><h3>%e</h3>"))
-
 ;; move to new window
 (defadvice split-window-right (after switch-to-it () activate) (other-window 1))
 (defadvice split-window-below (after switch-to-it () activate) (other-window 1))
