@@ -220,4 +220,8 @@
 (with-eval-after-load 'org
   (defadvice org-cycle (after recenter () activate) (when (eq (org-current-level) 1) (recenter 0))))
 
+(use-package shell-pop
+  :config (setq shell-pop-shell-type '("eshell" "*eshell*" (lambda nil (eshell))))
+  :bind ("<s-backspace>" . shell-pop))
+
 (provide 'maio-experiments)
