@@ -5,6 +5,9 @@
       eshell-buffer-shorthand t
       eshell-cmpl-dir-ignore "\\`\\(\\.\\.?\\|CVS\\|\\.svn\\|\\.git\\)/\\'")
 
+(use-package eshell-git-prompt
+  :defer 1)
+
 (defun eshell/cls ()
   "Clear the eshell buffer."
   (interactive)
@@ -15,6 +18,7 @@
 (defun maio/eshell-setup ()
   (setenv "PAGER" "cat")
   (setq eshell-path-env (getenv "PATH"))
+  (eshell-git-prompt-use-theme 'powerline)
   (when evil-mode
     (evil-define-key 'normal eshell-mode-map [escape] "gi"))
   (define-key eshell-mode-map "\C-a" 'eshell-bol)
