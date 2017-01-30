@@ -5,7 +5,7 @@
       eshell-buffer-shorthand t
       eshell-cmpl-dir-ignore "\\`\\(\\.\\.?\\|CVS\\|\\.svn\\|\\.git\\)/\\'")
 
-(defun eshell/clear ()
+(defun eshell/cls ()
   "Clear the eshell buffer."
   (interactive)
   (let ((inhibit-read-only t))
