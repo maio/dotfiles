@@ -6,6 +6,7 @@
   (add-hook 'js2-mode-hook 'nlinum-relative-on)
   (global-set-key (kbd "<s-right>") 'move-end-of-line)
   (global-set-key (kbd "<s-left>") 'evil-first-non-blank)
+  (global-set-key (kbd "s-f") 'maio/helm-occur)
   (when evil-mode
     (setq evil-normal-state-cursor '("red" box))
     (setq evil-insert-state-cursor '("black" (bar . 2)))
