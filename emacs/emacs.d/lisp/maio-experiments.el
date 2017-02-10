@@ -224,4 +224,8 @@
   :config (setq shell-pop-shell-type '("eshell" "*eshell*" (lambda nil (eshell))))
   :bind ("<s-backspace>" . shell-pop))
 
+(use-package duplicate-thing
+  :config
+  (global-set-key (kbd "s-d") 'duplicate-thing))
+
 (provide 'maio-experiments)
