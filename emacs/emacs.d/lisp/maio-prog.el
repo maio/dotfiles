@@ -24,7 +24,9 @@
   (show-paren-mode 1))
 
 (use-package nlinum-relative
-  :defer 1)
+  :defer 1
+  :config
+  (setq nlinum-format "%d "))
 
 (use-package whitespace
   :defer 1
