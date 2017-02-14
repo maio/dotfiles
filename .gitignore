@@ -24,3 +24,4 @@ vim/vim/addons
 /emacs/emacs.d/.cask/
 /emacs/emacs.d/projectile.cache
 /emacs/emacs.d/projectile-bookmarks.eld
+.DS_Store
