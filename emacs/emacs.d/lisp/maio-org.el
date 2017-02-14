@@ -61,7 +61,7 @@
 (use-package org-bullets
   :defer t
   :init
-  (setq org-bullets-bullet-list '("●" "◎" "○" "⊙" "￮" "∘" "∙")))
+  (setq org-bullets-bullet-list '("⊙" "◎" "●" "○" "∘" "∙")))
 
 ;; http://orgmode.org/manual/Handling-links.html
 (global-set-key (kbd "C-c l") 'org-store-link)

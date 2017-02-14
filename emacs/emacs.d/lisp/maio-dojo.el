@@ -21,7 +21,7 @@
   (blink-cursor-mode t)
   (setq truncate-partial-width-windows 40
         helm-full-frame t)
-  (maio/set-font "Source Code Pro:weight=Regular" 150)
+  (maio/set-font "Iosevka:weight=Light" 170)
   (with-eval-after-load 'paren-face
     (let ((color "black"))
       (set-face-foreground 'parenthesis color))))

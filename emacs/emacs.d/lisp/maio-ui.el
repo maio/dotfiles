@@ -29,16 +29,9 @@
   (when (ui-type-is-terminal)
     (add-hook 'window-setup-hook 'no-background-color))
   (if (system-type-is-gnu)
-      (maio/set-font "Source Code Pro" 140)
+      (maio/set-font "Iosevka:weight=Light" 140)
     (progn
-      (maio/set-font "Source Code Pro:weight=Regular" 140))))
-
-(defun presentation-mode ()
-  (interactive)
-  (load-theme 'eink t)
-  (if (system-type-is-gnu)
-      (maio/set-font "Source Code Pro" 140)
-    (maio/set-font "Source Code Pro Medium" 180)))
+      (maio/set-font "Iosevka:weight=Light" 170))))
 
 (when (ui-type-is-gui)
   (menu-bar-mode t)
