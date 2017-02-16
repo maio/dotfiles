@@ -31,7 +31,7 @@
   (interactive)
   (magit-run-git "fetch" "origin" "master:master"))
 
-(when evil-mode
+(when (evil-mode?)
   (define-key evil-normal-state-map (kbd "gl") 'magit-log-buffer-file))
 
 (provide 'maio-magit)

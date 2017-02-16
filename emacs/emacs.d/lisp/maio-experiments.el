@@ -70,7 +70,7 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 
 ;; recenter screen after search
-(when evil-mode
+(when (evil-mode?)
   (defadvice evil-search-previous (after recenter () activate) (recenter))
   (defadvice evil-search-next (after recenter () activate) (recenter)))
 
@@ -91,7 +91,7 @@
 
 ;; expand-region
 (ensure-package 'expand-region)
-(when evil-mode
+(when (evil-mode?)
   (define-key evil-visual-state-map "." 'er/expand-region))
 
 ;; hydra
@@ -162,8 +162,9 @@
       avy-keys '(?q ?w ?e ?r ?t    ?u ?i ?o ?p
                     ?a ?s ?d ?f ?g ?h ?j ?k ?l
                     ?z    ?c ?v ?b ?n ?m))
-(define-key evil-normal-state-map (kbd "SPC") 'avy-goto-word-1)
-(define-key evil-motion-state-map (kbd "SPC") 'avy-goto-char)
+(when (evil-mode?)
+  (define-key evil-normal-state-map (kbd "SPC") 'avy-goto-word-1)
+  (define-key evil-motion-state-map (kbd "SPC") 'avy-goto-char))
 
 (require 'whitespace)
 (setq whitespace-line-column 80)

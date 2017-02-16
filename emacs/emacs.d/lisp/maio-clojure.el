@@ -65,7 +65,7 @@
   (define-key clojure-mode-map (kbd "C-k") 'sp-kill-hybrid-sexp)
   (define-key clojure-mode-map (kbd "M-J") 'sp-join-sexp)
   (define-key clojure-mode-map (kbd "s-s") 'clojure-autotest)
-  (when evil-mode
+  (when (evil-mode?)
     (add-hook 'clojure-mode-hook 'evil-cleverparens-mode)
     (evil-define-key
       'insert clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)
@@ -241,7 +241,7 @@
   (define-key cider-repl-mode-map (kbd "C-x k") 'cider-quit)
   (define-key cider-repl-mode-map (kbd "s-K") 'cider-quit)
   (define-key cider-inspector-mode-map (kbd "M-,") 'cider-inspector-pop)
-  (when evil-mode
+  (when (evil-mode?)
     (evil-define-key 'normal clojure-mode-map (kbd "s-L") 'sp-down-sexp)
     (evil-define-key 'normal clojure-mode-map (kbd "s-H") 'sp-backward-up-sexp)
     (evil-define-key 'normal clojure-mode-map (kbd "s-J") 'sp-next-sexp)

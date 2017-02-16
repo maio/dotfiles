@@ -62,17 +62,18 @@
 
 ;; unimpaired.vim
 (with-eval-after-load 'flycheck
-  (when evil-mode
+  (when (evil-mode?)
     (define-key evil-normal-state-map (kbd "]q") 'flycheck-next-error)
     (define-key evil-normal-state-map (kbd "[q") 'flycheck-previous-error)))
-(when evil-mode
+
+(when (evil-mode?)
   (define-key evil-normal-state-map (kbd "]e") 'next-error)
   (define-key evil-normal-state-map (kbd "[e") 'previous-error))
 (with-eval-after-load 'flyspell
-  (when evil-mode
+  (when (evil-mode?)
     (define-key evil-normal-state-map (kbd "]z") 'flyspell-goto-next-error)))
 
-(when evil-mode
+(when (evil-mode?)
   (evil-define-key 'normal lisp-mode-shared-map (kbd "M-.") 'elisp-slime-nav-find-elisp-thing-at-point)
   (evil-define-key 'normal lisp-mode-shared-map "D" 'paredit-kill)
   (evil-define-key 'insert lisp-mode-shared-map (kbd "C-j") 'paredit-close-round-and-newline)
@@ -84,7 +85,7 @@
 (define-key isearch-mode-map (kbd "C-g") 'isearch-abort)
 
 ;; guard
-(when evil-mode
+(when (evil-mode?)
   (evil-define-key 'normal compilation-minor-mode-map (kbd "RET") 'compile-goto-error)
   (evil-define-key 'normal compilation-minor-mode-map "q" 'quit-window))
 

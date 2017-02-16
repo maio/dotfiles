@@ -83,7 +83,7 @@
   (add-hook 'prog-mode-hook 'turn-on-smartparens-mode)
   (add-hook 'html-mode-hook 'turn-on-smartparens-mode)
   (add-hook 'groovy-mode-hook 'turn-on-smartparens-mode)
-  (when evil-mode
+  (when (evil-mode?)
     (defadvice sp-down-sexp (before evil-jumps activate) (evil-set-jump))
     (defadvice sp-backward-up-sexp (before evil-jumps activate) (evil-set-jump))
     (defadvice sp-next-sexp (before evil-jumps activate) (evil-set-jump))

@@ -19,7 +19,7 @@
   (setenv "PAGER" "cat")
   (setq eshell-path-env (getenv "PATH"))
   (eshell-git-prompt-use-theme 'powerline)
-  (when evil-mode
+  (when (evil-mode?)
     (evil-define-key 'normal eshell-mode-map [escape] "gi"))
   (define-key eshell-mode-map "\C-a" 'eshell-bol)
   (define-key eshell-mode-map (kbd "s-L") 'eshell/clear))

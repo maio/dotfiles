@@ -54,7 +54,7 @@
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-mode-hook 'org-linespacing)
   (add-hook 'org-mode-hook 'org-bullets-mode)
-  (when evil-mode
+  (when (evil-mode?)
     (add-hook 'org-insert-heading-hook 'evil-insert-state)))
 
 ;; https://zhangda.wordpress.com/2016/02/15/configurations-for-beautifying-emacs-org-mode/
@@ -70,7 +70,7 @@
   (interactive)
   (recenter 0))
 
-(when evil-mode
+(when (evil-mode?)
   (evil-define-key 'normal org-mode-map "]]" 'org-next-visible-heading)
   (evil-define-key 'normal org-mode-map "[[" 'org-previous-visible-heading))
 

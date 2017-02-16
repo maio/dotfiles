@@ -36,7 +36,7 @@
   :defer t
   :config
   (define-key js2-mode-map (kbd "C-x C-e") 'nodejs-repl-send-last-sexp)
-  (when evil-mode
+  (when (evil-mode?)
     (evil-define-key 'visual js2-mode-map (kbd "C-x C-e") 'nodejs-repl-send-region)))
 
 (defmacro json-xs-save-point (&rest body)
@@ -86,11 +86,11 @@
   ;; minor modes
   (add-hook 'js2-mode-hook 'smartparens-mode)
   (define-key js2-mode-map (kbd "M-.") 'js2-jump-to-definition)
-  (when evil-mode
+  (when (evil-mode?)
     (evil-define-key 'visual js2-mode-map "=" 'indent-region)))
 
 (with-eval-after-load 'json-mode
-  (when evil-mode
+  (when (evil-mode?)
     (evil-define-key 'visual json-mode-map "=" 'json-xs-region)))
 
 (provide 'maio-javascript)

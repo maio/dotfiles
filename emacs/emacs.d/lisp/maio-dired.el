@@ -1,6 +1,6 @@
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "z") 'dired-get-size)
-  (when evil-mode
+  (when (evil-mode?)
     (evil-define-key 'normal dired-mode-map "K" 'dired-do-delete)))
 
 (defun dired-get-size ()

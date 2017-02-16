@@ -27,7 +27,7 @@
 (defun maio/setup-eshell ()
   (define-key eshell-mode-map (kbd "M-.") 'maio/insert-last-argument)
   (set-face-attribute 'eshell-prompt nil :foreground "black" :weight 'bold)
-  (when evil-mode
+  (when (evil-mode?)
     (evil-define-key 'normal eshell-mode-map (kbd "RET") 'eshell-send-input)
     (evil-define-key 'normal eshell-mode-map "H" 'eshell-bol)
     (evil-define-key 'normal eshell-mode-map "L" 'move-end-of-line)))
@@ -61,7 +61,7 @@
               (delete-window)))
       ad-do-it))
 
-  (when evil-mode
+  (when (evil-mode?)
     (defadvice term-line-mode (after evil-normal-state () activate) (evil-normal-state))
     (defadvice term-char-mode (after evil-emacs-state () activate) (evil-emacs-state))
     (evil-define-key 'normal term-mode-map "i" 'term-char-mode-refocus)

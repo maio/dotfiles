@@ -18,7 +18,7 @@
   (define-key erlang-mode-map (kbd "C-j") 'newline-and-indent)
   (define-key erlang-mode-map (kbd "M-r") 'raise-exp)
   (define-key erlang-mode-map (kbd "C-x m t") 'erlang-eunit-compile-and-run-module-tests)
-  (when evil-mode
+  (when (evil-mode?)
     (evil-define-key 'normal erlang-mode-map "gs" 'erlang-shell-display)
     (evil-define-key 'normal erlang-mode-map "K" 'erlang-man-function))
 

@@ -3,7 +3,7 @@
   :config
   (define-key mc/keymap [escape] 'mc/keyboard-quit))
 
-(when evil-mode
+(when (evil-mode?)
   (defun mc/restore-normal-state ()
     (message "OUT")
     (evil-force-normal-state)

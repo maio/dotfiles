@@ -14,6 +14,12 @@
 (defun in-mode? (mode)
   (eq major-mode mode))
 
+(require 'seq)
+(defun evil-mode? ()
+  (and
+   (seq-contains minor-mode-list 'evil-mode)
+   evil-mode))
+
 (defun toggle-comment-on-line-or-region ()
   "Comments or uncomments current current line or whole lines in region."
   (interactive)

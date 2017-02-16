@@ -10,7 +10,7 @@
   (global-set-key (kbd "<s-left>") 'evil-first-non-blank)
   (global-set-key (kbd "s-f") 'maio/helm-occur)
   (global-set-key (kbd "<escape> z") 'evil-force-normal-state)
-  (when evil-mode
+  (when (evil-mode?)
     (remove-hook 'iedit-mode-hook 'evil-iedit-state)
     (setq evil-default-state 'emacs)
     (evil-emacs-state)
