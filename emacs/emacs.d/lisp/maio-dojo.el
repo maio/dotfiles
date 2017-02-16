@@ -9,6 +9,7 @@
   (global-set-key (kbd "<s-right>") 'move-end-of-line)
   (global-set-key (kbd "<s-left>") 'evil-first-non-blank)
   (global-set-key (kbd "s-f") 'maio/helm-occur)
+  (global-set-key (kbd "s-z") 'undo-tree-undo)
   (global-set-key (kbd "<escape> z") 'evil-force-normal-state)
   (when (evil-mode?)
     (remove-hook 'iedit-mode-hook 'evil-iedit-state)
