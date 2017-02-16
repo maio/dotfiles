@@ -75,6 +75,7 @@
   (define-key helm-find-files-map (kbd "<s-backspace>") 'helm-ff-run-delete-file)
   (define-key helm-map (kbd "s-1") 'helm-delete-other-windows)
   (define-key helm-map (kbd "<s-return>") (lambda () (interactive) (helm-select-nth-action 1)))
+  (define-key helm-map (kbd "<escape>") 'helm-keyboard-quit)
 
   (define-key helm-find-files-map (kbd "s-/")
     '(lambda ()
