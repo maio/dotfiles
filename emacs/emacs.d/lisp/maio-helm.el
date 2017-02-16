@@ -76,7 +76,7 @@
   (define-key helm-map (kbd "s-1") 'helm-delete-other-windows)
   (define-key helm-map (kbd "<s-return>") (lambda () (interactive) (helm-select-nth-action 1)))
 
-  (define-key helm-find-files-map (kbd "C-s")
+  (define-key helm-find-files-map (kbd "s-/")
     '(lambda ()
        (interactive)
        (helm-exit-and-execute-action 'helm-do-ag)))
