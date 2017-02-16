@@ -6,6 +6,8 @@
   (add-hook 'js2-mode-hook 'nlinum-mode)
   (add-hook 'feature-mode-hook 'nlinum-mode)
   (add-hook 'python-mode-hook 'nlinum-mode)
+  (global-set-key (kbd "<s-up>") 'beginning-of-buffer)
+  (global-set-key (kbd "<s-down>") 'end-of-buffer)
   (global-set-key (kbd "<s-right>") 'move-end-of-line)
   (global-set-key (kbd "<s-left>") 'evil-first-non-blank)
   (global-set-key (kbd "s-f") 'maio/helm-occur)
@@ -22,9 +24,10 @@
     (setq evil-insert-state-cursor '("black" (bar . 2)))
     (setq evil-emacs-state-cursor '("black" (bar . 2))))
   (blink-cursor-mode t)
-  (setq truncate-partial-width-windows 40
-        helm-full-frame t)
-  (maio/set-font "Iosevka:weight=Light" 170)
+  ;; (setq truncate-partial-width-windows 40
+  ;;       helm-full-frame t)
+  ;; (setq helm-ag-command-option "--follow")
+  (maio/set-font "Iosevka:weight=Light" 230)
   (with-eval-after-load 'paren-face
     (let ((color "black"))
       (set-face-foreground 'parenthesis color))))

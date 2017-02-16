@@ -70,6 +70,7 @@
   :defer t
   :config
   (add-hook 'feature-mode-hook 'flyspell-mode)
+  (add-hook 'feature-mode-hook 'whitespace-mode)
   (add-hook 'feature-mode-hook 'idle-highlight-mode))
 
 (use-package smartparens
