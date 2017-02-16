@@ -126,16 +126,22 @@
 (global-set-key (kbd "s-k") 'windmove-up)
 (global-set-key (kbd "s-l") 'windmove-right-or-create)
 
+(require 'cua-base)
+(defun cua-hydra-paste ()
+  (interactive)
+  (when (region-active-p)
+    ;; For some reason cua-paste doesn't delete region when called via
+    ;; hydra
+    (call-interactively 'delete-region))
+  (call-interactively 'cua-paste))
+
 (defhydra hydra-yank-pop ()
   "yank"
-  ("C-y" yank nil)
-  ("M-y" yank-pop nil)
-  ("n" (yank-pop 1) "next")
-  ("p" (yank-pop -1) "prev"))
+  ("s-v" cua-hydra-paste nil)
+  ("n" (cua-paste-pop 1) "cua-paste-pop")
+  ("p" (cua-paste-pop -1) "prev"))
 
-(global-set-key (kbd "M-y") #'hydra-yank-pop/yank-pop)
-(global-set-key (kbd "C-y") #'hydra-yank-pop/yank)
-(global-set-key (kbd "s-v") #'hydra-yank-pop/yank)
+(global-set-key (kbd "s-v") #'hydra-yank-pop/cua-hydra-paste)
 
 (ensure-package 'avy)
 (defun avy-action-copy-thing (pt)

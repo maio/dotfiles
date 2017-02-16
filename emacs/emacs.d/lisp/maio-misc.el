@@ -30,6 +30,8 @@
 (help-at-pt-set-timer)
 (delete-selection-mode 1)
 (setq shift-select-mode t)
+;; Override better-defaults value as it breaks paste (with region selected) on OSX
+(setq select-enable-primary nil)
 (setq initial-scratch-message nil)
 (setq blink-matching-paren nil)
 (setq remember-notes-initial-major-mode 'org-mode)
