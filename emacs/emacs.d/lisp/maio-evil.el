@@ -87,7 +87,7 @@
 (define-key evil-normal-state-map (kbd "C-y") 'yank)
 (define-key evil-normal-state-map (kbd "M-y") 'yank-pop)
 (define-key evil-normal-state-map (kbd "C-i") 'evil-jump-forward)
-(global-set-key (kbd "C-a") 'evil-first-non-blank)
+(global-set-key (kbd "C-a") 'smart-beginning-of-line)
 (define-key minibuffer-local-map (kbd "C-a") 'smart-beginning-of-line)
 (define-key evil-normal-state-map (kbd "C-a") 'smart-beginning-of-line)
 (define-key evil-visual-state-map (kbd "C-a") 'evil-first-non-blank)
