@@ -35,7 +35,10 @@
   (setq whitespace-style '(face trailing lines-tail) whitespace-line-column 80)
   (whitespace-mode))
 
-(use-package dumb-jump :defer 1)
+(use-package dumb-jump
+  :defer 1
+  :config
+  (setq dumb-jump-max-find-time 15))
 
 (defun maio/on-compilation-finish (buffer msg)
   (let ((orig (selected-window))
