@@ -24,6 +24,7 @@
 (global-set-key (kbd "C-x g .") (lambda () (interactive) (find-file "~/org/focus.org")))
 (global-set-key (kbd "s-m") 'helm-mark-ring)
 (global-set-key (kbd "C-x g /") 'helm-do-ag-project-root)
+(global-set-key (kbd "s-f") 'maio/helm-occur)
 (global-set-key (kbd "s-/") 'helm-do-ag-project-root)
 (global-set-key (kbd "C-x g ?") 'maio/helm-do-ag-project-dir)
 (global-set-key (kbd "C-x g o") 'maio/helm-org)
