@@ -1,7 +1,8 @@
 (defun dojo-mode ()
   (interactive)
   (setq company-idle-delay 0.1
-        shift-select-mode t)
+        shift-select-mode t
+        helm-prevent-escaping-from-minibuffer t)
   (add-hook 'emacs-lisp-mode-hook 'nlinum-mode)
   (add-hook 'js2-mode-hook 'nlinum-mode)
   (add-hook 'feature-mode-hook 'nlinum-mode)
@@ -10,10 +11,13 @@
   (global-set-key (kbd "<s-down>") 'end-of-buffer)
   (global-set-key (kbd "<s-right>") 'move-end-of-line)
   (global-set-key (kbd "<s-left>") 'evil-first-non-blank)
-  (global-set-key (kbd "s-f") 'maio/helm-occur)
+  (global-set-key (kbd "C-s") 'force-save-buffer)
   (global-set-key (kbd "s-z") 'undo-tree-undo)
   (global-set-key (kbd "s-x") 'cua-cut-region)
   (global-set-key (kbd "<escape> z") 'evil-force-normal-state)
+  ;; helm find files - TAB = autocomplete
+  (define-key helm-find-files-map (kbd "C-i") 'helm-execute-persistent-action)
+  ;; (define-key helm-find-files-map (kbd "C-<tab>") 'helm-select-action)
   (cua-mode)
   (when (evil-mode?)
     (remove-hook 'iedit-mode-hook 'evil-iedit-state)
