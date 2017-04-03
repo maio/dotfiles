@@ -108,6 +108,7 @@
 (define-key evil-motion-state-map (kbd "TAB") "%")
 (define-key evil-motion-state-map (kbd "<tab>") "%")
 (define-key evil-motion-state-map "gp" "`[V`]")
+(define-key evil-motion-state-map "g]" 'evil-cp-end-of-defun)
 (define-key evil-normal-state-map "gf" 'helm-find-files)
 (define-key evil-normal-state-map (kbd "C-w") 'delete-trailing-whitespace)
 (define-key evil-normal-state-map "3" 'evilnc-comment-or-uncomment-lines)
