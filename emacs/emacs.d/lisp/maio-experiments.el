@@ -235,4 +235,9 @@
   :config
   (global-set-key (kbd "s-d") 'duplicate-thing))
 
+(use-package git-gutter
+  :config
+  (set-face-foreground 'git-gutter:added "ForestGreen")
+  (add-hook 'prog-mode-hook 'git-gutter-mode))
+
 (provide 'maio-experiments)
