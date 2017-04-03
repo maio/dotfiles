@@ -116,3 +116,8 @@
 
 (regular-mode)
 (savehist-mode 1)
+(custom-set-variables
+ '(safe-local-variable-values
+   (quote
+    ((js2-basic-offset . 4)
+     (buffer-file-coding-system . utf-8-dos)))))
