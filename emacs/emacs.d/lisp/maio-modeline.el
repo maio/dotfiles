@@ -13,7 +13,8 @@
   (with-eval-after-load 'paredit (diminish 'paredit-mode "(p)"))
   (with-eval-after-load 'flymake (diminish 'flymake-mode "Fly"))
   (with-eval-after-load 'cider (diminish 'cider-mode))
-  (with-eval-after-load 'helm-mode (diminish 'helm-mode)))
+  (with-eval-after-load 'helm-mode (diminish 'helm-mode))
+  (with-eval-after-load 'projectile (diminish 'projectile-mode)))
 
 (defvar mode-line-buffer-keymap
   (let ((map (make-sparse-keymap)))
@@ -41,10 +42,10 @@ Keymap to display on buffer.")
  `(" "
    global-mode-string
    " %* "
-   (:propertize "%b " face mode-line-buffer
+   (:propertize "%b" face mode-line-buffer
                 help-echo (buffer-file-name)
-                local-map ,mode-line-buffer-keymap
-                )
+                local-map ,mode-line-buffer-keymap)
+   projectile-mode-line
    "%04l:%02c"
    " "
    (:propertize ("" mode-name)
