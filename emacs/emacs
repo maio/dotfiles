@@ -20,7 +20,8 @@
  '(safe-local-variable-values
    (quote
     ((js2-basic-offset . 4)
-     (js2-strict-missing-semi-warning)
+     (js2-strict-missing-semi-warning . nil)
+     (js-switch-indent-offset . 2)
      (web-mode-script-padding . 4)
      (buffer-file-coding-system . utf-8-dos)
      (nrepl-port . "3001")
