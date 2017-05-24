@@ -65,6 +65,8 @@
     (defadvice term-line-mode (after evil-normal-state () activate) (evil-normal-state))
     (defadvice term-char-mode (after evil-emacs-state () activate) (evil-emacs-state))
     (evil-define-key 'normal term-mode-map "i" 'term-char-mode-refocus)
+    (evil-define-key 'normal shell-mode-map "i" "GA")
+    (evil-define-key 'normal shell-mode-map [escape] "GA")
     (evil-define-key 'normal term-mode-map [escape] 'term-char-mode-refocus)
     (evil-define-key 'emacs term-raw-map [escape] 'term-line-mode))
   (define-key term-raw-escape-map (kbd "C-y") 'term-paste)
