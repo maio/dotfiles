@@ -125,6 +125,7 @@
      'helm-multi-occur-buffer-tick
      (cl-loop for b in bufs
               collect (buffer-chars-modified-tick (get-buffer b)))))
+  (helm-attrset 'follow 1 helm-source-occur)
   (helm :sources 'helm-source-occur
         :buffer "*helm occur*"
         :history 'regexp-search-ring
