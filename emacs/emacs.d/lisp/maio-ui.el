@@ -31,7 +31,7 @@
   (if (system-type-is-gnu)
       (maio/set-font "Iosevka:weight=Light" 140)
     (progn
-      (maio/set-font "Iosevka:weight=Light" 170))))
+      (maio/set-font "Iosevka:weight=Light" 150))))
 
 (when (ui-type-is-gui)
   (menu-bar-mode t)
