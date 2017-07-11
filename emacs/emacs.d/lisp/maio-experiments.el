@@ -169,8 +169,9 @@
                     ?a ?s ?d ?f ?g ?h ?j ?k ?l
                     ?z    ?c ?v ?b ?n ?m))
 (when (evil-mode?)
-  (define-key evil-normal-state-map (kbd "SPC") 'avy-goto-word-1)
-  (define-key evil-motion-state-map (kbd "SPC") 'avy-goto-char))
+  (setq avy-timeout-seconds 0.3)
+  (define-key evil-normal-state-map (kbd "SPC") 'avy-goto-char-timer)
+  (define-key evil-motion-state-map (kbd "SPC") 'avy-goto-char-timer))
 
 (require 'whitespace)
 (setq whitespace-line-column 80)
