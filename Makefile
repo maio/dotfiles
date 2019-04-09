@@ -7,3 +7,4 @@ init:
 
 install:
 	@ln -sf `pwd`/shell/inputrc ~/.inputrc
+	@ln -sf `pwd`/kitty/config ~/.config/kitty
