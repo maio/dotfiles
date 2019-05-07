@@ -13,7 +13,7 @@
   homebrew: name=imagemagick state=present
 
 - name: aspell
-  homebrew: name=aspell install_options="lang=en" state=present
+  homebrew: name=aspell state=present
 
 - name: ctags-exuberant
   homebrew: name=ctags-exuberant state=present

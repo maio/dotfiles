@@ -1,11 +1,13 @@
 ---
 
 - name: pip
-  sudo: true
+  become: yes
+  become_user: apache
   easy_install: name=pip
   
 - name: ipython
-  sudo: true
+  become: yes
+  become_user: apache
   pip: name=ipython
 
 

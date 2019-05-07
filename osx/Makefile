@@ -15,4 +15,4 @@ install:
 	@brew install ansible
 
 ansible: /usr/local/bin/ansible
-	@ansible-playbook --ask-sudo-pass -i localhost playbook.yml
+	@ansible-playbook -i localhost playbook.yml
