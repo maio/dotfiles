@@ -1,5 +1,6 @@
 install:
 	@ln -sf `pwd`/private.xml "/Users/$(USER)/Library/Application Support/Karabiner/private.xml"
+	@ln -sf `pwd`/karabiner.json "/Users/$(USER)/.config/karabiner/karabiner.json"
 	@cp fonts/* /Library/Fonts/
 	@mkdir -p ~/Library/KeyBindings
 	@ln -sf `pwd`/DefaultKeyBinding.dict "/Users/$(USER)/Library/KeyBindings/DefaultKeyBinding.dict"
