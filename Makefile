@@ -8,3 +8,4 @@ init:
 install:
 	@ln -sf `pwd`/shell/inputrc ~/.inputrc
 	@ln -sf `pwd`/kitty/config ~/.config/kitty
+	@tic -x -o ~/.terminfo shell/terminfo-24bit.src
