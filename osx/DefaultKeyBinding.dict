@@ -1,7 +1,13 @@
 {
-    "~d" = "deleteWordForward:";
-    "^w" = "deleteWordBackward:";
-    "~f" = "moveWordForward:";
-    "~b" = "moveWordBackward:";
     "^/" = "undo:";
+    "^w" = "deleteWordBackward:";
+    "~b" = "moveWordBackward:";
+    "~d" = "deleteWordForward:";
+    "~f" = "moveWordForward:";
+    "~i" = ();
+    "~j" = ();
+    "~k" = ();
+    "~l" = ();
+    "~o" = ();
+    "~u" = ();
 }
