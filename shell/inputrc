@@ -11,3 +11,8 @@ set output-meta on
 
 "\ep": history-search-backward
 "\en": history-search-forward
+# IJKL IDEA plugin emulation
+"\el": forward-word
+"\ej": backward-word
+"\ei": previous-history
+"\ek": next-history
