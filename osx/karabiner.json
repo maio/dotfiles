@@ -22,22 +22,23 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^com\\.jetbrains\\.intellij"
+                                            "^(org\\.gnu\\.Emacs|net\\.kovidgoyal\\.kitty|com\\.jetbrains\\.intellij)"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "left_option",
+                                    "key_code": "tab",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
+                                        "mandatory": [
+                                            "left_option"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_command"
+                                        "key_code": "tab",
+                                        "modifiers": ["left_command"]
                                     }
                                 ],
                                 "type": "basic"
@@ -46,7 +47,7 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^com\\.jetbrains\\.intellij"
+                                            "^(org\\.gnu\\.Emacs|net\\.kovidgoyal\\.kitty|com\\.jetbrains\\.intellij)"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
@@ -70,7 +71,31 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^com\\.jetbrains\\.intellij"
+                                            "^(org\\.gnu\\.Emacs|net\\.kovidgoyal\\.kitty|com\\.jetbrains\\.intellij)"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "left_option",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_command"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^(org\\.gnu\\.Emacs|net\\.kovidgoyal\\.kitty|com\\.jetbrains\\.intellij)"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
