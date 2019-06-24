@@ -31,30 +31,33 @@
 
 ;; Keys
 (cua-mode t)
-;;;; Movement/IJKL
-(global-set-key (kbd "M-l") 'forward-word)
-(global-set-key (kbd "M-j") 'backward-word)
-(global-set-key (kbd "M-i") 'previous-line)
-(global-set-key (kbd "M-k") 'next-line)
-(global-set-key (kbd "M-n") 'left-char)
-(global-set-key (kbd "M-m") 'right-char)
-(global-set-key (kbd "M-u") 'move-beginning-of-line)
-(global-set-key (kbd "M-o") 'move-end-of-line)
-(global-set-key (kbd "M-,") 'beginning-of-defun)
-(global-set-key (kbd "M-.") 'end-of-defun)
+
+(defun apply-ijkl-shortcuts (keymap)
+  (define-key keymap (kbd "M-l") 'forward-word)
+  (define-key keymap (kbd "M-j") 'backward-word)
+  (define-key keymap (kbd "M-i") 'previous-line)
+  (define-key keymap (kbd "M-k") 'next-line)
+  (define-key keymap (kbd "M-n") 'left-char)
+  (define-key keymap (kbd "M-m") 'right-char)
+  (define-key keymap (kbd "M-u") 'move-beginning-of-line)
+  (define-key keymap (kbd "M-o") 'move-end-of-line)
+  (define-key keymap (kbd "M-,") 'beginning-of-defun)
+  (define-key keymap (kbd "M-.") 'end-of-defun)
+  (define-key keymap (kbd "M-f") 'scroll-up-command)
+  (define-key keymap (kbd "M-w") 'scroll-down-command)
+  (define-key keymap (kbd "M-SPC") 'isearch-forward)
+  (define-key keymap (kbd "M-DEL") 'undo)
+  (define-key keymap (kbd "C-s") 'save-buffer)
+  (define-key keymap (kbd "M-y") 'kill-whole-line)
+  (define-key keymap (kbd "M-d") 'kill-char-or-word)
+  )
+
 ;;;;;; Page UP/DOWN
 (setq scroll-error-top-bottom t)
-(global-set-key (kbd "M-f") 'scroll-up-command)
-(global-set-key (kbd "M-w") 'scroll-down-command)
 ;;;;;; Incremental search
-(global-set-key (kbd "M-SPC") 'isearch-forward)
 (define-key isearch-mode-map (kbd "M-k") 'isearch-repeat-forward)
 (define-key isearch-mode-map (kbd "M-i") 'isearch-repeat-backward)
 
-;;;; Undo
-(global-set-key (kbd "M-DEL") 'undo)
-;;;; Save
-(global-set-key (kbd "C-s") 'save-buffer)
 ;;;; Duplicate line/region
 (use-package duplicate-thing
   :ensure t
@@ -66,14 +69,12 @@
   :config
   (global-set-key (kbd "M-e") 'er/expand-region)
   (global-set-key (kbd "M-E") 'er/contract-region))
-;;;; Delete line
-(global-set-key (kbd "M-y") 'kill-whole-line)
-(global-set-key (kbd "M-d") 'kill-char-or-word)
 ;;;; Comment
 (use-package comment-dwim-2
   :ensure t
   :config
-  (global-set-key (kbd "C-_") 'comment-dwim-2))
+  (global-set-key (kbd "C-_") 'comment-dwim-2)
+  (global-set-key (kbd "C-/") 'comment-dwim-2))
 ;;;; Add Selection for Next Occurence
 (use-package multiple-cursors
   :ensure t
@@ -99,6 +100,8 @@
 	    (setq helm-buffers-fuzzy-matching t)
             (helm-mode 1)))
 
+(apply-ijkl-shortcuts global-map)
+
 ;; My shortcuts
 (global-set-key (kbd "M-`") 'other-window)
 (define-prefix-command 'windows-map)
@@ -118,14 +121,14 @@
   (global-set-key (kbd "C-k") 'magit-status)
   (setq magit-diff-refine-hunk t)
   (add-hook 'with-editor-mode-hook 'flyspell-mode)
-  (magit-auto-revert-mode -1))
+  (magit-auto-revert-mode -1)
+  (apply-ijkl-shortcuts magit-revision-mode-map))
 
 (use-package fullframe
   :ensure t
   :config
   (fullframe magit-status magit-mode-quit-window nil)
-  (fullframe magit-show-commit magit-mode-bury-buffer nil)
-  )
+  (fullframe magit-show-commit magit-mode-bury-buffer nil))
 
 (use-package smartparens
   :ensure t
