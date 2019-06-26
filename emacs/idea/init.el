@@ -4,6 +4,7 @@
 (tool-bar-mode -1)
 (tooltip-mode -1)
 (menu-bar-mode -1)
+(defalias 'yes-or-no-p 'y-or-n-p)
 (set-frame-font "Iosevka 18" nil t)
 (toggle-frame-maximized)
 
