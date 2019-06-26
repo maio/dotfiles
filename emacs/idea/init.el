@@ -135,6 +135,9 @@
   :init
   (add-hook 'emacs-lisp-mode-hook 'turn-on-smartparens-strict-mode))
 
+(use-package org-brain
+  :ensure t)
+
 (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
 
 ;; Functions
@@ -165,7 +168,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (smartparens fullframe magit helm multiple-cursors comment-dwim-2 killer expand-region duplicate-thing eink-theme use-package))))
+    (org-brain smartparens fullframe magit helm multiple-cursors comment-dwim-2 killer expand-region duplicate-thing eink-theme use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
