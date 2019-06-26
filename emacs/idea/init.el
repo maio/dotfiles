@@ -101,6 +101,11 @@
 	    (setq helm-buffers-fuzzy-matching t)
             (helm-mode 1)))
 
+(use-package org
+  :ensure t
+  :config
+  (define-key org-mode-map (kbd "C-e") 'helm-mini))
+
 (apply-ijkl-shortcuts global-map)
 
 ;; My shortcuts
