@@ -6,7 +6,7 @@
 (menu-bar-mode -1)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (set-frame-font "Iosevka 18" nil t)
-(toggle-frame-maximized)
+(set-frame-parameter nil 'fullscreen 'maximized)
 
 ;; Package configs
 (require 'package)
@@ -31,7 +31,18 @@
   (load-theme 'eink t))
 
 ;; Keys
+;;;; Remove some Emacs specific bindings which I use due to muscle memory.
+(global-unset-key (kbd "C-x C-s"))
+(global-unset-key (kbd "C-a"))
+
+;; Cltr-c,v,x for copy/paste/cut
 (cua-mode t)
+
+;; Try to make M-<,> work with select mode
+(global-unset-key (kbd "M->"))
+(global-unset-key (kbd "M-<"))
+(define-key key-translation-map (kbd "M->") (kbd "M-."))
+(define-key key-translation-map (kbd "M-<") (kbd "M-,"))
 
 (defun apply-ijkl-shortcuts (keymap)
   (define-key keymap (kbd "M-l") 'forward-word)
@@ -44,6 +55,8 @@
   (define-key keymap (kbd "M-o") 'move-end-of-line)
   (define-key keymap (kbd "M-,") 'beginning-of-defun)
   (define-key keymap (kbd "M-.") 'end-of-defun)
+  (define-key keymap (kbd "M-<") nil) ; TODO: should select
+  (define-key keymap (kbd "M->") nil) ; TODO: should select
   (define-key keymap (kbd "M-f") 'scroll-up-command)
   (define-key keymap (kbd "M-w") 'scroll-down-command)
   (define-key keymap (kbd "M-SPC") 'isearch-forward)
@@ -51,6 +64,13 @@
   (define-key keymap (kbd "C-s") 'save-buffer)
   (define-key keymap (kbd "M-y") 'kill-whole-line)
   (define-key keymap (kbd "M-d") 'kill-char-or-word)
+  (define-key keymap (kbd "M-b") 'pop-global-mark)
+  (define-key keymap (kbd "M-h") 'find-function-at-point)
+  (define-key keymap (kbd "M-;") 'delete-char)
+  (define-key keymap (kbd "C-S-f") 'helm-do-grep-ag)
+  (define-key keymap (kbd "C-e") 'helm-mini)
+  (define-key keymap (kbd "M-e") 'er/expand-region)
+  (define-key keymap (kbd "M-E") 'er/contract-region)
   )
 
 ;;;;;; Page UP/DOWN
@@ -58,6 +78,8 @@
 ;;;;;; Incremental search
 (define-key isearch-mode-map (kbd "M-k") 'isearch-repeat-forward)
 (define-key isearch-mode-map (kbd "M-i") 'isearch-repeat-backward)
+(define-key isearch-mode-map (kbd "M-e") nil)
+(define-key isearch-mode-map (kbd "M-y") nil)
 
 ;;;; Duplicate line/region
 (use-package duplicate-thing
@@ -70,6 +92,7 @@
   :config
   (global-set-key (kbd "M-e") 'er/expand-region)
   (global-set-key (kbd "M-E") 'er/contract-region))
+
 ;;;; Comment
 (use-package comment-dwim-2
   :ensure t
@@ -80,6 +103,20 @@
 (use-package multiple-cursors
   :ensure t
   :config
+  (defun mc/mark-next-like-this-symbol (arg)
+    ;; Modified version of mc/mark-next-like-this-symbol - does not
+    ;; select next symbol on first keypress so that it works similar
+    ;; way as in IDEA.
+    (interactive "p")
+    (if (< arg 0)
+	(let ((cursor (mc/furthest-cursor-after-point)))
+          (if cursor
+              (mc/remove-fake-cursor cursor)
+            (error "No cursors to be unmarked")))
+      (if (region-active-p)
+          (mc/mark-more-like-this (= arg 0) 'forwards)
+	(mc--select-thing-at-point 'symbol)))
+    (mc/maybe-multiple-cursors-mode))
   (global-set-key (kbd "M-g") 'mc/mark-next-like-this-symbol))
 ;;;; Find buffer/file
 (use-package helm
@@ -104,21 +141,16 @@
 (use-package org
   :ensure t
   :config
-  (define-key org-mode-map (kbd "C-e") 'helm-mini))
+  (apply-ijkl-shortcuts org-mode-map))
 
 (apply-ijkl-shortcuts global-map)
 
 ;; My shortcuts
-(global-set-key (kbd "M-`") 'other-window)
+(global-set-key (kbd "M-t") 'other-window)
 (define-prefix-command 'windows-map)
 (global-set-key (kbd "C-w") 'windows-map)
 (define-key windows-map "m" 'delete-other-windows)
 (define-key windows-map "/" 'split-window-right)
-
-;; TODO
-(global-unset-key (kbd "M-h"))
-(global-unset-key (kbd "C-x C-s"))
-(global-unset-key (kbd "C-a"))
 
 ;; Packages
 (use-package magit
@@ -128,7 +160,9 @@
   (setq magit-diff-refine-hunk t)
   (add-hook 'with-editor-mode-hook 'flyspell-mode)
   (magit-auto-revert-mode -1)
-  (apply-ijkl-shortcuts magit-revision-mode-map))
+  (apply-ijkl-shortcuts magit-revision-mode-map)
+  (define-key magit-status-mode-map (kbd "M-.") 'magit-section-forward-sibling)
+  (define-key magit-status-mode-map (kbd "M-,") 'magit-section-backward-sibling))
 
 (use-package fullframe
   :ensure t
@@ -138,8 +172,9 @@
 
 (use-package smartparens
   :ensure t
-  :init
-  (add-hook 'emacs-lisp-mode-hook 'turn-on-smartparens-strict-mode))
+  :config
+  (require 'smartparens-config)
+  (smartparens-global-mode))
 
 (use-package org-brain
   :ensure t)
@@ -174,7 +209,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (org-brain smartparens fullframe magit helm multiple-cursors comment-dwim-2 killer expand-region duplicate-thing eink-theme use-package))))
+    (helm-projectile projectile org-brain fullframe magit helm multiple-cursors comment-dwim-2 killer expand-region duplicate-thing eink-theme use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
