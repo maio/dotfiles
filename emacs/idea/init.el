@@ -68,9 +68,15 @@
   (define-key keymap (kbd "M-h") 'find-function-at-point)
   (define-key keymap (kbd "M-;") 'delete-char)
   (define-key keymap (kbd "C-S-f") 'helm-do-grep-ag)
+  (define-key keymap (kbd "C-S-n") 'helm-projectile)
+  (define-key keymap (kbd "M-\\") 'projectile-run-shell-command-in-root)
   (define-key keymap (kbd "C-e") 'helm-mini)
   (define-key keymap (kbd "M-e") 'er/expand-region)
   (define-key keymap (kbd "M-E") 'er/contract-region)
+  (define-key keymap (kbd "M-q") 'bury-buffer)
+  (define-key keymap (kbd "C-S-j") 'idea-join-line)
+  (define-key keymap (kbd "C-f") 'isearch-forward)
+  (define-key keymap (kbd "M-1") 'dired-jump)
   )
 
 ;;;;;; Page UP/DOWN
@@ -80,6 +86,11 @@
 (define-key isearch-mode-map (kbd "M-i") 'isearch-repeat-backward)
 (define-key isearch-mode-map (kbd "M-e") nil)
 (define-key isearch-mode-map (kbd "M-y") nil)
+
+(use-package dired
+  :config
+  (define-key dired-mode-map (kbd "M-1") 'quit-window)
+  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
 ;;;; Duplicate line/region
 (use-package duplicate-thing
@@ -122,7 +133,6 @@
 (use-package helm
   :ensure t
   :bind (("M-x" . helm-M-x)
-         ("C-S-n" . helm-find-files)
          ("C-e" . helm-mini))
   :bind (:map helm-map
 	      ("M-i" . helm-previous-line)
@@ -135,8 +145,24 @@
 	      ("M-j" . helm-find-files-up-one-level)
 	      ("M-l" . helm-execute-persistent-action))
   :config (progn
+	    ;; (setq helm-grep-ag-command "rg --color=always --smart-case --no-heading --line-number %s %s %s")
 	    (setq helm-buffers-fuzzy-matching t)
             (helm-mode 1)))
+
+(use-package wgrep-helm
+  :ensure t
+  :config
+  (add-hook 'helm-grep-after-init-hook 'wdired-change-to-wdired-mode))
+
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (exec-path-from-shell-initialize))
+
+(use-package idle-highlight-mode
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook 'idle-highlight-mode))
 
 (use-package org
   :ensure t
@@ -161,6 +187,8 @@
   (add-hook 'with-editor-mode-hook 'flyspell-mode)
   (magit-auto-revert-mode -1)
   (apply-ijkl-shortcuts magit-revision-mode-map)
+  (apply-ijkl-shortcuts magit-status-mode-map)
+  (apply-ijkl-shortcuts magit-mode-map)
   (define-key magit-status-mode-map (kbd "M-.") 'magit-section-forward-sibling)
   (define-key magit-status-mode-map (kbd "M-,") 'magit-section-backward-sibling))
 
@@ -178,6 +206,18 @@
 
 (use-package org-brain
   :ensure t)
+
+(use-package helm-projectile
+  :ensure t
+  :bind (:map helm-projectile-find-file-map
+	      ("C-k" . helm-ff-run-magit))
+  :bind (:map helm-buffer-map
+	      ("C-k" . helm-ff-run-magit))
+  :config
+  (helm-projectile-define-key helm-projectile-projects-map
+    (kbd "C-k") #'helm-projectile-vc)
+  (projectile-mode 1)
+  (setq projectile-project-search-path '("~/Projects/")))
 
 (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
 
@@ -201,6 +241,18 @@
                         (constrain-to-field nil orig-pos))
                  orig-pos)))
 
+(defun helm-ff-run-magit ()
+    "Run magit from a helm session"
+    (interactive)
+    (with-helm-alive-p
+      (helm-run-after-exit
+       'magit-status)))
+
+(defun idea-join-line ()
+  (interactive)
+  (next-line)
+  (join-line))
+
 ;; Customizations
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -209,10 +261,11 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (helm-projectile projectile org-brain fullframe magit helm multiple-cursors comment-dwim-2 killer expand-region duplicate-thing eink-theme use-package))))
+    (clojure-mode wgrep-helm exec-path-from-shell idle-highlight-mode helm-projectile projectile org-brain fullframe magit helm multiple-cursors comment-dwim-2 killer expand-region duplicate-thing eink-theme use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'dired-find-alternate-file 'disabled nil)
