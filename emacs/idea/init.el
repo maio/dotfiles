@@ -250,7 +250,7 @@
 
 (defun idea-join-line ()
   (interactive)
-  (next-line)
+  (next-logical-line)
   (join-line))
 
 ;; Customizations
