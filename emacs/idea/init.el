@@ -77,6 +77,10 @@
   (define-key keymap (kbd "C-S-j") 'idea-join-line)
   (define-key keymap (kbd "C-f") 'isearch-forward)
   (define-key keymap (kbd "M-1") 'dired-jump)
+
+  ;; sexp-s
+  (define-key keymap (kbd "M-0") 'sp-forward-slurp-sexp)
+  (define-key keymap (kbd "M-9") 'sp-forward-barf-sexp)
   )
 
 ;;;;;; Page UP/DOWN
