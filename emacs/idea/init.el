@@ -7,6 +7,7 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 (set-frame-font "Iosevka 18" nil t)
 (set-frame-parameter nil 'fullscreen 'maximized)
+(setq make-backup-files nil)
 
 ;; Package configs
 (require 'package)
