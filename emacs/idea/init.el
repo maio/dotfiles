@@ -63,6 +63,9 @@
   (define-key keymap (kbd "M-SPC") 'isearch-forward)
   (define-key keymap (kbd "M-DEL") 'undo)
   (define-key keymap (kbd "C-s") 'save-buffer)
+  (define-key keymap (kbd "C-a") 'mark-whole-buffer)
+  (define-key keymap (kbd "C-x C-x") 'kill-whole-line)
+  (define-key keymap (kbd "C-S-v") 'helm-show-kill-ring)
   (define-key keymap (kbd "M-y") 'kill-whole-line)
   (define-key keymap (kbd "M-d") 'kill-char-or-word)
   (define-key keymap (kbd "M-b") 'pop-global-mark)
@@ -77,7 +80,7 @@
   (define-key keymap (kbd "M-q") 'bury-buffer)
   (define-key keymap (kbd "C-S-j") 'idea-join-line)
   (define-key keymap (kbd "C-f") 'isearch-forward)
-  (define-key keymap (kbd "M-1") 'dired-jump)
+  (define-key keymap (kbd "M-1") 'dired-sidebar-toggle-sidebar)
 
   ;; sexp-s
   (define-key keymap (kbd "M-0") 'sp-forward-slurp-sexp)
@@ -96,6 +99,9 @@
   :config
   (define-key dired-mode-map (kbd "M-1") 'quit-window)
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+
+(use-package dired-sidebar
+  :ensure t)
 
 ;;;; Duplicate line/region
 (use-package duplicate-thing
@@ -258,15 +264,44 @@
   (next-logical-line)
   (join-line))
 
+(let ((personal-settings "~/.personal.el"))
+  (when (file-exists-p personal-settings)
+    (message "Loading personal settings...")
+    (load-file personal-settings)))
+
 ;; Customizations
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(helm-completing-read-handlers-alist
+   (quote
+    ((describe-function . helm-completing-read-symbols)
+     (describe-variable . helm-completing-read-symbols)
+     (describe-symbol . helm-completing-read-symbols)
+     (debug-on-entry . helm-completing-read-symbols)
+     (find-function . helm-completing-read-symbols)
+     (disassemble . helm-completing-read-symbols)
+     (trace-function . helm-completing-read-symbols)
+     (trace-function-foreground . helm-completing-read-symbols)
+     (trace-function-background . helm-completing-read-symbols)
+     (find-tag . helm-completing-read-default-find-tag)
+     (xref-find-definitions . helm-completing-read-default-find-tag)
+     (xref-find-references . helm-completing-read-default-find-tag)
+     (ffap-alternate-file)
+     (tmm-menubar)
+     (find-file)
+     (find-file-at-point . helm-completing-read-sync-default-handler)
+     (ffap . helm-completing-read-sync-default-handler)
+     (execute-extended-command)
+     (dired-do-hardlink . helm-read-file-name-handler-1)
+     (basic-save-buffer . helm-read-file-name-handler-1)
+     (write-file . helm-read-file-name-handler-1)
+     (write-region . helm-read-file-name-handler-1))))
  '(package-selected-packages
    (quote
-    (clojure-mode wgrep-helm exec-path-from-shell idle-highlight-mode helm-projectile projectile org-brain fullframe magit helm multiple-cursors comment-dwim-2 killer expand-region duplicate-thing eink-theme use-package))))
+    (dired-sidebar dired-subtree clojure-mode wgrep-helm exec-path-from-shell idle-highlight-mode helm-projectile projectile org-brain fullframe magit helm multiple-cursors comment-dwim-2 killer expand-region duplicate-thing eink-theme use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -274,3 +309,4 @@
  ;; If there is more than one, they won't work right.
  )
 (put 'dired-find-alternate-file 'disabled nil)
+
