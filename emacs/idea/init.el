@@ -17,6 +17,7 @@
                          ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 
+(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 (global-auto-revert-mode t)
 
 ;; Bootstrap `use-package`
@@ -72,6 +73,7 @@
   (define-key keymap (kbd "M-h") 'find-function-at-point)
   (define-key keymap (kbd "M-;") 'delete-char)
   (define-key keymap (kbd "C-S-f") 'helm-do-grep-ag)
+  (define-key keymap (kbd "C-S-o") 'helm-projectile-switch-project)
   (define-key keymap (kbd "C-S-n") 'helm-projectile)
   (define-key keymap (kbd "M-\\") 'projectile-run-shell-command-in-root)
   (define-key keymap (kbd "C-e") 'helm-mini)
@@ -79,7 +81,7 @@
   (define-key keymap (kbd "M-E") 'er/contract-region)
   (define-key keymap (kbd "M-q") 'bury-buffer)
   (define-key keymap (kbd "C-S-j") 'idea-join-line)
-  (define-key keymap (kbd "C-f") 'isearch-forward)
+  (define-key keymap (kbd "C-f") 'helm-occur)
   (define-key keymap (kbd "M-1") 'dired-sidebar-toggle-sidebar)
 
   ;; sexp-s
@@ -114,13 +116,19 @@
   :config
   (global-set-key (kbd "M-e") 'er/expand-region)
   (global-set-key (kbd "M-E") 'er/contract-region))
-
 ;;;; Comment
-(use-package comment-dwim-2
-  :ensure t
+(use-package newcomment
   :config
-  (global-set-key (kbd "C-_") 'comment-dwim-2)
-  (global-set-key (kbd "C-/") 'comment-dwim-2))
+  (defun comment-idea-dwim (arg)
+    (interactive "*P")
+    (if (use-region-p)
+	(comment-or-uncomment-region (region-beginning) (region-end) arg)
+      (call-interactively 'comment-line)))
+
+  (global-set-key (kbd "C-_") 'comment-idea-dwim)
+  (global-set-key (kbd "C-/") 'comment-idea-dwim))
+
+
 ;;;; Add Selection for Next Occurence
 (use-package multiple-cursors
   :ensure t
@@ -173,7 +181,8 @@
 (use-package idle-highlight-mode
   :ensure t
   :config
-  (add-hook 'prog-mode-hook 'idle-highlight-mode))
+  (add-hook 'prog-mode-hook 'idle-highlight-mode)
+  (add-hook 'text-mode-hook 'idle-highlight-mode))
 
 (use-package org
   :ensure t
@@ -218,6 +227,12 @@
 (use-package org-brain
   :ensure t)
 
+(use-package projectile
+  :ensure t
+  :config
+  (setq projectile-project-search-path '("~/Projects"))
+  (projectile-discover-projects-in-search-path))
+
 (use-package helm-projectile
   :ensure t
   :bind (:map helm-projectile-find-file-map
@@ -227,8 +242,7 @@
   :config
   (helm-projectile-define-key helm-projectile-projects-map
     (kbd "C-k") #'helm-projectile-vc)
-  (projectile-mode 1)
-  (setq projectile-project-search-path '("~/Projects/")))
+  (projectile-mode 1))
 
 (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
 
@@ -301,7 +315,7 @@
      (write-region . helm-read-file-name-handler-1))))
  '(package-selected-packages
    (quote
-    (dired-sidebar dired-subtree clojure-mode wgrep-helm exec-path-from-shell idle-highlight-mode helm-projectile projectile org-brain fullframe magit helm multiple-cursors comment-dwim-2 killer expand-region duplicate-thing eink-theme use-package))))
+    (nim-mode elixir-mode dired-sidebar dired-subtree clojure-mode wgrep-helm exec-path-from-shell idle-highlight-mode helm-projectile projectile org-brain fullframe magit helm multiple-cursors comment-dwim-2 killer expand-region duplicate-thing eink-theme use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
