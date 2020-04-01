@@ -2,7 +2,8 @@
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
-
+;;
+(setq is-mac (string= system-type "darwin"))
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
@@ -19,8 +20,13 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "JetBrains Mono" :size 18))
-(setq-default line-spacing 0.3)
+(if is-mac
+    (progn
+      (setq doom-font (font-spec :family "JetBrains Mono" :size 18))
+      (setq-default line-spacing 0.3))
+  (progn
+    (setq doom-font (font-spec :family "JetBrains Mono" :size 16))
+    (setq-default line-spacing 0.2)))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -94,3 +100,5 @@
     (magit-refresh)))
 
 (add-hook 'focus-in-hook 'maybe-magit-refresh)
+
+(toggle-frame-maximized)
