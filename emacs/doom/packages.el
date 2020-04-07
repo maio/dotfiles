@@ -52,3 +52,4 @@
 
 (package! fullframe)
 (package! evil-multiedit)
+(package! prodigy)
