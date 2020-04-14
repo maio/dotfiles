@@ -1,6 +1,6 @@
 install:
 	@ln -sf `pwd`/karabiner.json "/Users/$(USER)/.config/karabiner/karabiner.json"
-	@cp fonts/* /Library/Fonts/
+	@cp ../fonts/* /Library/Fonts/
 	@mkdir -p ~/Library/KeyBindings
 	@ln -sf `pwd`/DefaultKeyBinding.dict "/Users/$(USER)/Library/KeyBindings/DefaultKeyBinding.dict"
 	@mkdir -p ~/Desktop/Screenshots

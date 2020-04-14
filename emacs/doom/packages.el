@@ -53,3 +53,4 @@
 (package! fullframe)
 (package! evil-multiedit)
 (package! prodigy)
+(package! feature-mode)

@@ -25,7 +25,7 @@
       (setq doom-font (font-spec :family "JetBrains Mono" :size 18))
       (setq-default line-spacing 0.3))
   (progn
-    (setq doom-font (font-spec :family "JetBrains Mono" :size 16))
+    (setq doom-font (font-spec :family "JetBrains Mono" :size 14))
     (setq-default line-spacing 0.2)))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
@@ -66,6 +66,7 @@
   (evil-snipe-mode -1))
 
 (setq projectile-project-search-path '("~/Projects/"))
+(setq evil-move-cursor-back nil)
 
 (add-hook 'text-mode-hook 'abbrev-mode)
 
@@ -104,3 +105,11 @@
 (add-hook 'focus-in-hook 'maybe-magit-refresh)
 
 (toggle-frame-maximized)
+
+(map! :leader "a p" 'prodigy)
+(map! :g "<f12>" '+term/toggle)
+
+(let ((local-settings "~/.local.el"))
+  (when (file-exists-p local-settings)
+    (message "Loading local settings...")
+    (load-file local-settings)))
