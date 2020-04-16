@@ -1,5 +1,13 @@
 ---
 
+- name: curl
+  homebrew: name=curl state=present
+  tags: [Darwin]
+- name: curl
+  package: name=curl state=present
+  become: yes
+  tags: [Linux]
+
 - name: tree
   homebrew: name=tree state=present
   tags: [Darwin]

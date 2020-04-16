@@ -5,6 +5,7 @@
     - include: 'playbooks/utils.yml'
     - include: 'playbooks/bash-completion.yml'
     - include: 'playbooks/git.yml'
+    - include: 'playbooks/ssh.yml'
     - include: 'playbooks/java.yml'
     - include: 'playbooks/make.yml'
     - include: 'playbooks/mosh.yml'
