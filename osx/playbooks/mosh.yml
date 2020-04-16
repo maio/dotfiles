@@ -1,4 +1,0 @@
----
-
-- name: install mosh
-  homebrew: name=mobile-shell

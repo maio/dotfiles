@@ -2,6 +2,8 @@
 
 - name: make
   homebrew: name=make state=present
+  tags: [Darwin]
 
 - name: MAKE_PATH
   lineinfile: dest=~/.bash_profile create=yes regexp='export PATH.*gnubin' line='export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"'
+  tags: [Darwin]

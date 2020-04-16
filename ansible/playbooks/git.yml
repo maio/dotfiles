@@ -1,0 +1,9 @@
+---
+
+- name: git
+  homebrew: name=git state=present
+  tags: [Darwin]
+- name: git
+  package: name=git state=present
+  become: yes
+  tags: [Linux]

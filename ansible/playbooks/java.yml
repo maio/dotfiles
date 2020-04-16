@@ -1,0 +1,6 @@
+---
+
+- name: openjdk-11-jdk
+  package: name=openjdk-11-jdk state=present
+  become: yes
+  tags: [Linux]

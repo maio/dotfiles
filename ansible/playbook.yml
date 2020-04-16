@@ -1,0 +1,14 @@
+- hosts: localhost
+  connection: local
+  tasks:
+    - include: 'playbooks/shell.yml'
+    - include: 'playbooks/utils.yml'
+    - include: 'playbooks/bash-completion.yml'
+    - include: 'playbooks/git.yml'
+    - include: 'playbooks/java.yml'
+    - include: 'playbooks/make.yml'
+    - include: 'playbooks/mosh.yml'
+    - include: 'playbooks/doom-emacs.yml'
+    # - include: 'playbooks/ipython.yml'
+    # - include: 'playbooks/lein.yml'
+    # - include: 'playbooks/erlang.yml'

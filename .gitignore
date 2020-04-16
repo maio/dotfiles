@@ -25,3 +25,4 @@ vim/vim/addons
 /emacs/emacs.d/projectile.cache
 /emacs/emacs.d/projectile-bookmarks.eld
 .DS_Store
+/ansible/playbook.retry

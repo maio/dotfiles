@@ -1,0 +1,51 @@
+---
+
+- name: tree
+  homebrew: name=tree state=present
+  tags: [Darwin]
+- name: tree
+  package: name=tree state=present
+  become: yes
+  tags: [Linux]
+
+- name: ripgrep
+  homebrew: name=ripgrep state=present
+  tags: [Darwin]
+- name: ripgrep
+  package: name=ripgrep state=present
+  become: yes
+  tags: [Linux]
+
+- name: ag grep
+  homebrew: name=the_silver_searcher state=present
+  tags: [Darwin]
+- name: ag grep
+  package: name=silversearcher-ag state=present
+  become: yes
+  tags: [Linux]
+
+- name: imagemagick
+  homebrew: name=imagemagick state=present
+  tags: [Darwin]
+- name: imagemagick
+  package: name=imagemagick state=present
+  become: yes
+  tags: [Linux]
+
+- name: aspell
+  homebrew: name=aspell state=present
+- name: aspell
+  package: name=aspell state=present
+  become: yes
+  tags: [Linux]
+
+- name: watch
+  homebrew: name=watch state=present
+
+# aqe stuff
+- name: jq
+  homebrew: name=jq state=present
+- name: jq
+  package: name=jq state=present
+  become: yes
+  tags: [Linux]

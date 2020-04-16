@@ -2,9 +2,16 @@
 
 - name: bash-completion
   homebrew: name=bash-completion state=present
+  tags: [Darwin]
+- name: bash-completion
+  package: name=bash-completion state=present
+  become: yes
+  tags: [linux]
 
 - name: bash-completion -> profile
   copy: src=playbooks/bash-completion/bash_profile.completion dest=~/.bash_profile.completion
+  tags: [Darwin]
 
 - name: bash-completion -> profile source
   lineinfile: dest=~/.bash_profile create=yes regexp=completion line='. ~/.bash_profile.completion'
+  tags: [Darwin]

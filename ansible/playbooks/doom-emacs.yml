@@ -1,0 +1,26 @@
+---
+
+- name: emacs
+  package: name=emacs state=present
+  become: yes
+  tags: [Linux]
+
+- name: checkout doom emacs
+  git:
+    repo: https://github.com/hlissner/doom-emacs
+    dest: ~/.emacs.d
+  tags: [Darwin, Linux]
+
+- name: doom emacs config
+  file:
+    src: "{{playbook_dir}}/../emacs/doom"
+    dest: "~/.doom.d"
+    state: link
+  tags: [Darwin, Linux]
+
+- name: refresh doom emacs
+  shell: ~/.emacs.d/bin/doom refresh
+  tags: [Darwin, Linux]
+
+# - name: install doom emacs
+  # shell: yes | ~/.emacs.d/bin/doom install

@@ -1,0 +1,31 @@
+---
+
+- name: bash (recent version)
+  homebrew: name=bash state=present
+  tags: [Darwin]
+
+- name: bin dirs with preference (~/bin /usr/local/bin)
+  lineinfile: dest=~/.bashrc create=yes regexp='PATH.+~/bin' line='export PATH="~/bin:/usr/local/bin:$PATH"' insertbefore=BOF
+  tags: [Darwin, Linux]
+
+- name: CDPATH
+  lineinfile: dest=~/.bashrc create=yes regexp='export CDPATH' line='export CDPATH=".:~/:~/Projects/bitsafe:~/Projects"'
+  tags: [Darwin, Linux]
+
+- name: Emacs PATH
+  lineinfile: dest=~/.bashrc create=yes regexp='export PATH' line='export PATH="/Applications/Emacs.app/Contents/MacOS/:$PATH"'
+  tags: [Darwin]
+
+- name: user's prompt
+  lineinfile: dest=~/.bashrc create=yes regexp='export PS1' line='export PS1="\[\033[01;32m\]\u@\h:\[\033[01;34m\]\w\[\033[31m\] \[\033[01;34m\]$\[\033[00m\] "'
+  tags: [Darwin, Linux]
+
+- name: root's prompt
+  lineinfile: dest=~/.bashrc create=yes regexp='export PS1' line='export PS1="\[\033[38;5;9m\]\u\[\033[01;32m\]@\h:\[\033[01;34m\]\w\[\033[31m\] \[\033[01;34m\]#\[\033[00m\] "'
+  become: yes
+  tags: [Darwin, Linux]
+
+# http://superuser.com/questions/61185/why-do-i-get-files-like-foo-in-my-tarball-on-os-x
+- name: tar
+  lineinfile: dest=~/.bashrc create=yes regexp='alias tar' line="alias tar='COPYFILE_DISABLE=1 tar'"
+  tags: [Darwin]

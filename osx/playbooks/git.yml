@@ -1,5 +1,0 @@
----
-
-- name: git
-  homebrew: name=git state=present
-
