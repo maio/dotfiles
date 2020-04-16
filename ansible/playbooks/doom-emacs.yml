@@ -9,6 +9,7 @@
   git:
     repo: https://github.com/hlissner/doom-emacs
     dest: ~/.emacs.d
+  register: checkout_result
   tags: [Darwin, Linux]
 
 - name: doom emacs config
@@ -18,8 +19,14 @@
     state: link
   tags: [Darwin, Linux]
 
+- name: config checksum
+  shell: cat ~/.doom.d/* | md5sum > ~/.doom.d-checksum-new && diff -N ~/.doom.d-checksum ~/.doom.d-checksum-new || true
+  register: diff_result
+  tags: [Darwin, Linux]
+
 - name: refresh doom emacs
-  shell: ~/.emacs.d/bin/doom refresh
+  shell: ~/.emacs.d/bin/doom refresh && cat ~/.doom.d-checksum-new > ~/.doom.d-checksum
+  when: diff_result.stdout != "" or checkout_result.before != checkout_result.after
   tags: [Darwin, Linux]
 
 # - name: install doom emacs
