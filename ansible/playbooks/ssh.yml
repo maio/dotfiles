@@ -6,3 +6,12 @@
     state: present
     key: https://github.com/maio.keys
   tags: [Darwin, Linux]
+
+- name: install keychain
+  package: name=keychain state=present
+  become: yes
+  tags: [Linux]
+
+- name: start keychain
+  lineinfile: dest=~/.bashrc create=yes regexp='keychain' line='eval $(keychain --eval)'
+  tags: [Linux]
