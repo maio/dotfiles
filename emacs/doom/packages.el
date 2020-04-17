@@ -54,3 +54,4 @@
 (package! evil-multiedit)
 (package! prodigy)
 (package! feature-mode)
+(package! super-save)

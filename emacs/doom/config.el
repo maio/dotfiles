@@ -95,7 +95,7 @@
 
 (define-key evil-normal-state-map "s" 'avy-goto-char)
 
-(add-hook 'focus-out-hook 'save-buffer)
+(super-save-mode +1)
 
 (defun maybe-magit-refresh ()
   (interactive)
