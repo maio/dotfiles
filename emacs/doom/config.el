@@ -113,3 +113,5 @@
   (when (file-exists-p local-settings)
     (message "Loading local settings...")
     (load-file local-settings)))
+
+(map! :leader "r r" 'projectile-repeat-last-command)
