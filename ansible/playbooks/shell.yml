@@ -5,7 +5,7 @@
   tags: [Darwin]
 
 - name: bin dirs with preference (~/bin /usr/local/bin)
-  lineinfile: dest=~/.bashrc create=yes regexp='PATH.+~/bin' line='export PATH="~/bin:/usr/local/bin:$PATH"' insertbefore=BOF
+  lineinfile: dest=~/.bashrc create=yes regexp='PATH.+~/bin' line='export PATH="~/bin:~/Projects/maiorepo/bin:/usr/local/bin:$PATH"' insertbefore=BOF
   tags: [Darwin, Linux]
 
 - name: CDPATH
