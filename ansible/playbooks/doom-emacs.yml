@@ -28,6 +28,3 @@
   shell: ~/.emacs.d/bin/doom refresh && cat ~/.doom.d-checksum-new > ~/.doom.d-checksum
   when: diff_result.stdout != "" or checkout_result.before != checkout_result.after
   tags: [Darwin, Linux]
-
-# - name: install doom emacs
-  # shell: yes | ~/.emacs.d/bin/doom install

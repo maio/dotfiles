@@ -4,6 +4,10 @@
   homebrew: name=bash state=present
   tags: [Darwin]
 
+- name: setup-system alias (ss)
+  lineinfile: dest=~/.bashrc create=yes regexp='alias ss=' line="alias ss=setup-system"
+  tags: [Darwin, Linux]
+
 - name: bin dirs with preference (~/bin /usr/local/bin)
   lineinfile: dest=~/.bashrc create=yes regexp='PATH.+~/bin' line='export PATH="~/bin:~/Projects/maiorepo/bin:/usr/local/bin:$PATH"' insertbefore=BOF
   tags: [Darwin, Linux]
