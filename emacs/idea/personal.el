@@ -1,3 +1,6 @@
+(with-eval-after-load 'magit
+  (defadvice magit-section-toggle (after do-recenter () activate) (recenter 3)))
+
 (use-package clojure-mode
   :ensure t
   :config

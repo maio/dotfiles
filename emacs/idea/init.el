@@ -20,6 +20,9 @@
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 (global-auto-revert-mode t)
 
+
+(add-hook 'text-mode-hook 'abbrev-mode)
+
 ;; Bootstrap `use-package`
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -46,7 +49,14 @@
 (define-key key-translation-map (kbd "M->") (kbd "M-."))
 (define-key key-translation-map (kbd "M-<") (kbd "M-,"))
 
+;; C-w map
+(define-prefix-command 'windows-map)
+(define-key windows-map "m" 'delete-other-windows)
+(define-key windows-map "/" 'split-window-right)
+
 (defun apply-ijkl-shortcuts (keymap)
+  (define-key keymap (kbd "M-t") 'other-window)
+  (define-key keymap (kbd "C-w") 'windows-map)
   (define-key keymap (kbd "M-l") 'forward-word)
   (define-key keymap (kbd "M-j") 'backward-word)
   (define-key keymap (kbd "M-i") 'previous-line)
@@ -69,9 +79,9 @@
   (define-key keymap (kbd "C-S-v") 'helm-show-kill-ring)
   (define-key keymap (kbd "M-y") 'kill-whole-line)
   (define-key keymap (kbd "M-d") 'kill-char-or-word)
-  (define-key keymap (kbd "M-b") 'pop-global-mark)
   (define-key keymap (kbd "M-h") 'find-function-at-point)
   (define-key keymap (kbd "M-;") 'delete-char)
+  (define-key keymap (kbd "<f12>") 'eshell)
   (define-key keymap (kbd "C-S-f") 'helm-do-grep-ag)
   (define-key keymap (kbd "C-S-o") 'helm-projectile-switch-project)
   (define-key keymap (kbd "C-S-n") 'helm-projectile)
@@ -152,21 +162,33 @@
 (use-package helm
   :ensure t
   :bind (("M-x" . helm-M-x)
-         ("C-e" . helm-mini))
+         ("C-e" . helm-mini)
+         ("C-x C-f" . helm-find-files))
   :bind (:map helm-map
 	      ("M-i" . helm-previous-line)
 	      ("M-k" . helm-next-line)
 	      ("M-w" . helm-previous-page)
 	      ("M-f" . helm-next-page)
+	      ("C-x g" . helm-ff-run-magit)
 	      :map helm-find-files-map
 	      ("M-i" . helm-previous-line)
 	      ("M-k" . helm-next-line)
 	      ("M-j" . helm-find-files-up-one-level)
-	      ("M-l" . helm-execute-persistent-action))
+	      ("M-l" . helm-execute-persistent-action)
+	      ("C-x g" . helm-ff-run-magit))
   :config (progn
+	    (define-key helm-major-mode-map (kbd "C-x g") 'helm-ff-run-magit)
 	    ;; (setq helm-grep-ag-command "rg --color=always --smart-case --no-heading --line-number %s %s %s")
 	    (setq helm-buffers-fuzzy-matching t)
             (helm-mode 1)))
+
+(use-package point-stack
+  :ensure t
+  :config
+  (setq point-stack-advised-functions
+   '(isearch-mode find-function-do-it find-library imenu beginning-of-buffer end-of-buffer xref-find-definitions helm-mini magit-diff-visit-file))
+  (point-stack-setup-advices)
+  (global-set-key (kbd "M-b") 'point-stack-pop))
 
 (use-package wgrep-helm
   :ensure t
@@ -191,18 +213,11 @@
 
 (apply-ijkl-shortcuts global-map)
 
-;; My shortcuts
-(global-set-key (kbd "M-t") 'other-window)
-(define-prefix-command 'windows-map)
-(global-set-key (kbd "C-w") 'windows-map)
-(define-key windows-map "m" 'delete-other-windows)
-(define-key windows-map "/" 'split-window-right)
-
 ;; Packages
 (use-package magit
   :ensure t
   :config
-  (global-set-key (kbd "C-k") 'magit-status)
+  (global-set-key (kbd "C-x g") 'magit-status)
   (setq magit-diff-refine-hunk t)
   (add-hook 'with-editor-mode-hook 'flyspell-mode)
   (magit-auto-revert-mode -1)
@@ -210,7 +225,14 @@
   (apply-ijkl-shortcuts magit-status-mode-map)
   (apply-ijkl-shortcuts magit-mode-map)
   (define-key magit-status-mode-map (kbd "M-.") 'magit-section-forward-sibling)
-  (define-key magit-status-mode-map (kbd "M-,") 'magit-section-backward-sibling))
+  (define-key magit-status-mode-map (kbd "M-,") 'magit-section-backward-sibling)
+
+  (defun maybe-magit-refresh ()
+    (interactive)
+    (when (eq major-mode 'magit-status-mode)
+      (magit-refresh)))
+  
+  (add-hook 'focus-in-hook 'maybe-magit-refresh))
 
 (use-package fullframe
   :ensure t
@@ -236,12 +258,16 @@
 (use-package helm-projectile
   :ensure t
   :bind (:map helm-projectile-find-file-map
-	      ("C-k" . helm-ff-run-magit))
+	      ("C-S-n" . helm-ff-run-switch-project)
+	      ("C-x g" . helm-ff-run-magit))
   :bind (:map helm-buffer-map
-	      ("C-k" . helm-ff-run-magit))
+	      ("C-S-n" . helm-ff-run-switch-project)
+	      ("C-x g" . helm-ff-run-magit))
   :config
   (helm-projectile-define-key helm-projectile-projects-map
-    (kbd "C-k") #'helm-projectile-vc)
+    (kbd "C-x g") #'helm-projectile-vc)
+  (helm-projectile-define-key helm-projectile-find-file-map
+    (kbd "C-x g") #'helm-projectile-vc)
   (projectile-mode 1))
 
 (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
@@ -272,6 +298,13 @@
     (with-helm-alive-p
       (helm-run-after-exit
        'magit-status)))
+
+(defun helm-ff-run-switch-project ()
+    "Run helm-projectile-switch-project from a helm session"
+    (interactive)
+    (with-helm-alive-p
+      (helm-run-after-exit
+       'helm-projectile-switch-project)))
 
 (defun idea-join-line ()
   (interactive)
@@ -315,7 +348,7 @@
      (write-region . helm-read-file-name-handler-1))))
  '(package-selected-packages
    (quote
-    (nim-mode elixir-mode dired-sidebar dired-subtree clojure-mode wgrep-helm exec-path-from-shell idle-highlight-mode helm-projectile projectile org-brain fullframe magit helm multiple-cursors comment-dwim-2 killer expand-region duplicate-thing eink-theme use-package))))
+    (point-stack nim-mode elixir-mode dired-sidebar dired-subtree clojure-mode wgrep-helm exec-path-from-shell idle-highlight-mode helm-projectile projectile org-brain fullframe magit helm multiple-cursors comment-dwim-2 killer expand-region duplicate-thing eink-theme use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
