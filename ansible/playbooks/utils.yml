@@ -1,32 +1,42 @@
 ---
 
-- name: "install linux package"
+- name: install linux packages
   package:
-    name: "{{ item }}"
+    name:
+      - curl
+      - tree
+      - ripgrep
+      - silversearcher-ag
+      - imagemagick
+      - aspell
+      - jq
+      - npm
+      - vim
+      - rsync
+      - rdiff-backup
     state: present
   become: yes
-  with_items:
-    - curl
-    - tree
-    - ripgrep
-    - silversearcher-ag
-    - imagemagick
-    - aspell
-    - jq
-    - npm
   tags: [Linux]
 
-- name: install macos packate
-  homebrew:
+- name: install global node packages
+  npm:
+    global: yes
     name: "{{ item }}"
-    state: present
   with_items:
-    - curl
-    - tree
-    - ripgrep
-    - the_silver_searcher
-    - imagemagick
-    - aspell
-    - jq
-    - watch
+    - http-server
+  tags: [Darwin, Linux]
+
+- name: install macos packages
+  homebrew:
+    name:
+      - curl
+      - tree
+      - ripgrep
+      - the_silver_searcher
+      - imagemagick
+      - aspell
+      - jq
+      - watch
+      - rsync
+    state: present
   tags: [Darwin]
