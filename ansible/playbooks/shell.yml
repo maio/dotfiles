@@ -9,11 +9,11 @@
   tags: [Darwin, Linux]
 
 - name: bin dirs with preference (~/bin /usr/local/bin)
-  lineinfile: dest=~/.bashrc create=yes regexp='PATH.+~/bin' line='export PATH="~/bin:~/Projects/maiorepo/bin:/usr/local/bin:$PATH"' insertbefore=BOF
+  lineinfile: dest=~/.bashrc create=yes regexp='PATH.+{{ ansible_env.HOME }}/bin' line='export PATH="{{ ansible_env.HOME }}/bin:{{ ansible_env.HOME }}/Projects/maiorepo/bin:/usr/local/bin:$PATH"' insertbefore=BOF
   tags: [Darwin, Linux]
 
 - name: CDPATH
-  lineinfile: dest=~/.bashrc create=yes regexp='export CDPATH' line='export CDPATH=".:~/:~/Projects/bitsafe:~/Projects"'
+  lineinfile: dest=~/.bashrc create=yes regexp='export CDPATH' line='export CDPATH=".:{{ ansible_env.HOME }}/:{{ ansible_env.HOME }}/Projects/bitsafe:{{ ansible_env.HOME }}/Projects"'
   tags: [Darwin, Linux]
 
 - name: Emacs PATH
