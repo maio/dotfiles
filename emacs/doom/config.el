@@ -120,6 +120,11 @@
 (map! :n "M-<backspace>" 'undo-tree-undo)
 (map! :leader "r R" 'projectile-run-project)
 (map! :leader "r r" 'projectile-repeat-last-command)
+(map! :n "M-i" 'evil-previous-line)
+(map! :n "M-h" 'evil-backward-word-begin)
+(map! :n "M-j" 'evil-next-line)
+(map! :n "M-k" 'evil-previous-line)
+(map! :n "M-l" 'evil-forward-word-end)
 
 (defun my-toggle-frame-maximized ()
   (interactive)
