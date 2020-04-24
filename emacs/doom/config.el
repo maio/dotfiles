@@ -109,9 +109,25 @@
 (map! :leader "a p" 'prodigy)
 (map! :g "<f12>" '+term/toggle)
 
+;; IDEA compatible stuff
+(map! :g "C-e" 'ivy-switch-buffer)
+(map! :n "C-e" 'ivy-switch-buffer)
+(map! :i "M-e" 'er/expand-region)
+(map! :n "M-e" 'er/expand-region)
+(map! :i "C-v" 'clipboard-yank)
+(map! :n "C-v" 'clipboard-yank)
+(map! :i "M-<backspace>" 'undo-tree-undo)
+(map! :n "M-<backspace>" 'undo-tree-undo)
+(map! :leader "r R" 'projectile-run-project)
+(map! :leader "r r" 'projectile-repeat-last-command)
+
+(defun my-toggle-frame-maximized ()
+  (interactive)
+  (set-frame-position (selected-frame) 0 0)
+  (toggle-frame-maximized))
+
 (let ((local-settings "~/.local.el"))
   (when (file-exists-p local-settings)
     (message "Loading local settings...")
     (load-file local-settings)))
 
-(map! :leader "r r" 'projectile-repeat-last-command)
