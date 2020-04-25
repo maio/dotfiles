@@ -118,6 +118,7 @@
 (map! :n "C-v" 'clipboard-yank)
 (map! :i "M-<backspace>" 'undo-tree-undo)
 (map! :n "M-<backspace>" 'undo-tree-undo)
+(map! :leader "w /" 'evil-window-vsplit)
 (map! :leader "r R" 'projectile-run-project)
 (map! :leader "r r" 'projectile-repeat-last-command)
 (map! :n "M-i" 'evil-previous-line)
