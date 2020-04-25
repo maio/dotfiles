@@ -54,6 +54,8 @@ nnoremap L $
 xnoremap H ^
 xnoremap L $
 
+nnoremap <a-j> j
+nnoremap <a-k> k
 nnoremap <a-l> e
 nnoremap <a-h> b
 
