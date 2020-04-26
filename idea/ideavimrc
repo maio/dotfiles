@@ -21,6 +21,7 @@ nnoremap <leader>bb :action RecentFiles<CR>
 
 nnoremap <leader>ra :action RunAnything<CR>
 nnoremap <leader>rr :action Run<CR>
+nnoremap <leader>r. :action RunClass<CR>
 nnoremap <leader>rR :action RunContextGroup<CR>
 
 nnoremap <leader>rm :action ExtractFunction<CR>
@@ -32,7 +33,8 @@ nnoremap <leader>gg :action Tool_Apps_Magit<CR>
 nnoremap <leader>ss :action FindInPath<CR>
 nnoremap <leader>sp :action FindInPath<CR>
 
-nnoremap <leader>ww :action HideAllWindows<CR>
+nnoremap <leader>ww :action NextSplitter<CR>
+nnoremap <leader>wM :action HideAllWindows<CR>
 nnoremap <leader>wmm :action Unsplit<CR>
 nnoremap <leader>w/ :action SplitVertically<CR>
 nmap <leader>wh <c-w>h
