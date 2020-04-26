@@ -38,5 +38,14 @@
       - jq
       - watch
       - rsync
+      - openssl
     state: present
+  tags: [Darwin]
+
+- name: OpenSSL PATH
+  blockinfile:
+    path: ~/.bashrc
+    marker: "# {mark} Use OpenSSL from brew by default"
+    block: |
+      export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
   tags: [Darwin]

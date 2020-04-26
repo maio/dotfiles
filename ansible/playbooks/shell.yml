@@ -17,7 +17,7 @@
   tags: [Darwin, Linux]
 
 - name: Emacs PATH
-  lineinfile: dest=~/.bashrc create=yes regexp='export PATH' line='export PATH="/Applications/Emacs.app/Contents/MacOS/:$PATH"'
+  lineinfile: dest=~/.bashrc create=yes regexp='/Applications/Emacs.app/Contents/MacOS/' line='export PATH="/Applications/Emacs.app/Contents/MacOS/:$PATH"'
   tags: [Darwin]
 
 - name: user's prompt
