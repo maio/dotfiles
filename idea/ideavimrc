@@ -12,7 +12,7 @@ inoremap jk <ESC>l
 
 nnoremap <leader>fp :e ~/.ideavimrc<CR>
 nnoremap <leader>qr :source ~/.ideavimrc<CR>
-nnoremap <leader>fs :w<CR>
+nnoremap <leader>fs :action SaveAll<CR>
 
 nmap s <Plug>(easymotion-s)
 
