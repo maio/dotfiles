@@ -20,7 +20,7 @@ nnoremap <leader><leader> :action GotoFile<CR>
 nnoremap <leader>bb :action RecentFiles<CR>
 
 nnoremap <leader>ra :action RunAnything<CR>
-nnoremap <leader>rr :action Run<CR>
+nnoremap <leader>rr :action Rerun<CR>
 nnoremap <leader>r. :action RunClass<CR>
 nnoremap <leader>rR :action RunContextGroup<CR>
 
@@ -58,6 +58,6 @@ xnoremap L $
 
 nnoremap <a-j> j
 nnoremap <a-k> k
-nnoremap <a-l> e
-nnoremap <a-h> b
+nnoremap <a-l> :action EditorNextWord
+nnoremap <a-h> :action EditorPreviousWord
 
