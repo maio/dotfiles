@@ -13,7 +13,7 @@
   tags: [Darwin, Linux]
 
 - name: CDPATH
-  lineinfile: dest=~/.bashrc create=yes regexp='export CDPATH' line='export CDPATH=".:{{ ansible_env.HOME }}/:{{ ansible_env.HOME }}/Projects/bitsafe:{{ ansible_env.HOME }}/Projects"'
+  lineinfile: dest=~/.bashrc create=yes regexp='export CDPATH' line='export CDPATH=".:{{ ansible_env.HOME }}/:{{ ansible_env.HOME }}/Projects/bitsafe:{{ ansible_env.HOME }}/Projects:{{ ansible_env.HOME }}/Projects/maiorepo"'
   tags: [Darwin, Linux]
 
 - name: Emacs PATH
