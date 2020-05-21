@@ -25,6 +25,7 @@
   with_items:
     - http-server
   tags: [Darwin, Linux]
+  become: yes
 
 - name: install macos packages
   homebrew:
