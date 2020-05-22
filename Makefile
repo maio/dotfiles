@@ -10,4 +10,3 @@ install:
 	@ln -sf `pwd`/shell/inputrc ~/.inputrc
 	@ln -sf `pwd`/kitty/config ~/.config/kitty
 	@ln -sf `pwd`/idea/ideavimrc ~/.ideavimrc
-	@tic -x -o ~/.terminfo shell/terminfo-24bit.src
