@@ -24,6 +24,7 @@
     name: "{{ item }}"
   with_items:
     - http-server
+    - browser-sync
   tags: [Darwin, Linux]
   become: yes
 
