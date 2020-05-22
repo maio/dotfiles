@@ -25,7 +25,7 @@
       (setq doom-font (font-spec :family "JetBrains Mono" :size 18))
       (setq-default line-spacing 0.3))
   (progn
-    (setq doom-font (font-spec :family "JetBrains Mono" :size 14))
+    (setq doom-font (font-spec :family "JetBrains Mono" :size 16))
     (setq-default line-spacing 0.2)))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
