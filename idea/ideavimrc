@@ -25,7 +25,9 @@ nnoremap <leader>r. :action RunClass<CR>
 nnoremap <leader>rR :action RunContextGroup<CR>
 
 nnoremap <leader>rm :action ExtractFunction<CR>
+vnoremap <leader>rm :action ExtractFunction<CR>
 nnoremap <leader>ri :action IntroduceVariable<CR>
+vnoremap <leader>ri :action IntroduceVariable<CR>
 nnoremap <leader>rn :action Inline<CR>
 
 nnoremap <leader>gg :action Tool_Apps_Magit<CR>
