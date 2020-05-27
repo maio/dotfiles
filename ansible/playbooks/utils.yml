@@ -14,6 +14,7 @@
       - vim
       - rsync
       - rdiff-backup
+      - parallel
     state: present
   become: yes
   tags: [Linux]
