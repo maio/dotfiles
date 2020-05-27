@@ -13,6 +13,10 @@
 ;;
 ;;      Alternatively, press 'gd' (or 'C-c g d') on a module to browse its
 ;;      directory (for easy access to its source code).
+;;
+
+(when noninteractive
+  (add-to-list 'doom-env-whitelist "^SSH_"))
 
 (doom! :input
        ;;chinese
