@@ -25,6 +25,6 @@
   tags: [Darwin, Linux]
 
 - name: refresh doom emacs
-  shell: ~/.emacs.d/bin/doom refresh && cat ~/.doom.d-checksum-new > ~/.doom.d-checksum
+  shell: ~/.emacs.d/bin/doom sync && cat ~/.doom.d-checksum-new > ~/.doom.d-checksum
   when: diff_result.stdout != "" or checkout_result.before != checkout_result.after
   tags: [Darwin, Linux]

@@ -127,6 +127,9 @@
 (map! :n "M-k" 'evil-previous-line)
 (map! :n "M-l" 'evil-forward-word-end)
 
+(after! magit
+  (defadvice magit-section-toggle (after do-recenter () activate) (recenter 3)))
+
 (defun my-toggle-frame-maximized ()
   (interactive)
   (set-frame-position (selected-frame) 0 0)
