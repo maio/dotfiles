@@ -1,7 +1,7 @@
 init:
 	@git config --global user.email "marian.schubert@gmail.com"
 	@git config --global user.name "Marian Schubert"
-	@git config --global rebase.autosquash true
+	@git config --global rebase.autoStash true
 	@git config --global pull.rebase true
 	@git config --global alias.exec '!exec '
 
