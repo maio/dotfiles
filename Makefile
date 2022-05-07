@@ -5,8 +5,11 @@ init:
 	@git config --global pull.rebase true
 	@git config --global alias.exec '!exec '
 
-install:
+install-common:
 	@ln -sf `pwd`/hooks/post-commit ./.git/hooks/post-commit
 	@ln -sf `pwd`/shell/inputrc ~/.inputrc
+
+install-linux: install-common
+
+install-osx: install-common
 	@ln -sf `pwd`/kitty/config ~/.config/kitty
-	@ln -sf `pwd`/idea/ideavimrc ~/.ideavimrc
