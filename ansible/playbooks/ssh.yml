@@ -1,12 +1,5 @@
 ---
 
-- name: add github keys to ~/.ssh/authorized_keys
-  authorized_key:
-    user: "{{ansible_user}}"
-    state: present
-    key: https://github.com/maio.keys
-  tags: [Darwin, Linux]
-
 - name: install keychain
   package: name=keychain state=present
   become: yes
