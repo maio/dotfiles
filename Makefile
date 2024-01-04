@@ -12,4 +12,4 @@ install-common:
 install-linux: install-common
 
 install-osx: install-common
-	@ln -sf `pwd`/kitty/config ~/.config/kitty
+	@rm -rf ~/.config/kitty && ln -sf `pwd`/kitty/config ~/.config/kitty
