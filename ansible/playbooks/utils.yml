@@ -1,23 +1,37 @@
 ---
 
-- name: install linux packages
+- name: install packages
   package:
     name:
       - curl
       - tree
       - ripgrep
-      - silversearcher-ag
       - imagemagick
       - aspell
       - jq
       - npm
       - vim
       - rsync
-      - rdiff-backup
       - parallel
     state: present
   become: yes
   tags: [Linux]
+
+- name: install packages
+  package:
+    name:
+      - curl
+      - tree
+      - ripgrep
+      - imagemagick
+      - aspell
+      - jq
+      - npm
+      - vim
+      - rsync
+      - parallel
+    state: present
+  tags: [Darwin]
 
 - name: install global node packages
   npm:

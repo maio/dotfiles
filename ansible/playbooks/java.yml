@@ -1,6 +1,6 @@
 ---
 
-- name: openjdk-11-jdk
-  package: name=openjdk-11-jdk state=present
+- name: openjdk-17-jdk
+  package: name=openjdk-17-jdk state=present
   become: yes
   tags: [Linux]
