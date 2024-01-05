@@ -1,3 +1,4 @@
 #!/bin/sh
 
+git pull --rebase --autostash
 exec git push origin
