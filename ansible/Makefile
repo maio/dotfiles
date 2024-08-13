@@ -18,5 +18,6 @@ install: $(ANSIBLE_BIN)
 /opt/homebrew/bin/ansible-playbook: /opt/homebrew/bin/brew
 	@brew install ansible
 
-/usr/local/bin/brew:
-	@yes | ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+/opt/homebrew/bin/brew:
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+

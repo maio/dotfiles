@@ -3,7 +3,6 @@ init:
 	@git config --global user.name "Marian Schubert"
 	@git config --global rebase.autoStash true
 	@git config --global pull.rebase true
-	@git config --global alias.exec '!exec '
 
 install-common:
 	@ln -sf `pwd`/hooks/post-commit ./.git/hooks/post-commit

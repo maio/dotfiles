@@ -1,7 +1,7 @@
 ---
 
 - name: install mosh
-  homebrew: name=mobile-shell
+  homebrew: name=mosh
   tags: [Darwin]
 - name: mosh
   package: name=mosh state=present
