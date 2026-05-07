@@ -9,11 +9,13 @@ set convert-meta off
 set input-meta on
 set output-meta on
 
-"\ep": history-search-backward
-"\en": history-search-forward
+# "\ep": history-search-backward
+# "\en": history-search-forward
 # IJKL IDEA plugin emulation
-"\el": forward-word
-"\ej": backward-word
 "\ei": previous-history
 "\ek": next-history
+"\ej": backward-word
+"\el": forward-word
+"\eu": beginning-of-line
+"\eo": end-of-line
 

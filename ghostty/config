@@ -1,0 +1,26 @@
+theme = Broadcast
+theme = catppuccin-frappe
+theme = Chester
+theme = cyberpunk
+theme = Desert
+theme = Espresso
+theme = neobones_light
+theme = NvimLight
+theme = dayfox
+theme = Catppuccin Frappe
+
+macos-option-as-alt = true
+
+window-height = 3000
+window-width = 3000
+
+# keybind = global:unconsumed:cmd+`=toggle_quick_terminal
+keybind = global:unconsumed:cmd+1=toggle_quick_terminal
+keybind = cmd+k=next_tab
+keybind = cmd+i=previous_tab
+
+# font-family = "JetBrains Mono"
+# window-inherit-font-size = false
+font-family = "Monaspace Krypton"
+font-size = 18
+
