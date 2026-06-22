@@ -6,9 +6,9 @@
 (setq confirm-kill-emacs nil)
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
-;; clients, file templates and snippets. It is optional.
-;; (setq user-full-name "John Doe"
-;;       user-mail-address "john@doe.com")
+;; clients, file templates and snippets.
+(setq user-full-name "Marian Schubert"
+      user-mail-address "marian.schubert@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -74,3 +74,56 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
+
+;; (after! evil-snipe
+;;  (evil-snipe-mode -1))
+
+(setq evil-move-cursor-back nil)
+
+;; (add-hook 'text-mode-hook 'abbrev-mode)
+
+;; TAB in GUI
+(define-key evil-motion-state-map (kbd "<tab>") "%")
+(define-key evil-visual-state-map (kbd "<tab>") "%")
+;; TAB in terminal
+(define-key evil-motion-state-map (kbd "TAB") "%")
+(define-key evil-visual-state-map (kbd "TAB") "%")
+
+(fullframe magit-status magit-mode-quit-window nil)
+(fullframe magit-show-commit magit-mode-bury-buffer nil)
+
+(setq avy-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l ?u ?i ?o ?w ?r ?e ?\;))
+(setq avy-style 'at-full)
+(setq avy-background nil)
+
+;; (define-key evil-normal-state-map "s" 'avy-goto-char)
+
+;; (super-save-mode +1)
+
+;; (map! :leader "a p" 'prodigy)
+(map! :g "<f12>" '+term/toggle)
+
+;; IDEA compatible stuff
+(map! :i "M-<backspace>" 'undo-only)
+(map! :n "M-<backspace>" 'undo-only)
+;; (map! :i "M-<backspace>" 'undo-tree-undo)
+;; (map! :n "M-<backspace>" 'undo-tree-undo)
+(map! :g "C-e" '+vertico/switch-workspace-buffer)
+(map! :n "C-e" '+vertico/switch-workspace-buffer)
+(map! :i "M-e" 'er/expand-region)
+(map! :n "M-e" 'er/expand-region)
+;; (map! :i "C-v" 'clipboard-yank)
+;; (map! :n "C-v" 'clipboard-yank)
+;; (map! :leader "w /" 'evil-window-vsplit)
+;; (map! :leader "r R" 'projectile-run-project)
+;; (map! :leader "r r" 'projectile-repeat-last-command)
+
+(after! magit
+  (defadvice magit-section-toggle (after do-recenter () activate) (recenter 3)))
+
+(let ((local-settings "~/.local.el"))
+  (when (file-exists-p local-settings)
+    (message "Loading local settings...")
+    (load-file local-settings)))
