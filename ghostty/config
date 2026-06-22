@@ -21,6 +21,9 @@ keybind = cmd+i=previous_tab
 
 # font-family = "JetBrains Mono"
 # window-inherit-font-size = false
-font-family = "Monaspace Krypton"
-font-size = 18
+# font-family = "JetBrains Mono NL"
 
+# https://www.nerdfonts.com/font-downloads
+font-family = "JetBrainsMonoNL NFM Light"
+font-size = 16
+adjust-cell-height = 20%
