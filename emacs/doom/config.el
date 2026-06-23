@@ -108,7 +108,7 @@
 (map! :ni "M-<backspace>" 'undo-only)
 (map! :gn "C-e" 'evil-end-of-line)
 (map! :nvi "M-e" 'er/expand-region)
-(map! :n "M-h" 'xref-find-definitions)
+(map! :gn "M-h" 'xref-find-definitions)
 (map! :leader "w /" 'evil-window-vsplit)
 ;; (map! :i "M-<backspace>" 'undo-tree-undo)
 ;; (map! :n "M-<backspace>" 'undo-tree-undo)
