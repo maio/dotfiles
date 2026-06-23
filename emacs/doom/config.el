@@ -75,14 +75,14 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;; (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
+(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
 ;; (after! evil-snipe
 ;;  (evil-snipe-mode -1))
 
 (setq evil-move-cursor-back nil)
 
-;; (add-hook 'text-mode-hook 'abbrev-mode)
+(add-hook 'text-mode-hook 'abbrev-mode)
 
 ;; TAB in GUI
 (define-key evil-motion-state-map (kbd "<tab>") "%")
@@ -98,30 +98,26 @@
 (setq avy-style 'at-full)
 (setq avy-background nil)
 
-;; (define-key evil-normal-state-map "s" 'avy-goto-char)
-
 ;; (super-save-mode +1)
 
-;; (map! :leader "a p" 'prodigy)
 (map! :g "<f12>" '+term/toggle)
 
-;; IDEA compatible stuff
-(map! :i "M-<backspace>" 'undo-only)
-(map! :n "M-<backspace>" 'undo-only)
+;; IDEA/Emacs compatible stuff
+(map! :ni "M-<backspace>" 'undo-only)
+(map! :gn "C-e" 'evil-end-of-line)
+(map! :nvi "M-e" 'er/expand-region)
+(map! :n "m-h" 'xref-find-definitions)
+(map! :leader "w /" 'evil-window-vsplit)
 ;; (map! :i "M-<backspace>" 'undo-tree-undo)
 ;; (map! :n "M-<backspace>" 'undo-tree-undo)
-(map! :g "C-e" '+vertico/switch-workspace-buffer)
-(map! :n "C-e" '+vertico/switch-workspace-buffer)
-(map! :i "M-e" 'er/expand-region)
-(map! :n "M-e" 'er/expand-region)
 ;; (map! :i "C-v" 'clipboard-yank)
 ;; (map! :n "C-v" 'clipboard-yank)
-;; (map! :leader "w /" 'evil-window-vsplit)
 ;; (map! :leader "r R" 'projectile-run-project)
 ;; (map! :leader "r r" 'projectile-repeat-last-command)
 
 (after! magit
-  (defadvice magit-section-toggle (after do-recenter () activate) (recenter 3)))
+  (defadvice magit-section-toggle (after do-recenter () activate) (recenter 3))
+  (defadvice magit-section-forward-sibling (after do-recenter () activate) (recenter 3)))
 
 (let ((local-settings "~/.local.el"))
   (when (file-exists-p local-settings)
