@@ -1,0 +1,16 @@
+onboarding = false
+[ui]
+show_agent_labels_on_pane_borders = true
+
+[ui.toast]
+delivery = "system"
+
+[theme]
+name = "catppuccin"
+auto_switch = false
+
+[keys]
+prefix = "ctrl+m"
+previous_tab = "prefix+i"
+next_tab = "prefix+k"
+
