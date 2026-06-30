@@ -101,6 +101,7 @@
 (setq avy-background nil)
 
 ;; (super-save-mode +1)
+(remove-hook 'tty-setup-hook #'xterm-mouse-mode)
 
 (map! :g "<f12>" '+term/toggle)
 
