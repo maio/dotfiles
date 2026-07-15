@@ -11,6 +11,6 @@ auto_switch = false
 
 [keys]
 prefix = "ctrl+m"
-previous_tab = "prefix+i"
-next_tab = "prefix+k"
+previous_tab = "alt+i"
+next_tab = "alt+k"
 
