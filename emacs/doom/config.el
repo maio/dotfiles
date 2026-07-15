@@ -111,6 +111,30 @@
 (map! :nvi "M-e" 'er/expand-region)
 (map! :gn "M-h" 'xref-find-definitions)
 (map! :leader "w /" 'evil-window-vsplit)
+
+(defun +projectile/test-current-file ()
+  "Run tests for the current file from the Git root."
+  (interactive)
+  (unless buffer-file-name
+    (user-error "Current buffer is not visiting a file"))
+  (let ((project-root (locate-dominating-file buffer-file-name ".git")))
+    (unless project-root
+      (user-error "Current file is not inside a Git repository"))
+    (let* ((projectile-project-root project-root)
+           (projectile-project-compilation-dir ".")
+           (compilation-read-command nil)
+           (relative-file (file-relative-name buffer-file-name project-root))
+           (command (format "run-test %s" (shell-quote-argument relative-file)))
+           (compile-dir (projectile-compilation-dir)))
+      (puthash compile-dir command projectile-test-cmd-map)
+      (projectile-test-project nil))))
+
+(map! :leader
+      :desc "Projectile test current file"
+      "r t" #'+projectile/test-current-file)
+(map! :leader
+      :desc "Projectile repeat last command"
+      "r r" #'projectile-repeat-last-command)
 ;; (map! :i "M-<backspace>" 'undo-tree-undo)
 ;; (map! :n "M-<backspace>" 'undo-tree-undo)
 ;; (map! :i "C-v" 'clipboard-yank)
