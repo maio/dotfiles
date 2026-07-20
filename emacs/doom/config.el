@@ -109,7 +109,9 @@
 (map! :ni "M-<backspace>" 'undo-only)
 (map! :gn "C-e" 'evil-end-of-line)
 (map! :nvi "M-e" 'er/expand-region)
-(map! :gn "M-h" 'xref-find-definitions)
+(map! :gn "M-h" '+lookup/definition)
+(map! :gn "M-s" '+lookup/references)
+(map! :gn "C-<f12>" 'consult-imenu)
 (map! :leader "w /" 'evil-window-vsplit)
 
 (defun +projectile/test-current-file ()
@@ -145,6 +147,9 @@
 (after! magit
   (defadvice magit-section-toggle (after do-recenter () activate) (recenter 3))
   (defadvice magit-section-forward-sibling (after do-recenter () activate) (recenter 3)))
+
+(after! xref
+  (setq xref-backend-functions '(t)))
 
 (let ((local-settings "~/.local.el"))
   (when (file-exists-p local-settings)
