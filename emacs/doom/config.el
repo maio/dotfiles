@@ -113,6 +113,8 @@
 (map! :gn "M-s" '+lookup/references)
 (map! :gn "C-<f12>" 'consult-imenu)
 (map! :leader "w /" 'evil-window-vsplit)
+(map! :gn "<f7>" '+vc-gutter/next-hunk)
+(map! :gn "<S-f7>" '+vc-gutter/previous-hunk)
 
 (defun +projectile/test-current-file ()
   "Run tests for the current file from the Git root."
@@ -145,8 +147,45 @@
 ;; (map! :leader "r r" 'projectile-repeat-last-command)
 
 (after! magit
-  (defadvice magit-section-toggle (after do-recenter () activate) (recenter 3))
-  (defadvice magit-section-forward-sibling (after do-recenter () activate) (recenter 3)))
+  (defadvice magit-section-toggle (after do-recenter () activate) (recenter 13))
+  (defadvice magit-section-forward-sibling (after do-recenter () activate) (recenter 13)))
+
+(after! diff-hl
+  (defadvice +vc-gutter/next-hunk (after do-recenter () activate) (recenter 13))
+  (defadvice +vc-gutter/previous-hunk (after do-recenter () activate) (recenter 13)))
+
+(defvar maio-story-history nil
+  "Minibuffer history for Gerrit story identifiers.")
+
+(defun +maio/read-story ()
+  "Read a story identifier and return its first word."
+  (let* ((current (car maio-story-history))
+         (story (read-string (if current
+                                 (format "Story (%s): " current)
+                               "Story: ")
+                             nil 'maio-story-history current))
+         (identifier (car (split-string story nil t))))
+    (or identifier
+        (user-error "Story identifier cannot be empty"))))
+
+(defun +maio/git-submit ()
+  "Publish the commit at point, or submit all pending commits."
+  (interactive)
+  (let* ((story (+maio/read-story))
+         (section (magit-current-section))
+         (commit (magit-section-value-if 'commit section)))
+    (if commit
+        (progn
+          (message "Publishing commit %s" commit)
+          (magit-run-git "publish" commit story))
+      (message "Submitting all pending commits")
+      (magit-run-git "submit" story))))
+
+
+(after! magit-push
+  (transient-append-suffix 'magit-push [3]
+    '["Gerrit"
+      ("s" "Publish/submit" +maio/git-submit)]))
 
 (after! xref
   (setq xref-backend-functions '(t)))
