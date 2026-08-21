@@ -4,6 +4,7 @@ init:
 	@git config --global rebase.autoStash true
 	@git config --global rebase.autosquash true
 	@git config --global pull.rebase true
+	@git config --global init.defaultBranch master
 
 install-common:
 	@ln -sf `pwd`/hooks/post-commit ./.git/hooks/post-commit
