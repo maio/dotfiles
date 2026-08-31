@@ -5,6 +5,7 @@ init:
 	@git config --global rebase.autosquash true
 	@git config --global pull.rebase true
 	@git config --global init.defaultBranch master
+	@git config --global branch.sort -committerdate
 
 install-common:
 	@ln -sf `pwd`/hooks/post-commit ./.git/hooks/post-commit
