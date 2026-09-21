@@ -13,7 +13,7 @@ name = "catppuccin"
 auto_switch = false
 
 [keys]
-prefix = "ctrl+m"
+prefix = "ctrl+j"
 previous_tab = "alt+i"
 next_tab = "alt+k"
 
