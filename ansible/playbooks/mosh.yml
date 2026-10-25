@@ -2,8 +2,8 @@
 
 - name: install mosh
   homebrew: name=mosh
-  tags: [Darwin]
+  when: ansible_facts['system'] == 'Darwin'
 - name: mosh
   package: name=mosh state=present
   become: yes
-  tags: [Linux]
+  when: ansible_facts['system'] == 'Linux'

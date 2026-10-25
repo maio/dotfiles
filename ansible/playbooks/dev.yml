@@ -1,0 +1,63 @@
+---
+
+- name: nodesource key
+  get_url:
+    url: https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key
+    dest: /etc/apt/keyrings/nodesource.asc
+    mode: '0644'
+  become: yes
+  when: ansible_facts['system'] == 'Linux'
+
+- name: nodesource repo
+  copy:
+    dest: /etc/apt/sources.list.d/nodesource.sources
+    content: |
+      Types: deb
+      URIs: https://deb.nodesource.com/node_24.x
+      Suites: nodistro
+      Components: main
+      Signed-By: /etc/apt/keyrings/nodesource.asc
+  register: nodesource_repo
+  become: yes
+  when: ansible_facts['system'] == 'Linux'
+
+# Prefer NodeSource's nodejs over Ubuntu's
+- name: nodesource pin
+  copy:
+    dest: /etc/apt/preferences.d/nodejs
+    content: |
+      Package: nodejs
+      Pin: origin deb.nodesource.com
+      Pin-Priority: 600
+  become: yes
+  when: ansible_facts['system'] == 'Linux'
+
+- name: nodejs
+  apt:
+    name: nodejs
+    state: present
+    update_cache: "{{ nodesource_repo is changed }}"
+  become: yes
+  when: ansible_facts['system'] == 'Linux'
+
+- name: imagemagick
+  package: name=imagemagick state=present
+  become: yes
+  when: ansible_facts['system'] == 'Linux'
+
+- name: install macos packages
+  homebrew:
+    name:
+      - imagemagick
+      - npm
+    state: present
+  when: ansible_facts['system'] == 'Darwin'
+
+- name: install global node packages
+  npm:
+    global: yes
+    name: "{{ item }}"
+  with_items:
+    - http-server
+    - browser-sync
+  become: yes

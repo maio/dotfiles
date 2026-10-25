@@ -3,61 +3,34 @@
 - name: install packages
   package:
     name:
+      - git
       - curl
       - tree
       - ripgrep
-      - imagemagick
-      - aspell
       - jq
-      - npm
       - vim
       - rsync
       - parallel
     state: present
   become: yes
-  tags: [Linux]
-
-- name: install packages
-  package:
-    name:
-      - curl
-      - tree
-      - ripgrep
-      - imagemagick
-      - aspell
-      - jq
-      - npm
-      - vim
-      - rsync
-      - parallel
-    state: present
-  tags: [Darwin]
-
-- name: install global node packages
-  npm:
-    global: yes
-    name: "{{ item }}"
-  with_items:
-    - http-server
-    - browser-sync
-  tags: [Darwin, Linux]
-  become: yes
+  when: ansible_facts['system'] == 'Linux'
 
 - name: install macos packages
   homebrew:
     name:
+      - git
       - curl
       - tree
       - ripgrep
       - the_silver_searcher
-      - imagemagick
-      - aspell
       - jq
+      - vim
       - watch
       - rsync
+      - parallel
       - openssl
     state: present
-  tags: [Darwin]
+  when: ansible_facts['system'] == 'Darwin'
 
 - name: OpenSSL PATH
   blockinfile:
@@ -65,4 +38,4 @@
     marker: "# {mark} Use OpenSSL from brew by default"
     block: |
       export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-  tags: [Darwin]
+  when: ansible_facts['system'] == 'Darwin'

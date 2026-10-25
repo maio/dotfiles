@@ -2,34 +2,26 @@
 
 - name: bash (recent version)
   homebrew: name=bash state=present
-  tags: [Darwin]
-
-- name: setup-system alias (ss)
-  lineinfile: dest=~/.bashrc create=yes regexp='alias ss=' line="alias ss=setup-system"
-  tags: [Darwin, Linux]
+  when: ansible_facts['system'] == 'Darwin'
 
 - name: bin dirs with preference (~/bin /usr/local/bin)
-  lineinfile: dest=~/.bashrc create=yes regexp='PATH.+{{ ansible_env.HOME }}/bin' line='export PATH="{{ ansible_env.HOME }}/bin:{{ ansible_env.HOME }}/Projects/maiorepo/bin:/usr/local/bin:$PATH"' insertbefore=BOF
-  tags: [Darwin, Linux]
+  lineinfile: dest=~/.bashrc create=yes regexp='PATH.+{{ ansible_facts['env']['HOME'] }}/bin' line='export PATH="{{ ansible_facts['env']['HOME'] }}/bin:{{ ansible_facts['env']['HOME'] }}/Projects/maiorepo/bin:/usr/local/bin:$PATH"' insertbefore=BOF
 
 - name: CDPATH
-  lineinfile: dest=~/.bashrc create=yes regexp='export CDPATH' line='export CDPATH=".:{{ ansible_env.HOME }}/:{{ ansible_env.HOME }}/Projects/bitsafe:{{ ansible_env.HOME }}/Projects:{{ ansible_env.HOME }}/Projects/maiorepo"'
-  tags: [Darwin, Linux]
+  lineinfile: dest=~/.bashrc create=yes regexp='export CDPATH' line='export CDPATH=".:{{ ansible_facts['env']['HOME'] }}/:{{ ansible_facts['env']['HOME'] }}/Projects/bitsafe:{{ ansible_facts['env']['HOME'] }}/Projects:{{ ansible_facts['env']['HOME'] }}/Projects/maiorepo"'
 
 - name: Emacs PATH
   lineinfile: dest=~/.bashrc create=yes regexp='/Applications/Emacs.app/Contents/MacOS/' line='export PATH="/Applications/Emacs.app/Contents/MacOS/:$PATH"'
-  tags: [Darwin]
+  when: ansible_facts['system'] == 'Darwin'
 
 - name: user's prompt
   lineinfile: dest=~/.bashrc create=yes regexp='export PS1' line='export PS1=\'\\n\\t \[\033[01;32m\]\u@\h:\[\033[01;34m\]\w\[\033[31m\]\[\e[91m\]$(GIT_PS1_SHOWDIRTYSTATE=1 __git_ps1)\[\e[00m\] \[\033[01;34m\]$\[\033[00m\] \''
-  tags: [Darwin, Linux]
 
 - name: root's prompt
   lineinfile: dest=~/.bashrc create=yes regexp='export PS1' line='export PS1="\[\033[38;5;9m\]\u\[\033[01;32m\]@\h:\[\033[01;34m\]\w\[\033[31m\] \[\033[01;34m\]#\[\033[00m\] "'
   become: yes
-  tags: [Darwin, Linux]
 
 # http://superuser.com/questions/61185/why-do-i-get-files-like-foo-in-my-tarball-on-os-x
 - name: tar
   lineinfile: dest=~/.bashrc create=yes regexp='alias tar' line="alias tar='COPYFILE_DISABLE=1 tar'"
-  tags: [Darwin]
+  when: ansible_facts['system'] == 'Darwin'

@@ -2,8 +2,8 @@
 
 - name: make
   homebrew: name=make state=present
-  tags: [Darwin]
+  when: ansible_facts['system'] == 'Darwin'
 
 - name: MAKE_PATH
-  lineinfile: dest=~/.bash_profile create=yes regexp='export PATH.*gnubin' line='export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"'
-  tags: [Darwin]
+  lineinfile: dest=~/.bashrc create=yes regexp='export PATH.*gnubin' line='export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"'
+  when: ansible_facts['system'] == 'Darwin'

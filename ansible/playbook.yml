@@ -1,15 +1,26 @@
+# Groups are tags; the Makefile targets pick them (make install, make install-dev).
+# OS-specific tasks select themselves via ansible_facts['system'].
 - hosts: localhost
   connection: local
   tasks:
     - import_tasks: 'playbooks/shell.yml'
-    - import_tasks: 'playbooks/utils.yml'
+      tags: [shell]
     - import_tasks: 'playbooks/bash-completion.yml'
-    - import_tasks: 'playbooks/git.yml'
+      tags: [shell]
     - import_tasks: 'playbooks/ssh.yml'
-    - import_tasks: 'playbooks/java.yml'
-    - import_tasks: 'playbooks/make.yml'
+      tags: [ssh]
     - import_tasks: 'playbooks/mosh.yml'
-    # - import_tasks: 'playbooks/doom-emacs.yml'
+      tags: [ssh]
+    - import_tasks: 'playbooks/cli.yml'
+      tags: [cli]
+    - import_tasks: 'playbooks/make.yml'
+      tags: [cli]
+    - import_tasks: 'playbooks/doom-emacs.yml'
+      tags: [emacs]
+    - import_tasks: 'playbooks/dev.yml'
+      tags: [dev]
+    - import_tasks: 'playbooks/java.yml'
+      tags: [dev]
     # - import_tasks: 'playbooks/ipython.yml'
     # - import_tasks: 'playbooks/lein.yml'
     # - import_tasks: 'playbooks/erlang.yml'
