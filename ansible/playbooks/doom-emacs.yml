@@ -23,6 +23,9 @@
     state: present
   when: ansible_facts['system'] == 'Darwin'
 
+- name: direnv hook
+  lineinfile: dest=~/.bashrc create=yes regexp='direnv hook' line='eval "$(direnv hook bash)"'
+
 - name: checkout doom emacs
   git:
     repo: https://github.com/doomemacs/doomemacs
