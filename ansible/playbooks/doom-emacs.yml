@@ -35,6 +35,9 @@
 - name: doom PATH
   lineinfile: dest=~/.bashrc create=yes regexp='\.emacs\.d/bin' line='export PATH="$HOME/.emacs.d/bin:$PATH"'
 
+- name: e alias
+  lineinfile: dest=~/.bashrc create=yes regexp='alias e=' line="alias e='doom emacs -nw'"
+
 - name: doom emacs config
   file:
     src: "{{playbook_dir}}/../emacs/doom"

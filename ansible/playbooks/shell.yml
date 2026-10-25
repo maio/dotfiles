@@ -4,11 +4,11 @@
   homebrew: name=bash state=present
   when: ansible_facts['system'] == 'Darwin'
 
-- name: bin dirs with preference (~/bin /usr/local/bin)
-  lineinfile: dest=~/.bashrc create=yes regexp='PATH.+{{ ansible_facts['env']['HOME'] }}/bin' line='export PATH="{{ ansible_facts['env']['HOME'] }}/bin:{{ ansible_facts['env']['HOME'] }}/Projects/maiorepo/bin:/usr/local/bin:$PATH"' insertbefore=BOF
+- name: bin dirs with preference (~/bin ~/.local/bin /usr/local/bin)
+  lineinfile: dest=~/.bashrc create=yes regexp='PATH.+{{ ansible_facts['env']['HOME'] }}/bin' line='export PATH="{{ ansible_facts['env']['HOME'] }}/bin:{{ ansible_facts['env']['HOME'] }}/.local/bin:{{ ansible_facts['env']['HOME'] }}/Projects/maiorepo/bin:/usr/local/bin:$PATH"' insertbefore=BOF
 
 - name: CDPATH
-  lineinfile: dest=~/.bashrc create=yes regexp='export CDPATH' line='export CDPATH=".:{{ ansible_facts['env']['HOME'] }}/:{{ ansible_facts['env']['HOME'] }}/Projects/bitsafe:{{ ansible_facts['env']['HOME'] }}/Projects:{{ ansible_facts['env']['HOME'] }}/Projects/maiorepo"'
+  lineinfile: dest=~/.bashrc create=yes regexp='export CDPATH' line='export CDPATH=".:{{ ansible_facts['env']['HOME'] }}:{{ ansible_facts['env']['HOME'] }}/Projects"'
 
 - name: Emacs PATH
   lineinfile: dest=~/.bashrc create=yes regexp='/Applications/Emacs.app/Contents/MacOS/' line='export PATH="/Applications/Emacs.app/Contents/MacOS/:$PATH"'
