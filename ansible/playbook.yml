@@ -5,6 +5,8 @@
   vars:
     # Docker sandbox (sbx) sets SANDBOX_ID
     in_sandbox: "{{ 'SANDBOX_ID' in ansible_facts['env'] }}"
+    # Shown after the hostname in the prompt
+    host_suffix: "{{ '.sbx' if in_sandbox else '' }}"
   tasks:
     - import_tasks: 'playbooks/shell.yml'
       tags: [shell]
