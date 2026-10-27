@@ -8,6 +8,12 @@
   become: yes
   when: ansible_facts['system'] == 'Linux'
 
+# Ubuntu's default .bashrc loads it, minimal ones (e.g. sandboxes) don't;
+# it also provides __git_ps1 for the prompt
+- name: bash-completion -> bashrc
+  lineinfile: dest=~/.bashrc create=yes regexp='BASH_COMPLETION_VERSINFO' line='if [ -z "$BASH_COMPLETION_VERSINFO" ] && [ -f /usr/share/bash-completion/bash_completion ]; then . /usr/share/bash-completion/bash_completion; fi'
+  when: ansible_facts['system'] == 'Linux'
+
 - name: bash-completion -> profile
   copy: src=playbooks/bash-completion/bash_profile.completion dest=~/.bash_profile.completion
   when: ansible_facts['system'] == 'Darwin'

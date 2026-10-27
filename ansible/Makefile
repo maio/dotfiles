@@ -15,7 +15,12 @@ ifneq ($(wildcard /usr/bin/sudo.ws),)
 	BECOME_EXE := -e ansible_become_exe=sudo.ws
 endif
 
-PLAYBOOK := $(ANSIBLE_BIN) -i localhost --ask-become-pass $(BECOME_EXE) playbook.yml
+# Ask for the sudo password unless sudo works without one (e.g. in sandboxes)
+ifneq ($(shell sudo -k -n true 2>/dev/null && echo yes),yes)
+	ASK_BECOME_PASS := --ask-become-pass
+endif
+
+PLAYBOOK := $(ANSIBLE_BIN) -i localhost $(ASK_BECOME_PASS) $(BECOME_EXE) playbook.yml
 
 # Groups are tags in playbook.yml
 .PHONY: install install-dev
@@ -27,7 +32,8 @@ install-dev: $(ANSIBLE_BIN)
 	@$(PLAYBOOK) --tags=dev
 
 /usr/bin/ansible-playbook:
-	sudo apt-get install ansible
+	sudo apt-get update
+	sudo apt-get install -y ansible
 
 /opt/homebrew/bin/ansible-playbook: /opt/homebrew/bin/brew
 	@brew install ansible

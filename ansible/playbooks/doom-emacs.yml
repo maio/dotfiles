@@ -47,6 +47,7 @@
 - name: config checksum
   shell: cat ~/.doom.d/* | md5sum > ~/.doom.d-checksum-new && diff -N ~/.doom.d-checksum ~/.doom.d-checksum-new || true
   register: diff_result
+  changed_when: false
 
 - name: sync doom emacs
   shell: ~/.emacs.d/bin/doom sync && cat ~/.doom.d-checksum-new > ~/.doom.d-checksum
