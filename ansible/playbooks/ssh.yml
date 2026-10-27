@@ -1,10 +1,17 @@
 ---
 
+# Not in sandboxes: they forward the host's ssh agent and keychain would
+# replace it with an empty one
 - name: install keychain
   package: name=keychain state=present
   become: yes
-  when: ansible_facts['system'] == 'Linux'
+  when: ansible_facts['system'] == 'Linux' and not in_sandbox
 
 - name: start keychain
-  lineinfile: dest=~/.bashrc create=yes regexp='keychain' line='eval $(keychain --eval)'
+  lineinfile:
+    dest: ~/.bashrc
+    create: yes
+    regexp: 'keychain'
+    line: 'eval $(keychain --eval)'
+    state: "{{ 'absent' if in_sandbox else 'present' }}"
   when: ansible_facts['system'] == 'Linux'

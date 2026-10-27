@@ -2,6 +2,9 @@
 # OS-specific tasks select themselves via ansible_facts['system'].
 - hosts: localhost
   connection: local
+  vars:
+    # Docker sandbox (sbx) sets SANDBOX_ID
+    in_sandbox: "{{ 'SANDBOX_ID' in ansible_facts['env'] }}"
   tasks:
     - import_tasks: 'playbooks/shell.yml'
       tags: [shell]
